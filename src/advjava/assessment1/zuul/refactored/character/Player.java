@@ -6,16 +6,13 @@ import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingExcep
 public class Player extends Character{
 
 	private static final int DEFAULT_MAX_WEIGHT = 20;
-	private boolean currentPlayer;
 	
-	public Player(String name, String description, boolean currentPlayer) throws InvalidCharacterNamingException {
-		super(name, description, new PrintableList<>(), DEFAULT_MAX_WEIGHT);
-		this.currentPlayer = currentPlayer; 				
+	public Player(String name, String description) throws InvalidCharacterNamingException {
+		super(name, description, new PrintableList<>(), DEFAULT_MAX_WEIGHT);				
 	}
 	
-	public Player(String name, boolean currentPlayer) throws InvalidCharacterNamingException {
+	public Player(String name) throws InvalidCharacterNamingException {
 		super(name, null, new PrintableList<>(), DEFAULT_MAX_WEIGHT);
-		this.currentPlayer = currentPlayer; 
 	}
 
 	@Override
@@ -29,8 +26,8 @@ public class Player extends Character{
 	}
 
 	@Override
-	public boolean isPlayer() {
-		return currentPlayer;
+	public final boolean isPlayer() {
+		return true;
 	}
 
 }
