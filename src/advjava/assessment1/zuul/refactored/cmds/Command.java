@@ -13,19 +13,27 @@ import advjava.assessment1.zuul.refactored.Game;
  */
 public abstract class Command implements CommandExecutor{
     
+    private String name;	
     private String description;
     
     public Command(String name, String description){
         this.description = description;
+	this.name=name;
     }
-    
-    @Override
-    public abstract boolean action(Game game);
-    
+	
+    public String getName(){
+	    return name;
+    }
+	
+    public String getDescription(){
+	    return description;
+    }
+	
     @Override
     public String toString(){
-		return "";
-        
+	return name + " -> " + description;      
     }
+	    
+    public abstract boolean action(Game game);
     
 }
