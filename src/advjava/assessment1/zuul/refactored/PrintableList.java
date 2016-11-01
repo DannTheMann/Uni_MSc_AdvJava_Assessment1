@@ -7,6 +7,7 @@ public class PrintableList<E> extends ArrayList<E> {
 	private static final long serialVersionUID = -8211249045502112361L;
 
 	public String toString(){
+		// Use stringbuilder, faster
 		if(isEmpty())
 			return "N/A";
 		String str = "";
