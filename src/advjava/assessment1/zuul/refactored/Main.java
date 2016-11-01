@@ -41,7 +41,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {   	
         game.play();
     }
 }

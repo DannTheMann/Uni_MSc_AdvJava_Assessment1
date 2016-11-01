@@ -2,11 +2,14 @@ package advjava.assessment1.zuul.refactored;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import advjava.assessment1.zuul.refactored.character.Character;
+import advjava.assessment1.zuul.refactored.character.NonPlayerCharacter;
+import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.exception.InvalidRoomNamingException;
 
 /**
@@ -33,8 +36,6 @@ import advjava.assessment1.zuul.refactored.exception.InvalidRoomNamingException;
  */
 public class Room {
 
-	private String description;
-
     // Exits from the room
     private Map<String, Room> rooms;
     private List<Item> items;
@@ -42,6 +43,8 @@ public class Room {
     // Characters in the room
     private List<Character> characters;
     private String direction;
+    private String name;
+	private String description;
 
     /**
      * Create a room described "description". Initially, it has no exits.
@@ -50,12 +53,14 @@ public class Room {
      * @param description The room's description.
      * @throws InvalidRoomNamingException 
      */
-    public Room(String direction, String description) throws InvalidRoomNamingException {
+    public Room(String direction, String name, String description) throws InvalidRoomNamingException {
     	if(direction == null || direction.equals(""))
     		throw new InvalidRoomNamingException();
+    	this.name = name;
     	this.direction = direction;
         this.description = description;
-        this.items = new ArrayList<>();
+        this.items = new PrintableList<>();
+        this.characters = new PrintableList<>();
         this.rooms = new HashMap<>();
     }
 
@@ -77,11 +82,57 @@ public class Room {
         return rooms.get(direction);
     }
     
+    public Collection<Room> getExits(){
+    	return rooms.values();
+    }
+    
     @Override
     public String toString(){
-        return direction + " -> " + description + 
-                System.lineSeparator() +
-                items.stream().map(i->i.toString()).collect(Collectors.joining(",")); 
+    	
+    	String out = "";
+    	
+    	out+=String.format(" You arrive @ %s. %s %s%s%s"
+    			, name, System.lineSeparator()
+    			, description, 
+    			(characters.isEmpty() ? " You're alone." : ""),
+    			System.lineSeparator());
+    	
+    	out+=" Exits: " + System.lineSeparator();
+    	for(String k : rooms.keySet())
+    		out+= String.format("   %s -> %s%s", k.toUpperCase(), rooms.get(k).name, System.lineSeparator()); 
+    	if(!items.isEmpty()){
+    		out+=String.format(" Items: %s   > ", System.lineSeparator());	
+	    	for(Item i : items)
+	    		out+=String.format("%s, ", i);
+	    	out=out.substring(0, out.length()-2)+".";
+    	}else{
+    		out+=" There are no items here.";
+    	}
+    	if(!characters.isEmpty()){
+    		out+=String.format("%s Characters: %s", System.lineSeparator(), System.lineSeparator());
+    		for(Character c : characters)
+    			if(!c.isPlayer())
+    				out+=String.format("    %s%s", c, System.lineSeparator());
+    		out=out.substring(0, out.length()-2);
+    	}
+    	
+    	return out;
+    	//rooms.forEach((k,v)->out+="   " + k + " -> " + v +System.lineSeparator());
+    	
+//        return direction + " -> " + description + 
+//                System.lineSeparator() +
+//                rooms.entrySet().stream()
+//                	.map(Map.Entry::getValue)
+//                	.collect(Collectors.toList()).toString() + 
+//                System.lineSeparator() + 
+//                items.stream()
+//                	.map(i->i.toString())
+//                	.collect(Collectors.toList()).toString()
+//                		+
+//                System.lineSeparator() +
+//                characters.stream()
+//                		.map(i->i.toString())
+//                		.collect(Collectors.toList()).toString();
     }
     
     /**
@@ -128,6 +179,15 @@ public class Room {
 
 	public void addCharacter(Character character) {
 		characters.add(character);
+	}
+
+	public void printDetails() {
+		System.out.println(toString());
+	}
+
+	public void addCharacter(Character...characters) {
+		for(Character c : characters)
+			addCharacter(c);
 	}
 
     /**

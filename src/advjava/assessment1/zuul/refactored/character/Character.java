@@ -54,7 +54,7 @@ public abstract class Character implements Actor {
 	
 	@Override
 	public String toString() {
-		return name + " -> " + description + "."
+		return name + (description != null ? " -> " + description : "")+ ". "  
 				+ (inventory.isEmpty() ? "They are carrying nothing." : inventory.toString() + ".");
 	}
 	
@@ -84,6 +84,8 @@ public abstract class Character implements Actor {
 		}
 	}
 
+	public abstract boolean isPlayer();
+	
 	@Override
 	public abstract void act();
 

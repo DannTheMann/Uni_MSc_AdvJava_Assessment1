@@ -37,7 +37,7 @@ public class Item {
     
     @Override
     public String toString(){
-        return String.format("%s weighing %d.", name, weight);
+        return String.format("%s (%d)", name, weight);
     }
     
 }

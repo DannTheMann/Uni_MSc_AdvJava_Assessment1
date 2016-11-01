@@ -21,11 +21,16 @@ public class NonPlayerCharacter extends Character {
 	public NonPlayerCharacter(String name) throws InvalidCharacterNamingException {
 		super(name, null, new PrintableList<>(), DEFAULT_MAX_WEIGHT);
 	}
-
+	
 	@Override
 	public void act() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean isPlayer() {
+		return false;
 	}
 
 }
