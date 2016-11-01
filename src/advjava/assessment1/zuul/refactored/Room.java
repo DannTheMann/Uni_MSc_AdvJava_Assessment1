@@ -88,7 +88,7 @@ public class Room {
     
     @Override
     public String toString(){
-    	
+    	// map.entrySet().stream().map(e->e.getKey()+"->"+e.getValue()).collect(Collectors.joining(",","[","]");
     	String out = "";
     	
     	out+=String.format(" You arrive @ %s. %s %s%s%s"
