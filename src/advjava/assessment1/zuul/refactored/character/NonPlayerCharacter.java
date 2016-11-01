@@ -29,7 +29,7 @@ public class NonPlayerCharacter extends Character {
 	}
 
 	@Override
-	public boolean isPlayer() {
+	public final boolean isPlayer() {
 		return false;
 	}
 
