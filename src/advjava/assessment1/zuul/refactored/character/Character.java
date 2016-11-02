@@ -14,17 +14,31 @@ public abstract class Character implements Actor {
 
 	private static final String DEFAULT_DESCRIPTION = "No description available.";
 	private final int MAX_WEIGHT;
+	private int weight;
 	private String name;
 	private String description;
 	private List<Item> inventory;
 	private Room currentRoom;
 
-	public Character(String name, String description, List<Item> items, int maxWeight) throws InvalidCharacterNamingException {
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public Room getCurrentRoom() {
+		return currentRoom;
+	}
+
+	public Character(String name, String description, Room room, List<Item> items, int maxWeight) throws InvalidCharacterNamingException {
 		if(name == null || name.equals(""))
 			throw new InvalidCharacterNamingException();
 		this.name = name;
 		this.description = description;
 		this.inventory = new PrintableList<>();
+		this.currentRoom = room;
 		this.MAX_WEIGHT = maxWeight;
 	}
 
@@ -44,8 +58,8 @@ public abstract class Character implements Actor {
 		return inventory.remove(item);
 	}
 
-	public boolean addItem(Item item, boolean override){
-		return !override && inventory.contains(item) ? false : inventory.add(item);
+	public boolean addItem(Item item){
+		return inventory.add(item);
 	}
 	
 	public void addItems(boolean override, Item...items){
@@ -66,13 +80,19 @@ public abstract class Character implements Actor {
 		currentRoom.addCharacter(this);
 	}
 	
-	public void pickUpItem(Item item) throws InvalidCharacterItemException{
+	public String pickUpItem(Item item) throws InvalidCharacterItemException{
 		if(item == null)
 			throw new InvalidCharacterItemException();
 		if(currentRoom.hasItem(item)){
+			if(item.getWeight()+weight>MAX_WEIGHT)
+				return "You're overencumbered if you pick up " + item.getName();
 			currentRoom.removeItem(item);
-			addItem(item, true);
+			addItem(item);
+			weight+=item.getWeight();
+			return "You pick up: " + item.getName();
 		}
+		return "There is " + item.getName() + " in this room.";
+		
 	}
 	
 	public void dropItem(Item item) throws InvalidCharacterItemException{

@@ -2,8 +2,10 @@ package advjava.assessment1.zuul.refactored;
 
 
 import advjava.assessment1.zuul.*;
+import advjava.assessment1.zuul.refactored.character.CharacterManager;
 import advjava.assessment1.zuul.refactored.character.NonPlayerCharacter;
 import advjava.assessment1.zuul.refactored.character.Player;
+import advjava.assessment1.zuul.refactored.cmds.CommandManager;
 import advjava.assessment1.zuul.refactored.exception.InvalidRoomNamingException;
 
 import java.util.ArrayList;
@@ -44,16 +46,23 @@ use goRoom or vice versa
 */
 public class Game {
 
-	private Parser parser;
     private Room currentRoom;
+	private final Parser parser = new Parser();
+    private final CommandManager commandManager;
+	private final CharacterManager characterManager;
+	private final RoomManager roomManager;
+	private final ItemManager itemManager;
     private Player player;
 
     /**
      * Create the game and initialise its internal map.
      */
     public Game() {
+    	this.commandManager = new CommandManager();
+    	this.characterManager = new CharacterManager();
+    	this.roomManager = new RoomManager();
+    	this.itemManager = new ItemManager();
     	initialiseGame();
-        parser = new Parser();
     }
 
     /**
@@ -62,29 +71,31 @@ public class Game {
     private void initialiseGame(){
     	
     	try{
+    		
+    		XMLManager.loadItems(itemManager);
+    		XMLManager.loadRooms(roomManager);
+    		XMLManager.loadCharacters(characterManager);
     	
-	        Room outside, theatre, pub, lab, office;
-	
-	        // create the rooms
-	        outside = new Room("north", "outside", "Outside the University main building.");
-	        outside.addItems(new Item("gun", 5), new Item("book", 2), new Item("apple", 3));
-	        outside.addCharacter(new NonPlayerCharacter("Bob"),new NonPlayerCharacter("Richard"),new NonPlayerCharacter("Liam"));
-	        theatre = new Room("west", "theatre" , "in a lecture theatre");
-	        pub = new Room("south", "pub" , "in the campus pub");
-	        lab = new Room("east", "lab" ,"in a computing lab");
-	        office = new Room("downstairs", "office" , "in the computing admin office");
-
-	        currentRoom = outside;
-	        
-	        outside.setExits(false, outside, theatre, pub, lab, office);
-	
-	        currentRoom = outside;  // start game outside
+//	        Room outside, theatre, pub, lab, office;
+//	
+//	        // create the rooms
+//	        outside = new Room("outside", "Outside the University main building.");
+//	        outside.addItems(new Item("gun", 5), new Item("book", 2), new Item("apple", 3));
+//	        outside.addCharacter(new NonPlayerCharacter("Bob"),new NonPlayerCharacter("Richard"),new NonPlayerCharacter("Liam"));
+//	        theatre = new Room( "theatre" , "in a lecture theatre");
+//	        pub = new Room("pub" , "in the campus pub");
+//	        lab = new Room("lab" ,"in a computing lab");
+//	        office = new Room("office" , "in the computing admin office");
+//
+//	        currentRoom = outside;
+//	        
+//	       // outside.setExits(false, outside, theatre, pub, lab, office);
+//	
+//	        currentRoom = outside;  // start game outside
         
-    	}catch(InvalidRoomNamingException irne){
-    		System.err.println("Error occurred while creating rooms.");
-    		irne.printStackTrace();
     	}catch(Exception e){
-    		System.err.println("Error occurred while initialising the game.");
+    		System.err.println("Error occurred while initialising the game, terminating...");
+    		System.exit(1);
     		e.printStackTrace();
     	}finally{
     		System.out.println("Game initialised.");
@@ -319,4 +330,20 @@ public class Game {
 //            return true;  // signal that we want to quit
 //        }
 //    }
+    
+    public CommandManager getCommandManager(){
+    	return commandManager;
+    }
+    
+    public CharacterManager getCharacterManager(){
+    	return characterManager;
+    }
+    
+    public RoomManager getRoomManager(){
+    	return roomManager;
+    }
+    
+    public ItemManager getItemManager(){
+    	return itemManager;
+    }
 }

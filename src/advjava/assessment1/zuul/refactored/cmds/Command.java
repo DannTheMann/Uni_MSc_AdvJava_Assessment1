@@ -11,7 +11,7 @@ import advjava.assessment1.zuul.refactored.Game;
  *
  * @author dja33
  */
-public abstract class Command implements CommandExecutor{
+public abstract class Command implements PluginInterface{
     
     private String name;	
     private String description;
@@ -35,5 +35,7 @@ public abstract class Command implements CommandExecutor{
     }
 	    
     public abstract boolean action(Game game);
+    
+    public abstract boolean init(Game game);
     
 }

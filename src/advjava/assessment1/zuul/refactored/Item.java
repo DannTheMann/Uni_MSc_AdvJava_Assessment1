@@ -12,11 +12,19 @@ package advjava.assessment1.zuul.refactored;
 public class Item {
     
     private String name;
+    private String description;
     private int weight;
     
-    public Item(String name, int weight){
+    public Item(String name, String description, int weight){
+    	if(name == "" || name == null)
+    		throw new NullPointerException("An Item name cannot be null or an empty String, Malformed XML?");
         this.name = name;
+        this.description = description;
         this.weight = weight;
+    }
+    
+    public Item(String name, int weight){
+        this(name, null, weight);
     }
     
     public int getWeight(){
@@ -37,7 +45,7 @@ public class Item {
     
     @Override
     public String toString(){
-        return String.format("%s (%d)", name, weight);
+        return description == null ? String.format("%s (%d)", name, weight) : String.format("%s, %s. (%d)", name, description, weight);
     }
     
 }

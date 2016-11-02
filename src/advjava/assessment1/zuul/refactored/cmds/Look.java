@@ -25,5 +25,10 @@ public class Look extends Command{
     public String toString(){
         return "";
     }
+
+	@Override
+	public boolean init(Game game) {
+		return false;
+	}
     
 }

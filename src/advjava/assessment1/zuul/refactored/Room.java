@@ -42,7 +42,6 @@ public class Room {
 
     // Characters in the room
     private List<Character> characters;
-    private String direction;
     private String name;
 	private String description;
 
@@ -53,29 +52,29 @@ public class Room {
      * @param description The room's description.
      * @throws InvalidRoomNamingException 
      */
-    public Room(String direction, String name, String description) throws InvalidRoomNamingException {
-    	if(direction == null || direction.equals(""))
+    public Room(String name, String description) throws InvalidRoomNamingException {
+    	if(name == null || name.equals(""))
     		throw new InvalidRoomNamingException();
     	this.name = name;
-    	this.direction = direction;
         this.description = description;
         this.items = new PrintableList<>();
         this.characters = new PrintableList<>();
         this.rooms = new HashMap<>();
     }
 
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setExit(Room room, boolean override) {
-        if ( (override && rooms.containsKey(room.getDirection()))
-                || (!rooms.containsKey(room.getDirection()))) 
-            rooms.put(room.getDirection(), room);
+    public void setExit(Room room, String direction, boolean override) {
+    	
+    	if(direction == null || direction == "")
+    		throw new NullPointerException("Direction is null! Malformed XML?");
+    	
+        if ( (override && rooms.containsKey(direction))
+                || (!rooms.containsKey(direction))) 
+            rooms.put(direction, room);
     }
     
-    public void setExits(boolean override, Room... rooms){
-    	Arrays.stream(rooms).forEach(e->setExit(e, override));
+    @Deprecated
+    public void setExits(boolean override, String direction, Room... rooms){
+    	Arrays.stream(rooms).forEach(e->setExit(e, direction, override));
     }
     
     public Room getExit(String direction){
@@ -88,51 +87,33 @@ public class Room {
     
     @Override
     public String toString(){
-    	// map.entrySet().stream().map(e->e.getKey()+"->"+e.getValue()).collect(Collectors.joining(",","[","]");
-    	String out = "";
+
+    	StringBuilder out = new StringBuilder();
     	
-    	out+=String.format(" You arrive @ %s. %s %s%s%s"
+    	out.append(String.format(" You arrive @ %s. %s %s%s%s"
     			, name, System.lineSeparator()
     			, description, 
     			(characters.isEmpty() ? " You're alone." : ""),
-    			System.lineSeparator());
+    			System.lineSeparator()));
     	
-    	out+=" Exits: " + System.lineSeparator();
-    	for(String k : rooms.keySet())
-    		out+= String.format("   %s -> %s%s", k.toUpperCase(), rooms.get(k).name, System.lineSeparator()); 
-    	if(!items.isEmpty()){
-    		out+=String.format(" Items: %s   > ", System.lineSeparator());	
-	    	for(Item i : items)
-	    		out+=String.format("%s, ", i);
-	    	out=out.substring(0, out.length()-2)+".";
-    	}else{
-    		out+=" There are no items here.";
-    	}
+    	out.append(" Exits: " + System.lineSeparator() + "  " + rooms.entrySet().stream()
+    			.map(e->e.getKey().toUpperCase()+" -> "+e.getValue().name + System.lineSeparator())
+    			.collect(Collectors.joining("  ")));
+    	
+    	out.append( ( !items.isEmpty() ? out.append(" Items: " + items.stream()
+		.map(i->i.toString())
+		.collect(Collectors.joining(", "))) :  out.append(" There are no items here")) );
+
+    	out.append(".");
     	if(!characters.isEmpty()){
-    		out+=String.format("%s Characters: %s", System.lineSeparator(), System.lineSeparator());
-    		for(Character c : characters)
-    			if(!c.isPlayer())
-    				out+=String.format("    %s%s", c, System.lineSeparator());
-    		out=out.substring(0, out.length()-2);
+    		out.append(String.format("%s Characters: %s   %s", System.lineSeparator(), System.lineSeparator(), characters.stream()
+    		.filter((c->!c.isPlayer()))
+    		.map(i->i.toString())
+    		.collect(Collectors.joining(System.lineSeparator() + "   "))));
+	    	out.substring(0, out.length()-2);
     	}
     	
-    	return out;
-    	//rooms.forEach((k,v)->out+="   " + k + " -> " + v +System.lineSeparator());
-    	
-//        return direction + " -> " + description + 
-//                System.lineSeparator() +
-//                rooms.entrySet().stream()
-//                	.map(Map.Entry::getValue)
-//                	.collect(Collectors.toList()).toString() + 
-//                System.lineSeparator() + 
-//                items.stream()
-//                	.map(i->i.toString())
-//                	.collect(Collectors.toList()).toString()
-//                		+
-//                System.lineSeparator() +
-//                characters.stream()
-//                		.map(i->i.toString())
-//                		.collect(Collectors.toList()).toString();
+    	return out.toString();
     }
     
     /**
@@ -190,32 +171,12 @@ public class Room {
 			addCharacter(c);
 	}
 
-    /**
-     * Does the room contain an item
-     *
-     * @param description the item
-     * @ return the item's weight or 0 if none
-     */
-//    public int containsItem(String description) {
-//        if (itemDescription.equals(description)) {
-//            return itemWeight;
-//        } else {
-//            return 0;
-//        }
-//    }
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * Remove an item from the Room
-     */
-//    public String removeItem(String description) {
-//        if (itemDescription.equals(description)) {
-//            String tmp = itemDescription;
-//            itemDescription = null;
-//            return tmp;
-//        } else {
-//            System.out.println("This room does not contain" + description);
-//            return null;
-//        }
-//    }
+	public boolean isComplete() {
+		return rooms.isEmpty();
+	}
 
 }

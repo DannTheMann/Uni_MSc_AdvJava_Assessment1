@@ -1,4 +1,4 @@
-package advjava.assessment1.zuul.refactored;
+package advjava.assessment1.zuul.refactored.cmds;
 
 import advjava.assessment1.zuul.*;
 
@@ -34,7 +34,7 @@ stored rather than predefined limitations
 
 
 */
-public class Command
+public class CommandExecution
 {
     private String[] words;
 
@@ -46,7 +46,7 @@ public class Command
      * @param secondWord The second word of the command.
      * @param thirdWord The second word of the command.
      */
-    public Command(String firstWord, String secondWord, String thirdWord)
+    public CommandExecution(String firstWord, String secondWord, String thirdWord)
     {
         words = new String[words.length];
         
@@ -56,7 +56,7 @@ public class Command
 
     }
     
-    public Command(String... words){
+    public CommandExecution(String... words){
         this.words = words;
     }
 
