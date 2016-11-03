@@ -1,6 +1,7 @@
 package advjava.assessment1.zuul.refactored;
 
 import java.io.File;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
@@ -14,17 +15,16 @@ import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
 
 public abstract class XMLManager {
 
-	private static final String XML_ITEMS = Main.XML_CONFIGURATION_FILES + System.lineSeparator() + "";
-	private static final String XML_ROOMS = Main.XML_CONFIGURATION_FILES + System.lineSeparator() + "";
-	private static final String XML_CHARACTERS = Main.XML_CONFIGURATION_FILES + System.lineSeparator() + "";
+	private static final String XML_ITEMS = Main.XML_CONFIGURATION_FILES + File.separator + "items.xml";
+	private static final String XML_ROOMS = Main.XML_CONFIGURATION_FILES + File.separator + "rooms.xml";
+	private static final String XML_CHARACTERS = Main.XML_CONFIGURATION_FILES + File.separator + "characters.xml";
 
-	public static final void loadRooms(RoomManager rm) throws MalformedXMLException {
+	public static final void loadRooms(RoomManager rm) throws MalformedXMLException{
 
 		try {
 			Document doc = getDocument(XML_ROOMS);
 			doc.normalize();
 			NodeList nList = doc.getElementsByTagName("room");
-			NodeList innerList;
 			Node node, innerNode;
 			Element eElement, innerElement = null;
 			Room room, finalRoom = null;
@@ -46,36 +46,51 @@ public abstract class XMLManager {
 						finalRoom = new Room(name, desc);
 
 					if (eElement.getElementsByTagName("items-in-room") != null) {
-						innerList = eElement.getElementsByTagName("items-in-room");
+						
+						innerNode = eElement.getElementsByTagName("items-in-room").item(0);
 						String iName = null;
-						for (int j = 0; j < innerList.getLength(); j++) {
-							innerNode = innerList.item(i);
-							innerElement = (Element) innerNode;
-							iName = getElement(innerElement, "item");
+						innerElement = (Element) innerNode;						
+						for(int j = 0; j < innerElement.getElementsByTagName("item").getLength(); j++){
+							iName = getElement(innerElement, "item", j);							
 							finalRoom.addItems(Main.game.getItemManager().getItem(iName));
-							// ...
 						}
+						
 					}
 
 					if (eElement.getElementsByTagName("exits") != null) {
-						innerList = eElement.getElementsByTagName("exits");
+						
+						innerNode = eElement.getElementsByTagName("exits").item(0);
 						String rName, rDir = null;
-						for (int j = 0; j < innerList.getLength(); j++) {
-							innerNode = innerList.item(j);
-							innerElement = (Element) innerNode;
-							rName = getElement(innerElement, "room-name");
-							rDir = getElement(innerElement, "direction");
-							room = rm.getRoom(rName);
-							if (room == null)
-								rm.addRoom(new Room(rName, null));
-							else {
+
+						innerElement = (Element) innerNode;
+						
+						if(innerElement.getElementsByTagName("exit") != null){
+
+							innerNode = eElement.getElementsByTagName("exits").item(0);
+							
+							for(int j = 0; j < innerElement.getElementsByTagName("exit").getLength(); j++){
+								
+								rDir = getElement(innerElement, "direction", j);		
+								rName = getElement(innerElement, "room-name", j);
+								if (rm.hasRoom(rName))
+									room = rm.getRoom(rName);
+								else
+									room = new Room(rName, null);
 								finalRoom.setExit(room, rDir, true);
+								
 							}
-							// ...
+							
+						}else{
+							throw new MalformedXMLException(XML_ROOMS, name + " ROOM invalid exits, Malformed XML.");
 						}
+
 					} else {
 						throw new MalformedXMLException(XML_ROOMS, "No exits specified for room '" + name + "'.");
 					}
+					
+					rm.addRoom(finalRoom);
+					
+					System.out.println(String.format("Loaded room '%s'", finalRoom.getName()));
 
 				}
 
@@ -96,14 +111,13 @@ public abstract class XMLManager {
 			Document doc = getDocument(XML_CHARACTERS);
 			doc.normalize();
 			NodeList nList = doc.getElementsByTagName("npc");
-			NodeList innerList;
 			Node node, innerNode;
 			Element eElement, innerElement = null;
 			NonPlayerCharacter npc = null;
 			for (int i = 0; i < nList.getLength(); i++) {
 
 				node = nList.item(i);
-				String name, desc;
+				String name, desc, roomName, weight;
 				Room room = null;
 				if (node.getNodeType() == Node.ELEMENT_NODE) {
 
@@ -114,34 +128,37 @@ public abstract class XMLManager {
 						throw new NullPointerException("Name specified for character was null, Malformed XML?");
 					
 					desc = getElement(eElement, "description");
-					room = Main.game.getRoomManager().getRoom(getElement(eElement, "room"));
+					roomName = getElement(eElement, "room");
+					room = Main.game.getRoomManager().getRoom(roomName);
 					
 					if(room == null)
 						throw new NullPointerException("Room specified for " + name + " was null, Malformed XML?");
 					
-					npc = new NonPlayerCharacter(name, desc, room);
+					weight = getElement(eElement, "maxweight");
+					if(weight != null)
+						npc = new NonPlayerCharacter(name, desc, room, null, Integer.parseInt(weight));
+					else
+						npc = new NonPlayerCharacter(name, desc, room);
 
-					Integer.parseInt(getElement(eElement, "maxweight"));
-
-					if (eElement.getElementsByTagName("inventory") != null) {
-						innerList = eElement.getElementsByTagName("inventory");
-						for (int j = 0; j < innerList.getLength(); j++) {
-							innerNode = innerList.item(i);
-							innerElement = (Element) innerNode;
-							Item item = Main.game.getItemManager().getItem(getElement(innerElement, "item"));
-							if(item == null)
-								throw new NullPointerException("Item specified does not exist, are you sure it's named correctly? XML Malformed?");
-							npc.addItem(item);
-							
-							// ...
+					if (eElement.getElementsByTagName("inventory").item(0) != null) {
+						
+						innerNode = eElement.getElementsByTagName("inventory").item(0);
+						String iName = null;
+						innerElement = (Element) innerNode;						
+						for(int j = 0; j < innerElement.getElementsByTagName("item").getLength(); j++){
+							iName = getElement(innerElement, "item", j);	
+							if((Main.game.getItemManager().hasItem(iName)))
+								npc.addItem( Main.game.getItemManager().getItem(iName));
+							else
+								throw new NullPointerException("Item does not exist! Have you specified it in the items.xml file?");
 						}
+						
 					}
-					
-					// ...
 				}
 				
 				cm.addCharacter(npc);
-
+				System.out.println(String.format("Added new character '%s'.", npc.getName()));
+				
 			}
 
 		} catch (Exception e) {
@@ -179,7 +196,8 @@ public abstract class XMLManager {
 					}
 					
 					im.addItem(item);
-
+					System.out.println(String.format("Added item '%s'", item.getName()));
+					
 				}
 
 			} catch (Exception e) {
@@ -189,11 +207,23 @@ public abstract class XMLManager {
 		 
 	 }
 
-	private static String getElement(Element eElement, String str) {
-		if (eElement.getElementsByTagName(str) == null) {
+	private static final String getElement(Element eElement, String str) {
+
+		if (eElement == null || eElement.getElementsByTagName(str) == null || eElement.getElementsByTagName(str).item(0) == null) {
 			return null;
 		} else {
 			return eElement.getElementsByTagName(str).item(0).getTextContent();
+		}
+	}
+	
+	private static final String getElement(Element eElement, String str, int index) {
+		
+		if(eElement == null) return null;
+		
+		if (eElement.getElementsByTagName(str) == null) {
+			return null;
+		} else {
+			return eElement.getElementsByTagName(str).item(index).getTextContent();
 		}
 	}
 

@@ -1,5 +1,7 @@
 package advjava.assessment1.zuul.refactored.cmds;
 
+import java.util.Arrays;
+
 import advjava.assessment1.zuul.*;
 
 /**
@@ -46,18 +48,10 @@ public class CommandExecution
      * @param secondWord The second word of the command.
      * @param thirdWord The second word of the command.
      */
-    public CommandExecution(String firstWord, String secondWord, String thirdWord)
+    public CommandExecution(String[] words)
     {
-        words = new String[words.length];
-        
-        for(String val : words){
-            
-        }
-
-    }
-    
-    public CommandExecution(String... words){
         this.words = words;
+        System.out.println(Arrays.toString(words));
     }
 
     /**
@@ -70,22 +64,10 @@ public class CommandExecution
         return words[0];
     }
 
-    /**
-     * @return The second word of this command. Returns null if there was no
-     * second word.
-     */
-    public String getSecondWord()
-    {
-        return words[1];
-    }
-
-    /**
-     * @return The third word of this command. Returns null if there was no
-     * third word.
-     */
-    public String getThirdWord()
-    {
-        return words[2];
+    public String getWord(int index){
+    	if(index < 0 || index >= words.length)
+    		return null;
+    	return words[index];
     }
     
     /**
@@ -96,20 +78,8 @@ public class CommandExecution
         return (words.length == 0 );
     }
 
-    /**
-     * @return true if the command has a second word.
-     */
-    public boolean hasSecondWord()
-    {
-        return (words.length > 1);
-    }
-    
-    /**
-     * @return true if the command has a third word.
-     */
-    public boolean hasThirdWord()
-    {
-        return (words.length > 2);
+    public boolean hasParameter(int index){
+    	return words.length > index;
     }
 }
 

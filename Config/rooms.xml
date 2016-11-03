@@ -1,0 +1,38 @@
+<game-rooms>
+	<room>
+		<name>outside</name>
+		<description>outside the university</description>
+		<items-in-room>
+			<item>apple</item>
+			<item>book</item>
+		</items-in-room>
+		<exits>
+			<exit>
+				<direction>north</direction>
+				<room-name>library</room-name>
+			</exit>
+			<exit>
+				<direction>east</direction>
+				<room-name>outside</room-name>
+			</exit>
+		</exits>
+	</room>
+	<room>
+		<name>library</name>
+		<description>The library</description>
+		<items-in-room>
+			<item>apple</item>
+			<item>book</item>
+		</items-in-room>
+		<exits>
+			<exit>
+				<direction>south</direction>
+				<room-name>outside</room-name>
+			</exit>
+			<exit>
+				<direction>east</direction>
+				<room-name>library</room-name>
+			</exit>
+		</exits>
+	</room>
+</game-rooms>

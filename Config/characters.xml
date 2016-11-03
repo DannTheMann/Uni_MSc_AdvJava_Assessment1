@@ -1,0 +1,18 @@
+<game-characters>
+	<npc>
+		<name>Bob</name>
+		<description>Lovely chap.</description>
+		<room>outside</room>
+		<maxweight>30</maxweight>
+		<inventory>
+			<item>apple</item>
+			<item>sword</item>
+			<item>book</item>
+		</inventory>
+	</npc>
+	<npc>
+		<name>Chris</name>
+		<description>Lovely bloke.</description>
+		<room>outside</room>
+	</npc>
+</game-characters>

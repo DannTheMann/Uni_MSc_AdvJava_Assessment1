@@ -1,0 +1,17 @@
+<game-items>
+	<item>
+		<name>apple</name>
+		<description></description>
+		<weight>3</weight>
+	</item>
+	<item>
+		<name>book</name>
+		<description></description>
+		<weight>7</weight>
+	</item>
+	<item>
+		<name>gun</name>
+		<description>A rusty old gun</description>
+		<weight>4</weight>
+	</item>
+</game-items>

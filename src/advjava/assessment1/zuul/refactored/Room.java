@@ -68,8 +68,9 @@ public class Room {
     		throw new NullPointerException("Direction is null! Malformed XML?");
     	
         if ( (override && rooms.containsKey(direction))
-                || (!rooms.containsKey(direction))) 
+                || (!rooms.containsKey(direction))) {
             rooms.put(direction, room);
+        }
     }
     
     @Deprecated
@@ -100,10 +101,11 @@ public class Room {
     			.map(e->e.getKey().toUpperCase()+" -> "+e.getValue().name + System.lineSeparator())
     			.collect(Collectors.joining("  ")));
     	
-    	out.append( ( !items.isEmpty() ? out.append(" Items: " + items.stream()
+    	out.append( ( !items.isEmpty() ? " Items: " + items.stream()
 		.map(i->i.toString())
-		.collect(Collectors.joining(", "))) :  out.append(" There are no items here")) );
+		.collect(Collectors.joining(", ")) :  " There are no items here") );
 
+    	
     	out.append(".");
     	if(!characters.isEmpty()){
     		out.append(String.format("%s Characters: %s   %s", System.lineSeparator(), System.lineSeparator(), characters.stream()
@@ -176,7 +178,7 @@ public class Room {
 	}
 
 	public boolean isComplete() {
-		return rooms.isEmpty();
+		return !rooms.isEmpty();
 	}
 
 }

@@ -8,7 +8,7 @@ public class Player extends Character{
 
 	private static final int DEFAULT_MAX_WEIGHT = 20;
 	
-	public Player(String name, Room startingRoom, String description) throws InvalidCharacterNamingException {
+	public Player(String name, String description, Room startingRoom ) throws InvalidCharacterNamingException {
 		super(name, description, startingRoom, new PrintableList<>(), DEFAULT_MAX_WEIGHT);				
 	}
 	

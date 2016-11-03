@@ -46,7 +46,9 @@ class RoomManager {
 		
 		for(Room room : rooms.values())
 			if(!room.isComplete())
-				throw new MalformedXMLException("XML_ROOMS", "There are some rooms that are non-persistant and only mentioned by reference. Make sure all rooms are definite! ");
+				throw new MalformedXMLException("XML_ROOMS", "There are some rooms [" + room.getName() + 
+						" exits: " + room.getExits().size() + "] " + System.lineSeparator() + 
+						"that are non-persistant and only mentioned by reference. Make sure all rooms are definite! ");
 		
 	}
 

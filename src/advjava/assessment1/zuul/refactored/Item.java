@@ -19,7 +19,7 @@ public class Item {
     	if(name == "" || name == null)
     		throw new NullPointerException("An Item name cannot be null or an empty String, Malformed XML?");
         this.name = name;
-        this.description = description;
+        this.description = description.equals("") ? null : description;
         this.weight = weight;
     }
     

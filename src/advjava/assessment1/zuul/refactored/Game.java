@@ -1,14 +1,13 @@
 package advjava.assessment1.zuul.refactored;
 
-
-import advjava.assessment1.zuul.*;
 import advjava.assessment1.zuul.refactored.character.CharacterManager;
-import advjava.assessment1.zuul.refactored.character.NonPlayerCharacter;
 import advjava.assessment1.zuul.refactored.character.Player;
-import advjava.assessment1.zuul.refactored.cmds.CommandManager;
-import advjava.assessment1.zuul.refactored.exception.InvalidRoomNamingException;
+import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.exception.InvalidCharacterMoveException;
+import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
+import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
 
-import java.util.ArrayList;
+import java.util.Properties;
 
 /**
  * This class is the main class of the "World of Zuul" application. "World of
@@ -46,7 +45,6 @@ use goRoom or vice versa
 */
 public class Game {
 
-    private Room currentRoom;
 	private final Parser parser = new Parser();
     private final CommandManager commandManager;
 	private final CharacterManager characterManager;
@@ -62,44 +60,44 @@ public class Game {
     	this.characterManager = new CharacterManager();
     	this.roomManager = new RoomManager();
     	this.itemManager = new ItemManager();
-    	initialiseGame();
     }
 
     /**
      * Create all the rooms and link their exits together.
+     * @param properties 
+     * @throws InvalidCharacterNamingException 
      */
-    private void initialiseGame(){
-    	
-    	try{
-    		
-    		XMLManager.loadItems(itemManager);
-    		XMLManager.loadRooms(roomManager);
-    		XMLManager.loadCharacters(characterManager);
-    	
-//	        Room outside, theatre, pub, lab, office;
-//	
-//	        // create the rooms
-//	        outside = new Room("outside", "Outside the University main building.");
-//	        outside.addItems(new Item("gun", 5), new Item("book", 2), new Item("apple", 3));
-//	        outside.addCharacter(new NonPlayerCharacter("Bob"),new NonPlayerCharacter("Richard"),new NonPlayerCharacter("Liam"));
-//	        theatre = new Room( "theatre" , "in a lecture theatre");
-//	        pub = new Room("pub" , "in the campus pub");
-//	        lab = new Room("lab" ,"in a computing lab");
-//	        office = new Room("office" , "in the computing admin office");
-//
-//	        currentRoom = outside;
-//	        
-//	       // outside.setExits(false, outside, theatre, pub, lab, office);
-//	
-//	        currentRoom = outside;  // start game outside
-        
-    	}catch(Exception e){
-    		System.err.println("Error occurred while initialising the game, terminating...");
-    		System.exit(1);
-    		e.printStackTrace();
-    	}finally{
-    		System.out.println("Game initialised.");
-    	}
+    protected final void initialiseGame(Properties properties) throws InvalidCharacterNamingException{
+      		
+				try {
+					
+					System.out.println();
+					System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
+					System.out.println("         Loading XML Config files ...    ");
+					System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
+					
+	        		XMLManager.loadItems(itemManager);
+	        		XMLManager.loadRooms(roomManager);
+					XMLManager.loadCharacters(characterManager);
+					
+					System.out.println(" - - Finished - - - - - - - - - - - - - - ");
+					System.out.println();
+					
+				} catch (MalformedXMLException e) {
+					System.err.println("Failed to load XML files!");
+					e.printStackTrace();
+					System.exit(1);
+				}
+				
+				Room startingRoom = roomManager.getRoom(properties.getProperty("startingRoom"));
+				
+				if(startingRoom == null)
+					throw new NullPointerException(String.format("No room matches the starting room! [Specified: %s]", properties.getProperty("startingRoom")));
+				else
+					System.out.println("Found current room.");
+				
+				player = new Player(properties.getProperty("playerName"), properties.getProperty("playerDescription"), startingRoom);
+
     }
 
     /**
@@ -113,7 +111,7 @@ public class Game {
 
         boolean finished = false;
         while (!finished) {
-            Command command = parser.getCommand();
+            CommandExecution command = parser.getCommand();
             finished = processCommand(command);
         }
         System.out.println("Thank you for playing.  Good bye.");
@@ -129,7 +127,7 @@ public class Game {
         System.out.println("Type 'help' if you need help.");
         System.out.println();
         
-        currentRoom.printDetails();
+        player.getCurrentRoom().printDetails();
         
     }
 
@@ -139,7 +137,7 @@ public class Game {
      * @param command The command to be processed.
      * @return true If the command ends the game, false otherwise.
      */
-    private boolean processCommand(Command command) {
+    private boolean processCommand(CommandExecution command) {
         boolean wantToQuit = false;
 
         if (command.isUnknown()) {
@@ -148,21 +146,7 @@ public class Game {
         }
 
         String commandWord = command.getCommandWord();
-//        if (commandWord.equals("help")) {
-//            printHelp();
-//        } else if (commandWord.equals("go")) {
-//            goRoom(command);
-//        } else if (commandWord.equals("quit")) {
-//            wantToQuit = quit(command);
-//        } else if (commandWord.equals("look")) {
-//            look();
-//        } else if (commandWord.equals("take")) {
-//            take(command);
-//        } else if (commandWord.equals("drop")) {
-//            drop(command);
-//        } else if (commandWord.equals("give")) {
-//            give(command);
-//        }
+
         return wantToQuit;
     }
 
@@ -182,25 +166,24 @@ public class Game {
     /**
      * Try to go to one direction. If there is an exit, enter the new room,
      * otherwise print an error message.
+     * @throws InvalidCharacterMoveException 
      */
-    private void goRoom(Command command) {
-        if (!command.hasSecondWord()) {
+    private void goRoom(CommandExecution command) throws InvalidCharacterMoveException {
+        if (!command.hasParameter(1)) {
             // if there is no second word, we don't know where to go...
             System.out.println("Go where?");
             return;
         }
 
-        String direction = command.getSecondWord();
+        String direction = command.getWord(1);
 
         // Try to leave current room.
-        Room nextRoom = currentRoom.getExit(direction);
+        Room nextRoom = player.getCurrentRoom().getExit(direction);
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
         } else {
-            currentRoom = nextRoom;
-            currentRoom.printDetails();
-            System.out.println();
+            player.changeRoom(nextRoom);
         }
     }
 
