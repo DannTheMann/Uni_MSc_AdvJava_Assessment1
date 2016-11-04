@@ -17,7 +17,7 @@ public class GoCommand extends Command {
 
 			Player player = game.getPlayer();
 			Room room = player.getCurrentRoom();
-			Room nextRoom = room.getExit(cmd.getWord(1));
+			Room nextRoom = room.getExit(cmd.getWord(1).toLowerCase());
 
 			if (nextRoom == null) {
 				System.out.println("There is no exit here!");

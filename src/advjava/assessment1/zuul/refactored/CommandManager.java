@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import advjava.assessment1.zuul.refactored.cmds.Command;
+import advjava.assessment1.zuul.refactored.cmds.DebugCommand;
 import advjava.assessment1.zuul.refactored.cmds.DropItemCommand;
 import advjava.assessment1.zuul.refactored.cmds.GiveCommand;
 import advjava.assessment1.zuul.refactored.cmds.GoCommand;
@@ -39,7 +40,8 @@ public class CommandManager {
 		commands.put("give", new GiveCommand("give", "Give an item to a character in the room. /give <item> <character>"));
 		commands.put("quit", new QuitCommand("quit", "Quit the game. /quit"));
 		commands.put("info", new InfoCommand("info", "Reveal information on yourself. /info"));
-		System.out.println("Loaded default commands.");
+		commands.put("debug", new DebugCommand("debug", "debug"));		
+                System.out.println("Loaded default commands.");
 	}
 	
 	public Collection<Command> commands(){

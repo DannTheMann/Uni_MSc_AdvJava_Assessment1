@@ -134,9 +134,9 @@ public class Room {
     			.anyMatch(i->i.equals(itemName));
     }
 
-	public void addItem(Item item) {
-		items.add(item);
-	}
+    public void addItem(Item item) {
+	items.add(item);
+    }
     
     public void addItems(Item... items){
         Arrays.stream(items).forEach(i->this.items.add(i));
@@ -146,10 +146,12 @@ public class Room {
     	return items.remove(item);
     }
     
-    public List<Item> getItems(String itemName){
-        return items.stream()
-        		.filter(i->i.getName().equals(itemName))
-        		.collect(Collectors.toList());
+    public Collection<Item> getItems(){
+        return items;
+    }
+    
+    public Collection<Character> getCharacters(){
+        return characters;
     }
     
     public Item getItem(String itemName){

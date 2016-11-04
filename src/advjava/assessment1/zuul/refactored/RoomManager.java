@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
+import java.util.Collection;
 
-class RoomManager {
+public class RoomManager {
 	
 	private final Map<String, Room> rooms;
 	
@@ -51,5 +52,9 @@ class RoomManager {
 						"that are non-persistant and only mentioned by reference. Make sure all rooms are definite! ");
 		
 	}
+
+    public Collection<Room> rooms() {
+        return rooms.values();
+    }
 
 }
