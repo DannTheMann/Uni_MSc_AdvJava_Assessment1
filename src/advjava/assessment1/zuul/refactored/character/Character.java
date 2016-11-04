@@ -7,13 +7,10 @@ import java.util.List;
 import advjava.assessment1.zuul.refactored.Item;
 import advjava.assessment1.zuul.refactored.PrintableList;
 import advjava.assessment1.zuul.refactored.Room;
-import advjava.assessment1.zuul.refactored.exception.InvalidCharacterItemException;
-import advjava.assessment1.zuul.refactored.exception.InvalidCharacterMoveException;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 
-public abstract class Character implements Actor {
+public abstract class Character{
 
-	private static final String DEFAULT_DESCRIPTION = "No description available.";
 	private final int MAX_WEIGHT;
 	private int weight;
 	private String name;
@@ -49,6 +46,7 @@ public abstract class Character implements Actor {
 		this.inventory = new PrintableList<>();
 		this.currentRoom = room;
 		this.MAX_WEIGHT = maxWeight;
+		room.addCharacter(this);
 	}
 
 	public boolean hasItem(Item item) {
@@ -56,11 +54,11 @@ public abstract class Character implements Actor {
 	}
 
 	public boolean hasItem(String itemName) {
-		return inventory.stream().anyMatch(i -> i.equals(itemName));
+		return inventory.stream().anyMatch(i -> i.getName().equals(itemName));
 	}
 
 	public Item getItem(String itemName) {
-		return inventory.stream().filter(i -> i.equals(itemName)).findFirst().orElse(null);
+		return inventory.stream().filter(i -> i.getName().equals(itemName)).findFirst().orElse(null);
 	}
 
 	public void setWeight(int weight) {
@@ -95,8 +93,8 @@ public abstract class Character implements Actor {
 
 	@Override
 	public String toString() {
-		return name + (description != null ? " -> " + description : "") + ". "
-				+ (inventory.isEmpty() ? "They are carrying nothing." : inventory.toString() + ".");
+		return String.format("%s -> %s | Items: %s.", name, description != null ? description : "N/A",
+				inventory.isEmpty() ? "None" : inventory.toString());
 	}
 	
 	public int getWeight() {
@@ -108,8 +106,5 @@ public abstract class Character implements Actor {
 	}
 
 	public abstract boolean isPlayer();
-
-	@Override
-	public abstract void act();
 
 }

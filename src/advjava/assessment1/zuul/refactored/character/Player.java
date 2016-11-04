@@ -8,17 +8,16 @@ public class Player extends Character{
 
 	private static final int DEFAULT_MAX_WEIGHT = 20;
 	
+	public Player(String name, String description, Room startingRoom, int maxWeight) throws InvalidCharacterNamingException {
+		super(name, description, startingRoom, new PrintableList<>(), maxWeight);				
+	}
+	
 	public Player(String name, String description, Room startingRoom ) throws InvalidCharacterNamingException {
 		super(name, description, startingRoom, new PrintableList<>(), DEFAULT_MAX_WEIGHT);				
 	}
 	
 	public Player(String name, Room startingRoom) throws InvalidCharacterNamingException {
 		super(name, null, startingRoom, new PrintableList<>(), DEFAULT_MAX_WEIGHT);
-	}
-
-	@Override
-	public void act() {
-		// TODO Auto-generated method stub		
 	}
 	
 	@Override

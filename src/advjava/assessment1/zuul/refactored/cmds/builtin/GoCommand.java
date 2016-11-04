@@ -1,8 +1,10 @@
-package advjava.assessment1.zuul.refactored.cmds;
+package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.character.Player;
+import advjava.assessment1.zuul.refactored.cmds.Command;
+import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
 public class GoCommand extends Command {
 
@@ -28,7 +30,9 @@ public class GoCommand extends Command {
 			player.setCurrentRoom(nextRoom);
 			nextRoom.addCharacter(player);
 			
+			System.out.println();
 			System.out.println(nextRoom);
+			
 
 			return true;
 
@@ -38,13 +42,5 @@ public class GoCommand extends Command {
 
 		return false;
 	}
-
-	@Override
-	public boolean initialise(Game game) {
-
-		game.getCommandManager().addCommand(this);
-
-		return true;
-	}
-
+	
 }

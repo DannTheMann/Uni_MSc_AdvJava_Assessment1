@@ -1,7 +1,12 @@
-package advjava.assessment1.zuul.refactored.cmds;
+package advjava.assessment1.zuul.refactored.cmds.builtin;
+
+import java.util.stream.Collectors;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.Item;
 import advjava.assessment1.zuul.refactored.character.Player;
+import advjava.assessment1.zuul.refactored.cmds.Command;
+import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
 public class InfoCommand extends Command {
 
@@ -17,8 +22,10 @@ public class InfoCommand extends Command {
 		System.out.println(String.format("%s,[%d/%d~Weight]%s -> %s", player.getName(), player.getWeight(), player.getMaxWeight(), System.lineSeparator(), player.getDescription()));
 		
 		if(!player.getInventory().isEmpty()){
-			player.getInventory().stream()
-				.forEach(i->String.format("%s%s", i, System.lineSeparator()));
+			
+			System.out.println(String.format("Items: %s", player.getInventory().stream()
+					.map(Item::toString)
+					.collect(Collectors.joining(", "))));
 		}else{
 			System.out.println("You have no items.");
 		}
@@ -26,10 +33,5 @@ public class InfoCommand extends Command {
 		return true;
 	}
 
-	@Override
-	public boolean initialise(Game game) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 }

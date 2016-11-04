@@ -1,10 +1,9 @@
 package advjava.assessment1.zuul.refactored;
 
-import advjava.assessment1.zuul.*;
-import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
-
 import java.util.Scanner;
-import java.util.StringTokenizer;
+
+import advjava.assessment1.zuul.CommandWords;
+import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
 /**
  * This class is part of the "World of Zuul" application. 
@@ -33,7 +32,6 @@ import java.util.StringTokenizer;
 
 public class Parser 
 {
-    private CommandWords commands;  // holds all valid command words
     private Scanner reader;         // source of command input
 
     /**
@@ -41,7 +39,7 @@ public class Parser
      */
     public Parser() 
     {
-        commands = new CommandWords();
+        new CommandWords();
         reader = new Scanner(System.in);
     }
 
@@ -50,19 +48,7 @@ public class Parser
      */
     public CommandExecution getCommand() 
     {
-        String inputLine;   // will hold the full input line
-
         System.out.print("> ");     // print prompt
-
-        inputLine = reader.nextLine();
-        
-        // Now check whether this word is known. If so, create a command
-        // with it. If not, create a "null" command (for unknown command).
-//        if(commands.isCommand(inputLine.split(" ")[0])) {
-            return new CommandExecution(inputLine.split(" "));
-//        }
-//        else {
-//            return new CommandExecution(inputLine.split(" ")); 
-//        }
+        return new CommandExecution(reader.nextLine().split(" "));
     }
 }

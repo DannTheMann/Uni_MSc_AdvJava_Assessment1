@@ -1,5 +1,6 @@
 package advjava.assessment1.zuul.refactored.character;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +20,10 @@ public class CharacterManager {
 	
 	public static void clearCharacters(){
 		characters.clear();
+	}
+
+	public Collection<Character> characters() {
+		return characters.values();
 	}
 
 }

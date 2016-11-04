@@ -1,15 +1,13 @@
 package advjava.assessment1.zuul.refactored;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
 import advjava.assessment1.zuul.refactored.character.Character;
-import advjava.assessment1.zuul.refactored.character.NonPlayerCharacter;
-import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.exception.InvalidRoomNamingException;
 
 /**
@@ -91,9 +89,8 @@ public class Room {
 
     	StringBuilder out = new StringBuilder();
     	
-    	out.append(String.format(" You arrive @ %s. %s %s%s%s"
-    			, name, System.lineSeparator()
-    			, description, 
+    	out.append(String.format(" You arrive @ %s. %s%s%s"
+    			, name, description != null ? System.lineSeparator() + description : "", 
     			(characters.isEmpty() ? " You're alone." : ""),
     			System.lineSeparator()));
     	
@@ -131,7 +128,7 @@ public class Room {
     
     public boolean hasItem(String itemName){
     	return items.stream()
-    			.anyMatch(i->i.equals(itemName));
+    			.anyMatch(i->i.getName().equals(itemName));
     }
 
     public void addItem(Item item) {

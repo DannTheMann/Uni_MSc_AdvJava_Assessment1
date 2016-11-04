@@ -1,9 +1,5 @@
 package advjava.assessment1.zuul.refactored.cmds;
 
-import java.util.Arrays;
-
-import advjava.assessment1.zuul.*;
-
 /**
  * This class is part of the "World of Zuul" application. 
  * "World of Zuul" is a very simple, text based adventure game.  
@@ -60,7 +56,7 @@ public class CommandExecution
      */
     public String getCommandWord()
     {
-        return words[0];
+        return words[0] != null ? words[0] : "";
     }
     
     public String[] getCommand(){
@@ -82,7 +78,7 @@ public class CommandExecution
      */
     public boolean isUnknown()
     {
-        return (words.length == 0 );
+        return getCommandWord().equals("");
     }
 
     public boolean hasParameter(int index){

@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package advjava.assessment1.zuul.refactored.cmds;
+package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.character.Character;
+import advjava.assessment1.zuul.refactored.cmds.Command;
+import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
 /**
  *
@@ -40,18 +42,6 @@ public class LookCommand extends Command{
     	
         return true;
     } 
-    
-    @Override
-    public String toString(){
-        return "";
-    }
 
-	@Override
-	public boolean initialise(Game game) {
-		
-		game.getCommandManager().addCommand(this);
-		
-		return true;
-	}
     
 }

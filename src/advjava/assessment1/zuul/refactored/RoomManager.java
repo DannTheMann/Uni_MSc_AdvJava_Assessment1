@@ -1,10 +1,10 @@
 package advjava.assessment1.zuul.refactored;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
-import java.util.Collection;
 
 public class RoomManager {
 	

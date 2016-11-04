@@ -40,11 +40,12 @@ public abstract class XMLManager {
 					name = getElement(eElement, "name");
 					desc = getElement(eElement, "description");
 
-					if (rm.hasRoom(name))
+					if (rm.hasRoom(name)){
 						finalRoom = rm.getRoom(name);
-					else
+					}else{
 						finalRoom = new Room(name, desc);
-
+					}
+					
 					if (eElement.getElementsByTagName("items-in-room") != null) {
 						
 						innerNode = eElement.getElementsByTagName("items-in-room").item(0);
@@ -71,11 +72,18 @@ public abstract class XMLManager {
 							for(int j = 0; j < innerElement.getElementsByTagName("exit").getLength(); j++){
 								
 								rDir = getElement(innerElement, "direction", j);		
-								rName = getElement(innerElement, "room-name", j);
-								if (rm.hasRoom(rName))
+								rName = getElement(innerElement, "room-name", j);					
+								
+								if(rName.equals(name)){
+									continue;
+								}
+								
+								if (rm.hasRoom(rName)){
 									room = rm.getRoom(rName);
-								else
+								}else{
 									room = new Room(rName, null);
+									rm.addRoom(room);
+								}
 								finalRoom.setExit(room, rDir, true);
 								
 							}
@@ -88,10 +96,13 @@ public abstract class XMLManager {
 						throw new MalformedXMLException(XML_ROOMS, "No exits specified for room '" + name + "'.");
 					}
 					
-					rm.addRoom(finalRoom);
+					boolean added = rm.addRoom(finalRoom);
 					
-					System.out.println(String.format("Loaded room '%s'", finalRoom.getName()));
-
+					if(added){
+						System.out.println(String.format("Loaded room '%s'", finalRoom.getName()));
+					}else{
+						System.out.println(String.format("Failed to load room '%s', already a room named this exists.", finalRoom.getName()));
+					}
 				}
 
 			}

@@ -1,6 +1,6 @@
 package advjava.assessment1.zuul.refactored;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class ItemManager {
@@ -8,7 +8,7 @@ public class ItemManager {
 	private final List<Item> items;
 	
 	public ItemManager(){
-		items = new ArrayList<>();
+		items = new PrintableList<>();
 	}
 	
 	public boolean hasItem(String name){
@@ -43,6 +43,10 @@ public class ItemManager {
 		}else
 			return false;
 			
+	}
+
+	public Collection<Item> items() {
+		return items;
 	}
 
 }

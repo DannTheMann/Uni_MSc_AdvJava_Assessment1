@@ -1,12 +1,13 @@
-package advjava.assessment1.zuul.refactored.cmds;
+package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.cmds.Command;
+import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
 public class QuitCommand extends Command{
 
 	public QuitCommand(String name, String description) {
 		super(name, description);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -20,12 +21,6 @@ public class QuitCommand extends Command{
 			
 		}
 		
-		return false;
-	}
-
-	@Override
-	public boolean initialise(Game game) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

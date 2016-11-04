@@ -1,15 +1,16 @@
-package advjava.assessment1.zuul.refactored.cmds;
+package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.Item;
 import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.character.Player;
+import advjava.assessment1.zuul.refactored.cmds.Command;
+import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
 public class PickUpItemCommand extends Command{
 
 	public PickUpItemCommand(String name, String description) {
 		super(name, description);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -26,7 +27,7 @@ public class PickUpItemCommand extends Command{
 				Player player = game.getPlayer();
 				
 				if(player.getWeight()+item.getWeight() > player.getMaxWeight()){
-					System.out.println(String.format("You can't up: %s, you'll become overencumbered. %s Current weight: %d", item, System.lineSeparator(), game.getPlayer().getWeight()));
+					System.out.println(String.format("You can't pickup: %s, you'll become overencumbered. %s Current weight: %d", item, System.lineSeparator(), game.getPlayer().getWeight()));
 					return true;
 				}
 				
@@ -48,12 +49,6 @@ public class PickUpItemCommand extends Command{
 		return false;
 	}
 
-	@Override
-	public boolean initialise(Game game) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
 	
 
 }

@@ -24,12 +24,6 @@ public class NonPlayerCharacter extends Character {
 	}
 
 	@Override
-	public void act() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public final boolean isPlayer() {
 		return false;
 	}

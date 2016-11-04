@@ -1,13 +1,12 @@
 package advjava.assessment1.zuul.refactored;
 
+import java.util.Properties;
+
 import advjava.assessment1.zuul.refactored.character.CharacterManager;
 import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
-import advjava.assessment1.zuul.refactored.exception.InvalidCharacterMoveException;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
-
-import java.util.Properties;
 
 /**
  * This class is the main class of the "World of Zuul" application. "World of
@@ -69,7 +68,9 @@ public class Game {
      * @throws InvalidCharacterNamingException 
      */
     protected final void initialiseGame(Properties properties) throws InvalidCharacterNamingException{
-      		
+
+    			this.commandManager.loadPlugins();
+    	
     			this.properties = properties;
     	
 				try {
@@ -98,12 +99,11 @@ public class Game {
 					throw new NullPointerException(String.format("No room matches the starting room! [Specified: %s]", properties.getProperty("startingRoom")));
 				else
 					System.out.println("Found current room.");
-				
-				player = new Player(properties.getProperty("playerName"), properties.getProperty("playerDescription"), startingRoom);
 
+				player = new Player(properties.getProperty("playerName"), properties.getProperty("playerDescription"), startingRoom, Integer.parseInt(properties.getProperty("playerMaxWeight")));
     }
 
-    private boolean finished = false;
+    protected boolean finished = false;
     
     /**
      * Main play routine. Loops until end of play.
@@ -146,6 +146,9 @@ public class Game {
      * @return true If the command ends the game, false otherwise.
      */
     private boolean processCommand(CommandExecution command) {
+    	
+    	if(command.isUnknown())
+    		return false;
     	
         if (commandManager.getCommand(command.getCommandWord()) == null) {
             System.out.println("I don't know what you mean...");

@@ -1,8 +1,10 @@
-package advjava.assessment1.zuul.refactored.cmds;
+package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.Item;
 import advjava.assessment1.zuul.refactored.character.Player;
+import advjava.assessment1.zuul.refactored.cmds.Command;
+import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
 public class DropItemCommand extends Command{
 
@@ -23,6 +25,7 @@ public class DropItemCommand extends Command{
 				Player player = game.getPlayer();
 				player.getCurrentRoom().addItem(item);
 				player.setWeight(player.getWeight()-item.getWeight());
+				player.removeItem(item);
 				System.out.println(String.format("You dropped: %s.", item));
 				
 				return true;
@@ -35,12 +38,6 @@ public class DropItemCommand extends Command{
 			System.out.println("Drop what?");
 		}
 		
-		return false;
-	}
-
-	@Override
-	public boolean initialise(Game game) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

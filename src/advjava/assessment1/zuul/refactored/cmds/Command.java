@@ -36,6 +36,4 @@ public abstract class Command{
 	    
     public abstract boolean action(Game game, CommandExecution cmd);
     
-    public abstract boolean initialise(Game game);
-    
 }

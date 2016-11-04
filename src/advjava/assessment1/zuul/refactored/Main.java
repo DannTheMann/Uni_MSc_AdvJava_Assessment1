@@ -41,15 +41,14 @@ public class Main {
 	public static final String PLUGIN_COMMANDS_FOLDER = System.getProperty("user.dir") + File.separator + "Plugins";
 	public static final String XML_CONFIGURATION_FILES = System.getProperty("user.dir") + File.separator + "Config";
 	private static final String PROPERTIES_FILE = XML_CONFIGURATION_FILES + File.separator + "zuul.properties";	
-
+	
+	private static Properties properties = null;
+	
 	/**
 	 * Singleton for game
 	 */
-	
-	private static Properties properties = null;
 	protected static final Game game = new Game();
 
-	
     /**
      * @param args the command line arguments
      */
@@ -64,7 +63,7 @@ public class Main {
     	System.out.println("Properties loaded.");
     
     	// Delay to allow everything to be ready...
-    	Thread.sleep(1000);
+    	//Thread.sleep(1000);
     	System.out.println("Creating game session...");
     	game.initialiseGame(properties);
         game.play();
@@ -85,6 +84,7 @@ public class Main {
 				properties.setProperty("startingRoom", "outside");
 				properties.setProperty("playerName", "Richard Jones");
 				properties.setProperty("playerDescription", "A lone wanderer.");
+				properties.setProperty("playerMaxWeight", "30");
 				properties.setProperty("helpIntroductionText", "You are lost. You are alone. You wander" + System.lineSeparator() + "around at the university.");
 				properties.store(fileOut, "Zuul Configuration");
 				fileOut.close();
@@ -99,6 +99,7 @@ public class Main {
 				checkProperty("startingRoom", "outside");
 				checkProperty("playerName", "Richard Jones");
 				checkProperty("playerDescription", "A lone wanderer.");
+				checkProperty("playerMaxWeight", "30");
 				checkProperty("helpIntroductionText", "You are lost. You are alone. You wander" + System.lineSeparator() + "around at the university.");
 				
 				fileOut = new FileOutputStream(propFile);
