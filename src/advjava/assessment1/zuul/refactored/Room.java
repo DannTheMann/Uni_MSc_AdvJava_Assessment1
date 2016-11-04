@@ -133,8 +133,11 @@ public class Room {
     	return items.stream()
     			.anyMatch(i->i.equals(itemName));
     }
-    
 
+	public void addItem(Item item) {
+		items.add(item);
+	}
+    
     public void addItems(Item... items){
         Arrays.stream(items).forEach(i->this.items.add(i));
     }
@@ -179,6 +182,13 @@ public class Room {
 
 	public boolean isComplete() {
 		return !rooms.isEmpty();
+	}
+
+	public Character getCharacter(String characterName) {
+		return characters.stream()
+				.filter(c->c.getName().equals(characterName))
+				.findFirst()
+				.orElse(null);
 	}
 
 }

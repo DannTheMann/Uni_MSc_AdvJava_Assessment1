@@ -1,6 +1,7 @@
 package advjava.assessment1.zuul.refactored.character;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import advjava.assessment1.zuul.refactored.Item;
@@ -32,8 +33,16 @@ public abstract class Character implements Actor {
 		return currentRoom;
 	}
 
-	public Character(String name, String description, Room room, List<Item> items, int maxWeight) throws InvalidCharacterNamingException {
-		if(name == null || name.equals(""))
+	public void setCurrentRoom(Room nextRoom) {
+		if(nextRoom == null){
+			return;
+		}
+		currentRoom = nextRoom;
+	}
+
+	public Character(String name, String description, Room room, List<Item> items, int maxWeight)
+			throws InvalidCharacterNamingException {
+		if (name == null || name.equals(""))
 			throw new InvalidCharacterNamingException();
 		this.name = name;
 		this.description = description;
@@ -50,6 +59,24 @@ public abstract class Character implements Actor {
 		return inventory.stream().anyMatch(i -> i.equals(itemName));
 	}
 
+	public Item getItem(String itemName) {
+		return inventory.stream().filter(i -> i.equals(itemName)).findFirst().orElse(null);
+	}
+
+	public void setWeight(int weight) {
+		if (weight < 0) {
+			this.weight = 0;
+		} else {
+			this.weight = weight;
+			if (this.weight > MAX_WEIGHT)
+				this.weight = MAX_WEIGHT;
+		}
+	}
+
+	public Collection<Item> getInventory() {
+		return inventory;
+	}
+
 	public boolean removeItem(String itemName) {
 		return inventory.contains(itemName) ? inventory.removeIf(i -> i.getName().equals(itemName)) : false;
 	}
@@ -58,54 +85,30 @@ public abstract class Character implements Actor {
 		return inventory.remove(item);
 	}
 
-	public boolean addItem(Item item){
+	public boolean addItem(Item item) {
 		return inventory.add(item);
 	}
-	
-	public void addItems(boolean override, Item...items){
-		Arrays.stream(items).forEach(i->inventory.add(i)); 
+
+	public void addItems(Item... items) {
+		Arrays.stream(items).forEach(i -> inventory.add(i));
 	}
-	
+
 	@Override
 	public String toString() {
-		return name + (description != null ? " -> " + description : "")+ ". "  
+		return name + (description != null ? " -> " + description : "") + ". "
 				+ (inventory.isEmpty() ? "They are carrying nothing." : inventory.toString() + ".");
 	}
 	
-	public void changeRoom(Room room) throws InvalidCharacterMoveException{
-		if(room == null)
-			throw new InvalidCharacterMoveException();
-		currentRoom.removeCharacter(this);
-		currentRoom = room;
-		currentRoom.addCharacter(this);
+	public int getWeight() {
+		return weight;
 	}
-	
-	public String pickUpItem(Item item) throws InvalidCharacterItemException{
-		if(item == null)
-			throw new InvalidCharacterItemException();
-		if(currentRoom.hasItem(item)){
-			if(item.getWeight()+weight>MAX_WEIGHT)
-				return "You're overencumbered if you pick up " + item.getName();
-			currentRoom.removeItem(item);
-			addItem(item);
-			weight+=item.getWeight();
-			return "You pick up: " + item.getName();
-		}
-		return "There is " + item.getName() + " in this room.";
-		
-	}
-	
-	public void dropItem(Item item) throws InvalidCharacterItemException{
-		if(item == null)
-			throw new InvalidCharacterItemException();
-		if(hasItem(item)){
-			removeItem(item);
-			currentRoom.addItems(item);
-		}
+
+	public int getMaxWeight() {
+		return MAX_WEIGHT;
 	}
 
 	public abstract boolean isPlayer();
-	
+
 	@Override
 	public abstract void act();
 

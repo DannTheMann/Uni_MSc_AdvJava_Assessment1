@@ -11,14 +11,14 @@ import advjava.assessment1.zuul.refactored.Game;
  *
  * @author dja33
  */
-public abstract class Command implements PluginInterface{
+public abstract class Command{
     
     private String name;	
     private String description;
     
     public Command(String name, String description){
         this.description = description;
-	this.name=name;
+        this.name=name;
     }
 	
     public String getName(){
@@ -31,11 +31,11 @@ public abstract class Command implements PluginInterface{
 	
     @Override
     public String toString(){
-	return name + " -> " + description;      
+    	return name + " -> " + description;      
     }
 	    
-    public abstract boolean action(Game game);
+    public abstract boolean action(Game game, CommandExecution cmd);
     
-    public abstract boolean init(Game game);
+    public abstract boolean initialise(Game game);
     
 }

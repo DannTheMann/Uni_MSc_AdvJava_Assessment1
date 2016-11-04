@@ -45,9 +45,10 @@ public class Main {
 	/**
 	 * Singleton for game
 	 */
-	protected static final Game game = new Game();
 	
-	private static Properties properties;
+	private static Properties properties = null;
+	protected static final Game game = new Game();
+
 	
     /**
      * @param args the command line arguments
@@ -84,6 +85,7 @@ public class Main {
 				properties.setProperty("startingRoom", "outside");
 				properties.setProperty("playerName", "Richard Jones");
 				properties.setProperty("playerDescription", "A lone wanderer.");
+				properties.setProperty("helpIntroductionText", "You are lost. You are alone. You wander" + System.lineSeparator() + "around at the university.");
 				properties.store(fileOut, "Zuul Configuration");
 				fileOut.close();
 				
@@ -97,6 +99,7 @@ public class Main {
 				checkProperty("startingRoom", "outside");
 				checkProperty("playerName", "Richard Jones");
 				checkProperty("playerDescription", "A lone wanderer.");
+				checkProperty("helpIntroductionText", "You are lost. You are alone. You wander" + System.lineSeparator() + "around at the university.");
 				
 				fileOut = new FileOutputStream(propFile);
 				properties.store(fileOut, "Zuul Configuration");

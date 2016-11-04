@@ -51,7 +51,6 @@ public class CommandExecution
     public CommandExecution(String[] words)
     {
         this.words = words;
-        System.out.println(Arrays.toString(words));
     }
 
     /**
@@ -62,6 +61,14 @@ public class CommandExecution
     public String getCommandWord()
     {
         return words[0];
+    }
+    
+    public String[] getCommand(){
+    	return words;
+    }
+    
+    public int commandLength(){
+    	return words.length;
     }
 
     public String getWord(int index){
@@ -81,5 +88,6 @@ public class CommandExecution
     public boolean hasParameter(int index){
     	return words.length > index;
     }
+    
 }
 

@@ -50,6 +50,7 @@ public class Game {
 	private final CharacterManager characterManager;
 	private final RoomManager roomManager;
 	private final ItemManager itemManager;
+	private Properties properties;
     private Player player;
 
     /**
@@ -69,6 +70,8 @@ public class Game {
      */
     protected final void initialiseGame(Properties properties) throws InvalidCharacterNamingException{
       		
+    			this.properties = properties;
+    	
 				try {
 					
 					System.out.println();
@@ -100,6 +103,8 @@ public class Game {
 
     }
 
+    private boolean finished = false;
+    
     /**
      * Main play routine. Loops until end of play.
      */
@@ -109,12 +114,15 @@ public class Game {
         // Enter the main command loop.  Here we repeatedly read commands and
         // execute them until the game is over.
 
-        boolean finished = false;
         while (!finished) {
             CommandExecution command = parser.getCommand();
-            finished = processCommand(command);
+            processCommand(command);
         }
         System.out.println("Thank you for playing.  Good bye.");
+    }
+    
+    public Player getPlayer(){
+    	return player;
     }
 
     /**
@@ -138,181 +146,14 @@ public class Game {
      * @return true If the command ends the game, false otherwise.
      */
     private boolean processCommand(CommandExecution command) {
-        boolean wantToQuit = false;
-
-        if (command.isUnknown()) {
+    	
+        if (commandManager.getCommand(command.getCommandWord()) == null) {
             System.out.println("I don't know what you mean...");
             return false;
         }
 
-        String commandWord = command.getCommandWord();
-
-        return wantToQuit;
+        return commandManager.getCommand(command.getCommandWord()).action(this, command);
     }
-
-// implementations of user commands:
-    /**
-     * Print out some help information. Here we print some stupid, cryptic
-     * message and a list of the command words.
-     */
-    private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
-        System.out.println("Your command words are:");
-        System.out.println("   go quit help");
-    }
-
-    /**
-     * Try to go to one direction. If there is an exit, enter the new room,
-     * otherwise print an error message.
-     * @throws InvalidCharacterMoveException 
-     */
-    private void goRoom(CommandExecution command) throws InvalidCharacterMoveException {
-        if (!command.hasParameter(1)) {
-            // if there is no second word, we don't know where to go...
-            System.out.println("Go where?");
-            return;
-        }
-
-        String direction = command.getWord(1);
-
-        // Try to leave current room.
-        Room nextRoom = player.getCurrentRoom().getExit(direction);
-
-        if (nextRoom == null) {
-            System.out.println("There is no door!");
-        } else {
-            player.changeRoom(nextRoom);
-        }
-    }
-
-    /**
-     * "Look" was entered. Report what the player can see in the room
-     */
-//    private void look() {
-//        System.out.println("You are " + currentRoom.getDescription());
-//        System.out.print("Exits: ");
-//        if (currentRoom.northExit != null) {
-//            System.out.print("north ");
-//        }
-//        if (currentRoom.eastExit != null) {
-//            System.out.print("east ");
-//        }
-//        if (currentRoom.southExit != null) {
-//            System.out.print("south ");
-//        }
-//        if (currentRoom.westExit != null) {
-//            System.out.print("west ");
-//        }
-//        System.out.println();
-//        System.out.print("Items: ");
-//        if (currentRoom.itemDescription != null) {
-//            System.out.print(currentRoom.itemDescription
-//                    + '(' + currentRoom.itemWeight + ')');
-//        }
-//        System.out.println();
-//    }
-
-    /**
-     * Try to take an item from the current room, otherwise print an error
-     * message.
-     */
-//    private void take(Command command) {
-//        if (!command.hasSecondWord()) {
-//            // if there is no second word, we don't know what to take...
-//            System.out.println("Take what?");
-//            return;
-//        }
-//
-//        String item = command.getSecondWord();
-//        int w = currentRoom.containsItem(item);
-//        if (w == 0) {
-//            // The item is not in the room
-//            System.out.println("No " + item + " in the room");
-//            return;
-//        }
-//        if (totalWeight + w <= MAX_WEIGHT) {
-//            // The player is carrying too much
-//            System.out.println(item + " is too heavy");
-//            return;
-//        }
-//        // OK we can pick it up
-//        currentRoom.removeItem(item);
-//        items.add(item);
-//        weights.add(w);
-//        totalWeight += w;
-//    }
-
-    /**
-     * Try to drop an item, otherwise print an error message.
-     */
-//    private void drop(Command command) {
-//        if (!command.hasSecondWord()) {
-//            // if there is no second word, we don't know what to drop...
-//            System.out.println("Drop what?");
-//            return;
-//        }
-//
-//        String item = command.getSecondWord();
-//        int i = items.indexOf(item);
-//        if (i == -1) {
-//            System.out.println("You don't have the " + item);
-//            return;
-//        }
-//        items.remove(i);
-//        int w = (Integer) weights.remove(i);
-//        currentRoom.addItem(item, w);
-//        totalWeight -= w;
-//    }
-
-    /**
-     * Try to drop an item, otherwise print an error message.
-     */
-//    private void give(Command command) {
-//        if (!command.hasSecondWord()) {
-//            // if there is no second word, we don't know what to give...
-//            System.out.println("Give what?");
-//            return;
-//        }
-//        if (!command.hasThirdWord()) {
-//            // if there is no third word, we don't to whom to give it...
-//            System.out.println("Give it to who?");
-//            return;
-//        }
-//
-//        String item = command.getSecondWord();
-//        String whom = command.getThirdWord();
-//
-//        if (!currentRoom.character.equals(whom)) {
-//            // cannot give it if the chacter is not here
-//            System.out.println(whom + " is not in the room");
-//            return;
-//        }
-//        int i = items.indexOf(item);
-//        if (i == -1) {
-//            System.out.println("You don't have the " + item);
-//            return;
-//        }
-//        items.remove(i);
-//        int w = (Integer) weights.remove(i);
-//        totalWeight -= w;
-//    }
-
-    /**
-     * "Quit" was entered. Check the rest of the command to see whether we
-     * really quit the game.
-     *
-     * @return true, if this command quits the game, false otherwise.
-     */
-//    private boolean quit(Command command) {
-//        if (command.hasSecondWord()) {
-//            System.out.println("Quit what?");
-//            return false;
-//        } else {
-//            return true;  // signal that we want to quit
-//        }
-//    }
     
     public CommandManager getCommandManager(){
     	return commandManager;
@@ -329,4 +170,12 @@ public class Game {
     public ItemManager getItemManager(){
     	return itemManager;
     }
+
+	public String getProperty(String property) {
+		return properties.getProperty(property);		
+	}
+
+	public void terminate() {
+		finished = true;
+	}
 }

@@ -4,6 +4,6 @@ import advjava.assessment1.zuul.refactored.Game;
 
 public interface PluginInterface {
 	
-	public boolean init(Game game);
+	public boolean initialise(Game game);
 
 }

@@ -3,7 +3,7 @@ package advjava.assessment1.zuul.refactored;
 import java.util.ArrayList;
 import java.util.List;
 
-class ItemManager {
+public class ItemManager {
 	
 	private final List<Item> items;
 	
