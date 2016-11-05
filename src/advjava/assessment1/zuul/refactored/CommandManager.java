@@ -29,12 +29,12 @@ public class CommandManager {
 	public CommandManager() {
 		loadDefaultCommands();
 	}
-
+	
 	public void loadPlugins() {
 
 		System.out.println();
 		System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
-		System.out.println("            Loading Plugins ...          ");
+		System.out.println(InternationalisationManager.im.getMessage("loadingPlugins"));
 		System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
 		try {
 			
@@ -76,41 +76,44 @@ public class CommandManager {
 							m.invoke(c.newInstance(), Main.game);
 						} catch (InvocationTargetException ite) {
 							System.err.println(ite.getTargetException());
-							System.err.println(String.format("Failed to load plugin '%s'.", jar.getName()));
+							System.err.println(String.format(InternationalisationManager.im.getMessage("failedLoadPlugins"), jar.getName()));
 						}
-						System.out.println(String.format("Loaded '%s'.", c.getName()));
+						System.out.println(String.format(InternationalisationManager.im.getMessage("loadedClass"), c.getName()));
 
 					}
 					jarFile.close();
 					
 				} else {
-					System.out.println(String.format("Ignoring '%s' file.", jar.getName()));
+					System.out.println(String.format(InternationalisationManager.im.getMessage("ignoreFile"), jar.getName()));
 				}
 
 			}
 
 		} catch (Exception e) {
-			System.err.println("Failed to reflectively load command plugin ''.");
+			System.err.println(String.format(InternationalisationManager.im.getMessage("failedReflection")));
 			e.printStackTrace();
 		}
-		System.out.println(" - Finished  - - - - - - - - - - - - - - ");			
+		System.out.println(InternationalisationManager.im.getMessage("loadingPluginsFinished"));			
 
 	}
 
 	private void loadDefaultCommands() {
-		System.out.println("Loading default commands...");
-		commands.put("look", new LookCommand("look", "Reveal information on the surrounding room. >look [character]"));
-		commands.put("go", new GoCommand("go", "Travel to another room, specifying the exit. >go <room>"));
-		commands.put("help", new HelpCommand("help", "Show all available commands. >help"));
-		commands.put("pickupitem", new PickUpItemCommand("pickupitem", "Pick up an item in the room. /pickup <item>"));
-		commands.put("dropitem",
-				new DropItemCommand("dropitem", "Drop item from your inventory into the room. /drop <item>"));
-		commands.put("give",
-				new GiveCommand("give", "Give an item to a character in the room. /give <item> <character>"));
-		commands.put("quit", new QuitCommand("quit", "Quit the game. /quit"));
+		System.out.println(InternationalisationManager.im.getMessage("loadingDefaultCommands"));
+		commands.put(InternationalisationManager.im.getMessage("loadLook"), 
+				new LookCommand(InternationalisationManager.im.getMessage("loadLook"), InternationalisationManager.im.getMessage("loadLookDesc")));
+		commands.put(InternationalisationManager.im.getMessage("loadGo"), 
+				new GoCommand(InternationalisationManager.im.getMessage("loadGo"), InternationalisationManager.im.getMessage("loadGoDesc")));
+		commands.put(InternationalisationManager.im.getMessage("loadHelp"), new HelpCommand("help",InternationalisationManager.im.getMessage("loadHelpDesc")));
+		commands.put(InternationalisationManager.im.getMessage("loadPickUpItem"), 
+				new PickUpItemCommand(InternationalisationManager.im.getMessage("loadPickUpItem"), InternationalisationManager.im.getMessage("loadPickUpItemDesc")));
+		commands.put(InternationalisationManager.im.getMessage("loadDropItem"),
+				new DropItemCommand(InternationalisationManager.im.getMessage("loadDropItem"), InternationalisationManager.im.getMessage("loadDropItemDesc")));
+		commands.put(InternationalisationManager.im.getMessage("loadGive"),
+				new GiveCommand(InternationalisationManager.im.getMessage("loadGive"), InternationalisationManager.im.getMessage("loadGiveDesc")));
+		commands.put(InternationalisationManager.im.getMessage("loadQuit"), new QuitCommand(InternationalisationManager.im.getMessage("loadQuit"), InternationalisationManager.im.getMessage("loadQuitDesc")));
 		commands.put("debug",
 				new DebugCommand("debug", "Debug information on game. /debug <rooms|characters|items|general|player>"));
-		System.out.println("Loaded default commands.");
+		System.out.println(InternationalisationManager.im.getMessage("loadedDefault"));
 	}
 
 	public Collection<Command> commands() {
@@ -120,7 +123,7 @@ public class CommandManager {
 	public void addCommand(Command cmd) {
 		if (commands.containsKey(cmd.getName()))
 			throw new IllegalArgumentException(
-					String.format("'%s'Cannot add command that already exists!", cmd.getName()));
+					String.format(InternationalisationManager.im.getMessage("addCommandException"), cmd.getName()));
 		commands.put(cmd.getName(), cmd);
 	}
 

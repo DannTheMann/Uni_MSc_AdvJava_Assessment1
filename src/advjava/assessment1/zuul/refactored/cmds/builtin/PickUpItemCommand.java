@@ -1,6 +1,7 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.Item;
 import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.character.Player;
@@ -27,7 +28,7 @@ public class PickUpItemCommand extends Command{
 				Player player = game.getPlayer();
 				
 				if(player.getWeight()+item.getWeight() > player.getMaxWeight()){
-					System.out.println(String.format("You can't pickup: %s, you'll become overencumbered. %s Current weight: %d", item, System.lineSeparator(), game.getPlayer().getWeight()));
+					System.out.println(String.format(InternationalisationManager.im.getMessage("pickup.heavy"), item, System.lineSeparator(), game.getPlayer().getWeight()));
 					return true;
 				}
 				
@@ -35,15 +36,15 @@ public class PickUpItemCommand extends Command{
 				room.removeItem(item);
 				player.setWeight(player.getWeight()+item.getWeight());
 				
-				System.out.println(String.format("You picked up: %s", item));
+				System.out.println(String.format(InternationalisationManager.im.getMessage("pickup.success"), item));
 
 				return true;
 			}else{
-				System.out.println(String.format("There is no %s in the room.", itemName));
+				System.out.println(String.format(InternationalisationManager.im.getMessage("pickup.noone"), itemName));
 			}
 			
 		}else{
-			System.out.println("Pickup what?");
+			System.out.println(InternationalisationManager.im.getMessage("pickup.noparam"));
 		}
 		
 		return false;

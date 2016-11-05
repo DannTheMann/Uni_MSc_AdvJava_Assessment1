@@ -17,7 +17,7 @@ public class Item {
     
     public Item(String name, String description, int weight){
     	if(name == "" || name == null)
-    		throw new NullPointerException("An Item name cannot be null or an empty String, Malformed XML?");
+    		throw new NullPointerException(InternationalisationManager.im.getMessage("item.null"));
         this.name = name;
         this.description = description.equals("") ? null : description;
         this.weight = weight;
@@ -41,7 +41,8 @@ public class Item {
     
     @Override
     public String toString(){
-        return description == null ? String.format("%s (%d)", name, weight) : String.format("%s, %s. (%d)", name, description, weight);
+        return description == null ? String.format(InternationalisationManager.im.getMessage("item.toStringNoDesc"), name, weight) 
+        		: String.format(InternationalisationManager.im.getMessage("item.toStringWithDesc"), name, description, weight);
     }
     
 }

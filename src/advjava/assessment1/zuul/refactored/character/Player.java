@@ -1,5 +1,6 @@
 package advjava.assessment1.zuul.refactored.character;
 
+import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.PrintableList;
 import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
@@ -22,7 +23,7 @@ public class Player extends Character{
 	
 	@Override
 	public String toString(){
-		return "[Player] " + super.toString();
+		return InternationalisationManager.im.getMessage("p.tag") + super.toString();
 	}
 
 	@Override

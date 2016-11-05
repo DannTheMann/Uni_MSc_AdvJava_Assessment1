@@ -1,11 +1,13 @@
 package advjava.assessment1.zuul.refactored.exception;
 
+import advjava.assessment1.zuul.refactored.InternationalisationManager;
+
 public class InvalidCharacterMoveException extends Exception {
 
 	private static final long serialVersionUID = -1035827425896347317L;
 
 	public InvalidCharacterMoveException() {
-		super("Character attempted to move to a room that is null.");
+		super(InternationalisationManager.im.getMessage("icme.msg"));
 	}
 
 }

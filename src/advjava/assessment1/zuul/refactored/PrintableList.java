@@ -9,7 +9,7 @@ public class PrintableList<E> extends ArrayList<E> {
 	public String toString(){
 		// Use stringbuilder, faster
 		if(isEmpty())
-			return "N/A";
+			return InternationalisationManager.im.getMessage("print.empty");
 		String str = "";
 		for(Object e : toArray()){
 			str = e + ", ";

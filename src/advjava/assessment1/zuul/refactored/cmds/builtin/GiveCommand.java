@@ -1,6 +1,7 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.Item;
 import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.character.Character;
@@ -28,17 +29,17 @@ public class GiveCommand extends Command{
 			Item item = player.getItem(itemName);
 			
 			if(item == null){
-				System.out.println(String.format("You don't have '%s'.", itemName));
+				System.out.println(String.format(InternationalisationManager.im.getMessage("give.notowned"), itemName));
 				return false;
 			}
 			
 			if(character == null){
-				System.out.println(String.format("No one called'%s' is in the room.", characterName));
+				System.out.println(String.format(InternationalisationManager.im.getMessage("give.noone"), characterName));
 				return false;			
 			}
 			
 			if(item.getWeight()+character.getWeight() > character.getMaxWeight()){
-				System.out.println(String.format("%s can't carry anymore weight.", character.getName()));
+				System.out.println(String.format(InternationalisationManager.im.getMessage("give.heavy"), character.getName()));
 				return true;
 			}
 			
@@ -47,11 +48,11 @@ public class GiveCommand extends Command{
 			player.removeItem(item);
 			player.setWeight(player.getWeight()-item.getWeight());
 			
-			System.out.println(String.format("You gave %s a %s.", character.getName(), item.getName()));
+			System.out.println(String.format(InternationalisationManager.im.getMessage("give.success"), character.getName(), item.getName()));
 			return true;
 		
 		}else{
-			System.out.print("Give what to who?");
+			System.out.print(InternationalisationManager.im.getMessage("give.noparam"));
 		}
 		
 		return false;

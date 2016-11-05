@@ -6,6 +6,7 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.character.Character;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
@@ -31,7 +32,7 @@ public class LookCommand extends Command{
     			System.out.println(npc);
     			return true;
     		}else{
-    			System.out.println(String.format("There is no one here called %s.", characterName));
+    			System.out.println(String.format(InternationalisationManager.im.getMessage("look.noone"), characterName));
     		}
     		
     		return false;

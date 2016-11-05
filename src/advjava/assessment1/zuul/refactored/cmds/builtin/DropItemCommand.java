@@ -1,6 +1,7 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.Item;
 import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
@@ -26,16 +27,16 @@ public class DropItemCommand extends Command{
 				player.getCurrentRoom().addItem(item);
 				player.setWeight(player.getWeight()-item.getWeight());
 				player.removeItem(item);
-				System.out.println(String.format("You dropped: %s.", item));
+				System.out.println(String.format(InternationalisationManager.im.getMessage("dropitem.success"), item));
 				
 				return true;
 				
 			}else{
-				System.out.println(String.format("You don't have: %s", itemName));
+				System.out.println(String.format(InternationalisationManager.im.getMessage("dropitem.notowned"), itemName));
 			}
 		
 		}else{
-			System.out.println("Drop what?");
+			System.out.println(InternationalisationManager.im.getMessage("dropitem.noparam"));
 		}
 		
 		return false;

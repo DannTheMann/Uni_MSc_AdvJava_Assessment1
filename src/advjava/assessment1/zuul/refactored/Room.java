@@ -63,7 +63,7 @@ public class Room {
     public void setExit(Room room, String direction, boolean override) {
     	
     	if(direction == null || direction == "")
-    		throw new NullPointerException("Direction is null! Malformed XML?");
+    		throw new NullPointerException(InternationalisationManager.im.getMessage("room.badSetExit"));
     	
         if ( (override && rooms.containsKey(direction))
                 || (!rooms.containsKey(direction))) {
@@ -89,23 +89,23 @@ public class Room {
 
     	StringBuilder out = new StringBuilder();
     	
-    	out.append(String.format(" You arrive @ %s. %s%s%s"
+    	out.append(String.format(InternationalisationManager.im.getMessage("room.desc1")
     			, name, description != null ? System.lineSeparator() + description : "", 
-    			(characters.isEmpty() ? " You're alone." : ""),
+    			(characters.isEmpty() ? InternationalisationManager.im.getMessage("room.desc2") : ""),
     			System.lineSeparator()));
     	
-    	out.append(" Exits: " + System.lineSeparator() + "  " + rooms.entrySet().stream()
+    	out.append(InternationalisationManager.im.getMessage("room.desc3") + System.lineSeparator() + "  " + rooms.entrySet().stream()
     			.map(e->e.getKey().toUpperCase()+" -> "+e.getValue().name + System.lineSeparator())
     			.collect(Collectors.joining("  ")));
     	
-    	out.append( ( !items.isEmpty() ? " Items: " + items.stream()
+    	out.append( ( !items.isEmpty() ? InternationalisationManager.im.getMessage("room.desc4") + items.stream()
 		.map(i->i.toString())
-		.collect(Collectors.joining(", ")) :  " There are no items here") );
+		.collect(Collectors.joining(", ")) :  InternationalisationManager.im.getMessage("room.desc5")) );
 
     	
     	out.append(".");
     	if(!characters.isEmpty()){
-    		out.append(String.format("%s Characters: %s   %s", System.lineSeparator(), System.lineSeparator(), characters.stream()
+    		out.append(String.format(InternationalisationManager.im.getMessage("room.desc6"), System.lineSeparator(), System.lineSeparator(), characters.stream()
     		.filter((c->!c.isPlayer()))
     		.map(i->i.toString())
     		.collect(Collectors.joining(System.lineSeparator() + "   "))));

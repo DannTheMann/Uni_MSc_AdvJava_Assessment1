@@ -47,27 +47,27 @@ public class Main {
 	/**
 	 * Singleton for game
 	 */
-	protected static final Game game = new Game();
+	protected static Game game;
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception {   	
-    	
-    	System.out.println("Starting World of Zuul...");
+    public static void main(String[] args) throws Exception {   
+    	System.out.println(InternationalisationManager.im.getMessage("main.start"));
     	makeDirectory(PLUGIN_COMMANDS_FOLDER);
     	makeDirectory(XML_CONFIGURATION_FILES);
     	
-    	System.out.println("Loading properties.ini file...");   	
+    	System.out.println(InternationalisationManager.im.getMessage("main.loadProp"));   	
     	properties = loadProperties();
-    	System.out.println("Properties loaded.");
+    	System.out.println(InternationalisationManager.im.getMessage("main.finishProp"));
     
     	// Delay to allow everything to be ready...
-    	//Thread.sleep(1000);
-    	System.out.println("Creating game session...");
+    	Thread.sleep(1000);
+    	System.out.println(InternationalisationManager.im.getMessage("main.createSession"));
+    	game = new Game();
     	game.initialiseGame(properties);
         game.play();
-        System.out.println("Game init.");
+
     }
 
 	private static Properties loadProperties() {
@@ -79,28 +79,28 @@ public class Main {
 			
 			if(!propFile.exists()){
 				
-				System.out.println("Properties file did not exist, creating new one...");
+				System.out.println(InternationalisationManager.im.getMessage("main.createProp"));
 				fileOut = new FileOutputStream(propFile);
 				properties.setProperty("startingRoom", "outside");
 				properties.setProperty("playerName", "Richard Jones");
-				properties.setProperty("playerDescription", "A lone wanderer.");
+				properties.setProperty("playerDescription", InternationalisationManager.im.getMessage("main.pdesc"));
 				properties.setProperty("playerMaxWeight", "30");
-				properties.setProperty("helpIntroductionText", "You are lost. You are alone. You wander" + System.lineSeparator() + "around at the university.");
+				properties.setProperty("helpIntroductionText", InternationalisationManager.im.getMessage("main.introText"));
 				properties.store(fileOut, "Zuul Configuration");
 				fileOut.close();
 				
 				
 			}else{
 				
-				System.out.println("Property file found, loading properties...");
+				System.out.println(InternationalisationManager.im.getMessage("main.propFound"));
 				fileIn = new FileInputStream(propFile);
 				properties.load(fileIn);
 
 				checkProperty("startingRoom", "outside");
 				checkProperty("playerName", "Richard Jones");
-				checkProperty("playerDescription", "A lone wanderer.");
+				checkProperty("playerDescription", InternationalisationManager.im.getMessage("main.pdesc"));
 				checkProperty("playerMaxWeight", "30");
-				checkProperty("helpIntroductionText", "You are lost. You are alone. You wander" + System.lineSeparator() + "around at the university.");
+				checkProperty("helpIntroductionText", InternationalisationManager.im.getMessage("main.introText"));
 				
 				fileOut = new FileOutputStream(propFile);
 				properties.store(fileOut, "Zuul Configuration");
@@ -108,7 +108,7 @@ public class Main {
 				
 			}
 		}catch(Exception e){
-			System.err.println("Failed to load properties file! terminating...");
+			System.err.println(InternationalisationManager.im.getMessage("main.propFail"));
 			e.printStackTrace();
 			System.exit(1);
 		}finally{
@@ -117,9 +117,9 @@ public class Main {
 					fileOut.close();
 				if(fileIn!=null)
 					fileIn.close();
-				System.out.println("Closed I/O streams.");
+				System.out.println(InternationalisationManager.im.getMessage("main.closeIO"));
 			} catch (IOException e) {
-				System.err.println("Failed to close input stream!");
+				System.err.println(InternationalisationManager.im.getMessage("main.IOFail"));
 				e.printStackTrace();
 			}
 		}
@@ -128,7 +128,7 @@ public class Main {
 
 	private static void checkProperty(String key, String value) {
 		if(!properties.containsKey(key)){
-			System.err.println(String.format("%s was not present in the properties file! Setting it to '%s'.", key, value));
+			System.err.println(String.format(InternationalisationManager.im.getMessage("main.badProp"), key, value));
 			properties.setProperty(key, value);
 		}
 	}
@@ -137,10 +137,8 @@ public class Main {
     	File directory = new File(dir);
     	
     	if(!directory.exists()){
-    		System.out.println(dir + " did not exist, creating it now.");
-    		System.out.println("created -> " + directory.mkdirs());
-    	}else{
-    		System.out.println(dir + " exists.");
+    		System.out.println(String.format(InternationalisationManager.im.getMessage("main.noDir"), directory.getAbsolutePath()));
+    		System.out.println(String.format(InternationalisationManager.im.getMessage("main.mkdir"), directory.mkdirs()));
     	}
 	}
 }

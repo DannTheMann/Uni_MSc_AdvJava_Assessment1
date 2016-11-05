@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.Item;
 import advjava.assessment1.zuul.refactored.PrintableList;
 import advjava.assessment1.zuul.refactored.Room;
@@ -93,8 +94,8 @@ public abstract class Character{
 
 	@Override
 	public String toString() {
-		return String.format("%s -> %s | Items: %s.", name, description != null ? description : "N/A",
-				inventory.isEmpty() ? "None" : inventory.toString());
+		return String.format(InternationalisationManager.im.getMessage("c.toString"), name, description != null ? description : InternationalisationManager.im.getMessage("print.empty"),
+				inventory.isEmpty() ? InternationalisationManager.im.getMessage("c.invEmpty") : inventory.toString());
 	}
 	
 	public int getWeight() {

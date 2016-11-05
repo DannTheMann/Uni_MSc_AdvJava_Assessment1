@@ -1,5 +1,6 @@
 package advjava.assessment1.zuul.refactored;
 
+import java.util.Locale;
 import java.util.Properties;
 
 import advjava.assessment1.zuul.refactored.character.CharacterManager;
@@ -49,6 +50,7 @@ public class Game {
 	private final CharacterManager characterManager;
 	private final RoomManager roomManager;
 	private final ItemManager itemManager;
+	private final InternationalisationManager im;
 	private Properties properties;
     private Player player;
 
@@ -60,6 +62,7 @@ public class Game {
     	this.characterManager = new CharacterManager();
     	this.roomManager = new RoomManager();
     	this.itemManager = new ItemManager();
+    	this.im = InternationalisationManager.im;
     }
 
     /**
@@ -77,18 +80,18 @@ public class Game {
 					
 					System.out.println();
 					System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
-					System.out.println("         Loading XML Config files ...    ");
+					System.out.println(im.getMessage("game.loadXML"));
 					System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
 					
 	        		XMLManager.loadItems(itemManager);
 	        		XMLManager.loadRooms(roomManager);
 					XMLManager.loadCharacters(characterManager);
 					
-					System.out.println(" - - Finished - - - - - - - - - - - - - - ");
+					System.out.println(im.getMessage("game.finishXML"));
 					System.out.println();
 					
 				} catch (MalformedXMLException e) {
-					System.err.println("Failed to load XML files!");
+					System.err.println(im.getMessage("game.failXML"));
 					e.printStackTrace();
 					System.exit(1);
 				}
@@ -96,9 +99,7 @@ public class Game {
 				Room startingRoom = roomManager.getRoom(properties.getProperty("startingRoom"));
 				
 				if(startingRoom == null)
-					throw new NullPointerException(String.format("No room matches the starting room! [Specified: %s]", properties.getProperty("startingRoom")));
-				else
-					System.out.println("Found current room.");
+					throw new NullPointerException(String.format(im.getMessage("game.noStartRoom"), properties.getProperty("startingRoom")));
 
 				player = new Player(properties.getProperty("playerName"), properties.getProperty("playerDescription"), startingRoom, Integer.parseInt(properties.getProperty("playerMaxWeight")));
     }
@@ -118,7 +119,6 @@ public class Game {
             CommandExecution command = parser.getCommand();
             processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
     }
     
     public Player getPlayer(){
@@ -130,9 +130,9 @@ public class Game {
      */
     private void printWelcome() {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
-        System.out.println("Type 'help' if you need help.");
+        System.out.println(im.getMessage("game.welcome1"));
+        System.out.println(im.getMessage("game.welcome2"));
+        System.out.println(im.getMessage("game.welcome3"));
         System.out.println();
         
         player.getCurrentRoom().printDetails();
@@ -151,7 +151,7 @@ public class Game {
     		return false;
     	
         if (commandManager.getCommand(command.getCommandWord()) == null) {
-            System.out.println("I don't know what you mean...");
+            System.out.println(im.getMessage("game.invalidCmd"));
             return false;
         }
 
@@ -176,6 +176,10 @@ public class Game {
 
 	public String getProperty(String property) {
 		return properties.getProperty(property);		
+	}
+	
+	public InternationalisationManager getInternationalisationManager(){
+		return im;
 	}
 
 	public void terminate() {

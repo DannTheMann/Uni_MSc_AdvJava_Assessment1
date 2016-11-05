@@ -7,54 +7,54 @@ import java.util.Map;
 import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
 
 public class RoomManager {
-	
+
 	private final Map<String, Room> rooms;
-	
-	public RoomManager(){
+
+	public RoomManager() {
 		rooms = new HashMap<>();
 	}
-	
-	public boolean hasRoom(String name){
+
+	public boolean hasRoom(String name) {
 		return rooms.containsKey(name);
 	}
-	
-	public Room getRoom(String name){
+
+	public Room getRoom(String name) {
 		return rooms.get(name);
 	}
-	
-	public boolean addRoom(Room room){
-		if(rooms.containsKey(room.getName()))
+
+	public boolean addRoom(Room room) {
+		if (rooms.containsKey(room.getName()))
 			return false;
 		else
 			rooms.put(room.getName(), room);
 		return true;
 	}
-	
-	public void clearRooms(){
+
+	public void clearRooms() {
 		rooms.clear();
 	}
-	
-	public boolean removeRoom(String name){
-		if(hasRoom(name)){
+
+	public boolean removeRoom(String name) {
+		if (hasRoom(name)) {
 			rooms.remove(name);
 			return true;
-		}else
+		} else
 			return false;
-			
-	}
-	
-	public void checkIntegrity() throws MalformedXMLException{
-		
-		for(Room room : rooms.values())
-			if(!room.isComplete())
-				throw new MalformedXMLException("XML_ROOMS", "There are some rooms [" + room.getName() + 
-						" exits: " + room.getExits().size() + "] " + System.lineSeparator() + 
-						"that are non-persistant and only mentioned by reference. Make sure all rooms are definite! ");
-		
+
 	}
 
-    public Collection<Room> rooms() {
-        return rooms.values();
-    }
+	public void checkIntegrity() throws MalformedXMLException {
+
+		for (Room room : rooms.values())
+			if (!room.isComplete())
+				throw new MalformedXMLException(String.format(
+						InternationalisationManager.im.getMessage("rm.badXML"),
+						 room.getName(), room.getExits().size(), System.lineSeparator()));
+
+	}
+
+	public Collection<Room> rooms() {
+		return rooms.values();
+	}
 
 }

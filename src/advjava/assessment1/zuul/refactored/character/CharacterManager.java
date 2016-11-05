@@ -4,13 +4,16 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import advjava.assessment1.zuul.refactored.InternationalisationManager;
+
+
 public class CharacterManager {
 	
 	private static final Map<String, Character> characters = new HashMap<>();
 	
 	public void addCharacter(Character c){		
 		if(characters.containsKey(c.getName()))
-			throw new IllegalArgumentException("'" + c.getName() + "'Cannot add Character that already exists!");
+			throw new IllegalArgumentException(String.format(InternationalisationManager.im.getMessage("cm.null"), c.getName()));
 		characters.put(c.getName(), c);	
 	}
 	

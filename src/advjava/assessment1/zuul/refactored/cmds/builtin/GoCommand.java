@@ -1,6 +1,7 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
@@ -22,7 +23,7 @@ public class GoCommand extends Command {
 			Room nextRoom = room.getExit(cmd.getWord(1).toLowerCase());
 
 			if (nextRoom == null) {
-				System.out.println("There is no exit here!");
+				System.out.println(InternationalisationManager.im.getMessage("go.noexit"));
 				return false;
 			}
 			
@@ -37,7 +38,7 @@ public class GoCommand extends Command {
 			return true;
 
 		} else {
-			System.out.println("Go where?");
+			System.out.println(InternationalisationManager.im.getMessage("go.noparam"));
 		}
 
 		return false;

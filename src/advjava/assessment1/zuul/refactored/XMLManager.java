@@ -89,19 +89,19 @@ public abstract class XMLManager {
 							}
 							
 						}else{
-							throw new MalformedXMLException(XML_ROOMS, name + " ROOM invalid exits, Malformed XML.");
+							throw new MalformedXMLException(XML_ROOMS, String.format(InternationalisationManager.im.getMessage("xml.invalidExits"), name));
 						}
 
 					} else {
-						throw new MalformedXMLException(XML_ROOMS, "No exits specified for room '" + name + "'.");
+						throw new MalformedXMLException(XML_ROOMS, String.format(InternationalisationManager.im.getMessage("xml.noExits"), name));
 					}
 					
 					boolean added = rm.addRoom(finalRoom);
 					
 					if(added){
-						System.out.println(String.format("Loaded room '%s'", finalRoom.getName()));
+						System.out.println(String.format(InternationalisationManager.im.getMessage("xml.loadRoom"), finalRoom.getName()));
 					}else{
-						System.out.println(String.format("Failed to load room '%s', already a room named this exists.", finalRoom.getName()));
+						System.out.println(String.format(InternationalisationManager.im.getMessage("xml.roomExists"), finalRoom.getName()));
 					}
 				}
 
@@ -111,7 +111,7 @@ public abstract class XMLManager {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new MalformedXMLException("Could not load " + XML_ROOMS + ".");
+			throw new MalformedXMLException(String.format(InternationalisationManager.im.getMessage("xml.fail"), XML_ROOMS));
 		}
 
 	}
@@ -136,14 +136,14 @@ public abstract class XMLManager {
 					name = getElement(eElement, "name");
 					
 					if(name == null)
-						throw new NullPointerException("Name specified for character was null, Malformed XML?");
+						throw new NullPointerException(InternationalisationManager.im.getMessage("xml.charNameNull"));
 					
 					desc = getElement(eElement, "description");
 					roomName = getElement(eElement, "room");
 					room = Main.game.getRoomManager().getRoom(roomName);
 					
 					if(room == null)
-						throw new NullPointerException("Room specified for " + name + " was null, Malformed XML?");
+						throw new NullPointerException(String.format(InternationalisationManager.im.getMessage("xml.charRoomNull"), roomName, name));
 					
 					weight = getElement(eElement, "maxweight");
 					if(weight != null)
@@ -161,20 +161,20 @@ public abstract class XMLManager {
 							if((Main.game.getItemManager().hasItem(iName)))
 								npc.addItem( Main.game.getItemManager().getItem(iName));
 							else
-								throw new NullPointerException("Item does not exist! Have you specified it in the items.xml file?");
+								throw new NullPointerException(InternationalisationManager.im.getMessage("xml.charItemNull"));
 						}
 						
 					}
 				}
 				
 				cm.addCharacter(npc);
-				System.out.println(String.format("Added new character '%s'.", npc.getName()));
+				System.out.println(String.format(InternationalisationManager.im.getMessage("xml.charAdd"), npc.getName()));
 				
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new MalformedXMLException("Could not load " + XML_CHARACTERS + ".");
+			throw new MalformedXMLException(String.format(InternationalisationManager.im.getMessage("xml.fail"), XML_CHARACTERS));
 		}
 
 	}
@@ -207,13 +207,13 @@ public abstract class XMLManager {
 					}
 					
 					im.addItem(item);
-					System.out.println(String.format("Added item '%s'", item.getName()));
+					System.out.println(String.format(InternationalisationManager.im.getMessage("xml.addItem"), item.getName()));
 					
 				}
 
 			} catch (Exception e) {
 				e.printStackTrace();
-				throw new MalformedXMLException("Could not load " + XML_ITEMS + ".");
+				throw new MalformedXMLException(InternationalisationManager.im.getMessage("xml.fail"));
 			}
 		 
 	 }
