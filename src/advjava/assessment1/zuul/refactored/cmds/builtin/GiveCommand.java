@@ -52,7 +52,7 @@ public class GiveCommand extends Command{
 			return true;
 		
 		}else{
-			System.out.print(InternationalisationManager.im.getMessage("give.noparam"));
+			System.out.println(InternationalisationManager.im.getMessage("give.noparam"));
 		}
 		
 		return false;
