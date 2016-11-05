@@ -6,7 +6,7 @@
 		<maxweight>30</maxweight>
 		<inventory>
 			<item>apple</item>
-			<item>sword</item>
+			<item>gun</item>
 			<item>book</item>
 		</inventory>
 	</npc>
@@ -14,5 +14,31 @@
 		<name>Chris</name>
 		<description>Lovely bloke.</description>
 		<room>outside</room>
+	</npc>
+	<npc>
+		<name>Mitch</name>
+		<description>A crazy looking scientist.</description>
+		<room>lab</room>
+	</npc>
+	<npc>
+		<name>Louis</name>
+		<description>The landlord.</description>
+		<room>pub</room>
+	</npc>
+	<npc>
+		<name>Craig</name>
+		<description>A drama student, equipped with a violin.</description>
+		<room>theatre</room>
+	</npc>
+	<npc>
+		<name>Donald Trump</name>
+		<description>A questionable gentlemen.</description>
+		<room>outside</room>
+		<maxweight>15</maxweight>
+		<inventory>
+			<item>apple</item>
+			<item>gun</item>
+			<item>book</item>
+		</inventory>
 	</npc>
 </game-characters>

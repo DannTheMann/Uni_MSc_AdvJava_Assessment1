@@ -6,7 +6,6 @@ import java.util.List;
 
 import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.Item;
-import advjava.assessment1.zuul.refactored.PrintableList;
 import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 
@@ -42,11 +41,21 @@ public abstract class Character{
 			throws InvalidCharacterNamingException {
 		if (name == null || name.equals(""))
 			throw new InvalidCharacterNamingException();
-		this.name = name;
+		this.name = name.replaceAll(" ", "");
 		this.description = description;
-		this.inventory = new PrintableList<>();
+		this.inventory = items;
 		this.currentRoom = room;
 		this.MAX_WEIGHT = maxWeight;
+		
+		if(!inventory.isEmpty()){
+			for(Item item : inventory){
+				weight+=item.getWeight();
+				if(weight > MAX_WEIGHT){
+					throw new IllegalArgumentException(String.format(InternationalisationManager.im.getMessage("c.defaultItemsOverMaxWeight"), name, weight, MAX_WEIGHT));
+				}
+			}
+		}
+		
 		room.addCharacter(this);
 	}
 

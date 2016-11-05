@@ -1,7 +1,7 @@
 <game-rooms>
 	<room>
 		<name>outside</name>
-		<description>outside the university</description>
+		<description>Outside of the university grounds.</description>
 		<items-in-room>
 			<item>apple</item>
 			<item>book</item>
@@ -12,26 +12,76 @@
 				<room-name>library</room-name>
 			</exit>
 			<exit>
+				<direction>south</direction>
+				<room-name>theatre</room-name>
+			</exit>
+			<exit>
 				<direction>east</direction>
-				<room-name>outside</room-name>
+				<room-name>pub</room-name>
 			</exit>
 		</exits>
 	</room>
 	<room>
 		<name>library</name>
-		<description>The library</description>
+		<description>Quite a relaxed environment, except all the books are missing.</description>
 		<items-in-room>
-			<item>apple</item>
-			<item>book</item>
+			<item>tomato</item>
 		</items-in-room>
 		<exits>
 			<exit>
-				<direction>south</direction>
-				<room-name>outside</room-name>
+				<direction>west</direction>
+				<room-name>theatre</room-name>
 			</exit>
 			<exit>
 				<direction>east</direction>
 				<room-name>library</room-name>
+			</exit>
+		</exits>
+	</room>
+	<room>
+		<name>theatre</name>
+		<description>A musical drama theatre, it's rather empty today.</description>
+		<items-in-room>
+			<item>gun</item>
+		</items-in-room>
+		<exits>
+			<exit>
+				<direction>east</direction>
+				<room-name>library</room-name>
+			</exit>
+			<exit>
+				<direction>north</direction>
+				<room-name>outside</room-name>
+			</exit>
+			<exit>
+				<direction>south</direction>
+				<room-name>lab</room-name>
+			</exit>
+		</exits>
+	</room>
+	<room>
+		<name>lab</name>
+		<description>A chemistry lab, vials fill the room.</description>
+		<items-in-room>
+			<item>grapes</item>
+		</items-in-room>
+		<exits>
+			<exit>
+				<direction>north</direction>
+				<room-name>theatre</room-name>
+			</exit>
+		</exits>
+	</room>
+	<room>
+		<name>pub</name>
+		<description>A classic English pub, although appearing rather dormant.</description>
+		<items-in-room>
+			<item>pear</item>
+		</items-in-room>
+		<exits>
+			<exit>
+				<direction>west</direction>
+				<room-name>outside</room-name>
 			</exit>
 		</exits>
 	</room>
