@@ -206,10 +206,10 @@ public abstract class XMLManager {
 						
 					weight = getElement(eElement, "maxweight");
 					
+					items = new PrintableList<Item>();
+					
 					// If they have an inventory, load through it and set their items
 					if (eElement.getElementsByTagName("inventory").item(0) != null) {
-						
-						items = new PrintableList<Item>();
 						
 						innerNode = eElement.getElementsByTagName("inventory").item(0);
 						innerElement = (Element) innerNode;	

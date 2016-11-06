@@ -26,6 +26,7 @@ public class ItemManager {
 	 */
 	public boolean hasItem(String name){
 		return items.stream()
+				.filter(i->i.getName().equals(name))
 				.findAny()
 				.isPresent();
 	}

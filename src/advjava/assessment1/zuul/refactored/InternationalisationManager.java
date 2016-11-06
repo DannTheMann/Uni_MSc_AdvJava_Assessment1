@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class InternationalisationManager {
 	
 	// Singleton reference
-	public static final InternationalisationManager im = new InternationalisationManager(Locale.getDefault());	
+	public static final InternationalisationManager im = new InternationalisationManager(Locale.getDefault());
 	// Resourcebundle to handle access to the language files
 	private ResourceBundle bundle;
 	
@@ -28,7 +28,7 @@ public class InternationalisationManager {
 	 */
 	private InternationalisationManager(Locale locale){
 		System.out.println("LOCALE: " + locale.toString() + " - " + locale.getDisplayCountry());
-		bundle = ResourceBundle.getBundle("Zuul_Messages");
+		bundle = ResourceBundle.getBundle("Zuul_Messages", locale);
 	}
 	
 	/**
