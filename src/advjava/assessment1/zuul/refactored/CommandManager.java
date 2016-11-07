@@ -14,20 +14,21 @@ import java.util.jar.JarFile;
 
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.builtin.DebugCommand;
-import advjava.assessment1.zuul.refactored.cmds.builtin.DropItemCommand;
+import advjava.assessment1.zuul.refactored.cmds.builtin.DropCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.GiveCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.GoCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.HelpCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.LookCommand;
-import advjava.assessment1.zuul.refactored.cmds.builtin.PickUpItemCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.QuitCommand;
+import advjava.assessment1.zuul.refactored.cmds.builtin.TakeCommand;
 
 /**
  * Manages all instances of commands used within the game. Provides methods to
- * add commands, load plugins, and clear all existing commands as well as
- * return a collection of all existing commands.
+ * add commands, load plugins, and clear all existing commands as well as return
+ * a collection of all existing commands.
  * 
  * Several commands are provided by default.
+ * 
  * @author dja33
  *
  */
@@ -37,17 +38,16 @@ public class CommandManager {
 	static final Map<String, Command> commands = new HashMap<>();
 
 	/**
-	 * Create an instance of the Command Manager, by default
-	 * loads all default commands present
+	 * Create an instance of the Command Manager, by default loads all default
+	 * commands present
 	 */
 	public CommandManager() {
 		loadDefaultCommands();
 	}
-	
+
 	/**
-	 * Attempts to load all plugins provided as a .jar in the
-	 * plugins folder. Only plugins that implement the plugininterface
-	 * can be loaded. 
+	 * Attempts to load all plugins provided as a .jar in the plugins folder.
+	 * Only plugins that implement the plugininterface can be loaded.
 	 */
 	public void loadPlugins() {
 
@@ -55,8 +55,8 @@ public class CommandManager {
 		System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
 		System.out.println(InternationalisationManager.im.getMessage("loadingPlugins"));
 		System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
-		
-		try {		
+
+		try {
 
 			// Retrieve the folder for plugins
 			File folder = new File(Main.PLUGIN_COMMANDS_FOLDER);
@@ -84,7 +84,8 @@ public class CommandManager {
 							continue;
 						}
 
-						// Get the className including package path, remove the last 6 characters '.class' 
+						// Get the className including package path, remove the
+						// last 6 characters '.class'
 						// and replace the instances of / with .
 						String className = je.getName().substring(0, je.getName().length() - 6).replace("/", ".");
 						Class<?> c = cl.loadClass(className);
@@ -96,31 +97,39 @@ public class CommandManager {
 							m = c.getMethod("initialise", Main.game.getClass());
 
 						} catch (NoSuchMethodException nsme) {
-							// This .class file does not implement the plugininterface
+							// This .class file does not implement the
+							// plugininterface
 							// check the next .class file
 							continue;
 						}
 
 						try {
-							// Try to invoke the method, pass it the game instance as a parameter
+							// Try to invoke the method, pass it the game
+							// instance as a parameter
 							m.invoke(c.newInstance(), Main.game);
 						} catch (InvocationTargetException ite) {
 							// Failed to invoke, try next .class
 							System.err.println(ite.getTargetException());
-							System.err.println(String.format(InternationalisationManager.im.getMessage("failedLoadPlugins"), jar.getName()));
+							System.err.println(String.format(
+									InternationalisationManager.im.getMessage("failedLoadPlugins"), jar.getName()));
 							continue;
 						}
-						// We've successfully found the method we're looking for, no need to carry on looking
-						// at this plugin, so print success and break out the while loop
-						System.out.println(String.format(InternationalisationManager.im.getMessage("loadedClass"), c.getName()));
+						// We've successfully found the method we're looking
+						// for, no need to carry on looking
+						// at this plugin, so print success and break out the
+						// while loop
+						System.out.println(
+								String.format(InternationalisationManager.im.getMessage("loadedClass"), c.getName()));
 						break;
 
 					}
 					jarFile.close();
-					
+
 				} else {
-					// An unexpected file or directory is present in the plugins folder, so we ignore it
-					System.out.println(String.format(InternationalisationManager.im.getMessage("ignoreFile"), jar.getName()));
+					// An unexpected file or directory is present in the plugins
+					// folder, so we ignore it
+					System.out.println(
+							String.format(InternationalisationManager.im.getMessage("ignoreFile"), jar.getName()));
 				}
 
 			}
@@ -130,39 +139,48 @@ public class CommandManager {
 			System.err.println(String.format(InternationalisationManager.im.getMessage("failedReflection")));
 			e.printStackTrace();
 		}
-		System.out.println(InternationalisationManager.im.getMessage("loadingPluginsFinished"));			
+		System.out.println(InternationalisationManager.im.getMessage("loadingPluginsFinished"));
 
 	}
 
 	/**
-	 * Load all default commands provided in the
-	 * package advjava.assessment1.zuul.cmds.builtin
+	 * Load all default commands provided in the package
+	 * advjava.assessment1.zuul.cmds.builtin
 	 * 
 	 * These commands utilise internationlisation by default
 	 */
 	private void loadDefaultCommands() {
 		System.out.println(InternationalisationManager.im.getMessage("loadingDefaultCommands"));
-		
-		commands.put(InternationalisationManager.im.getMessage("loadLook"), 
-				new LookCommand(InternationalisationManager.im.getMessage("loadLook"), InternationalisationManager.im.getMessage("loadLookDesc")));
-		commands.put(InternationalisationManager.im.getMessage("loadGo"), 
-				new GoCommand(InternationalisationManager.im.getMessage("loadGo"), InternationalisationManager.im.getMessage("loadGoDesc")));
-		commands.put(InternationalisationManager.im.getMessage("loadHelp"), new HelpCommand("help",InternationalisationManager.im.getMessage("loadHelpDesc")));
-		commands.put(InternationalisationManager.im.getMessage("loadPickUpItem"), 
-				new PickUpItemCommand(InternationalisationManager.im.getMessage("loadPickUpItem"), InternationalisationManager.im.getMessage("loadPickUpItemDesc")));
+
+		commands.put(InternationalisationManager.im.getMessage("loadLook"),
+				new LookCommand(InternationalisationManager.im.getMessage("loadLook"),
+						InternationalisationManager.im.getMessage("loadLookDesc")));
+		commands.put(InternationalisationManager.im.getMessage("loadGo"),
+				new GoCommand(InternationalisationManager.im.getMessage("loadGo"),
+						InternationalisationManager.im.getMessage("loadGoDesc")));
+		commands.put(InternationalisationManager.im.getMessage("loadHelp"),
+				new HelpCommand("help", InternationalisationManager.im.getMessage("loadHelpDesc")));
+		commands.put(InternationalisationManager.im.getMessage("loadPickUpItem"),
+				new TakeCommand(InternationalisationManager.im.getMessage("loadPickUpItem"),
+						InternationalisationManager.im.getMessage("loadPickUpItemDesc")));
 		commands.put(InternationalisationManager.im.getMessage("loadDropItem"),
-				new DropItemCommand(InternationalisationManager.im.getMessage("loadDropItem"), InternationalisationManager.im.getMessage("loadDropItemDesc")));
+				new DropCommand(InternationalisationManager.im.getMessage("loadDropItem"),
+						InternationalisationManager.im.getMessage("loadDropItemDesc")));
 		commands.put(InternationalisationManager.im.getMessage("loadGive"),
-				new GiveCommand(InternationalisationManager.im.getMessage("loadGive"), InternationalisationManager.im.getMessage("loadGiveDesc")));
-		commands.put(InternationalisationManager.im.getMessage("loadQuit"), new QuitCommand(InternationalisationManager.im.getMessage("loadQuit"), InternationalisationManager.im.getMessage("loadQuitDesc")));
+				new GiveCommand(InternationalisationManager.im.getMessage("loadGive"),
+						InternationalisationManager.im.getMessage("loadGiveDesc")));
+		commands.put(InternationalisationManager.im.getMessage("loadQuit"),
+				new QuitCommand(InternationalisationManager.im.getMessage("loadQuit"),
+						InternationalisationManager.im.getMessage("loadQuitDesc")));
 		commands.put("debug",
 				new DebugCommand("debug", "Debug information on game. /debug <rooms|characters|items|general|player>"));
-		
+
 		System.out.println(InternationalisationManager.im.getMessage("loadedDefault"));
 	}
 
 	/**
 	 * Get all commands currently loaded
+	 * 
 	 * @return Collection of commands
 	 */
 	public Collection<Command> commands() {
@@ -171,11 +189,14 @@ public class CommandManager {
 
 	/**
 	 * Add a new command to the command list
-	 * @param cmd The command to add
-	 * @throws IllegalArgumentException if command already exists
+	 * 
+	 * @param cmd
+	 *            The command to add
+	 * @throws IllegalArgumentException
+	 *             if command already exists
 	 **/
 	public void addCommand(Command cmd) {
-		if (commands.containsKey(cmd.getName())){
+		if (commands.containsKey(cmd.getName())) {
 			throw new IllegalArgumentException(
 					String.format(InternationalisationManager.im.getMessage("addCommandException"), cmd.getName()));
 		}
@@ -183,8 +204,20 @@ public class CommandManager {
 	}
 
 	/**
+	 * Remove a command from the CommandManager
+	 * 
+	 * @param cmdName
+	 *            the Command name of the command to remove
+	 */
+	public void removeCommand(String cmdName) {
+		commands.remove(cmdName);
+	}
+
+	/**
 	 * Get a particular command based on its command name
-	 * @param name name of the command
+	 * 
+	 * @param name
+	 *            name of the command
 	 * @return Command object
 	 */
 	public Command getCommand(String name) {

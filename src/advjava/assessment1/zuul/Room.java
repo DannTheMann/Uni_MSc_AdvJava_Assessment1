@@ -21,6 +21,7 @@ package advjava.assessment1.zuul;
 * Set exits has fixed amount of exits, what if we wanted to go upstairs?
 
 */
+@Deprecated
 public class Room 
 {
     public String description;

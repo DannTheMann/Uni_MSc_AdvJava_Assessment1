@@ -31,6 +31,7 @@ stored rather than predefined limitations
 
 
 */
+@Deprecated
 public class Command
 {
     private String commandWord;

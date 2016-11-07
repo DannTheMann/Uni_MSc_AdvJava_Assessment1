@@ -19,7 +19,7 @@ COMMENT
 from here rather than creating an entire class that uses predefined constants
 
 */
-
+@Deprecated
 public class CommandWords
 {
     // a constant array that holds all valid command words

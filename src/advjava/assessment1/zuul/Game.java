@@ -38,6 +38,7 @@ Incorrect way to calculate weight
 if (totalWeight + w <= MAX_WEIGHT) {
 
 */
+@Deprecated
 public class Game {
 
     private Parser parser;

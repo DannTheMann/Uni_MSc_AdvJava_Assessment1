@@ -21,18 +21,13 @@ package advjava.assessment1.zuul;
  do nothing, print an error?
 
 */
-
+@Deprecated
 public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        for(Object i : System.getProperties().keySet())
-            System.out.println(i + " -> " + System.getProperty((String)i));
-        
-        int x = 10;
         
         new Game().play();
     }

@@ -1,57 +1,48 @@
 package advjava.assessment1.zuul.refactored.cmds;
 
 /**
- * This class is part of the "World of Zuul" application. 
- * "World of Zuul" is a very simple, text based adventure game.  
- *
- * This class holds information about a command that was issued by the user.
- * A command currently consists of two strings: a command word and a second
- * word (for example, if the command was "take map", then the two strings
- * obviously are "take" and "map").
  * 
- * The way this is used is: Commands are already checked for being valid
- * command words. If the user entered an invalid command (a word that is not
- * known) then the command word is <null>.
- *
- * If the command had only one word, then the second word is <null>.
+ * Commands that executed are stored in this brief reference
+ * of the objects from this class. It takes the input line
+ * passed from Parser and breaks each argument of the input
+ * into parameters with the first being the command word.
  * 
- * @author  Michael Kolling and David J. Barnes
- * @version 2006.03.30
+ * Provides methods to get certain elements of the command such
+ * as the command word, nth parameter and length.
+ * 
+ * @author dja33
+ *
  */
-
-
-/*
-
-==========
-COMMENT
-==========
-
-* Should use sometihng like a tokenizer so that nth words can be
-stored rather than predefined limitations
-* 
-
-
-*/
 public class CommandExecution
 {
+	// entire command stores as elements
+	// e.g "give tom sword" -> ["give", "tom", "sword"]
     private String[] words;
 
     /**
-     * Create a command object. First and second word must be supplied, but
-     * either one (or both) can be null.
-     * @param firstWord The first word of the command. Null if the command
-     *                  was not recognised.
-     * @param secondWord The second word of the command.
-     * @param thirdWord The second word of the command.
+     * Create a command object. Takes an
+     *  entire string and splits it
+     * into each word for the command. 
+     * @param words An Array of words
      */
-    public CommandExecution(String[] words)
+    public CommandExecution(String input)
     {
-        this.words = words;
+        this.words = input.split(" ");
+    }
+    
+    /**
+     * Replaced by other constructor to keep cohesion 
+     * between parser and commandexecution class.
+     * @param words An array of words
+     */
+    @Deprecated
+    public CommandExecution(String[] words){
+    	this.words = words;
     }
 
     /**
      * Return the command word (the first word) of this command. If the
-     * command was not understood, the result is null.
+     * command is null then return an empty string else the commandword.
      * @return The command word.
      */
     public String getCommandWord()
@@ -59,17 +50,30 @@ public class CommandExecution
         return words[0] != null ? words[0] : "";
     }
     
+    /**
+     * Get the entire command as an Array of strings
+     * @return Command Array
+     */
     public String[] getCommand(){
     	return words;
     }
     
+    /**
+     * Get the length of the command and words used
+     * @return length
+     */
     public int commandLength(){
     	return words.length;
     }
 
+    /**
+     * Get a specific parameter from the command
+     * @param index The parameter to retrieve
+     * @return The command parameter
+     */
     public String getWord(int index){
     	if(index < 0 || index >= words.length)
-    		return null;
+    		return "";
     	return words[index];
     }
     
@@ -81,6 +85,12 @@ public class CommandExecution
         return getCommandWord().equals("");
     }
 
+    /**
+     * Checks whether the command has a parameter at
+     * the specified index
+     * @param index The position to check
+     * @return true if there is a parameter here
+     */
     public boolean hasParameter(int index){
     	return words.length > index;
     }

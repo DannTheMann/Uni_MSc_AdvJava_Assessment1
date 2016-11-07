@@ -5,23 +5,36 @@ import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
-public class QuitCommand extends Command{
+/**
+ * Used to quit the game, calls the game.terminate() method which sets a flag to
+ * end the game loop.
+ * 
+ * @author dja33
+ *
+ */
+public class QuitCommand extends Command {
 
 	public QuitCommand(String name, String description) {
 		super(name, description);
 	}
 
+	/**
+	 * Quit the game.
+	 */
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {
-		
-		if(cmd.commandLength() > 1){
-			System.out.println(String.format(InternationalisationManager.im.getMessage("game.quit")));	
-			game.terminate();
+
+		// If the command length is greater than 0, purely used to
+		// make sure the player does not call this command by accident
+		if (cmd.commandLength() > 1) {
+			System.out.println(String.format(InternationalisationManager.im.getMessage("game.quit")));
+			game.terminate(); // End the game
 			return true;
-		}else{
+		} else {
+			// Not enough params
 			System.out.println(String.format(InternationalisationManager.im.getMessage("quit.what")));
 		}
-		
+
 		return false;
 	}
 

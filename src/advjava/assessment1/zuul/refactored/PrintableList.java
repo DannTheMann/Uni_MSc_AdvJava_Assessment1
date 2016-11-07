@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 /**
- * Simple adaption of the ArrayList that allows for
- * smart formatting and printing of the list of objects
+ * Simple adaption of the ArrayList that allows for smart formatting and
+ * printing of the list of objects
+ * 
  * @author Daniel
  *
  * @param <E>
+ *            Template for Elements to store
  */
 public class PrintableList<E> extends ArrayList<E> {
 
@@ -19,15 +21,14 @@ public class PrintableList<E> extends ArrayList<E> {
 	 * Overrided toString()
 	 * 
 	 * Prints the contents of the collection, if empty returns N/A
+	 * 
 	 * @return String of objects joined by ", "
 	 */
 	@Override
-	public String toString(){
-		if(isEmpty())
+	public String toString() {
+		if (isEmpty())
 			return InternationalisationManager.im.getMessage("print.empty");
-		return stream()
-				.map(o->o.toString())
-				.collect(Collectors.joining(", "));		
+		return stream().map(o -> o.toString()).collect(Collectors.joining(", "));
 	}
-	
+
 }

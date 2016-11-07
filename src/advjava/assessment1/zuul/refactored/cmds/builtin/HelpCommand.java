@@ -5,24 +5,40 @@ import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
-public class HelpCommand extends Command{
+/**
+ * The Help Command is designed to print every command currently loaded in the
+ * CommandManager including their description and name.
+ * 
+ * @author dja33
+ *
+ */
+public class HelpCommand extends Command {
 
 	public HelpCommand(String name, String description) {
 		super(name, description);
 	}
 
+	/**
+	 * Show all commands in the game.
+	 */
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {
-		
+
 		StringBuilder sb = new StringBuilder();
-		
-		for(Command c : game.getCommandManager().commands()){			
-			sb.append(String.format(InternationalisationManager.im.getMessage("help.list"), c.getName(), c.getDescription(), System.lineSeparator()));		
+
+		// Go through every loaded command in the game.
+		for (Command c : game.getCommandManager().commands()) {
+			// Add the command name and description to the stringbuilder
+			sb.append(String.format(InternationalisationManager.im.getMessage("help.list"), c.getName(),
+					c.getDescription(), System.lineSeparator()));
 		}
-			
-		System.out.println(String.format(InternationalisationManager.im.getMessage("help.intro"), game.getProperty("helpIntroductionText"), System.lineSeparator()));
-        System.out.println(String.format(InternationalisationManager.im.getMessage("help.print"), System.lineSeparator(), sb.toString()));	
-		
+
+		// Print out the concatenated list of commands
+		System.out.println(String.format(InternationalisationManager.im.getMessage("help.intro"),
+				game.getProperty("helpIntroductionText"), System.lineSeparator()));
+		System.out.println(String.format(InternationalisationManager.im.getMessage("help.print"),
+				System.lineSeparator(), sb.toString()));
+
 		return true;
 	}
 

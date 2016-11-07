@@ -9,34 +9,54 @@ import advjava.assessment1.zuul.refactored.Item;
 import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 
-public abstract class Character{
+/**
+ * Represents a superclass for any Characters in the game NonPlayerCharacter and
+ * Player both extend the functionality provided by the Character Class.
+ * 
+ * Characters are given a weight, a declared MAX_WEIGHT, name, description,
+ * inventory (Comprised as a collection of Items) and their current room that
+ * they are allocated to.
+ * 
+ * Methods are provided to alter non-constant information such as current room,
+ * inventory and weight.
+ * 
+ * @author Daniel
+ *
+ */
+public abstract class Character {
 
+	// Constant for MAX_WEIGHT, declared on constructor
 	private final int MAX_WEIGHT;
+
+	// Fields for information for each Character
 	private int weight;
 	private String name;
 	private String description;
 	private List<Item> inventory;
 	private Room currentRoom;
 
-	public String getName() {
-		return name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public Room getCurrentRoom() {
-		return currentRoom;
-	}
-
-	public void setCurrentRoom(Room nextRoom) {
-		if(nextRoom == null){
-			return;
-		}
-		currentRoom = nextRoom;
-	}
-
+	/**
+	 * Create a new character, called from subclasses takes a series of data
+	 * regarding the player.
+	 * 
+	 * Not all information has to be up to date.
+	 * 
+	 * However name must NOT be null or an empty string otherwise an error will
+	 * be thrown.
+	 * 
+	 * @param name
+	 *            The name of the Character
+	 * @param description
+	 *            The description of the Character
+	 * @param room
+	 *            The current room of the Character
+	 * @param items
+	 *            The items the Character is holding
+	 * @param maxWeight
+	 *            The maximum weight of the Character
+	 * @throws InvalidCharacterNamingException
+	 *             If name is null or an empty String
+	 */
 	public Character(String name, String description, Room room, List<Item> items, int maxWeight)
 			throws InvalidCharacterNamingException {
 		if (name == null || name.equals(""))
@@ -46,31 +66,106 @@ public abstract class Character{
 		this.inventory = items;
 		this.currentRoom = room;
 		this.MAX_WEIGHT = maxWeight;
-		
-		if(!inventory.isEmpty()){
-			for(Item item : inventory){
-				weight+=item.getWeight();
-				if(weight > MAX_WEIGHT){
-					throw new IllegalArgumentException(String.format(InternationalisationManager.im.getMessage("c.defaultItemsOverMaxWeight"), name, weight, MAX_WEIGHT));
+
+		// Check to see if the user has tried to load a configuration in
+		// which this character has more items of combined weight than their
+		// maximum weight
+		if (!inventory.isEmpty()) {
+			for (Item item : inventory) {
+				weight += item.getWeight();
+				if (weight > MAX_WEIGHT) {
+					throw new IllegalArgumentException(
+							String.format(InternationalisationManager.im.getMessage("c.defaultItemsOverMaxWeight"),
+									name, weight, MAX_WEIGHT));
 				}
 			}
 		}
-		
+
 		room.addCharacter(this);
 	}
 
+	/**
+	 * Get the character name
+	 * 
+	 * @return name of character
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Get the description of the character
+	 * 
+	 * @return description character
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * Get the characters current room
+	 * 
+	 * @return current room
+	 */
+	public Room getCurrentRoom() {
+		return currentRoom;
+	}
+
+	/**
+	 * Set the current for the character, if null does nothing
+	 * 
+	 * @param nextRoom
+	 *            The room to set the character too
+	 */
+	public void setCurrentRoom(Room nextRoom) {
+		if (nextRoom == null) {
+			return;
+		}
+		currentRoom = nextRoom;
+	}
+
+	/**
+	 * Check whether a character has an item
+	 * 
+	 * @param item
+	 *            The item
+	 * @return true if they have this item
+	 */
 	public boolean hasItem(Item item) {
 		return inventory.contains(item);
 	}
 
+	/**
+	 * Check whether a character has an item
+	 * 
+	 * @param itemName
+	 *            the name of the item
+	 * @return true if they have this item
+	 */
 	public boolean hasItem(String itemName) {
 		return inventory.stream().anyMatch(i -> i.getName().equals(itemName));
 	}
 
+	/**
+	 * Get an item from the players inventory, return null if not existing
+	 * 
+	 * @param itemName
+	 *            the name of the item
+	 * @return the item else null
+	 */
 	public Item getItem(String itemName) {
 		return inventory.stream().filter(i -> i.getName().equals(itemName)).findFirst().orElse(null);
 	}
 
+	/**
+	 * Set the weight of the character, if a negative value set to 0, otherwise
+	 * add weight to existing weight.
+	 * 
+	 * If the weight exceeds the maximum weight then set weight to MAX_WEIGHT.
+	 * 
+	 * @param weight
+	 *            The weight to add to weight
+	 */
 	public void setWeight(int weight) {
 		if (weight < 0) {
 			this.weight = 0;
@@ -81,32 +176,59 @@ public abstract class Character{
 		}
 	}
 
+	/**
+	 * Return the inventory of this character as a collection
+	 * 
+	 * @return Collection of items
+	 */
 	public Collection<Item> getInventory() {
 		return inventory;
 	}
 
+	/**
+	 * Remove an item from the characters inventory
+	 * 
+	 * @param itemName
+	 *            The name of the item
+	 * @return whether the item was removed
+	 */
 	public boolean removeItem(String itemName) {
 		return inventory.contains(itemName) ? inventory.removeIf(i -> i.getName().equals(itemName)) : false;
 	}
 
+	/**
+	 * Remove an item from the characters inventory
+	 * 
+	 * @param item
+	 *            The item to remove
+	 * @return whether the item was removed
+	 */
 	public boolean removeItem(Item item) {
 		return inventory.remove(item);
 	}
 
+	/**
+	 * Add an item to the characters inventory
+	 * 
+	 * @param item
+	 *            the item to add
+	 * @return true if item was added
+	 */
 	public boolean addItem(Item item) {
 		return inventory.add(item);
 	}
 
+	/**
+	 * Add a series of items to the characters inventory Accepts a varargs
+	 * argument
+	 * 
+	 * @param items
+	 *            the series of items to add
+	 */
 	public void addItems(Item... items) {
 		Arrays.stream(items).forEach(i -> inventory.add(i));
 	}
 
-	@Override
-	public String toString() {
-		return String.format(InternationalisationManager.im.getMessage("c.toString"), name, description != null ? description : InternationalisationManager.im.getMessage("print.empty"),
-				inventory.isEmpty() ? InternationalisationManager.im.getMessage("c.invEmpty") : inventory.toString());
-	}
-	
 	public int getWeight() {
 		return weight;
 	}
@@ -115,6 +237,24 @@ public abstract class Character{
 		return MAX_WEIGHT;
 	}
 
+	/**
+	 * Override
+	 * 
+	 * Return a formatted String about this character, including a list of their
+	 * inventory.
+	 */
+	@Override
+	public String toString() {
+		return String.format(InternationalisationManager.im.getMessage("c.toString"), name,
+				description != null ? description : InternationalisationManager.im.getMessage("print.empty"),
+				inventory.isEmpty() ? InternationalisationManager.im.getMessage("c.invEmpty") : inventory.toString());
+	}
+
+	/**
+	 * Whether this a NonPlayerCharacter of a Player Character
+	 * 
+	 * @return true if Player Character
+	 */
 	public abstract boolean isPlayer();
 
 }

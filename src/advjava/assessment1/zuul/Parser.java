@@ -25,7 +25,7 @@ import java.util.Scanner;
 -> Makes code much easier to read as well identify 
 
 */
-
+@Deprecated
 public class Parser 
 {
     private CommandWords commands;  // holds all valid command words
