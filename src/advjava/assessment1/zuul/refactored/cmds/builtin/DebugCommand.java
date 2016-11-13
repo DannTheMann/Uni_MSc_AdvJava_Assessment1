@@ -34,6 +34,7 @@ public class DebugCommand extends Command {
 	 * Provides multiple parameters for the command
 	 * 
 	 * Such that, you can look for information on rooms/characters/items/player
+	 * @return false always, this is a debug command after all
 	 */
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {
@@ -51,6 +52,16 @@ public class DebugCommand extends Command {
 							.println(String.format("Room: %s | exits: %s | items: %s | characters: %s", room.getName(),
 									room.getExits().size(), room.getItems().size(), room.getCharacters().size()));
 				});
+				
+				if(cmd.commandLength() > 2){
+					
+					System.out.println("Printing them characters!");
+					game.getRoomManager().getRoom(cmd.getWord(2)).getCharacters().stream()
+						.forEach(System.out::print);
+					
+					
+					
+				}
 
 			} else if (param.equalsIgnoreCase("characters")) {
 
@@ -83,12 +94,11 @@ public class DebugCommand extends Command {
 						player.getName(), System.lineSeparator(), player.getDescription(), System.lineSeparator(),
 						player.getWeight(), System.lineSeparator(), player.getMaxWeight(), System.lineSeparator(),
 						player.getInventory()));
-
+				
 			} else {
 				System.out.println(String.format("Invalid use of command, %s", getDescription()));
 			}
 
-			return true;
 		} else {
 			System.out.println("Debug what?");
 		}

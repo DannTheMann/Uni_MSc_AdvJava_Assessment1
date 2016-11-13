@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import advjava.assessment1.zuul.refactored.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.Item;
-import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
+import advjava.assessment1.zuul.refactored.item.Item;
+import advjava.assessment1.zuul.refactored.room.Room;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
  * Represents a superclass for any Characters in the game NonPlayerCharacter and
@@ -20,7 +20,7 @@ import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingExcep
  * Methods are provided to alter non-constant information such as current room,
  * inventory and weight.
  * 
- * @author Daniel
+ * @author dja33
  *
  */
 public abstract class Character {

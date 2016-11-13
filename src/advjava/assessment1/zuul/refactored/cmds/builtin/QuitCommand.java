@@ -1,9 +1,9 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
-import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
  * Used to quit the game, calls the game.terminate() method which sets a flag to
@@ -20,6 +20,7 @@ public class QuitCommand extends Command {
 
 	/**
 	 * Quit the game.
+	 * @return false, pointless as the game will be terminated.
 	 */
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {
@@ -29,7 +30,6 @@ public class QuitCommand extends Command {
 		if (cmd.commandLength() > 1) {
 			System.out.println(String.format(InternationalisationManager.im.getMessage("game.quit")));
 			game.terminate(); // End the game
-			return true;
 		} else {
 			// Not enough params
 			System.out.println(String.format(InternationalisationManager.im.getMessage("quit.what")));

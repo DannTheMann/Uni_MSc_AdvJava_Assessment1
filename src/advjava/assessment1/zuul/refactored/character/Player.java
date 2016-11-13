@@ -1,9 +1,12 @@
 package advjava.assessment1.zuul.refactored.character;
 
-import advjava.assessment1.zuul.refactored.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.PrintableList;
-import advjava.assessment1.zuul.refactored.Room;
+import java.util.List;
+
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
+import advjava.assessment1.zuul.refactored.item.Item;
+import advjava.assessment1.zuul.refactored.room.Room;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.PrintableList;
 
 /**
  * The player class represents the current player(s) and stores all information
@@ -15,11 +18,12 @@ import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingExcep
  */
 public class Player extends Character {
 
-	private static final int DEFAULT_MAX_WEIGHT = 20;
+	private static final int DEFAULT_MAX_WEIGHT = 30;
 
 	/**
 	 * Default Constructor for creating a player, provides functionality to
-	 * completely design player on parameters
+	 * completely design player on parameters. Passing a maxWeight <= 0 will
+	 * establish the DEFAULT_MAX_WEIGHT for the player instead.
 	 * 
 	 * @param name
 	 *            Name of the Player
@@ -27,14 +31,16 @@ public class Player extends Character {
 	 *            Description of the player
 	 * @param startingRoom
 	 *            The Starting Room for the player
+	 * @param items
+	 *            The starting inventory for the player
 	 * @param maxWeight
 	 *            The Maximum weight for the player
 	 * @throws InvalidCharacterNamingException
 	 *             The name of the player cannot be null or an empty String
 	 */
-	public Player(String name, String description, Room startingRoom, int maxWeight)
+	public Player(String name, String description, Room startingRoom, List<Item> items, int maxWeight)
 			throws InvalidCharacterNamingException {
-		super(name, description, startingRoom, new PrintableList<>(), maxWeight);
+		super(name, description, startingRoom, items, maxWeight <= 0 ? DEFAULT_MAX_WEIGHT : maxWeight);
 	}
 
 	/**

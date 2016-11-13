@@ -5,8 +5,14 @@ import java.util.Properties;
 import advjava.assessment1.zuul.refactored.character.CharacterManager;
 import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.cmds.CommandManager;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
+import advjava.assessment1.zuul.refactored.item.ItemManager;
+import advjava.assessment1.zuul.refactored.room.RoomManager;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.Parser;
+import advjava.assessment1.zuul.refactored.utils.XMLManager;
 
 /**
  * 
@@ -35,8 +41,24 @@ public class Game {
 
 	// Properties provided in Zuul.properties are stored here
 	private Properties properties;
-	// Instance of the local player is stored here
-	private Player player;
+	
+	/*
+	 * If we planned on having multiple 'LOCAL' players then could remove this
+	 * reference and use the CharacterManager more fluidly as it currently
+	 * stores all characters including players. The game can load multiple
+	 * players from the characters.xml and by default will use whatever player
+	 * it loads first as player '1'.
+	 * 
+	 * Otherwise we could assume that 'ONLINE' multiplayer would require some
+	 * form of NetworkPlayer class that extends the Player class.
+	 * 
+	 * However, since I want to make this perfectly clear - I didn't want to
+	 * implement more than I needed to and tried to make this as open to
+	 * modification as plausible, hence the XML can store multiple players and
+	 * the CharacterManager will load all of them as Players. It will only use
+	 * this single reference for the time being.
+	 */
+	private Player player; 	// Instance of the local player is stored here
 
 	/**
 	 * Create new instance of the Game.
@@ -92,14 +114,19 @@ public class Game {
 			System.exit(1);
 		}
 
-		Room startingRoom = roomManager.getRoom(properties.getProperty("startingRoom"));
-
-		if (startingRoom == null)
+		// Get the first player we loaded from the XML
+		player = characterManager.getFirstPlayer();
+		
+		// If no player is specified in the XML, throw an erro
+		if(player == null){
 			throw new NullPointerException(
-					String.format(im.getMessage("game.noStartRoom"), properties.getProperty("startingRoom")));
+					String.format(im.getMessage("game.noPlayer")));
+		}
 
-		player = new Player(properties.getProperty("playerName"), properties.getProperty("playerDescription"),
-				startingRoom, Integer.parseInt(properties.getProperty("playerMaxWeight")));
+		// Print out details regarding player '1' and total players loaded.
+		System.out.println(String.format(im.getMessage("game.totalPlayers"), characterManager.players().size()));
+		System.out.println(String.format(im.getMessage("game.startPlayer"), player.getName()));
+		
 	}
 
 	// A boolean used to terminate the game
@@ -115,7 +142,10 @@ public class Game {
 		// execute them until the game is over.
 		while (!finished) {
 			CommandExecution command = parser.getCommand();
-			processCommand(command);
+			if(!processCommand(command)){
+				continue;
+			}
+			characterManager.act(this);
 		}
 		parser.close();
 	}
@@ -140,7 +170,6 @@ public class Game {
 		System.out.println();
 
 		System.out.println(player.getCurrentRoom());
-
 	}
 
 	/**

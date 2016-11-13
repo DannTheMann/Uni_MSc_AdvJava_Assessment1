@@ -1,11 +1,11 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
-import advjava.assessment1.zuul.refactored.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.Item;
 import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.item.Item;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
  * The Drop is designed to allow the player to drop items from their
@@ -22,6 +22,7 @@ public class DropCommand extends Command {
 
 	/**
 	 * Drop and item from the players inventory and add it to the current room.
+	 * @return true if command executed correctly
 	 */
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {

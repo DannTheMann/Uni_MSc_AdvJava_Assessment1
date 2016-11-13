@@ -1,12 +1,12 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
-import advjava.assessment1.zuul.refactored.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.Item;
-import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.item.Item;
+import advjava.assessment1.zuul.refactored.room.Room;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
  * 
@@ -27,6 +27,7 @@ public class TakeCommand extends Command {
 	/**
 	 * Try to pickup an item from the current room, if it doesn't exit then
 	 * print an error or if the item exceeds the maximum weight of the player
+	 * @return true if command executed correctly
 	 */
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {
@@ -52,7 +53,7 @@ public class TakeCommand extends Command {
 					// Player is over encumbered
 					System.out.println(String.format(InternationalisationManager.im.getMessage("pickup.heavy"), item,
 							System.lineSeparator(), game.getPlayer().getWeight()));
-					return true;
+					return false;
 				}
 
 				// Add the item

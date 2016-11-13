@@ -1,11 +1,13 @@
 package advjava.assessment1.zuul.refactored.character;
 
 import java.util.List;
+import java.util.Random;
 
-import advjava.assessment1.zuul.refactored.Item;
-import advjava.assessment1.zuul.refactored.PrintableList;
-import advjava.assessment1.zuul.refactored.Room;
+import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
+import advjava.assessment1.zuul.refactored.item.Item;
+import advjava.assessment1.zuul.refactored.room.Room;
+import advjava.assessment1.zuul.refactored.utils.PrintableList;
 
 /**
  * AI controlled Character class, implements all functionality provided by it's
@@ -20,6 +22,8 @@ public class NonPlayerCharacter extends Character {
 
 	/**
 	 * Default constructor for creating a NPC, provides all creation ability.
+	 * Passing a maxWeight <= 0 will establish the DEFAULT_MAX_WEIGHT for the
+	 * NPC instead.
 	 * 
 	 * @param name
 	 *            Name of NPC
@@ -36,7 +40,7 @@ public class NonPlayerCharacter extends Character {
 	 */
 	public NonPlayerCharacter(String name, String description, Room room, List<Item> items, int maxWeight)
 			throws InvalidCharacterNamingException {
-		super(name, description, room, items, maxWeight);
+		super(name, description, room, items, maxWeight <= 0 ? DEFAULT_MAX_WEIGHT : maxWeight);
 	}
 
 	/**
@@ -84,6 +88,37 @@ public class NonPlayerCharacter extends Character {
 	@Override
 	public final boolean isPlayer() {
 		return false;
+	}
+
+	// For moving between rooms
+	private static Random randomGenerator = new Random();
+
+	/**
+	 * Let the NPC act out a behaviour, by default this method will generate a
+	 * random value to determine whether this NPC should move rooms. To
+	 * implement different behaviour create a subclass of NonPlayerCharacter and
+	 * Override this functionality.
+	 * 
+	 * @param game
+	 *            The game instance
+	 */
+	public void act(Game game) {
+
+		// 50/50 chance to move rooms
+		if (randomGenerator.nextDouble() >= 0.5) {
+
+			Room room = getCurrentRoom();
+			Room exit = (Room) room.getExits().toArray()[randomGenerator.nextInt(room.getExits().size())];
+			if (exit == null) {
+				return;
+			}
+			room.removeCharacter(this);
+			setCurrentRoom(exit);
+			exit.addCharacter(this);
+
+		}
+		// else do nothing
+
 	}
 
 }

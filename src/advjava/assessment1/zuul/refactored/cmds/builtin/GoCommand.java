@@ -1,11 +1,11 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
-import advjava.assessment1.zuul.refactored.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.room.Room;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
  * The Go Command is designed to move the player from the existing room to
@@ -22,6 +22,7 @@ public class GoCommand extends Command {
 
 	/**
 	 * Move to another room from the existing room.
+	 * @return true if command executed correctly
 	 */
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {

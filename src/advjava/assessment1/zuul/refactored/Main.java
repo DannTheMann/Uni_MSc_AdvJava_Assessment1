@@ -6,36 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author rej
- */
-
-/*
-
-* Some form of error handling with a log that may be useful to some?
-
-* Items should be their own class as well characters
-* Better documentation, some @ tags missing for method headers, for example
- in removeItem in the Room class, should ideally tell us what happens if it 
- cannot find an item in the room,help
-does it throw an exception, 
- do nothing, print an error?
-
-*/
-
-/*
-
-Lack of documentation for help command or look command or most commands in general
-
-*/
-
-// Protected
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
  * The starting point of the game, handles directory creation for the game and
@@ -58,7 +29,7 @@ public class Main {
 	/**
 	 * Singleton for game
 	 */
-	protected static Game game;
+	public static final Game game =  new Game();
 
 	/**
 	 * Starting point for the game, checks directories exist for config and
@@ -86,7 +57,6 @@ public class Main {
 		Thread.sleep(1000);
 		System.out.println(InternationalisationManager.im.getMessage("main.createSession"));
 		// Create the game, initialise and start it
-		game = new Game();
 		game.initialiseGame(properties);
 		game.play();
 
@@ -114,10 +84,16 @@ public class Main {
 				// Create the file, store default values
 				System.out.println(InternationalisationManager.im.getMessage("main.createProp"));
 				fileOut = new FileOutputStream(propFile);
-				properties.setProperty("startingRoom", "outside");
-				properties.setProperty("playerName", "Richard Jones");
-				properties.setProperty("playerDescription", InternationalisationManager.im.getMessage("main.pdesc"));
-				properties.setProperty("playerMaxWeight", "30");
+				
+				/**
+				 * Used to use these to store a single reference to a player but sided against this to use
+				 * the XML structure I created as it reduces repeated information but allows for multiple players.
+				 */
+				
+				//properties.setProperty("startingRoom", "outside");
+				//properties.setProperty("playerName", "Richard Jones");
+				//properties.setProperty("playerDescription", InternationalisationManager.im.getMessage("main.pdesc"));
+				//properties.setProperty("playerMaxWeight", "30");
 				properties.setProperty("helpIntroductionText",
 						InternationalisationManager.im.getMessage("main.introText"));
 				properties.store(fileOut, "Zuul Configuration");
@@ -130,11 +106,11 @@ public class Main {
 				// load properties
 				properties.load(fileIn);
 
-				// check all properties exist, if any do not add them
-				checkProperty("startingRoom", "outside");
-				checkProperty("playerName", "Richard Jones");
-				checkProperty("playerDescription", InternationalisationManager.im.getMessage("main.pdesc"));
-				checkProperty("playerMaxWeight", "30");
+				/** check all properties exist, if any do not add them */
+				//checkProperty("startingRoom", "outside");
+				//checkProperty("playerName", "Richard Jones");
+				//checkProperty("playerDescription", InternationalisationManager.im.getMessage("main.pdesc"));
+				//checkProperty("playerMaxWeight", "30");
 				checkProperty("helpIntroductionText", InternationalisationManager.im.getMessage("main.introText"));
 
 				// Save any changes made, if any properties were missing

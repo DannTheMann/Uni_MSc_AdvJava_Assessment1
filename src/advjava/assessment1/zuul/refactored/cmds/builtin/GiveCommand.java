@@ -1,13 +1,13 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
-import advjava.assessment1.zuul.refactored.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.Item;
-import advjava.assessment1.zuul.refactored.Room;
 import advjava.assessment1.zuul.refactored.character.Character;
 import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.item.Item;
+import advjava.assessment1.zuul.refactored.room.Room;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
  * The GiveCommand is designed to allow the player to give items from their
@@ -56,7 +56,7 @@ public class GiveCommand extends Command {
 			if (item.getWeight() + character.getWeight() > character.getMaxWeight()) {
 				System.out.println(
 						String.format(InternationalisationManager.im.getMessage("give.heavy"), character.getName()));
-				return true;
+				return false;
 			}
 
 			// Add item to the character, remove from player, update weights

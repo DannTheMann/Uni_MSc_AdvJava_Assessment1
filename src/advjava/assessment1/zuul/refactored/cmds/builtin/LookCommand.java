@@ -6,10 +6,10 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
-import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.character.Character;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
  * The look command reprints the rooms current information, or if a parameter is
@@ -26,6 +26,9 @@ public class LookCommand extends Command {
 
 	/**
 	 * Print details about the current room, of a character if mentioned
+	 * 
+	 * @return false regardless, this is a passive command should not step
+	 *         forward the loop
 	 */
 	public boolean action(Game game, CommandExecution cmd) {
 
@@ -40,21 +43,18 @@ public class LookCommand extends Command {
 			// If we found the character
 			if (npc != null) {
 				System.out.println(npc);
-				return true;
 			} else {
 				// print an error, no character found
 				System.out
 						.println(String.format(InternationalisationManager.im.getMessage("look.noone"), characterName));
 			}
 
-			return false;
-
 		} else {
 			// print room details
 			System.out.println(game.getPlayer().getCurrentRoom());
 		}
 
-		return true;
+		return false;
 	}
 
 }

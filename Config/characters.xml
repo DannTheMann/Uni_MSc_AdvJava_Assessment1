@@ -1,5 +1,16 @@
 <game-characters>
-	<npc>
+	<character>
+		<name>Richard Jones</name>
+		<description>Java Guru and long time fan of Zuul.</description>
+		<room>outside</room>
+		<player>true</player>
+		<maxweight>50</maxweight>
+		<inventory>
+			<item>apple</item>
+			<item>gun</item>
+		</inventory>
+	</character>
+	<character>
 		<name>Bob</name>
 		<description>Lovely chap.</description>
 		<room>outside</room>
@@ -9,28 +20,28 @@
 			<item>gun</item>
 			<item>book</item>
 		</inventory>
-	</npc>
-	<npc>
+	</character>
+	<character>
 		<name>Chris</name>
 		<description>Lovely bloke.</description>
 		<room>outside</room>
-	</npc>
-	<npc>
+	</character>
+	<character>
 		<name>Mitch</name>
 		<description>A crazy looking scientist.</description>
 		<room>lab</room>
-	</npc>
-	<npc>
+	</character>
+	<character>
 		<name>Louis</name>
 		<description>The landlord.</description>
 		<room>pub</room>
-	</npc>
-	<npc>
+	</character>
+	<character>
 		<name>Craig</name>
 		<description>A drama student, equipped with a violin.</description>
 		<room>theatre</room>
-	</npc>
-	<npc>
+	</character>
+	<character>
 		<name>Donald Trump</name>
 		<description>A questionable gentlemen.</description>
 		<room>outside</room>
@@ -40,5 +51,12 @@
 			<item>gun</item>
 			<item>book</item>
 		</inventory>
-	</npc>
+	</character>
+	<character>
+		<name>James Pond</name>
+		<description>Terrible game for the Sega Megadrive.</description>
+		<room>lab</room>
+		<player>true</player>
+		<maxweight>10</maxweight>
+	</character>
 </game-characters>

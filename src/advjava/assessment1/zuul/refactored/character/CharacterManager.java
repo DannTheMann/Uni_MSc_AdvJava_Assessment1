@@ -2,9 +2,12 @@ package advjava.assessment1.zuul.refactored.character;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-import advjava.assessment1.zuul.refactored.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
  * 
@@ -18,6 +21,35 @@ public class CharacterManager {
 
 	private static final Map<String, Character> characters = new HashMap<>();
 
+	/**
+	 * Retrieves the player in the CharacterManager
+	 * with the given name provided, if not found
+	 * returns null.
+	 * @param playerName Player name to look for
+	 * @return Player if found
+	 */
+	public Player getPlayer(String playerName){
+		Character player =  characters.values().stream()
+				.filter(Character::isPlayer)
+				.filter(c->c.getName().equals(playerName))
+				.findFirst()
+				.orElse(null);
+		return player != null ? (Player) player : null;
+	}
+	
+	/**
+	 * Get the first player, or player one if 
+	 * you like. 
+	 * @return The first player added, if none exist return null
+	 */
+	public Player getFirstPlayer(){
+		Character player =  characters.values().stream()
+				.filter(Character::isPlayer)
+				.findFirst()
+				.orElse(null);
+		return player != null ? (Player) player : null;
+	}
+	
 	/**
 	 * Add a new character to the CharacterManager
 	 * 
@@ -66,6 +98,38 @@ public class CharacterManager {
 	 */
 	public Collection<Character> characters() {
 		return characters.values();
+	}
+	
+	/**
+	 * Get a list of all players within the character manager
+	 * @return List of players
+	 */
+	public List<Character> players(){
+		return characters.values().stream()
+				.filter(Character::isPlayer)
+				.collect(Collectors.toList());
+	}
+	
+	/**
+	 * Get a list of all non player characters within the character manager
+	 * @return List of non player characters
+	 */
+	public List<Character> nonPlayerCharacters(){
+		return characters.values().stream()
+				.filter(c->!c.isPlayer())
+				.collect(Collectors.toList());
+	}
+
+	/**
+	 * For every NonPlayerCharacter in the game,
+	 * invoke their act method and let them do
+	 * something within the game world.
+	 * @param game The game instance
+	 */
+	public void act(Game game) {
+		characters.values().stream()
+			.filter(c->!c.isPlayer())
+			.forEach(c->((NonPlayerCharacter) c).act(game));
 	}
 
 }

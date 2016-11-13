@@ -1,9 +1,9 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
-import advjava.assessment1.zuul.refactored.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
  * The Help Command is designed to print every command currently loaded in the
@@ -20,6 +20,7 @@ public class HelpCommand extends Command {
 
 	/**
 	 * Show all commands in the game.
+	 * @return true if command is to move the game loop forward
 	 */
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {
@@ -39,7 +40,7 @@ public class HelpCommand extends Command {
 		System.out.println(String.format(InternationalisationManager.im.getMessage("help.print"),
 				System.lineSeparator(), sb.toString()));
 
-		return true;
+		return false;
 	}
 
 }
