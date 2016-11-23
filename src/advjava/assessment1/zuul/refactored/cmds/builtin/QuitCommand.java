@@ -28,11 +28,11 @@ public class QuitCommand extends Command {
 		// If the command length is greater than 0, purely used to
 		// make sure the player does not call this command by accident
 		if (cmd.commandLength() > 1) {
-			System.out.println(String.format(InternationalisationManager.im.getMessage("game.quit")));
+			game.getInterface().println(String.format(InternationalisationManager.im.getMessage("game.quit")));
 			game.terminate(); // End the game
 		} else {
 			// Not enough params
-			System.out.println(String.format(InternationalisationManager.im.getMessage("quit.what")));
+			game.getInterface().println(String.format(InternationalisationManager.im.getMessage("quit.what")));
 		}
 
 		return false;

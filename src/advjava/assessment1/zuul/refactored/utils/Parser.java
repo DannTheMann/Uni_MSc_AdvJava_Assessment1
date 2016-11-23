@@ -14,6 +14,7 @@ import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
  * @author dja33
  *
  */
+@Deprecated
 public class Parser {
 	private Scanner reader; // source of command input
 

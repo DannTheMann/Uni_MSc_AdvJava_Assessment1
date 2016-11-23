@@ -8,11 +8,14 @@ import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.cmds.CommandManager;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
+import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
+import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.item.ItemManager;
 import advjava.assessment1.zuul.refactored.room.RoomManager;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.utils.Parser;
+import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.XMLManager;
+import java.io.IOException;
 
 /**
  * 
@@ -28,8 +31,10 @@ import advjava.assessment1.zuul.refactored.utils.XMLManager;
 public class Game {
 
 	// The command line parser used to interpret user instruction
-	private final Parser parser = new Parser();
-
+	private final UserInterface ui;
+        //private final Parser parser = new Parser();
+    
+    
 	/*
 	 * Management for multiple roles
 	 */
@@ -69,7 +74,9 @@ public class Game {
 	 * 
 	 * Call .play() to start the game
 	 */
-	public Game() {
+	public Game() {                        
+                Out.createLogger(Main.LOG_FILES);
+                this.ui = new CommandLineInterface();
 		this.commandManager = new CommandManager();
 		this.characterManager = new CharacterManager();
 		this.roomManager = new RoomManager();
@@ -96,21 +103,21 @@ public class Game {
 
 		try {
 
-			System.out.println();
-			System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
-			System.out.println(im.getMessage("game.loadXML"));
-			System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
+			ui.println();
+			Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
+			Out.out.logln(im.getMessage("game.loadXML"));
+                        Out.out.logln("-> " + Main.XML_CONFIGURATION_FILES);
+			Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
 
 			XMLManager.loadItems(itemManager);
 			XMLManager.loadRooms(roomManager);
 			XMLManager.loadCharacters(characterManager);
 
-			System.out.println(im.getMessage("game.finishXML"));
-			System.out.println();
+			Out.out.logln(im.getMessage("game.finishXML"));
+			ui.println();
 
 		} catch (MalformedXMLException e) {
-			System.err.println(im.getMessage("game.failXML"));
-			e.printStackTrace();
+			ui.printlnErr(im.getMessage("game.failXML"));
 			System.exit(1);
 		}
 
@@ -124,8 +131,8 @@ public class Game {
 		}
 
 		// Print out details regarding player '1' and total players loaded.
-		System.out.println(String.format(im.getMessage("game.totalPlayers"), characterManager.players().size()));
-		System.out.println(String.format(im.getMessage("game.startPlayer"), player.getName()));
+		Out.out.logln(String.format(im.getMessage("game.totalPlayers"), characterManager.players().size()));
+		Out.out.logln(String.format(im.getMessage("game.startPlayer"), player.getName()));
 		
 	}
 
@@ -141,13 +148,14 @@ public class Game {
 		// Enter the main command loop. Here we repeatedly read commands and
 		// execute them until the game is over.
 		while (!finished) {
-			CommandExecution command = parser.getCommand();
+			CommandExecution command = ui.getCommand();
 			if(!processCommand(command)){
 				continue;
 			}
 			characterManager.act(this);
 		}
-		parser.close();
+		ui.exit();
+                System.exit(0);
 	}
 
 	/**
@@ -163,13 +171,13 @@ public class Game {
 	 * Print out the opening message for the player and their starting room
 	 */
 	private void printWelcome() {
-		System.out.println();
-		System.out.println(im.getMessage("game.welcome1"));
-		System.out.println(im.getMessage("game.welcome2"));
-		System.out.println(im.getMessage("game.welcome3"));
-		System.out.println();
+		ui.println();
+		ui.println(im.getMessage("game.welcome1"));
+		ui.println(im.getMessage("game.welcome2"));
+		ui.println(im.getMessage("game.welcome3"));
+		ui.println();
 
-		System.out.println(player.getCurrentRoom());
+		ui.println(player.getCurrentRoom());
 	}
 
 	/**
@@ -187,7 +195,7 @@ public class Game {
 
 		// If the command isn't a known command
 		if (commandManager.getCommand(command.getCommandWord()) == null) {
-			System.out.println(im.getMessage("game.invalidCmd"));
+			ui.println(im.getMessage("game.invalidCmd"));
 			return false;
 		}
 
@@ -257,5 +265,14 @@ public class Game {
 	 */
 	public void terminate() {
 		finished = true;
+                try{
+                    Out.out.close();
+                }catch(IOException ioe){
+                    Out.out.loglnErr("Failed to close logger!");
+                }
 	}
+
+        public UserInterface getInterface() {
+            return ui;
+        }
 }

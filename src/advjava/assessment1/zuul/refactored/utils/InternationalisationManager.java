@@ -30,7 +30,7 @@ public class InternationalisationManager {
 	 *            The users default locale
 	 */
 	private InternationalisationManager(Locale locale) {
-		System.out.println("LOCALE: " + locale.toString() + " - " + locale.getDisplayCountry());
+		Out.out.logln("LOCALE: " + locale.toString() + " - " + locale.getDisplayCountry());
 		bundle = ResourceBundle.getBundle("Zuul_Messages", locale);
 	}
 

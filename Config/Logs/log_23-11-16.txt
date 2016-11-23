@@ -1,0 +1,99 @@
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[15:25:33] Created new logger. 'X:\home\AdvJava\AdvJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[15:25:33] LOCALE: en_GB - United Kingdom
+[15:25:33] Loading default commands...
+[15:25:33] Loaded default commands...
+[15:25:33] Starting World of Zuul... ENGLISH
+[15:25:33] Loading properties.ini file...
+[15:25:33] Property file found, loading properties...
+[15:25:33] Closed I/O streams.
+[15:25:33] Properties loaded.
+[15:25:34] Creating game session...
+[15:25:34] 
+[15:25:34]  - - - - - - - - - - - - - - - - - - - - 
+[15:25:34]       Loading Plugins ...          
+[15:25:34]  - - - - - - - - - - - - - - - - - - - - 
+[15:25:34] Loaded 'advjava.assessment1.zuul.example.Main'.
+[15:25:34] - Finished  - - - - - - - - - - - - - - 
+[15:25:34]  - - - - - - - - - - - - - - - - - - - - 
+[15:25:34]       Loading XML Config files ...    
+[15:25:34] -> X:\home\AdvJava\AdvJava_Assessment1\Config
+[15:25:34]  - - - - - - - - - - - - - - - - - - - - 
+[15:25:34] Added item 'apple'
+[15:25:34] Added item 'book'
+[15:25:34] Added item 'gun'
+[15:25:34] Added item 'tomato'
+[15:25:34] Added item 'pear'
+[15:25:34] Added item 'grapes'
+[15:25:34] Loaded room 'outside'
+[15:25:34] Loaded room 'library'
+[15:25:34] Loaded room 'theatre'
+[15:25:34] Loaded room 'lab'
+[15:25:34] Loaded room 'pub'
+[15:25:34] Added new player 'RichardJones'.
+[15:25:34] Added new character 'Bob'.
+[15:25:34] Added new character 'Chris'.
+[15:25:34] Added new character 'Mitch'.
+[15:25:34] Added new character 'Louis'.
+[15:25:34] Added new character 'Craig'.
+[15:25:34] Added new character 'DonaldTrump'.
+[15:25:34] Added new player 'JamesPond'.
+[15:25:34] - - Finished - - - - - - - - - - - - - - 
+[15:25:34] There are 2 players playing.
+[15:25:34] Assuming the control of player 'RichardJones'.
+[15:25:42] Closing logger.
+[15:25:42] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[15:27:58] Created new logger. 'X:\home\AdvJava\AdvJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[15:27:58] LOCALE: en_GB - United Kingdom
+[15:27:58] Loading default commands...
+[15:27:58] Loaded default commands...
+[15:27:58] Starting World of Zuul... ENGLISH
+[15:27:58] Loading properties.ini file...
+[15:27:58] Property file found, loading properties...
+[15:27:58] Closed I/O streams.
+[15:27:58] Properties loaded.
+[15:27:59] Creating game session...
+[15:27:59] 
+[15:27:59]  - - - - - - - - - - - - - - - - - - - - 
+[15:27:59]       Loading Plugins ...          
+[15:27:59]  - - - - - - - - - - - - - - - - - - - - 
+[15:27:59] Loaded 'advjava.assessment1.zuul.example.Main'.
+[15:27:59] - Finished  - - - - - - - - - - - - - - 
+[15:27:59]  - - - - - - - - - - - - - - - - - - - - 
+[15:27:59]       Loading XML Config files ...    
+[15:27:59] -> X:\home\AdvJava\AdvJava_Assessment1\Config
+[15:27:59]  - - - - - - - - - - - - - - - - - - - - 
+[15:27:59] Added item 'apple'
+[15:27:59] Added item 'book'
+[15:27:59] Added item 'gun'
+[15:27:59] Added item 'tomato'
+[15:27:59] Added item 'pear'
+[15:27:59] Added item 'grapes'
+[15:27:59] Loaded room 'outside'
+[15:27:59] Loaded room 'library'
+[15:27:59] Loaded room 'theatre'
+[15:27:59] Loaded room 'lab'
+[15:27:59] Loaded room 'pub'
+[15:27:59] Added new player 'RichardJones'.
+[15:27:59] Added new character 'Bob'.
+[15:27:59] Added new character 'Chris'.
+[15:27:59] Added new character 'Mitch'.
+[15:27:59] Added new character 'Louis'.
+[15:27:59] Added new character 'Craig'.
+[15:27:59] Added new character 'DonaldTrump'.
+[15:27:59] Added new player 'JamesPond'.
+[15:27:59] - - Finished - - - - - - - - - - - - - - 
+[15:27:59] There are 2 players playing.
+[15:27:59] Assuming the control of player 'RichardJones'.
+[15:27:59] An error occurred somewhere, closing logger. For input string: "Potato"
+[15:27:59] Closing logger.
+[15:27:59] Closing writer for logger.

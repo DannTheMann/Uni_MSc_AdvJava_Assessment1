@@ -35,9 +35,9 @@ public class HelpCommand extends Command {
 		}
 
 		// Print out the concatenated list of commands
-		System.out.println(String.format(InternationalisationManager.im.getMessage("help.intro"),
+		game.getInterface().println(String.format(InternationalisationManager.im.getMessage("help.intro"),
 				game.getProperty("helpIntroductionText"), System.lineSeparator()));
-		System.out.println(String.format(InternationalisationManager.im.getMessage("help.print"),
+		game.getInterface().println(String.format(InternationalisationManager.im.getMessage("help.print"),
 				System.lineSeparator(), sb.toString()));
 
 		return false;

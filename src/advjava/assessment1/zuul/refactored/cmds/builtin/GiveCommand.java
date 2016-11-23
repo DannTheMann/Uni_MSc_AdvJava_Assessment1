@@ -41,20 +41,20 @@ public class GiveCommand extends Command {
 
 			// If the item does NOT exist in the players inventory
 			if (item == null) {
-				System.out.println(String.format(InternationalisationManager.im.getMessage("give.notowned"), itemName));
+				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("give.notowned"), itemName));
 				return false;
 			}
 
 			// If the character specified is NOT in the room
 			if (character == null) {
-				System.out
+				game.getInterface()
 						.println(String.format(InternationalisationManager.im.getMessage("give.noone"), characterName));
 				return false;
 			}
 
 			// If the character cannot hold anymore weight
 			if (item.getWeight() + character.getWeight() > character.getMaxWeight()) {
-				System.out.println(
+				game.getInterface().println(
 						String.format(InternationalisationManager.im.getMessage("give.heavy"), character.getName()));
 				return false;
 			}
@@ -65,13 +65,13 @@ public class GiveCommand extends Command {
 			player.removeItem(item);
 			player.setWeight(player.getWeight() - item.getWeight());
 
-			System.out.println(String.format(InternationalisationManager.im.getMessage("give.success"),
+			game.getInterface().println(String.format(InternationalisationManager.im.getMessage("give.success"),
 					character.getName(), item.getName()));
 			return true;
 
 		} else {
 			// Not enough parameters
-			System.out.println(InternationalisationManager.im.getMessage("give.noparam"));
+			game.getInterface().println(InternationalisationManager.im.getMessage("give.noparam"));
 		}
 
 		return false;

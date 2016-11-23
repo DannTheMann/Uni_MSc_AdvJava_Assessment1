@@ -51,7 +51,7 @@ public class TakeCommand extends Command {
 				// becoming over encumbered
 				if (player.getWeight() + item.getWeight() > player.getMaxWeight()) {
 					// Player is over encumbered
-					System.out.println(String.format(InternationalisationManager.im.getMessage("pickup.heavy"), item,
+					game.getInterface().println(String.format(InternationalisationManager.im.getMessage("pickup.heavy"), item,
 							System.lineSeparator(), game.getPlayer().getWeight()));
 					return false;
 				}
@@ -62,17 +62,17 @@ public class TakeCommand extends Command {
 				// Update weights
 				player.setWeight(player.getWeight() + item.getWeight());
 
-				System.out.println(String.format(InternationalisationManager.im.getMessage("pickup.success"), item));
+				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("pickup.success"), item));
 
 				return true;
 			} else {
 				// No item exists in this room called that
-				System.out.println(String.format(InternationalisationManager.im.getMessage("pickup.noone"), itemName));
+				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("pickup.noone"), itemName));
 			}
 
 		} else {
 			// Not enough params
-			System.out.println(InternationalisationManager.im.getMessage("pickup.noparam"));
+			game.getInterface().println(InternationalisationManager.im.getMessage("pickup.noparam"));
 		}
 
 		return false;

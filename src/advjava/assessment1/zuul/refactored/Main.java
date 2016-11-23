@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.Out;
 
 /**
  * The starting point of the game, handles directory creation for the game and
@@ -22,6 +23,7 @@ public class Main {
 	// Constants for directorys and files
 	public static final String PLUGIN_COMMANDS_FOLDER = System.getProperty("user.dir") + File.separator + "Plugins";
 	public static final String XML_CONFIGURATION_FILES = System.getProperty("user.dir") + File.separator + "Config";
+        public static final String LOG_FILES = System.getProperty("user.dir") + File.separator + "Config" + File.separator + "Logs";
 	private static final String PROPERTIES_FILE = XML_CONFIGURATION_FILES + File.separator + "zuul.properties";
 
 	private static Properties properties = null;
@@ -29,7 +31,7 @@ public class Main {
 	/**
 	 * Singleton for game
 	 */
-	public static final Game game =  new Game();
+	public static final Game game = new Game();
 
 	/**
 	 * Starting point for the game, checks directories exist for config and
@@ -38,27 +40,41 @@ public class Main {
 	 * 
 	 * @param args
 	 *            the command line arguments
-	 * @throws Exception
-	 *             if any initial problems occur further in
 	 */
-	public static void main(String[] args) throws Exception {
-		System.out.println(InternationalisationManager.im.getMessage("main.start"));
+	public static void main(String[] args){
+                
+            try{
+            
+                Out.out.setPrintingDebugMessages(true);
+		Out.out.logln(InternationalisationManager.im.getMessage("main.start"));
 
 		// Check directories for plugins/xml files
 		checkDirectory(PLUGIN_COMMANDS_FOLDER);
 		checkDirectory(XML_CONFIGURATION_FILES);
 
 		// Load properties file to gather default parameters for game
-		System.out.println(InternationalisationManager.im.getMessage("main.loadProp"));
+		Out.out.logln(InternationalisationManager.im.getMessage("main.loadProp"));
 		properties = loadProperties();
-		System.out.println(InternationalisationManager.im.getMessage("main.finishProp"));
+                
+                //Out.close();
+                //Out.createLogger(properties.getProperty("logFile"));
+                
+		Out.out.logln(InternationalisationManager.im.getMessage("main.finishProp"));
 
 		// Delay to allow everything to be ready...
 		Thread.sleep(1000);
-		System.out.println(InternationalisationManager.im.getMessage("main.createSession"));
+		Out.out.logln(InternationalisationManager.im.getMessage("main.createSession"));
 		// Create the game, initialise and start it
 		game.initialiseGame(properties);
 		game.play();
+                
+            }catch(Exception e){
+                e.printStackTrace();
+                Out.out.loglnErr("An error occurred somewhere, closing logger. " +e.getMessage());
+                try{
+                    Out.close();
+                }catch(IOException ioe){}
+            }
 
 	}
 
@@ -82,7 +98,7 @@ public class Main {
 			if (!propFile.exists()) {
 
 				// Create the file, store default values
-				System.out.println(InternationalisationManager.im.getMessage("main.createProp"));
+				Out.out.logln(InternationalisationManager.im.getMessage("main.createProp"));
 				fileOut = new FileOutputStream(propFile);
 				
 				/**
@@ -96,12 +112,14 @@ public class Main {
 				//properties.setProperty("playerMaxWeight", "30");
 				properties.setProperty("helpIntroductionText",
 						InternationalisationManager.im.getMessage("main.introText"));
+                                properties.setProperty("logFile",
+						LOG_FILES);
 				properties.store(fileOut, "Zuul Configuration");
 
 				// File does exist
 			} else {
 
-				System.out.println(InternationalisationManager.im.getMessage("main.propFound"));
+				Out.out.logln(InternationalisationManager.im.getMessage("main.propFound"));
 				fileIn = new FileInputStream(propFile);
 				// load properties
 				properties.load(fileIn);
@@ -112,7 +130,8 @@ public class Main {
 				//checkProperty("playerDescription", InternationalisationManager.im.getMessage("main.pdesc"));
 				//checkProperty("playerMaxWeight", "30");
 				checkProperty("helpIntroductionText", InternationalisationManager.im.getMessage("main.introText"));
-
+                                checkProperty("logFile", LOG_FILES);
+                                
 				// Save any changes made, if any properties were missing
 				fileOut = new FileOutputStream(propFile);
 				properties.store(fileOut, "Zuul Configuration");
@@ -120,7 +139,7 @@ public class Main {
 			}
 
 		} catch (Exception e) {
-			System.err.println(InternationalisationManager.im.getMessage("main.propFail"));
+			Out.out.loglnErr(InternationalisationManager.im.getMessage("main.propFail"));
 			e.printStackTrace();
 			System.exit(1);
 		} finally {
@@ -133,9 +152,9 @@ public class Main {
 				if (fileIn != null){
 					fileIn.close();
 				}
-				System.out.println(InternationalisationManager.im.getMessage("main.closeIO"));
+				Out.out.logln(InternationalisationManager.im.getMessage("main.closeIO"));
 			} catch (IOException e) {
-				System.err.println(InternationalisationManager.im.getMessage("main.IOFail"));
+				Out.out.loglnErr(InternationalisationManager.im.getMessage("main.IOFail"));
 				e.printStackTrace();
 			}
 		}
@@ -154,7 +173,7 @@ public class Main {
 	 */
 	private static boolean checkProperty(String key, String value) {
 		if (!properties.containsKey(key)) {
-			System.err.println(String.format(InternationalisationManager.im.getMessage("main.badProp"), key, value));
+			Out.out.loglnErr(String.format(InternationalisationManager.im.getMessage("main.badProp"), key, value));
 			properties.setProperty(key, value);
 			return false;
 		}
@@ -172,9 +191,9 @@ public class Main {
 		File directory = new File(dir);
 
 		if (!directory.exists()) {
-			System.out.println(String.format(InternationalisationManager.im.getMessage("main.noDir"),
+			Out.out.logln(String.format(InternationalisationManager.im.getMessage("main.noDir"),
 					directory.getAbsolutePath()));
-			System.out.println(
+			Out.out.logln(
 					String.format(InternationalisationManager.im.getMessage("main.mkdir"), directory.mkdirs()));
 			return false;
 		}

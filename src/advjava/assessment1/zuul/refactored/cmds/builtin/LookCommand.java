@@ -42,16 +42,16 @@ public class LookCommand extends Command {
 
 			// If we found the character
 			if (npc != null) {
-				System.out.println(npc);
+				game.getInterface().println(npc);
 			} else {
 				// print an error, no character found
-				System.out
+				game.getInterface()
 						.println(String.format(InternationalisationManager.im.getMessage("look.noone"), characterName));
 			}
 
 		} else {
 			// print room details
-			System.out.println(game.getPlayer().getCurrentRoom());
+			game.getInterface().println(game.getPlayer().getCurrentRoom());
 		}
 
 		return false;

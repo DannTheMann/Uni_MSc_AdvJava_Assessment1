@@ -22,6 +22,7 @@ import advjava.assessment1.zuul.refactored.cmds.builtin.LookCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.QuitCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.TakeCommand;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.Out;
 
 /**
  * Manages all instances of commands used within the game. Provides methods to
@@ -52,10 +53,10 @@ public class CommandManager {
 	 */
 	public void loadPlugins() {
 
-		System.out.println();
-		System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
-		System.out.println(InternationalisationManager.im.getMessage("loadingPlugins"));
-		System.out.println(" - - - - - - - - - - - - - - - - - - - - ");
+		Out.out.logln();
+		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
+		Out.out.logln(InternationalisationManager.im.getMessage("loadingPlugins"));
+		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
 
 		try {
 
@@ -110,8 +111,8 @@ public class CommandManager {
 							m.invoke(c.newInstance(), Main.game);
 						} catch (InvocationTargetException ite) {
 							// Failed to invoke, try next .class
-							System.err.println(ite.getTargetException());
-							System.err.println(String.format(
+							Out.out.loglnErr(ite.getTargetException());
+							Out.out.loglnErr(String.format(
 									InternationalisationManager.im.getMessage("failedLoadPlugins"), jar.getName()));
 							continue;
 						}
@@ -119,7 +120,7 @@ public class CommandManager {
 						// for, no need to carry on looking
 						// at this plugin, so print success and break out the
 						// while loop
-						System.out.println(
+						Out.out.logln(
 								String.format(InternationalisationManager.im.getMessage("loadedClass"), c.getName()));
 						break;
 
@@ -129,7 +130,7 @@ public class CommandManager {
 				} else {
 					// An unexpected file or directory is present in the plugins
 					// folder, so we ignore it
-					System.out.println(
+					Out.out.logln(
 							String.format(InternationalisationManager.im.getMessage("ignoreFile"), jar.getName()));
 				}
 
@@ -137,10 +138,10 @@ public class CommandManager {
 
 		} catch (Exception e) {
 			// Something more serious occurred while trying to load the plugins
-			System.err.println(String.format(InternationalisationManager.im.getMessage("failedReflection")));
+			Out.out.loglnErr(String.format(InternationalisationManager.im.getMessage("failedReflection")));
 			e.printStackTrace();
 		}
-		System.out.println(InternationalisationManager.im.getMessage("loadingPluginsFinished"));
+		Out.out.logln(InternationalisationManager.im.getMessage("loadingPluginsFinished"));
 
 	}
 
@@ -151,7 +152,7 @@ public class CommandManager {
 	 * These commands utilise internationlisation by default
 	 */
 	private void loadDefaultCommands() {
-		System.out.println(InternationalisationManager.im.getMessage("loadingDefaultCommands"));
+		Out.out.logln(InternationalisationManager.im.getMessage("loadingDefaultCommands"));
 
 		commands.put(InternationalisationManager.im.getMessage("loadLook"),
 				new LookCommand(InternationalisationManager.im.getMessage("loadLook"),
@@ -176,7 +177,7 @@ public class CommandManager {
 		commands.put("debug",
 				new DebugCommand("debug", "Debug information on game. /debug <rooms|characters|items|general|player>"));
 
-		System.out.println(InternationalisationManager.im.getMessage("loadedDefault"));
+		Out.out.logln(InternationalisationManager.im.getMessage("loadedDefault"));
 	}
 
 	/**

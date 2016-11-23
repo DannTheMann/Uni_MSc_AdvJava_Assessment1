@@ -36,7 +36,7 @@ public class GoCommand extends Command {
 
 			// If the direction specified returned no exit
 			if (nextRoom == null) {
-				System.out.println(InternationalisationManager.im.getMessage("go.noexit"));
+				game.getInterface().println(InternationalisationManager.im.getMessage("go.noexit"));
 				return false;
 			}
 
@@ -46,14 +46,14 @@ public class GoCommand extends Command {
 			nextRoom.addCharacter(player);
 
 			// Print room information
-			System.out.println();
-			System.out.println(nextRoom);
+			game.getInterface().println();
+			game.getInterface().println(nextRoom);
 
 			return true;
 
 		} else {
 			// Not enough params
-			System.out.println(InternationalisationManager.im.getMessage("go.noparam"));
+			game.getInterface().println(InternationalisationManager.im.getMessage("go.noparam"));
 		}
 
 		return false;

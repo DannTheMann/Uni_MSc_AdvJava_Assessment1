@@ -157,11 +157,11 @@ public abstract class XMLManager {
 
 					// If the room is new or has a final implementation of it
 					if (added || (!added && finalRoom.isComplete())) {
-						System.out.println(String.format(InternationalisationManager.im.getMessage("xml.loadRoom"),
+						Out.out.logln(String.format(InternationalisationManager.im.getMessage("xml.loadRoom"),
 								finalRoom.getName()));
 					} else {
 						// Duplicated room
-						System.out.println(String.format(InternationalisationManager.im.getMessage("xml.roomExists"),
+						Out.out.logln(String.format(InternationalisationManager.im.getMessage("xml.roomExists"),
 								finalRoom.getName()));
 					}
 				}
@@ -265,7 +265,7 @@ public abstract class XMLManager {
 					// Is there a player tag? If so, is this a player to add to the game?
 					if(hasElement(eElement, "player") && getElement(eElement, "player").equals("true")){
 						player = new Player(name, desc, room, items, weight);
-						System.out.println(String.format(InternationalisationManager.im.getMessage("xml.playerLoad"), player.getName()));
+						Out.out.logln(String.format(InternationalisationManager.im.getMessage("xml.playerLoad"), player.getName()));
 						cm.addCharacter(player);
 						continue;
 					}
@@ -275,7 +275,7 @@ public abstract class XMLManager {
 
 				// Add character
 				cm.addCharacter(npc);
-				System.out.println(
+				Out.out.logln(
 						String.format(InternationalisationManager.im.getMessage("xml.charAdd"), npc.getName()));
 
 			}
@@ -330,7 +330,7 @@ public abstract class XMLManager {
 
 				// add item
 				im.addItem(item);
-				System.out.println(
+				Out.out.logln(
 						String.format(InternationalisationManager.im.getMessage("xml.addItem"), item.getName()));
 
 			}

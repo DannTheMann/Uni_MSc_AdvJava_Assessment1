@@ -42,19 +42,19 @@ public class DropCommand extends Command {
 				// update weight
 				player.setWeight(player.getWeight() - item.getWeight());
 				player.removeItem(item);
-				System.out.println(String.format(InternationalisationManager.im.getMessage("dropitem.success"), item));
+				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("dropitem.success"), item));
 
 				return true;
 
 			} else {
 				// Player does not have this item
-				System.out.println(
+				game.getInterface().println(
 						String.format(InternationalisationManager.im.getMessage("dropitem.notowned"), itemName));
 			}
 
 		} else {
 			// Not enough parameters
-			System.out.println(InternationalisationManager.im.getMessage("dropitem.noparam"));
+			game.getInterface().println(InternationalisationManager.im.getMessage("dropitem.noparam"));
 		}
 
 		return false;
