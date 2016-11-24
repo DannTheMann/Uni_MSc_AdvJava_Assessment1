@@ -46,7 +46,8 @@ public class DropCommand extends Command {
 				player.setWeight(player.getWeight() - item.getWeight());
 				player.removeItem(item);
 				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("dropitem.success"), item));
-
+                                game.getInterface().update();
+                                
 				return true;
 
 			} else {
@@ -57,7 +58,12 @@ public class DropCommand extends Command {
 
 		} else {
 			// Not enough parameters
-			game.getInterface().println(InternationalisationManager.im.getMessage("dropitem.noparam"));
+                        if(game.getInterface() instanceof CommandLineInterface){
+                            game.getInterface().println(InternationalisationManager.im.getMessage("dropitem.noparam"));
+                        }else{
+                            game.getInterface().showInventory();
+                        }
+                        
 		}
 
 		return false;

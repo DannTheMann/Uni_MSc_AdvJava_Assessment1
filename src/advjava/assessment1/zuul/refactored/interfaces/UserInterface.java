@@ -13,18 +13,22 @@ import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
  * @author dja33
  */
 public interface UserInterface {
-	
+    
+    public void displayLocale(Object obj);
+    public void displaylnLocale(Object obj);
     public void print(Object obj);
     public void println(Object obj);
     public void println();
     public void printErr(Object obj);
     public void printlnErr(Object obj);
     
-    public void exit();
-    
-    public boolean update(Game game);
-    
-    public CommandExecution getCommand();
-	public void play(Game zuulGame);
+    public void exit();  
+    public boolean update();
+    public void play(Game zuulGame);
+
+    public void showInventory();
+    public void showCharacters();
+    public void showRoom();
+     
      
 }

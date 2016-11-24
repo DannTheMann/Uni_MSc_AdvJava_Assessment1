@@ -11,16 +11,17 @@ import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.ResourceManager;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class GraphicalInterface extends Application implements UserInterface {
@@ -61,13 +62,16 @@ public class GraphicalInterface extends Application implements UserInterface {
     }
 
     @Override
-    public CommandExecution getCommand() {
-        // TODO Auto-generated method stub
-        return null;
+    public void displayLocale(Object obj) {
+
     }
 
     @Override
-    public boolean update(Game game) {
+    public void displaylnLocale(Object obj) {
+
+    }
+
+    public boolean update() {
         // TODO Auto-generated method stub
         return false;
     }
@@ -91,7 +95,9 @@ public class GraphicalInterface extends Application implements UserInterface {
         iv.fitHeightProperty().bind(primaryStage.heightProperty());
 
         BorderPane border = new BorderPane();
-        border.setStyle("-fx-background-image: url(X:\\home\\AdvJava\\AdvJava-Assessment1-Zuul\\Resources\\outside.jpg);");
+        border.setStyle(""
+                + "-fx-background-image: url(outside.jpg);"
+                + "-fx-background-size: cover;");
         border.setBottom(hbox);
         //sp.getChildren().add(hbox);
 
@@ -100,8 +106,27 @@ public class GraphicalInterface extends Application implements UserInterface {
 //        grid.setHgap(10);
 //        grid.setVgap(10);
 //        grid.setPadding(new Insets(25, 25, 25, 25));
-        Scene scene = new Scene(border, 1280, 720);
-        primaryStage.setScene(scene);
+        Button btn = new Button();
+        btn.setText("Open Dialog");
+        btn.setOnAction(
+                new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                final Stage dialog = new Stage();
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                dialog.initOwner(primaryStage);
+                VBox dialogVbox = new VBox(20);
+                dialogVbox.getChildren().add(new Text("This is a Dialog"));
+                Scene dialogScene = new Scene(dialogVbox, 300, 200);
+                dialog.setScene(dialogScene);
+                dialog.show();
+            }
+        });
+    
+        border.setTop(btn);
+    Scene scene = new Scene(border, 1280, 720);
+
+    primaryStage.setScene (scene);
 //        Text scenetitle = new Text("Welcome");
 //        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
 //        grid.add(scenetitle, 0, 0, 2, 1);
@@ -117,11 +142,12 @@ public class GraphicalInterface extends Application implements UserInterface {
 //
 //        PasswordField pwBox = new PasswordField();
 //        grid.add(pwBox, 1, 2);
-        primaryStage.show();
 
-    }
+    primaryStage.show ();
 
-    private Node getCommandHBox() {
+}
+
+private Node getCommandHBox() {
         HBox hbox = new HBox();
         hbox.setPadding(new Insets(15, 12, 15, 12));
         hbox.setSpacing(10);
@@ -129,13 +155,15 @@ public class GraphicalInterface extends Application implements UserInterface {
 
         commandButtons = new ArrayList<>(game.getCommandManager().commands().size());
 
+        Button buttonCurrent = null;
+        
         for (Command command : game.getCommandManager().commands()) {
 
             if (!command.interfaceAcceptable(this)) {
                 continue;
             }
 
-            Button buttonCurrent = new Button(command.getName());
+            buttonCurrent = new Button(command.getName());
             buttonCurrent.setPrefSize(100, 20);
             commandButtons.add(buttonCurrent);
             buttonCurrent.setOnAction((event) -> {
@@ -144,6 +172,10 @@ public class GraphicalInterface extends Application implements UserInterface {
             hbox.getChildren().add(buttonCurrent);
 
         }
+        
+        
+        
+        
 
         return hbox;
     }
@@ -157,6 +189,21 @@ public class GraphicalInterface extends Application implements UserInterface {
         CommandExecution ce = new CommandExecution(parameters);
 
         cmd.action(game, ce);
+
+    }
+
+    @Override
+    public void showInventory() {
+
+    }
+
+    @Override
+    public void showCharacters() {
+
+    }
+
+    @Override
+    public void showRoom() {
 
     }
 }
