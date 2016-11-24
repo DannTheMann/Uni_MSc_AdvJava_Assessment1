@@ -180,6 +180,7 @@
 | - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
 |___________________________________________________________|
 
+<<<<<<< Upstream, based on origin/master
 [11:21:08] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_24-11-16.txt'
 [11:21:08] LOCALE: en_GB - United Kingdom
 [11:21:08] Loading default commands...
@@ -199,3 +200,46 @@
 [11:21:10] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
 [11:21:10] [ERROR] An error occurred somewhere, closing logger. URL must not be null[11:21:10] Closing logger.
 [11:21:10] Closing writer for logger.
+=======
+<<<<<<< HEAD
+[01:42:27] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_24-11-16.txt'
+[01:42:27] LOCALE: en_GB - United Kingdom
+[01:42:27] Loading default commands...
+[01:42:27] Loaded default commands...
+[01:42:27] Starting World of Zuul... ENGLISH
+[01:42:27] Loading properties.ini file...
+[01:42:27] Property file found, loading properties...
+[01:42:27] Closed I/O streams.
+[01:42:27] Properties loaded.
+[01:42:28] Creating game session...
+[01:42:28] 
+[01:42:28]  - - - - - - - - - - - - - - - - - - - - 
+[01:42:28]       Loading Plugins ...          
+[01:42:28]  - - - - - - - - - - - - - - - - - - - - 
+[01:42:28] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[01:42:28] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [01:42:28] - Finished  - - - - - - - - - - - - - - 
+[01:42:28] Creating new resource manager.
+[01:42:28] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[01:42:28] [ERROR] An error occurred somewhere, closing logger. URL must not be null[01:42:28] Closing logger.
+[01:42:28] Closing writer for logger.
+=======
+[11:21:08] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_24-11-16.txt'
+[11:21:08] LOCALE: en_GB - United Kingdom
+[11:21:08] Loading default commands...
+[11:21:08] Loaded default commands...
+[11:21:08] Starting World of Zuul... ENGLISH
+[11:21:08] Loading properties.ini file...
+[11:21:08] Property file found, loading properties...
+[11:21:08] Closed I/O streams.
+[11:21:08] Properties loaded.
+[11:21:09] Creating game session...
+[11:21:09] 
+[11:21:09]  - - - - - - - - - - - - - - - - - - - - 
+[11:21:09]       Loading Plugins ...          
+[11:21:09]  - - - - - - - - - - - - - - - - - - - - 
+[11:21:10] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[11:21:10] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [11:21:10] - Finished  - - - - - - - - - - - - - - 
+[11:21:10] Creating new resource manager @ 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[11:21:10] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[11:21:10] [ERROR] An error occurred somewhere, closing logger. URL must not be null[11:21:10] Closing logger.
+[11:21:10] Closing writer for logger.
+>>>>>>> branch 'master' of https://github.com/DannTheMann/AdvJava_Assessment1.git
+>>>>>>> 34def1f Meh.

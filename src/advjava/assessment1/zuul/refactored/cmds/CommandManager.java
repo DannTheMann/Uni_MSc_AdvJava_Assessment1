@@ -24,6 +24,7 @@ import advjava.assessment1.zuul.refactored.cmds.builtin.TakeCommand;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
 import java.util.SortedMap;
+import java.util.TreeMap;
 
 
 /**
@@ -39,7 +40,7 @@ import java.util.SortedMap;
 public class CommandManager {
 
     // Map of commans, K=command name, V=command object
-    static final Map<String, Command> commands = new SortedMap<>();
+    static final Map<String, Command> commands = new TreeMap<>();
 
     /**
      * Create an instance of the Command Manager, by default loads all default
