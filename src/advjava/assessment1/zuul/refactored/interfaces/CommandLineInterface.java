@@ -5,8 +5,8 @@
  */
 package advjava.assessment1.zuul.refactored.interfaces;
 
+import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
-import advjava.assessment1.zuul.refactored.utils.Out;
 import java.util.Scanner;
 
 /**
@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class CommandLineInterface implements UserInterface{
     
-        private Scanner reader; // source of command input
+    private Scanner reader; // source of command input
 
 	/**
 	 * Create a parser to read from the terminal window.
@@ -31,9 +31,8 @@ public class CommandLineInterface implements UserInterface{
 	 */
 	public CommandExecution getCommand() {
 		print("> "); // print prompt
-		return new CommandExecution(reader.nextLine()); // Pass the entire line
-														// to the command
-														// execution
+		// Pass the entire line from scanner to reader
+		return new CommandExecution(reader.nextLine()); 
 	}
 
 	/**
@@ -67,5 +66,46 @@ public class CommandLineInterface implements UserInterface{
     public void printlnErr(Object obj) {
          System.err.println(obj);
     }
+
+	@Override
+	public boolean update(Game game) {
+		CommandExecution command = getCommand();		
+
+		// If the command is empty of null
+		if (command.isUnknown())
+			return false;
+
+		// If the command isn't a known command
+		if (game.getCommandManager().getCommand(command.getCommandWord()) == null) {
+			println(game.getInternationalisationManager().getMessage("game.invalidCmd"));
+			return false;
+		}
+
+		// Perform the action of the command and return whether
+		// the action performed as expected
+		return game.getCommandManager().getCommand(command.getCommandWord()).action(game, command);
+	}
+
+	@Override
+	public void play(Game game) {
+		
+		println();
+		println(game.getInternationalisationManager().getMessage("game.welcome1"));
+		println(game.getInternationalisationManager().getMessage("game.welcome2"));
+		println(game.getInternationalisationManager().getMessage("game.welcome3"));
+		println();
+
+		println(game.getPlayer().getCurrentRoom());
+		
+		// Enter the main command loop. Here we repeatedly read commands and
+		// execute them until the game is over.
+		while (!game.hasTerminated()) {
+			if(update(game)){
+				game.getCharacterManager().act(game);
+			}
+		}
+		exit();
+		System.exit(0);
+	}
     
 }

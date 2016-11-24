@@ -1,6 +1,6 @@
 package advjava.assessment1.zuul.refactored.cmds;
 
-import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.ZuulGame;
 
 /**
  * Used for any external jar that wishes to interact with the game without the
@@ -24,6 +24,6 @@ public interface PluginInterface {
 	 *            The game object
 	 * @return true whether it was initialised correctly
 	 */
-	public boolean initialise(Game game);
+	public boolean initialise(ZuulGame game);
 
 }

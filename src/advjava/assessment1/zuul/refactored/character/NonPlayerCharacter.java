@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.ZuulGame;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;

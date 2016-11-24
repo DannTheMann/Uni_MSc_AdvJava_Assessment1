@@ -174,7 +174,7 @@ public class CommandManager {
 		commands.put(InternationalisationManager.im.getMessage("loadQuit"),
 				new QuitCommand(InternationalisationManager.im.getMessage("loadQuit"),
 						InternationalisationManager.im.getMessage("loadQuitDesc")));
-		commands.put("debug",
+		commands.put("Debug",
 				new DebugCommand("debug", "Debug information on game. /debug <rooms|characters|items|general|player>"));
 
 		Out.out.logln(InternationalisationManager.im.getMessage("loadedDefault"));

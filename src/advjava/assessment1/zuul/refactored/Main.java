@@ -8,6 +8,7 @@ import java.util.Properties;
 
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
+import advjava.assessment1.zuul.refactored.utils.ResourceManager;
 
 /**
  * The starting point of the game, handles directory creation for the game and
@@ -23,7 +24,8 @@ public class Main {
 	// Constants for directorys and files
 	public static final String PLUGIN_COMMANDS_FOLDER = System.getProperty("user.dir") + File.separator + "Plugins";
 	public static final String XML_CONFIGURATION_FILES = System.getProperty("user.dir") + File.separator + "Config";
-        public static final String LOG_FILES = System.getProperty("user.dir") + File.separator + "Config" + File.separator + "Logs";
+    public static final String LOG_FILES = System.getProperty("user.dir") + File.separator + "Config" + File.separator + "Logs";
+    public static final String RESOURCE_FILES = System.getProperty("user.dir") + File.separator + "Resources";
 	private static final String PROPERTIES_FILE = XML_CONFIGURATION_FILES + File.separator + "zuul.properties";
 
 	private static Properties properties = null;
@@ -31,7 +33,7 @@ public class Main {
 	/**
 	 * Singleton for game
 	 */
-	public static final Game game = new Game();
+	public static final ZuulGame game = new ZuulGame();
 
 	/**
 	 * Starting point for the game, checks directories exist for config and
@@ -44,29 +46,28 @@ public class Main {
 	public static void main(String[] args){
                 
             try{
-            
-                Out.out.setPrintingDebugMessages(true);
-		Out.out.logln(InternationalisationManager.im.getMessage("main.start"));
-
-		// Check directories for plugins/xml files
-		checkDirectory(PLUGIN_COMMANDS_FOLDER);
-		checkDirectory(XML_CONFIGURATION_FILES);
-
-		// Load properties file to gather default parameters for game
-		Out.out.logln(InternationalisationManager.im.getMessage("main.loadProp"));
-		properties = loadProperties();
-                
-                //Out.close();
-                //Out.createLogger(properties.getProperty("logFile"));
-                
-		Out.out.logln(InternationalisationManager.im.getMessage("main.finishProp"));
-
-		// Delay to allow everything to be ready...
-		Thread.sleep(1000);
-		Out.out.logln(InternationalisationManager.im.getMessage("main.createSession"));
-		// Create the game, initialise and start it
-		game.initialiseGame(properties);
-		game.play();
+		        Out.out.setPrintingDebugMessages(true);
+				Out.out.logln(InternationalisationManager.im.getMessage("main.start"));
+		
+				// Check directories for plugins/xml files
+				checkDirectory(PLUGIN_COMMANDS_FOLDER);
+				checkDirectory(XML_CONFIGURATION_FILES);
+		
+				// Load properties file to gather default parameters for game
+				Out.out.logln(InternationalisationManager.im.getMessage("main.loadProp"));
+				properties = loadProperties();
+		                
+		                //Out.close();
+		                //Out.createLogger(properties.getProperty("logFile"));
+		                
+				Out.out.logln(InternationalisationManager.im.getMessage("main.finishProp"));
+		
+				// Delay to allow everything to be ready...
+				Thread.sleep(1000);
+				Out.out.logln(InternationalisationManager.im.getMessage("main.createSession"));
+				// Create the game, initialise and start it
+				game.initialiseGame(properties);
+				game.play();
                 
             }catch(Exception e){
                 e.printStackTrace();
@@ -112,8 +113,9 @@ public class Main {
 				//properties.setProperty("playerMaxWeight", "30");
 				properties.setProperty("helpIntroductionText",
 						InternationalisationManager.im.getMessage("main.introText"));
-                                properties.setProperty("logFile",
-						LOG_FILES);
+                properties.setProperty("logFile", LOG_FILES);
+                properties.setProperty("title", "World of Zuul");
+                properties.setProperty("resourceDirectory", RESOURCE_FILES);
 				properties.store(fileOut, "Zuul Configuration");
 
 				// File does exist
@@ -130,7 +132,9 @@ public class Main {
 				//checkProperty("playerDescription", InternationalisationManager.im.getMessage("main.pdesc"));
 				//checkProperty("playerMaxWeight", "30");
 				checkProperty("helpIntroductionText", InternationalisationManager.im.getMessage("main.introText"));
-                                checkProperty("logFile", LOG_FILES);
+                checkProperty("logFile", LOG_FILES);
+                checkProperty("title", "World of Zuul");
+                checkProperty("resourceDirectory", RESOURCE_FILES);
                                 
 				// Save any changes made, if any properties were missing
 				fileOut = new FileOutputStream(propFile);

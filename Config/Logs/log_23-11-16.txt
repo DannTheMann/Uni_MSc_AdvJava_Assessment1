@@ -97,3 +97,723 @@
 [15:27:59] An error occurred somewhere, closing logger. For input string: "Potato"
 [15:27:59] Closing logger.
 [15:27:59] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[19:33:12] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[19:33:12] LOCALE: en_GB - United Kingdom
+[19:33:12] Loading default commands...
+[19:33:12] Loaded default commands...
+[19:33:12] Starting World of Zuul... ENGLISH
+[19:33:12] Loading properties.ini file...
+[19:33:12] Property file found, loading properties...
+[19:33:12] Closed I/O streams.
+[19:33:12] Properties loaded.
+[19:33:13] Creating game session...
+[19:33:13] 
+[19:33:13]  - - - - - - - - - - - - - - - - - - - - 
+[19:33:13]       Loading Plugins ...          
+[19:33:13]  - - - - - - - - - - - - - - - - - - - - 
+[19:33:13] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[19:33:13] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [19:33:13] - Finished  - - - - - - - - - - - - - - 
+[19:33:13]  - - - - - - - - - - - - - - - - - - - - 
+[19:33:13]       Loading XML Config files ...    
+[19:33:13] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[19:33:13]  - - - - - - - - - - - - - - - - - - - - 
+[19:33:13] Added item 'apple'
+[19:33:13] Added item 'book'
+[19:33:13] Added item 'gun'
+[19:33:13] Added item 'tomato'
+[19:33:13] Added item 'pear'
+[19:33:13] Added item 'grapes'
+[19:33:13] Loaded room 'outside'
+[19:33:13] Loaded room 'library'
+[19:33:13] Loaded room 'theatre'
+[19:33:13] Loaded room 'lab'
+[19:33:13] Loaded room 'pub'
+[19:33:13] Added new player 'RichardJones'.
+[19:33:13] Added new character 'Bob'.
+[19:33:13] Added new character 'Chris'.
+[19:33:13] Added new character 'Mitch'.
+[19:33:13] Added new character 'Louis'.
+[19:33:13] Added new character 'Craig'.
+[19:33:13] Added new character 'DonaldTrump'.
+[19:33:13] Added new player 'JamesPond'.
+[19:33:13] - - Finished - - - - - - - - - - - - - - 
+[19:33:13] There are 2 players playing.
+[19:33:13] Assuming the control of player 'RichardJones'.
+[19:33:13] [ERROR] An error occurred somewhere, closing logger. null[19:33:13] Closing logger.
+[19:33:13] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[20:11:18] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[20:11:18] LOCALE: en_GB - United Kingdom
+[20:11:18] Loading default commands...
+[20:11:18] Loaded default commands...
+[20:11:18] Starting World of Zuul... ENGLISH
+[20:11:18] Loading properties.ini file...
+[20:11:18] Property file found, loading properties...
+[20:11:18] [ERROR] title was not present in the properties file! Setting it to 'World of Zuul'.[20:11:18] Closed I/O streams.
+[20:11:18] Properties loaded.
+[20:11:19] Creating game session...
+[20:11:19] 
+[20:11:19]  - - - - - - - - - - - - - - - - - - - - 
+[20:11:19]       Loading Plugins ...          
+[20:11:19]  - - - - - - - - - - - - - - - - - - - - 
+[20:11:19] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[20:11:19] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [20:11:19] - Finished  - - - - - - - - - - - - - - 
+[20:11:19]  - - - - - - - - - - - - - - - - - - - - 
+[20:11:19]       Loading XML Config files ...    
+[20:11:19] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[20:11:19]  - - - - - - - - - - - - - - - - - - - - 
+[20:11:19] Added item 'apple'
+[20:11:19] Added item 'book'
+[20:11:19] Added item 'gun'
+[20:11:19] Added item 'tomato'
+[20:11:19] Added item 'pear'
+[20:11:19] Added item 'grapes'
+[20:11:19] Loaded room 'outside'
+[20:11:19] Loaded room 'library'
+[20:11:19] Loaded room 'theatre'
+[20:11:19] Loaded room 'lab'
+[20:11:19] Loaded room 'pub'
+[20:11:19] Added new player 'RichardJones'.
+[20:11:19] Added new character 'Bob'.
+[20:11:19] Added new character 'Chris'.
+[20:11:19] Added new character 'Mitch'.
+[20:11:19] Added new character 'Louis'.
+[20:11:19] Added new character 'Craig'.
+[20:11:19] Added new character 'DonaldTrump'.
+[20:11:19] Added new player 'JamesPond'.
+[20:11:19] - - Finished - - - - - - - - - - - - - - 
+[20:11:19] There are 2 players playing.
+[20:11:19] Assuming the control of player 'RichardJones'.
+[20:11:19] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[20:11:19] Closing logger.
+[20:11:19] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[20:12:32] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[20:12:32] LOCALE: en_GB - United Kingdom
+[20:12:32] Loading default commands...
+[20:12:32] Loaded default commands...
+[20:12:32] Starting World of Zuul... ENGLISH
+[20:12:32] Loading properties.ini file...
+[20:12:32] Property file found, loading properties...
+[20:12:32] Closed I/O streams.
+[20:12:32] Properties loaded.
+[20:12:33] Creating game session...
+[20:12:33] 
+[20:12:33]  - - - - - - - - - - - - - - - - - - - - 
+[20:12:33]       Loading Plugins ...          
+[20:12:33]  - - - - - - - - - - - - - - - - - - - - 
+[20:12:33] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[20:12:33] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [20:12:33] - Finished  - - - - - - - - - - - - - - 
+[20:12:33]  - - - - - - - - - - - - - - - - - - - - 
+[20:12:33]       Loading XML Config files ...    
+[20:12:33] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[20:12:33]  - - - - - - - - - - - - - - - - - - - - 
+[20:12:33] Added item 'apple'
+[20:12:33] Added item 'book'
+[20:12:33] Added item 'gun'
+[20:12:33] Added item 'tomato'
+[20:12:33] Added item 'pear'
+[20:12:33] Added item 'grapes'
+[20:12:33] Loaded room 'outside'
+[20:12:33] Loaded room 'library'
+[20:12:33] Loaded room 'theatre'
+[20:12:33] Loaded room 'lab'
+[20:12:33] Loaded room 'pub'
+[20:12:33] Added new player 'RichardJones'.
+[20:12:33] Added new character 'Bob'.
+[20:12:33] Added new character 'Chris'.
+[20:12:33] Added new character 'Mitch'.
+[20:12:33] Added new character 'Louis'.
+[20:12:33] Added new character 'Craig'.
+[20:12:33] Added new character 'DonaldTrump'.
+[20:12:33] Added new player 'JamesPond'.
+[20:12:33] - - Finished - - - - - - - - - - - - - - 
+[20:12:33] There are 2 players playing.
+[20:12:33] Assuming the control of player 'RichardJones'.
+[20:12:34] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[20:12:34] Closing logger.
+[20:12:34] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:19:03] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[21:19:03] LOCALE: en_GB - United Kingdom
+[21:19:03] Loading default commands...
+[21:19:03] Loaded default commands...
+[21:19:03] Starting World of Zuul... ENGLISH
+[21:19:03] Loading properties.ini file...
+[21:19:03] Property file found, loading properties...
+[21:19:03] Closed I/O streams.
+[21:19:03] Properties loaded.
+[21:19:04] Creating game session...
+[21:19:04] 
+[21:19:04]  - - - - - - - - - - - - - - - - - - - - 
+[21:19:04]       Loading Plugins ...          
+[21:19:04]  - - - - - - - - - - - - - - - - - - - - 
+[21:19:04] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:19:04] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:19:04] - Finished  - - - - - - - - - - - - - - 
+[21:19:04]  - - - - - - - - - - - - - - - - - - - - 
+[21:19:04]       Loading XML Config files ...    
+[21:19:04] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:19:04]  - - - - - - - - - - - - - - - - - - - - 
+[21:19:04] Added item 'apple'
+[21:19:04] Added item 'book'
+[21:19:04] Added item 'gun'
+[21:19:04] Added item 'tomato'
+[21:19:04] Added item 'pear'
+[21:19:04] Added item 'grapes'
+[21:19:04] Loaded room 'outside'
+[21:19:04] Loaded room 'library'
+[21:19:04] Loaded room 'theatre'
+[21:19:04] Loaded room 'lab'
+[21:19:04] Loaded room 'pub'
+[21:19:04] Added new player 'RichardJones'.
+[21:19:04] Added new character 'Bob'.
+[21:19:04] Added new character 'Chris'.
+[21:19:04] Added new character 'Mitch'.
+[21:19:04] Added new character 'Louis'.
+[21:19:04] Added new character 'Craig'.
+[21:19:04] Added new character 'DonaldTrump'.
+[21:19:04] Added new player 'JamesPond'.
+[21:19:04] - - Finished - - - - - - - - - - - - - - 
+[21:19:04] There are 2 players playing.
+[21:19:04] Assuming the control of player 'RichardJones'.
+[21:19:05] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[21:19:05] Closing logger.
+[21:19:05] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:20:02] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[21:20:02] LOCALE: en_GB - United Kingdom
+[21:20:02] Loading default commands...
+[21:20:02] Loaded default commands...
+[21:20:02] Starting World of Zuul... ENGLISH
+[21:20:02] Loading properties.ini file...
+[21:20:02] Property file found, loading properties...
+[21:20:02] Closed I/O streams.
+[21:20:02] Properties loaded.
+[21:20:03] Creating game session...
+[21:20:03] 
+[21:20:03]  - - - - - - - - - - - - - - - - - - - - 
+[21:20:03]       Loading Plugins ...          
+[21:20:03]  - - - - - - - - - - - - - - - - - - - - 
+[21:20:03] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:20:03] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:20:03] - Finished  - - - - - - - - - - - - - - 
+[21:20:03]  - - - - - - - - - - - - - - - - - - - - 
+[21:20:03]       Loading XML Config files ...    
+[21:20:03] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:20:03]  - - - - - - - - - - - - - - - - - - - - 
+[21:20:03] Added item 'apple'
+[21:20:03] Added item 'book'
+[21:20:03] Added item 'gun'
+[21:20:03] Added item 'tomato'
+[21:20:03] Added item 'pear'
+[21:20:03] Added item 'grapes'
+[21:20:03] Loaded room 'outside'
+[21:20:03] Loaded room 'library'
+[21:20:03] Loaded room 'theatre'
+[21:20:03] Loaded room 'lab'
+[21:20:03] Loaded room 'pub'
+[21:20:03] Added new player 'RichardJones'.
+[21:20:03] Added new character 'Bob'.
+[21:20:03] Added new character 'Chris'.
+[21:20:03] Added new character 'Mitch'.
+[21:20:03] Added new character 'Louis'.
+[21:20:03] Added new character 'Craig'.
+[21:20:03] Added new character 'DonaldTrump'.
+[21:20:03] Added new player 'JamesPond'.
+[21:20:03] - - Finished - - - - - - - - - - - - - - 
+[21:20:03] There are 2 players playing.
+[21:20:03] Assuming the control of player 'RichardJones'.
+[21:20:03] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[21:20:03] Closing logger.
+[21:20:03] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:20:23] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[21:20:23] LOCALE: en_GB - United Kingdom
+[21:20:23] Loading default commands...
+[21:20:23] Loaded default commands...
+[21:20:23] Starting World of Zuul... ENGLISH
+[21:20:23] Loading properties.ini file...
+[21:20:23] Property file found, loading properties...
+[21:20:23] Closed I/O streams.
+[21:20:23] Properties loaded.
+[21:20:24] Creating game session...
+[21:20:24] 
+[21:20:24]  - - - - - - - - - - - - - - - - - - - - 
+[21:20:24]       Loading Plugins ...          
+[21:20:24]  - - - - - - - - - - - - - - - - - - - - 
+[21:20:24] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:20:24] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:20:24] - Finished  - - - - - - - - - - - - - - 
+[21:20:24]  - - - - - - - - - - - - - - - - - - - - 
+[21:20:24]       Loading XML Config files ...    
+[21:20:24] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:20:24]  - - - - - - - - - - - - - - - - - - - - 
+[21:20:24] Added item 'apple'
+[21:20:24] Added item 'book'
+[21:20:24] Added item 'gun'
+[21:20:24] Added item 'tomato'
+[21:20:24] Added item 'pear'
+[21:20:24] Added item 'grapes'
+[21:20:24] Loaded room 'outside'
+[21:20:24] Loaded room 'library'
+[21:20:24] Loaded room 'theatre'
+[21:20:24] Loaded room 'lab'
+[21:20:24] Loaded room 'pub'
+[21:20:24] Added new player 'RichardJones'.
+[21:20:24] Added new character 'Bob'.
+[21:20:24] Added new character 'Chris'.
+[21:20:24] Added new character 'Mitch'.
+[21:20:24] Added new character 'Louis'.
+[21:20:24] Added new character 'Craig'.
+[21:20:24] Added new character 'DonaldTrump'.
+[21:20:24] Added new player 'JamesPond'.
+[21:20:24] - - Finished - - - - - - - - - - - - - - 
+[21:20:24] There are 2 players playing.
+[21:20:24] Assuming the control of player 'RichardJones'.
+[21:20:24] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[21:20:24] Closing logger.
+[21:20:24] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:21:10] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[21:21:10] LOCALE: en_GB - United Kingdom
+[21:21:10] Loading default commands...
+[21:21:11] Loaded default commands...
+[21:21:11] Starting World of Zuul... ENGLISH
+[21:21:11] Loading properties.ini file...
+[21:21:11] Property file found, loading properties...
+[21:21:11] Closed I/O streams.
+[21:21:11] Properties loaded.
+[21:21:12] Creating game session...
+[21:21:12] 
+[21:21:12]  - - - - - - - - - - - - - - - - - - - - 
+[21:21:12]       Loading Plugins ...          
+[21:21:12]  - - - - - - - - - - - - - - - - - - - - 
+[21:21:12] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:21:12] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:21:12] - Finished  - - - - - - - - - - - - - - 
+[21:21:12]  - - - - - - - - - - - - - - - - - - - - 
+[21:21:12]       Loading XML Config files ...    
+[21:21:12] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:21:12]  - - - - - - - - - - - - - - - - - - - - 
+[21:21:12] Added item 'apple'
+[21:21:12] Added item 'book'
+[21:21:12] Added item 'gun'
+[21:21:12] Added item 'tomato'
+[21:21:12] Added item 'pear'
+[21:21:12] Added item 'grapes'
+[21:21:12] Loaded room 'outside'
+[21:21:12] Loaded room 'library'
+[21:21:12] Loaded room 'theatre'
+[21:21:12] Loaded room 'lab'
+[21:21:12] Loaded room 'pub'
+[21:21:12] Added new player 'RichardJones'.
+[21:21:12] Added new character 'Bob'.
+[21:21:12] Added new character 'Chris'.
+[21:21:12] Added new character 'Mitch'.
+[21:21:12] Added new character 'Louis'.
+[21:21:12] Added new character 'Craig'.
+[21:21:12] Added new character 'DonaldTrump'.
+[21:21:12] Added new player 'JamesPond'.
+[21:21:12] - - Finished - - - - - - - - - - - - - - 
+[21:21:12] There are 2 players playing.
+[21:21:12] Assuming the control of player 'RichardJones'.
+[21:21:12] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[21:21:12] Closing logger.
+[21:21:12] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:21:59] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[21:21:59] LOCALE: en_GB - United Kingdom
+[21:21:59] Loading default commands...
+[21:21:59] Loaded default commands...
+[21:21:59] Starting World of Zuul... ENGLISH
+[21:21:59] Loading properties.ini file...
+[21:21:59] Property file found, loading properties...
+[21:22:00] Closed I/O streams.
+[21:22:00] Properties loaded.
+[21:22:01] Creating game session...
+[21:22:01] 
+[21:22:01]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:01]       Loading Plugins ...          
+[21:22:01]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:01] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:22:01] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:22:01] - Finished  - - - - - - - - - - - - - - 
+[21:22:01]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:01]       Loading XML Config files ...    
+[21:22:01] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:22:01]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:01] Added item 'apple'
+[21:22:01] Added item 'book'
+[21:22:01] Added item 'gun'
+[21:22:01] Added item 'tomato'
+[21:22:01] Added item 'pear'
+[21:22:01] Added item 'grapes'
+[21:22:01] Loaded room 'outside'
+[21:22:01] Loaded room 'library'
+[21:22:01] Loaded room 'theatre'
+[21:22:01] Loaded room 'lab'
+[21:22:01] Loaded room 'pub'
+[21:22:01] Added new player 'RichardJones'.
+[21:22:01] Added new character 'Bob'.
+[21:22:01] Added new character 'Chris'.
+[21:22:01] Added new character 'Mitch'.
+[21:22:01] Added new character 'Louis'.
+[21:22:01] Added new character 'Craig'.
+[21:22:01] Added new character 'DonaldTrump'.
+[21:22:01] Added new player 'JamesPond'.
+[21:22:01] - - Finished - - - - - - - - - - - - - - 
+[21:22:01] There are 2 players playing.
+[21:22:01] Assuming the control of player 'RichardJones'.
+[21:22:01] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[21:22:01] Closing logger.
+[21:22:01] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:22:27] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[21:22:27] LOCALE: en_GB - United Kingdom
+[21:22:27] Loading default commands...
+[21:22:27] Loaded default commands...
+[21:22:27] Starting World of Zuul... ENGLISH
+[21:22:27] Loading properties.ini file...
+[21:22:27] Property file found, loading properties...
+[21:22:27] Closed I/O streams.
+[21:22:27] Properties loaded.
+[21:22:28] Creating game session...
+[21:22:28] 
+[21:22:28]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:28]       Loading Plugins ...          
+[21:22:28]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:28] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:22:28] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:22:28] - Finished  - - - - - - - - - - - - - - 
+[21:22:28]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:28]       Loading XML Config files ...    
+[21:22:28] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:22:28]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:28] Added item 'apple'
+[21:22:28] Added item 'book'
+[21:22:28] Added item 'gun'
+[21:22:28] Added item 'tomato'
+[21:22:28] Added item 'pear'
+[21:22:28] Added item 'grapes'
+[21:22:28] Loaded room 'outside'
+[21:22:28] Loaded room 'library'
+[21:22:28] Loaded room 'theatre'
+[21:22:28] Loaded room 'lab'
+[21:22:28] Loaded room 'pub'
+[21:22:28] Added new player 'RichardJones'.
+[21:22:28] Added new character 'Bob'.
+[21:22:28] Added new character 'Chris'.
+[21:22:28] Added new character 'Mitch'.
+[21:22:28] Added new character 'Louis'.
+[21:22:28] Added new character 'Craig'.
+[21:22:28] Added new character 'DonaldTrump'.
+[21:22:28] Added new player 'JamesPond'.
+[21:22:28] - - Finished - - - - - - - - - - - - - - 
+[21:22:28] There are 2 players playing.
+[21:22:28] Assuming the control of player 'RichardJones'.
+[21:22:28] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[21:22:28] Closing logger.
+[21:22:28] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:22:38] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[21:22:38] LOCALE: en_GB - United Kingdom
+[21:22:38] Loading default commands...
+[21:22:38] Loaded default commands...
+[21:22:38] Starting World of Zuul... ENGLISH
+[21:22:38] Loading properties.ini file...
+[21:22:38] Property file found, loading properties...
+[21:22:38] Closed I/O streams.
+[21:22:38] Properties loaded.
+[21:22:39] Creating game session...
+[21:22:39] 
+[21:22:39]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:39]       Loading Plugins ...          
+[21:22:39]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:39] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:22:39] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:22:39] - Finished  - - - - - - - - - - - - - - 
+[21:22:39]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:39]       Loading XML Config files ...    
+[21:22:39] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:22:39]  - - - - - - - - - - - - - - - - - - - - 
+[21:22:39] Added item 'apple'
+[21:22:39] Added item 'book'
+[21:22:39] Added item 'gun'
+[21:22:39] Added item 'tomato'
+[21:22:39] Added item 'pear'
+[21:22:39] Added item 'grapes'
+[21:22:39] Loaded room 'outside'
+[21:22:39] Loaded room 'library'
+[21:22:39] Loaded room 'theatre'
+[21:22:39] Loaded room 'lab'
+[21:22:39] Loaded room 'pub'
+[21:22:39] Added new player 'RichardJones'.
+[21:22:39] Added new character 'Bob'.
+[21:22:39] Added new character 'Chris'.
+[21:22:39] Added new character 'Mitch'.
+[21:22:39] Added new character 'Louis'.
+[21:22:39] Added new character 'Craig'.
+[21:22:39] Added new character 'DonaldTrump'.
+[21:22:39] Added new player 'JamesPond'.
+[21:22:39] - - Finished - - - - - - - - - - - - - - 
+[21:22:39] There are 2 players playing.
+[21:22:39] Assuming the control of player 'RichardJones'.
+[21:22:40] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[21:22:40] Closing logger.
+[21:22:40] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:23:05] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[21:23:05] LOCALE: en_GB - United Kingdom
+[21:23:05] Loading default commands...
+[21:23:05] Loaded default commands...
+[21:23:05] Starting World of Zuul... ENGLISH
+[21:23:05] Loading properties.ini file...
+[21:23:05] Property file found, loading properties...
+[21:23:05] Closed I/O streams.
+[21:23:05] Properties loaded.
+[21:23:06] Creating game session...
+[21:23:06] 
+[21:23:06]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:06]       Loading Plugins ...          
+[21:23:06]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:06] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:23:06] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:23:06] - Finished  - - - - - - - - - - - - - - 
+[21:23:06]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:06]       Loading XML Config files ...    
+[21:23:06] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:23:06]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:06] Added item 'apple'
+[21:23:06] Added item 'book'
+[21:23:06] Added item 'gun'
+[21:23:06] Added item 'tomato'
+[21:23:06] Added item 'pear'
+[21:23:06] Added item 'grapes'
+[21:23:06] Loaded room 'outside'
+[21:23:06] Loaded room 'library'
+[21:23:06] Loaded room 'theatre'
+[21:23:06] Loaded room 'lab'
+[21:23:06] Loaded room 'pub'
+[21:23:06] Added new player 'RichardJones'.
+[21:23:06] Added new character 'Bob'.
+[21:23:06] Added new character 'Chris'.
+[21:23:06] Added new character 'Mitch'.
+[21:23:06] Added new character 'Louis'.
+[21:23:06] Added new character 'Craig'.
+[21:23:06] Added new character 'DonaldTrump'.
+[21:23:06] Added new player 'JamesPond'.
+[21:23:06] - - Finished - - - - - - - - - - - - - - 
+[21:23:06] There are 2 players playing.
+[21:23:06] Assuming the control of player 'RichardJones'.
+[21:23:07] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[21:23:07] Closing logger.
+[21:23:07] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:23:27] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[21:23:27] LOCALE: en_GB - United Kingdom
+[21:23:27] Loading default commands...
+[21:23:27] Loaded default commands...
+[21:23:27] Starting World of Zuul... ENGLISH
+[21:23:27] Loading properties.ini file...
+[21:23:27] Property file found, loading properties...
+[21:23:27] Closed I/O streams.
+[21:23:27] Properties loaded.
+[21:23:28] Creating game session...
+[21:23:28] 
+[21:23:28]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:28]       Loading Plugins ...          
+[21:23:28]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:28] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:23:28] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:23:28] - Finished  - - - - - - - - - - - - - - 
+[21:23:28]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:28]       Loading XML Config files ...    
+[21:23:28] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:23:28]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:28] Added item 'apple'
+[21:23:28] Added item 'book'
+[21:23:28] Added item 'gun'
+[21:23:28] Added item 'tomato'
+[21:23:28] Added item 'pear'
+[21:23:28] Added item 'grapes'
+[21:23:28] Loaded room 'outside'
+[21:23:28] Loaded room 'library'
+[21:23:28] Loaded room 'theatre'
+[21:23:28] Loaded room 'lab'
+[21:23:28] Loaded room 'pub'
+[21:23:28] Added new player 'RichardJones'.
+[21:23:28] Added new character 'Bob'.
+[21:23:28] Added new character 'Chris'.
+[21:23:28] Added new character 'Mitch'.
+[21:23:28] Added new character 'Louis'.
+[21:23:28] Added new character 'Craig'.
+[21:23:28] Added new character 'DonaldTrump'.
+[21:23:28] Added new player 'JamesPond'.
+[21:23:28] - - Finished - - - - - - - - - - - - - - 
+[21:23:28] There are 2 players playing.
+[21:23:28] Assuming the control of player 'RichardJones'.
+[21:23:29] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[21:23:29] Closing logger.
+[21:23:29] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:23:52] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[21:23:52] LOCALE: en_GB - United Kingdom
+[21:23:52] Loading default commands...
+[21:23:52] Loaded default commands...
+[21:23:52] Starting World of Zuul... ENGLISH
+[21:23:52] Loading properties.ini file...
+[21:23:52] Property file found, loading properties...
+[21:23:52] Closed I/O streams.
+[21:23:52] Properties loaded.
+[21:23:53] Creating game session...
+[21:23:53] 
+[21:23:53]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:53]       Loading Plugins ...          
+[21:23:53]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:53] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:23:53] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:23:53] - Finished  - - - - - - - - - - - - - - 
+[21:23:53]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:53]       Loading XML Config files ...    
+[21:23:53] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:23:53]  - - - - - - - - - - - - - - - - - - - - 
+[21:23:53] Added item 'apple'
+[21:23:53] Added item 'book'
+[21:23:53] Added item 'gun'
+[21:23:53] Added item 'tomato'
+[21:23:53] Added item 'pear'
+[21:23:53] Added item 'grapes'
+[21:23:53] Loaded room 'outside'
+[21:23:53] Loaded room 'library'
+[21:23:53] Loaded room 'theatre'
+[21:23:53] Loaded room 'lab'
+[21:23:53] Loaded room 'pub'
+[21:23:53] Added new player 'RichardJones'.
+[21:23:53] Added new character 'Bob'.
+[21:23:53] Added new character 'Chris'.
+[21:23:53] Added new character 'Mitch'.
+[21:23:53] Added new character 'Louis'.
+[21:23:53] Added new character 'Craig'.
+[21:23:53] Added new character 'DonaldTrump'.
+[21:23:53] Added new player 'JamesPond'.
+[21:23:53] - - Finished - - - - - - - - - - - - - - 
+[21:23:53] There are 2 players playing.
+[21:23:53] Assuming the control of player 'RichardJones'.
+[21:23:55] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[21:23:55] Closing logger.
+[21:23:55] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[23:26:27] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[23:26:27] LOCALE: en_GB - United Kingdom
+[23:26:27] Loading default commands...
+[23:26:27] Loaded default commands...
+[23:26:27] Starting World of Zuul... ENGLISH
+[23:26:27] Loading properties.ini file...
+[23:26:27] Property file found, loading properties...
+[23:26:27] Closed I/O streams.
+[23:26:27] Properties loaded.
+[23:26:28] Creating game session...
+[23:26:28] 
+[23:26:28]  - - - - - - - - - - - - - - - - - - - - 
+[23:26:28]       Loading Plugins ...          
+[23:26:28]  - - - - - - - - - - - - - - - - - - - - 
+[23:26:28] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[23:26:28] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [23:26:28] - Finished  - - - - - - - - - - - - - - 
+[23:26:28]  - - - - - - - - - - - - - - - - - - - - 
+[23:26:28]       Loading XML Config files ...    
+[23:26:28] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[23:26:28]  - - - - - - - - - - - - - - - - - - - - 
+[23:26:28] Added item 'apple'
+[23:26:28] Added item 'book'
+[23:26:28] Added item 'gun'
+[23:26:28] Added item 'tomato'
+[23:26:28] Added item 'pear'
+[23:26:28] Added item 'grapes'
+[23:26:28] Loaded room 'outside'
+[23:26:28] Loaded room 'library'
+[23:26:28] Loaded room 'theatre'
+[23:26:28] Loaded room 'lab'
+[23:26:28] Loaded room 'pub'
+[23:26:28] Added new player 'RichardJones'.
+[23:26:28] Added new character 'Bob'.
+[23:26:28] Added new character 'Chris'.
+[23:26:28] Added new character 'Mitch'.
+[23:26:28] Added new character 'Louis'.
+[23:26:28] Added new character 'Craig'.
+[23:26:28] Added new character 'DonaldTrump'.
+[23:26:28] Added new player 'JamesPond'.
+[23:26:28] - - Finished - - - - - - - - - - - - - - 
+[23:26:28] There are 2 players playing.
+[23:26:28] Assuming the control of player 'RichardJones'.
+[23:26:34] Closing logger.
+[23:26:34] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[23:28:27] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_23-11-16.txt'
+[23:28:27] LOCALE: en_GB - United Kingdom
+[23:28:27] Loading default commands...
+[23:28:27] Loaded default commands...
+[23:28:27] Starting World of Zuul... ENGLISH
+[23:28:27] Loading properties.ini file...
+[23:28:27] Property file found, loading properties...
+[23:28:27] Closed I/O streams.
+[23:28:27] Properties loaded.
+[23:28:28] Creating game session...
+[23:28:28] 
+[23:28:28]  - - - - - - - - - - - - - - - - - - - - 
+[23:28:28]       Loading Plugins ...          
+[23:28:28]  - - - - - - - - - - - - - - - - - - - - 
+[23:28:28] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[23:28:28] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [23:28:28] - Finished  - - - - - - - - - - - - - - 
+[23:28:28]  - - - - - - - - - - - - - - - - - - - - 
+[23:28:28]       Loading XML Config files ...    
+[23:28:28] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[23:28:28]  - - - - - - - - - - - - - - - - - - - - 
+[23:28:28] Added item 'apple'
+[23:28:28] Added item 'book'
+[23:28:28] Added item 'gun'
+[23:28:28] Added item 'tomato'
+[23:28:28] Added item 'pear'
+[23:28:28] Added item 'grapes'
+[23:28:28] Loaded room 'outside'
+[23:28:28] Loaded room 'library'
+[23:28:28] Loaded room 'theatre'
+[23:28:28] Loaded room 'lab'
+[23:28:28] Loaded room 'pub'
+[23:28:28] Added new player 'RichardJones'.
+[23:28:28] Added new character 'Bob'.
+[23:28:28] Added new character 'Chris'.
+[23:28:28] Added new character 'Mitch'.
+[23:28:28] Added new character 'Louis'.
+[23:28:28] Added new character 'Craig'.
+[23:28:28] Added new character 'DonaldTrump'.
+[23:28:28] Added new player 'JamesPond'.
+[23:28:28] - - Finished - - - - - - - - - - - - - - 
+[23:28:28] There are 2 players playing.
+[23:28:28] Assuming the control of player 'RichardJones'.
+[23:28:39] Closing logger.
+[23:28:39] Closing writer for logger.

@@ -1,6 +1,7 @@
 package advjava.assessment1.zuul.refactored.cmds.builtin;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.ZuulGame;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
@@ -25,20 +26,24 @@ public class HelpCommand extends Command {
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {
 
-		StringBuilder sb = new StringBuilder();
-
-		// Go through every loaded command in the game.
-		for (Command c : game.getCommandManager().commands()) {
-			// Add the command name and description to the stringbuilder
-			sb.append(String.format(InternationalisationManager.im.getMessage("help.list"), c.getName(),
-					c.getDescription(), System.lineSeparator()));
+		if(game instanceof ZuulGame){
+		
+			StringBuilder sb = new StringBuilder();
+	
+			// Go through every loaded command in the game.
+			for (Command c : game.getCommandManager().commands()) {
+				// Add the command name and description to the stringbuilder
+				sb.append(String.format(InternationalisationManager.im.getMessage("help.list"), c.getName(),
+						c.getDescription(), System.lineSeparator()));
+			}
+	
+			// Print out the concatenated list of commands
+			game.getInterface().println(String.format(InternationalisationManager.im.getMessage("help.intro"),
+					((ZuulGame) game).getProperty("helpIntroductionText"), System.lineSeparator()));
+			game.getInterface().println(String.format(InternationalisationManager.im.getMessage("help.print"),
+					System.lineSeparator(), sb.toString()));
+			
 		}
-
-		// Print out the concatenated list of commands
-		game.getInterface().println(String.format(InternationalisationManager.im.getMessage("help.intro"),
-				game.getProperty("helpIntroductionText"), System.lineSeparator()));
-		game.getInterface().println(String.format(InternationalisationManager.im.getMessage("help.print"),
-				System.lineSeparator(), sb.toString()));
 
 		return false;
 	}

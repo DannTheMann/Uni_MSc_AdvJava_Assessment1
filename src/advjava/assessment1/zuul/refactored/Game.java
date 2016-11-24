@@ -4,49 +4,19 @@ import java.util.Properties;
 
 import advjava.assessment1.zuul.refactored.character.CharacterManager;
 import advjava.assessment1.zuul.refactored.character.Player;
-import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.cmds.CommandManager;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
-import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
+import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.item.ItemManager;
 import advjava.assessment1.zuul.refactored.room.RoomManager;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
+import advjava.assessment1.zuul.refactored.utils.ResourceManager;
 import advjava.assessment1.zuul.refactored.utils.XMLManager;
-import java.io.IOException;
 
-/**
- * 
- * The bulk of the game happens here. Multiple fields handle management for
- * respective roles in the game. The class provides access to these managers
- * through getters and includes methods to interact with the game with limited
- * scope as to stop accidental breaking of links between references.
- * 
- * 
- * @author dja33
- *
- */
-public class Game {
-
-	// The command line parser used to interpret user instruction
-	private final UserInterface ui;
-        //private final Parser parser = new Parser();
-    
-    
-	/*
-	 * Management for multiple roles
-	 */
-	private final CommandManager commandManager;
-	private final CharacterManager characterManager;
-	private final RoomManager roomManager;
-	private final ItemManager itemManager;
-	private final InternationalisationManager im;
-
-	// Properties provided in Zuul.properties are stored here
-	private Properties properties;
-	
+public abstract class Game {
 	/*
 	 * If we planned on having multiple 'LOCAL' players then could remove this
 	 * reference and use the CharacterManager more fluidly as it currently
@@ -63,26 +33,50 @@ public class Game {
 	 * the CharacterManager will load all of them as Players. It will only use
 	 * this single reference for the time being.
 	 */
-	private Player player; 	// Instance of the local player is stored here
+	private Player player; // Instance of the local player is stored here
+	// The command line parser used to interpret user instruction
+	protected final UserInterface ui;
+	// private final Parser parser = new Parser();
 
-	/**
-	 * Create new instance of the Game.
-	 * 
-	 * Creates all management systems.
-	 * 
-	 * Call .initialiseGame( prop ) to prepare the game
-	 * 
-	 * Call .play() to start the game
+	// Properties provided in Zuul.properties are stored here
+	private Properties properties;
+	
+	/*
+	 * Management for multiple roles
 	 */
-	public Game() {                        
-                Out.createLogger(Main.LOG_FILES);
-                this.ui = new CommandLineInterface();
+	protected final CommandManager commandManager;
+	protected final CharacterManager characterManager;
+	protected final RoomManager roomManager;
+	protected final ItemManager itemManager;
+	protected final InternationalisationManager im;
+	// A boolean used to terminate the game
+	protected boolean finished = false;
+	
+	public Game(){
+		Out.createLogger(Main.LOG_FILES);
+		this.ui = new GraphicalInterface();
+		//this.ui = new CommandLineInterface();
 		this.commandManager = new CommandManager();
 		this.characterManager = new CharacterManager();
 		this.roomManager = new RoomManager();
 		this.itemManager = new ItemManager();
 		this.im = InternationalisationManager.im;
 	}
+	
+	public abstract void play();
+	public abstract void terminate();
+	public abstract boolean hasTerminated();
+	
+
+	/**
+	 * Get the current players instance
+	 * 
+	 * @return player reference
+	 */
+	public Player getPlayer() {
+		return player;
+	}
+
 
 	/**
 	 * Initialise the game, loads all characters, rooms and items from the XML
@@ -97,16 +91,16 @@ public class Game {
 	 */
 	protected final void initialiseGame(Properties properties) throws InvalidCharacterNamingException {
 
-		this.commandManager.loadPlugins();
+		commandManager.loadPlugins();
 
 		this.properties = properties;
-
+		ResourceManager.newResourceManager();
 		try {
 
 			ui.println();
 			Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
 			Out.out.logln(im.getMessage("game.loadXML"));
-                        Out.out.logln("-> " + Main.XML_CONFIGURATION_FILES);
+			Out.out.logln("-> " + Main.XML_CONFIGURATION_FILES);
 			Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
 
 			XMLManager.loadItems(itemManager);
@@ -123,87 +117,18 @@ public class Game {
 
 		// Get the first player we loaded from the XML
 		player = characterManager.getFirstPlayer();
-		
+
 		// If no player is specified in the XML, throw an erro
-		if(player == null){
-			throw new NullPointerException(
-					String.format(im.getMessage("game.noPlayer")));
+		if (player == null) {
+			throw new NullPointerException(String.format(im.getMessage("game.noPlayer")));
 		}
 
 		// Print out details regarding player '1' and total players loaded.
 		Out.out.logln(String.format(im.getMessage("game.totalPlayers"), characterManager.players().size()));
 		Out.out.logln(String.format(im.getMessage("game.startPlayer"), player.getName()));
-		
+
 	}
-
-	// A boolean used to terminate the game
-	protected boolean finished = false;
-
-	/**
-	 * Main play routine. Loops until end of play.
-	 */
-	public void play() {
-		printWelcome();
-
-		// Enter the main command loop. Here we repeatedly read commands and
-		// execute them until the game is over.
-		while (!finished) {
-			CommandExecution command = ui.getCommand();
-			if(!processCommand(command)){
-				continue;
-			}
-			characterManager.act(this);
-		}
-		ui.exit();
-                System.exit(0);
-	}
-
-	/**
-	 * Get the current players instance
-	 * 
-	 * @return player reference
-	 */
-	public Player getPlayer() {
-		return player;
-	}
-
-	/**
-	 * Print out the opening message for the player and their starting room
-	 */
-	private void printWelcome() {
-		ui.println();
-		ui.println(im.getMessage("game.welcome1"));
-		ui.println(im.getMessage("game.welcome2"));
-		ui.println(im.getMessage("game.welcome3"));
-		ui.println();
-
-		ui.println(player.getCurrentRoom());
-	}
-
-	/**
-	 * Given a command, process (that is: execute) the command.
-	 *
-	 * @param command
-	 *            The command to be processed.
-	 * @return true if the command was executed correctly
-	 */
-	private boolean processCommand(CommandExecution command) {
-
-		// If the command is empty of null
-		if (command.isUnknown())
-			return false;
-
-		// If the command isn't a known command
-		if (commandManager.getCommand(command.getCommandWord()) == null) {
-			ui.println(im.getMessage("game.invalidCmd"));
-			return false;
-		}
-
-		// Perform the action of the command and return whether
-		// the action performed as expected
-		return commandManager.getCommand(command.getCommandWord()).action(this, command);
-	}
-
+	
 	/**
 	 * Get command manager, access to the all commands and references
 	 * 
@@ -239,18 +164,7 @@ public class Game {
 	public ItemManager getItemManager() {
 		return itemManager;
 	}
-
-	/**
-	 * Return a property in the properties file
-	 * 
-	 * @param property
-	 *            to look for
-	 * @return The value in response to key
-	 */
-	public String getProperty(String property) {
-		return properties.getProperty(property);
-	}
-
+	
 	/**
 	 * Get the internationlisation manager for multiple language
 	 * 
@@ -259,20 +173,15 @@ public class Game {
 	public InternationalisationManager getInternationalisationManager() {
 		return im;
 	}
+	
 
-	/**
-	 * Terminate the game
-	 */
-	public void terminate() {
-		finished = true;
-                try{
-                    Out.out.close();
-                }catch(IOException ioe){
-                    Out.out.loglnErr("Failed to close logger!");
-                }
+	public UserInterface getInterface() {
+		return ui;
 	}
-
-        public UserInterface getInterface() {
-            return ui;
-        }
+	
+	public String getProperty(String key){
+		return properties.getProperty(key);
+	}
+	
+	
 }

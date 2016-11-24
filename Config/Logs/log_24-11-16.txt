@@ -1,0 +1,177 @@
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[01:19:49] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_24-11-16.txt'
+[01:19:49] LOCALE: en_GB - United Kingdom
+[01:19:49] Loading default commands...
+[01:19:49] Loaded default commands...
+[01:19:49] Starting World of Zuul... ENGLISH
+[01:19:49] Loading properties.ini file...
+[01:19:49] Property file found, loading properties...
+[01:19:49] Closed I/O streams.
+[01:19:49] Creating new resource manager.
+[01:19:49] [ERROR] An error occurred somewhere, closing logger. null[01:19:49] Closing logger.
+[01:19:49] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[01:20:20] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_24-11-16.txt'
+[01:20:20] LOCALE: en_GB - United Kingdom
+[01:20:20] Loading default commands...
+[01:20:20] Loaded default commands...
+[01:20:20] Starting World of Zuul... ENGLISH
+[01:20:20] Loading properties.ini file...
+[01:20:20] Properties file did not exist, creating new one...
+[01:20:20] Closed I/O streams.
+[01:20:20] Creating new resource manager.
+[01:20:20] [ERROR] An error occurred somewhere, closing logger. null[01:20:20] Closing logger.
+[01:20:20] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[01:20:23] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_24-11-16.txt'
+[01:20:23] LOCALE: en_GB - United Kingdom
+[01:20:23] Loading default commands...
+[01:20:23] Loaded default commands...
+[01:20:23] Starting World of Zuul... ENGLISH
+[01:20:23] Loading properties.ini file...
+[01:20:23] Property file found, loading properties...
+[01:20:23] Closed I/O streams.
+[01:20:23] Creating new resource manager.
+[01:20:23] [ERROR] An error occurred somewhere, closing logger. null[01:20:23] Closing logger.
+[01:20:23] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[01:21:12] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_24-11-16.txt'
+[01:21:12] LOCALE: en_GB - United Kingdom
+[01:21:12] Loading default commands...
+[01:21:12] Loaded default commands...
+[01:21:12] Starting World of Zuul... ENGLISH
+[01:21:12] Loading properties.ini file...
+[01:21:12] Property file found, loading properties...
+[01:21:12] Closed I/O streams.
+[01:21:12] Creating new resource manager.
+[01:21:12] [ERROR] An error occurred somewhere, closing logger. null[01:21:12] Closing logger.
+[01:21:12] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[01:21:52] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_24-11-16.txt'
+[01:21:52] LOCALE: en_GB - United Kingdom
+[01:21:52] Loading default commands...
+[01:21:52] Loaded default commands...
+[01:21:52] Starting World of Zuul... ENGLISH
+[01:21:52] Loading properties.ini file...
+[01:21:52] Property file found, loading properties...
+[01:21:52] Closed I/O streams.
+[01:21:52] Creating new resource manager.
+[01:21:52] [ERROR] An error occurred somewhere, closing logger. null[01:21:52] Closing logger.
+[01:21:52] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[01:22:00] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_24-11-16.txt'
+[01:22:00] LOCALE: en_GB - United Kingdom
+[01:22:00] Loading default commands...
+[01:22:00] Loaded default commands...
+[01:22:00] Starting World of Zuul... ENGLISH
+[01:22:00] Loading properties.ini file...
+[01:22:00] Property file found, loading properties...
+[01:22:00] Closed I/O streams.
+[01:22:00] Creating new resource manager.
+[01:22:00] [ERROR] An error occurred somewhere, closing logger. null[01:22:00] Closing logger.
+[01:22:00] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[01:22:08] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_24-11-16.txt'
+[01:22:08] LOCALE: en_GB - United Kingdom
+[01:22:08] Loading default commands...
+[01:22:08] Loaded default commands...
+[01:22:08] Starting World of Zuul... ENGLISH
+[01:22:08] Loading properties.ini file...
+[01:22:08] Property file found, loading properties...
+[01:22:08] Closed I/O streams.
+[01:22:08] Creating new resource manager.
+[01:22:08] [ERROR] An error occurred somewhere, closing logger. null[01:22:08] Closing logger.
+[01:22:08] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[01:23:25] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_24-11-16.txt'
+[01:23:25] LOCALE: en_GB - United Kingdom
+[01:23:25] Loading default commands...
+[01:23:25] Loaded default commands...
+[01:23:25] Starting World of Zuul... ENGLISH
+[01:23:25] Loading properties.ini file...
+[01:23:25] Property file found, loading properties...
+[01:23:25] Closed I/O streams.
+[01:23:25] Creating new resource manager.
+[01:23:25] [ERROR] An error occurred somewhere, closing logger. null[01:23:25] Closing logger.
+[01:23:25] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[01:23:50] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_24-11-16.txt'
+[01:23:50] LOCALE: en_GB - United Kingdom
+[01:23:50] Loading default commands...
+[01:23:50] Loaded default commands...
+[01:23:50] Starting World of Zuul... ENGLISH
+[01:23:50] Loading properties.ini file...
+[01:23:50] Property file found, loading properties...
+[01:23:50] Closed I/O streams.
+[01:23:50] Properties loaded.
+[01:23:51] Creating game session...
+[01:23:51] 
+[01:23:51]  - - - - - - - - - - - - - - - - - - - - 
+[01:23:51]       Loading Plugins ...          
+[01:23:51]  - - - - - - - - - - - - - - - - - - - - 
+[01:23:51] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[01:23:51] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [01:23:51] - Finished  - - - - - - - - - - - - - - 
+[01:23:51] Creating new resource manager.
+[01:23:51]  - - - - - - - - - - - - - - - - - - - - 
+[01:23:51]       Loading XML Config files ...    
+[01:23:51] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[01:23:51]  - - - - - - - - - - - - - - - - - - - - 
+[01:23:51] Added item 'apple'
+[01:23:51] Added item 'book'
+[01:23:51] Added item 'gun'
+[01:23:51] Added item 'tomato'
+[01:23:51] Added item 'pear'
+[01:23:51] Added item 'grapes'
+[01:23:51] Loaded room 'outside'
+[01:23:51] Loaded room 'library'
+[01:23:51] Loaded room 'theatre'
+[01:23:51] Loaded room 'lab'
+[01:23:51] Loaded room 'pub'
+[01:23:51] Added new player 'RichardJones'.
+[01:23:51] Added new character 'Bob'.
+[01:23:51] Added new character 'Chris'.
+[01:23:51] Added new character 'Mitch'.
+[01:23:51] Added new character 'Louis'.
+[01:23:51] Added new character 'Craig'.
+[01:23:51] Added new character 'DonaldTrump'.
+[01:23:51] Added new player 'JamesPond'.
+[01:23:51] - - Finished - - - - - - - - - - - - - - 
+[01:23:51] There are 2 players playing.
+[01:23:51] Assuming the control of player 'RichardJones'.
+[01:23:58] Closing logger.
+[01:23:58] Closing writer for logger.

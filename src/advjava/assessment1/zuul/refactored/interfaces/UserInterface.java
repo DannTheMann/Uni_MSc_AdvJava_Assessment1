@@ -5,6 +5,7 @@
  */
 package advjava.assessment1.zuul.refactored.interfaces;
 
+import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
 /**
@@ -12,13 +13,18 @@ import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
  * @author dja33
  */
 public interface UserInterface {
-    
+	
     public void print(Object obj);
     public void println(Object obj);
     public void println();
     public void printErr(Object obj);
     public void printlnErr(Object obj);
+    
     public void exit();
+    
+    public boolean update(Game game);
+    
     public CommandExecution getCommand();
+	public void play(Game zuulGame);
      
 }
