@@ -48,6 +48,7 @@ public class CommandManager {
      */
     public CommandManager() {
         loadDefaultCommands();
+        // te
     }
 
     /**
