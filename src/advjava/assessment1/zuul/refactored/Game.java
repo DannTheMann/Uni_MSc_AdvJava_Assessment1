@@ -13,7 +13,6 @@ import advjava.assessment1.zuul.refactored.item.ItemManager;
 import advjava.assessment1.zuul.refactored.room.RoomManager;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
-import advjava.assessment1.zuul.refactored.utils.ResourceManager;
 import advjava.assessment1.zuul.refactored.utils.XMLManager;
 
 public abstract class Game {
@@ -94,7 +93,6 @@ public abstract class Game {
 		commandManager.loadPlugins();
 
 		this.properties = properties;
-		ResourceManager.newResourceManager();
 		try {
 
 			ui.println();

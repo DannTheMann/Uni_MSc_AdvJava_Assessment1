@@ -32,6 +32,7 @@ public class ZuulGame extends Game{
 	/**
 	 * Main play routine. Loops until end of play.
 	 */
+        @Override
 	public void play() {
 		ui.play(this);
 	}
@@ -39,6 +40,7 @@ public class ZuulGame extends Game{
 	/**
 	 * Terminate the game
 	 */
+        @Override
 	public void terminate() {
 		finished = true;
 		try {
@@ -48,6 +50,7 @@ public class ZuulGame extends Game{
 		}
 	}
 	
+        @Override
 	public boolean hasTerminated(){
 		return finished;
 	}

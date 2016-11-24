@@ -20,6 +20,7 @@ public class Item {
 
 	private String name;
 	private String description;
+        private String imageURL;
 	private int weight;
 
 	/**
@@ -35,7 +36,7 @@ public class Item {
 	 *             if name is null
 	 */
 	public Item(String name, String description, int weight) {
-		if (name == "" || name == null) {
+		if ("".equals(name) || name == null) {
 			throw new NullPointerException(InternationalisationManager.im.getMessage("item.null"));
 		}
 		this.name = name.replaceAll(" ", "");
@@ -46,6 +47,8 @@ public class Item {
 	/**
 	 * If the item doesn't have a description, alternatively use this
 	 * constructor
+         * @param name
+         * @param weight
 	 */
 	public Item(String name, int weight) {
 		this(name, null, weight);
@@ -81,6 +84,7 @@ public class Item {
 	/**
 	 * Override toString and provide a detailed explaination of the item in a
 	 * formatted string
+         * @return 
 	 */
 	@Override
 	public String toString() {

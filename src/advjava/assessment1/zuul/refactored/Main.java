@@ -105,16 +105,13 @@ public class Main {
                  * sided against this to use the XML structure I created as it
                  * reduces repeated information but allows for multiple players.
                  */
-                //properties.setProperty("startingRoom", "outside");
-                //properties.setProperty("playerName", "Richard Jones");
-                //properties.setProperty("playerDescription", InternationalisationManager.im.getMessage("main.pdesc"));
-                //properties.setProperty("playerMaxWeight", "30");
                 properties.setProperty("helpIntroductionText",
                         InternationalisationManager.im.getMessage("main.introText"));
                 properties.setProperty("logFile", LOG_FILES);
                 properties.setProperty("title", "World of Zuul");
                 properties.setProperty("resourceDirectory", RESOURCE_FILES);
                 properties.setProperty("noResourceFound", "error.png");
+                
                 properties.store(fileOut, "Zuul Configuration");
 
                 // File does exist
@@ -128,10 +125,6 @@ public class Main {
                 /**
                  * check all properties exist, if any do not add them
                  */
-                //checkProperty("startingRoom", "outside");
-                //checkProperty("playerName", "Richard Jones");
-                //checkProperty("playerDescription", InternationalisationManager.im.getMessage("main.pdesc"));
-                //checkProperty("playerMaxWeight", "30");
                 checkProperty("helpIntroductionText", InternationalisationManager.im.getMessage("main.introText"));
                 checkProperty("logFile", LOG_FILES);
                 checkProperty("title", "World of Zuul");

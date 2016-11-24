@@ -31,18 +31,20 @@ public class ResourceManager {
 		Out.out.logln("Loading resources from '" + resourceDirectory.getAbsolutePath() + "'.");
                 try{
                     File error = new File(resourceDirectory.getAbsolutePath() + File.separator + Main.game.getProperty("noResourceFound"));
-                    System.out.println("RD> " + error.toURI().toString());
                     resources.put("error", new Image(error.toURI().toString()));
                     Arrays.stream(resourceDirectory.listFiles())
                                     .filter(f->f.getName().endsWith(".jpg") 
                                                     || f.getName().endsWith(".jpeg") 
                                                     || f.getName().endsWith(".png"))
-                                    .forEach(f->resources.put(f.getName().split(".")[0], new Image(f.toURI().toString())));
+                                    .forEach(f->resources.put(f.getName().split("\\.")[0], new Image(f.toURI().toString())));
                 }catch(Exception e){
                     Out.out.loglnErr("Failed to load resources! " +e.toString());
                     Out.out.loglnErr("Exiting game, cannot proceed without resources.");
                     System.exit(0);
                 }
+                
+                resources.entrySet().stream()
+                        .forEach(e->Out.out.logln("Loaded resource: " + e.getKey()));
 		Out.out.logln("Resources loaded = " + resources.size());
 	}
 
@@ -58,7 +60,7 @@ public class ResourceManager {
 	public Image getImage(String key){
 		Out.out.logln("Trying to retrieve '" + key + "' from ResourceManager.");
 		return resources.entrySet().stream()
-				.filter(k->k.equals(key))
+				.filter(k->key.equals(k.getKey()))
 				.map(v->v.getValue())
 				.findFirst()
 				.orElse(resources.get("error"));	

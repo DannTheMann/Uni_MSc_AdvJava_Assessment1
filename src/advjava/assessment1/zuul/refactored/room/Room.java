@@ -137,10 +137,9 @@ public class Room {
 				(characters.isEmpty() ? InternationalisationManager.im.getMessage("room.desc2") : ""),
 				System.lineSeparator()));
 
-		out.append(InternationalisationManager.im.getMessage("room.desc3") + System.lineSeparator() + "  "
-				+ rooms.entrySet().stream()
-						.map(e -> e.getKey().toUpperCase() + " -> " + e.getValue().name + System.lineSeparator())
-						.collect(Collectors.joining("  ")));
+		out.append(InternationalisationManager.im.getMessage("room.desc3")).append(System.lineSeparator()).append("  ").append(rooms.entrySet().stream()
+                        .map(e -> e.getKey().toUpperCase() + " -> " + e.getValue().name + System.lineSeparator())
+                        .collect(Collectors.joining("  ")));
 
 		out.append((!items.isEmpty()
 				? InternationalisationManager.im.getMessage("room.desc4")
