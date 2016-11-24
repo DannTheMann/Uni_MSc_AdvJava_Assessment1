@@ -4,6 +4,9 @@ import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.ZuulGame;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
+import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
+import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
@@ -47,5 +50,10 @@ public class HelpCommand extends Command {
 
 		return false;
 	}
+
+    @Override
+    public boolean interfaceAcceptable(UserInterface ui) {
+        return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
+    }
 
 }

@@ -116,7 +116,7 @@ public final class Out {
         if (canLog) {
             
             try{
-                writer.write("[" + logTimeFormat.format(new Date()) + "] " + str); 
+                writer.write(String.format("[%s] %s", logTimeFormat.format(new Date()), str)); 
             }catch(IOException ioe){ 
                 canLog = false;
                 loglnErr("Logger could not write to file: "  + ioe.getMessage());
@@ -134,15 +134,17 @@ public final class Out {
         printDebugMessages = print;
     }
 
+    private static final String ERROR_PREFIX = "[ERROR] ";
+    
     public void loglnErr(Object obj) {
         if (isPrintingDebugMessages()) {
             if(Main.game != null){
                 Main.game.getInterface().printlnErr(obj);
             }else{
-                System.out.println("[ERROR] " + obj.toString());
+                System.out.println(ERROR_PREFIX + obj.toString());
             }
         }
-        recordToLog("[ERROR] " + obj.toString());
+        recordToLog(ERROR_PREFIX + obj.toString());
     }
     
     public String getDirectory(){

@@ -9,6 +9,8 @@ import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
+import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 
 /**
  *
@@ -106,5 +108,10 @@ public class DebugCommand extends Command {
 		return false;
 
 	}
+
+   @Override
+    public boolean interfaceAcceptable(UserInterface ui) {
+        return ui instanceof CommandLineInterface;
+    }
 
 }

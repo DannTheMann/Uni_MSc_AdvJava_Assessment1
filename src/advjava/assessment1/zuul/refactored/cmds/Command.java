@@ -6,6 +6,7 @@
 package advjava.assessment1.zuul.refactored.cmds;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 
 /**
  * Command class, all commands extend this framework to build upon.
@@ -77,5 +78,7 @@ public abstract class Command {
 	 *         executed
 	 */
 	public abstract boolean action(Game game, CommandExecution cmd);
+        
+        public abstract boolean interfaceAcceptable(UserInterface ui);
 
 }

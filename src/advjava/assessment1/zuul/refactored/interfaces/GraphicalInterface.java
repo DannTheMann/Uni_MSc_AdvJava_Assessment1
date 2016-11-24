@@ -123,6 +123,10 @@ public class GraphicalInterface extends Application implements UserInterface{
 	    
 	    for(Command command : game.getCommandManager().commands()){
 	    	
+                if(!command.interfaceAcceptable(this)){
+                    continue;
+                }
+                
 	    	buttonCurrent = new Button(command.getName());
 		    buttonCurrent.setPrefSize(100, 20);
 		    commandButtons.add(buttonCurrent);
