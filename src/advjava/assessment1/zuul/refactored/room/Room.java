@@ -115,7 +115,7 @@ public class Room {
 	 * @return Collection<Room> all exits
 	 */
 	public Collection<Room> getExits() {
-		return rooms.values();
+		return PrintableList.fromCollection(rooms.values());
 	}
 
 	/**

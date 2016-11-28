@@ -1,6 +1,7 @@
 package advjava.assessment1.zuul.refactored.utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.stream.Collectors;
 
 /**
@@ -29,6 +30,10 @@ public class PrintableList<E> extends ArrayList<E> {
 		if (isEmpty())
 			return InternationalisationManager.im.getMessage("print.empty");
 		return stream().map(o -> o.toString()).collect(Collectors.joining(", "));
+	}
+
+	public static <T> PrintableList<T> fromCollection(Collection<T> values) {
+		return values.stream().collect(Collectors.toCollection(PrintableList::new));
 	}
 
 }

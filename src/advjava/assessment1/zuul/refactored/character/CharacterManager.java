@@ -1,6 +1,5 @@
 package advjava.assessment1.zuul.refactored.character;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +7,7 @@ import java.util.stream.Collectors;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.PrintableList;
 
 /**
  * 
@@ -96,8 +96,8 @@ public class CharacterManager {
 	 * 
 	 * @return Collection<Character> of characters
 	 */
-	public Collection<Character> characters() {
-		return characters.values();
+	public PrintableList<Character> characters() {
+		return PrintableList.fromCollection(characters.values());
 	}
 	
 	/**

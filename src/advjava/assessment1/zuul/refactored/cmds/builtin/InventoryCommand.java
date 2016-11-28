@@ -27,7 +27,7 @@ public class InventoryCommand extends Command{
     
         game.getInterface().showInventory();
         
-        return true;
+        return false;
     }
 
     @Override

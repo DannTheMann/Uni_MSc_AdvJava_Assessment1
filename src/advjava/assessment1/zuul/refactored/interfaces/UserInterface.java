@@ -14,6 +14,8 @@ import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
  */
 public interface UserInterface {
     
+	public String getCurrentParameters();
+	
     public void displayLocale(Object obj);
     public void displaylnLocale(Object obj);
     public void print(Object obj);
@@ -29,6 +31,7 @@ public interface UserInterface {
     public void showInventory();
     public void showCharacters();
     public void showRoom();
+	void showExits();
      
      
 }

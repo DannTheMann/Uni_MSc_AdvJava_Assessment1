@@ -2,7 +2,3 @@ Notes
 -----
 
 * Need to work on GUI images and stuff
-* Quit doesn't work
-* ResourceManager currently in game.init, could be elsewhere.
-* Maybe a logln for all properties loaded?
-* Add options to turn off debug logln messages in properties

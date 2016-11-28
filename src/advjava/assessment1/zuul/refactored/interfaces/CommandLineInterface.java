@@ -8,6 +8,8 @@ package advjava.assessment1.zuul.refactored.interfaces;
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.Out;
+
 import java.util.Scanner;
 
 /**
@@ -18,7 +20,8 @@ public class CommandLineInterface implements UserInterface {
 
     private Scanner reader; // source of command input
     private Game game;
-
+    private String parameters;
+    
     /**
      * Create a parser to read from the terminal window.
      */
@@ -34,7 +37,8 @@ public class CommandLineInterface implements UserInterface {
     public CommandExecution getCommand() {
         print("> "); // print prompt
         // Pass the entire line from scanner to reader
-        return new CommandExecution(reader.nextLine());
+        parameters = reader.nextLine();
+        return new CommandExecution(parameters);
     }
 
     /**
@@ -62,21 +66,30 @@ public class CommandLineInterface implements UserInterface {
     @Override
     public void println(Object obj) {
         System.out.println(obj);
+        
+        if(Out.out.isPrintingDebugMessages())
+        	Out.out.logln(obj);
     }
 
     @Override
     public void println() {
-        System.out.println();
+        println(null);
     }
 
     @Override
     public void printErr(Object obj) {
         System.err.print(obj);
+        
+        if(Out.out.isPrintingDebugMessages())
+        	Out.out.logln(obj);
     }
 
     @Override
     public void printlnErr(Object obj) {
         System.err.println(obj);
+        
+        if(Out.out.isPrintingDebugMessages())
+        	Out.out.logln(obj);
     }
 
     @Override
@@ -135,5 +148,15 @@ public class CommandLineInterface implements UserInterface {
     public void showRoom(){
         println(game.getPlayer().getCurrentRoom());
     }
+
+	@Override
+	public void showExits() {
+		println(game.getPlayer().getCurrentRoom().getExits());
+	}
+
+	@Override
+	public String getCurrentParameters() {
+		return parameters;
+	}
 
 }

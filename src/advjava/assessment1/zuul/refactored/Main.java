@@ -25,7 +25,7 @@ public class Main {
     public static final String XML_CONFIGURATION_FILES = System.getProperty("user.dir") + File.separator + "Config";
     public static final String LOG_FILES = System.getProperty("user.dir") + File.separator + "Config" + File.separator + "Logs";
     public static final String RESOURCE_FILES = System.getProperty("user.dir") + File.separator + "Resources";
-    private static final String PROPERTIES_FILE = XML_CONFIGURATION_FILES + File.separator + "zuul.properties";
+    public static final String PROPERTIES_FILE = XML_CONFIGURATION_FILES + File.separator + "zuul.properties";
 
     private static Properties properties = null;
 
@@ -64,6 +64,10 @@ public class Main {
             Out.out.logln(InternationalisationManager.im.getMessage("main.createSession"));
             // Create the game, initialise and start it
             game.initialiseGame(properties);
+            
+            Out.out.setPrintingDebugMessages(Boolean.parseBoolean(properties.getProperty("logEverything")));
+            game.getInterface().println("Are we logging everything (properties file): " + Out.out.isPrintingDebugMessages());
+            
             game.play();
 
         } catch (Exception e) {
@@ -108,7 +112,9 @@ public class Main {
                 properties.setProperty("helpIntroductionText",
                         InternationalisationManager.im.getMessage("main.introText"));
                 properties.setProperty("logFile", LOG_FILES);
+                properties.setProperty("logEverything", "true");
                 properties.setProperty("title", "World of Zuul");
+                properties.setProperty("css", "zuul_style.css");
                 properties.setProperty("resourceDirectory", RESOURCE_FILES);
                 properties.setProperty("noResourceFound", "error.png");
                 
@@ -127,7 +133,9 @@ public class Main {
                  */
                 checkProperty("helpIntroductionText", InternationalisationManager.im.getMessage("main.introText"));
                 checkProperty("logFile", LOG_FILES);
+                checkProperty("logEverything", "true");
                 checkProperty("title", "World of Zuul");
+                checkProperty("css", "zuul_style.css");
                 checkProperty("resourceDirectory", RESOURCE_FILES);
                 checkProperty("noResourceFound", "error.png");
 

@@ -5,8 +5,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.Collection;
 import java.util.Enumeration;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -23,8 +23,7 @@ import advjava.assessment1.zuul.refactored.cmds.builtin.QuitCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.TakeCommand;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import advjava.assessment1.zuul.refactored.utils.PrintableList;
 
 
 /**
@@ -39,8 +38,9 @@ import java.util.TreeMap;
  */
 public class CommandManager {
 
-    // Map of commans, K=command name, V=command object
-    static final Map<String, Command> commands = new TreeMap<>();
+    // Map of commands, K=command name, V=command object
+	// LinkedHashMap maintains insertion order, helps maintain GUI appearance
+    static final Map<String, Command> commands = new LinkedHashMap<>();
 
     /**
      * Create an instance of the Command Manager, by default loads all default
@@ -48,7 +48,6 @@ public class CommandManager {
      */
     public CommandManager() {
         loadDefaultCommands();
-        // te
     }
 
     /**
@@ -158,14 +157,15 @@ public class CommandManager {
     private void loadDefaultCommands() {
         Out.out.logln(InternationalisationManager.im.getMessage("loadingDefaultCommands"));
 
+        /* Load all default commands */
+        commands.put(InternationalisationManager.im.getMessage("loadHelp"),
+                new HelpCommand(InternationalisationManager.im.getMessage("loadHelp"), InternationalisationManager.im.getMessage("loadHelpDesc")));
         commands.put(InternationalisationManager.im.getMessage("loadLook"),
                 new LookCommand(InternationalisationManager.im.getMessage("loadLook"),
                         InternationalisationManager.im.getMessage("loadLookDesc")));
         commands.put(InternationalisationManager.im.getMessage("loadGo"),
                 new GoCommand(InternationalisationManager.im.getMessage("loadGo"),
                         InternationalisationManager.im.getMessage("loadGoDesc")));
-        commands.put(InternationalisationManager.im.getMessage("loadHelp"),
-                new HelpCommand("help", InternationalisationManager.im.getMessage("loadHelpDesc")));
         commands.put(InternationalisationManager.im.getMessage("loadPickUpItem"),
                 new TakeCommand(InternationalisationManager.im.getMessage("loadPickUpItem"),
                         InternationalisationManager.im.getMessage("loadPickUpItemDesc")));
@@ -175,12 +175,17 @@ public class CommandManager {
         commands.put(InternationalisationManager.im.getMessage("loadGive"),
                 new GiveCommand(InternationalisationManager.im.getMessage("loadGive"),
                         InternationalisationManager.im.getMessage("loadGiveDesc")));
+        
+        /* CMD Commands */
         commands.put(InternationalisationManager.im.getMessage("loadQuit"),
                 new QuitCommand(InternationalisationManager.im.getMessage("loadQuit"),
                         InternationalisationManager.im.getMessage("loadQuitDesc")));
         
+        /* GUI Commands */
         commands.put("Inventory",
                 new InventoryCommand("Inventory", "Display the users inventory."));
+        
+        /* Other commands, purely for debugging */
         commands.put("Debug",
                 new DebugCommand("debug", "Debug information on game. /debug <rooms|characters|items|general|player>"));
 
@@ -192,8 +197,8 @@ public class CommandManager {
      *
      * @return Collection of commands
      */
-    public Collection<Command> commands() {
-        return commands.values();
+    public PrintableList<Command> commands() {
+        return PrintableList.fromCollection(commands.values());
     }
 
     /**
