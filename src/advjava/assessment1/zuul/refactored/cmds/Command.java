@@ -7,6 +7,7 @@ package advjava.assessment1.zuul.refactored.cmds;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
+import advjava.assessment1.zuul.refactored.utils.Resource;
 
 /**
  * Command class, all commands extend this framework to build upon.
@@ -18,10 +19,7 @@ import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
  * 
  * @author dja33
  */
-public abstract class Command {
-
-	private String name;
-	private String description;
+public abstract class Command extends Resource{
 
 	/**
 	 * Create a new command.
@@ -32,26 +30,7 @@ public abstract class Command {
 	 *            Description of what the command does
 	 */
 	public Command(String name, String description) {
-		this.description = description;
-		this.name = name;
-	}
-
-	/**
-	 * Get the name of the command.
-	 * 
-	 * @return Name of command.
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * Get the description of the command.
-	 * 
-	 * @return The description of the command.
-	 */
-	public String getDescription() {
-		return description;
+		super(name, description);
 	}
 
 	/**
@@ -63,7 +42,7 @@ public abstract class Command {
 	 */
 	@Override
 	public String toString() {
-		return name + " -> " + description;
+		return getName() + " -> " + getDescription();
 	}
 
 	/**
@@ -79,6 +58,6 @@ public abstract class Command {
 	 */
 	public abstract boolean action(Game game, CommandExecution cmd);
         
-        public abstract boolean interfaceAcceptable(UserInterface ui);
+    public abstract boolean interfaceAcceptable(UserInterface ui);
 
 }

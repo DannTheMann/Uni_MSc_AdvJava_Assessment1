@@ -2,6 +2,7 @@ package advjava.assessment1.zuul.refactored.interfaces;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import advjava.assessment1.zuul.refactored.Game;
@@ -10,6 +11,7 @@ import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.utils.Out;
+import advjava.assessment1.zuul.refactored.utils.Resource;
 import advjava.assessment1.zuul.refactored.utils.ResourceManager;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -134,22 +136,24 @@ public class GraphicalInterface extends Application implements UserInterface {
 		//root.setStyle("");
 		root.setStyle("" + "-fx-background-image: url(outside.jpg);" + "-fx-background-size: cover;");
 		root.setBottom(commands);
-
-		inventory = new TilePane();
-		inventory.setAlignment(Pos.BASELINE_CENTER);
-		inventory.setPrefWidth(200);
-		inventory.setHgap(NODE_HORIZONTAL_INSET);
-		inventory.setVgap(NODE_VERTICAL_INSET);
+		
+		//inventory = getSidePanel("-fx-background-color: rgba(255, 255, 255, 0.25); -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);");
+		
+		characters = new TilePane();
+		characters.setAlignment(Pos.BASELINE_CENTER);
+		characters.setPrefWidth(200);
+		characters.setHgap(NODE_HORIZONTAL_INSET);
+		characters.setVgap(NODE_VERTICAL_INSET);
 		
 		// Insets, in order of 
 		// top, right, bottom, left
-		inventory.setPadding(new Insets(NODE_TOP_OFFSET,NODE_RIGHT_OFFSET,NODE_BOTTOM_OFFSET,NODE_LEFT_OFFSET));
-		inventory.setPrefRows(4);
-		inventory.setStyle(
+		characters.setPadding(new Insets(NODE_TOP_OFFSET,NODE_RIGHT_OFFSET,NODE_BOTTOM_OFFSET,NODE_LEFT_OFFSET));
+		characters.setPrefRows(4);
+		characters.setStyle(
 				"-fx-background-color: rgba(255, 255, 255, 0.25); -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);");
 		
 		// Load all items...
-		game.getPlayer().getInventory().stream().forEach(i->inventory.getChildren().add(getDisplayItem(i)));
+		//game.getPlayer().getInventory().stream().forEach(i->inventory.getChildren().add(getDisplayItem(i)));
 
 		scene = new Scene(root, 1280, 720);
 		scene.getStylesheets().add(getExternalCSS());
@@ -160,14 +164,12 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	}
 
-	private Node getDisplayItem(Item i) {
+	private Node getDisplayItem(Resource resource) {
 		Rectangle r = new Rectangle();
-		r.setX(50);
-		r.setY(50);
-		r.setWidth(200);
-		r.setHeight(100);
-		r.setArcWidth(20);
-		r.setArcHeight(20);
+		r.setWidth(75);
+		r.setHeight(75);
+		r.setArcWidth(10);
+		r.setArcHeight(10);
 		return r;
 		//return new Button(i.getName());
 	}
@@ -179,9 +181,26 @@ public class GraphicalInterface extends Application implements UserInterface {
 		
 		// ...
 	}
+	
+	private TilePane getSidePanel(String css, Collection<Resource> stream){
+		TilePane pane = new TilePane();
+		pane.setAlignment(Pos.BASELINE_CENTER);
+		pane.setPrefWidth(200);
+		pane.setHgap(NODE_HORIZONTAL_INSET);
+		pane.setVgap(NODE_VERTICAL_INSET);
+		
+		// Insets, in order of 
+		// top, right, bottom, left
+		pane.setPadding(new Insets(NODE_TOP_OFFSET,NODE_RIGHT_OFFSET,NODE_BOTTOM_OFFSET,NODE_LEFT_OFFSET));
+		pane.setPrefRows(4);
+		pane.setStyle(css);		
+		stream.forEach(i->pane.getChildren().add(getDisplayItem(i)));	
+		return pane;
+	}
 
 	private HBox getCommandHBox() {
 		HBox hbox = new HBox();
+		hbox.setPrefHeight(100);
 		hbox.setPadding(new Insets(15, 12, 15, 12));
 		hbox.setSpacing(10);
 		hbox.setStyle("-fx-background-color: #336699;");
@@ -239,16 +258,29 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	@Override
 	public void showCharacters() {
+		if(root.getRight() != null){
+			root.setRight(null);
+			return;
+		}
 		
+		disableOtherWindows();
+		
+		root.setRight(characters);
+
+		// sliding transition... from left ... 
 	}
 
 	@Override
 	public void showRoom() {
 
+		
+		
 	}
 
 	@Override
 	public void showExits() {
+		
+		
 		
 	}
 	

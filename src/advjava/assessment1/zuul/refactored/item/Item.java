@@ -6,6 +6,7 @@
 package advjava.assessment1.zuul.refactored.item;
 
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.Resource;
 
 /**
  * 
@@ -16,12 +17,10 @@ import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
  * 
  * @author dja33
  */
-public class Item {
+public class Item extends Resource{
 
-	private String name;
-	private String description;
 	private int weight;
-
+	
 	/**
 	 * Create a new item
 	 * 
@@ -35,12 +34,7 @@ public class Item {
 	 *             if name is null
 	 */
 	public Item(String name, String description, int weight) {
-		if ("".equals(name) || name == null) {
-			throw new NullPointerException(InternationalisationManager.im.getMessage("item.null"));
-		}
-		this.name = name.replaceAll(" ", "");
-		this.description = description == null || description.equals("") ? null : description;
-		this.weight = weight;
+		super(name.replaceAll(" ", ""), description == null || description.equals("") ? null : description);
 	}
 
 	/**
@@ -61,25 +55,7 @@ public class Item {
 	public int getWeight() {
 		return weight;
 	}
-
-	/**
-	 * Return name of the item
-	 * 
-	 * @return name
-	 */
-	public String getName() {
-		return this.name;
-	}
-
-	/**
-	 * Return description of item
-	 * 
-	 * @return description
-	 */
-	public String getDescription() {
-		return this.description;
-	}
-
+	
 	/**
 	 * Override toString and provide a detailed explaination of the item in a
 	 * formatted string
@@ -87,9 +63,9 @@ public class Item {
 	 */
 	@Override
 	public String toString() {
-		return description == null
-				? String.format(InternationalisationManager.im.getMessage("item.toStringNoDesc"), name, weight)
-				: String.format(InternationalisationManager.im.getMessage("item.toStringWithDesc"), name, description,
+		return getDescription() == null
+				? String.format(InternationalisationManager.im.getMessage("item.toStringNoDesc"), getName(), weight)
+				: String.format(InternationalisationManager.im.getMessage("item.toStringWithDesc"), getName(), getDescription(),
 						weight);
 	}
 

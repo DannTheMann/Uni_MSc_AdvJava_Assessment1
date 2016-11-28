@@ -8,6 +8,7 @@ import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingExcep
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.Resource;
 
 /**
  * Represents a superclass for any Characters in the game NonPlayerCharacter and
@@ -23,15 +24,13 @@ import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
  * @author dja33
  *
  */
-public abstract class Character {
+public abstract class Character extends Resource{
 
 	// Constant for MAX_WEIGHT, declared on constructor
 	private final int MAX_WEIGHT;
 
 	// Fields for information for each Character
 	private int weight;
-	private String name;
-	private String description;
 	private List<Item> inventory;
 	private Room currentRoom;
 
@@ -57,12 +56,8 @@ public abstract class Character {
 	 * @throws InvalidCharacterNamingException
 	 *             If name is null or an empty String
 	 */
-	public Character(String name, String description, Room room, List<Item> items, int maxWeight)
-			throws InvalidCharacterNamingException {
-		if (name == null || name.equals(""))
-			throw new InvalidCharacterNamingException();
-		this.name = name.replaceAll(" ", "");
-		this.description = description;
+	public Character(String name, String description, Room room, List<Item> items, int maxWeight){
+		super(name.replaceAll("", ""), description);
 		this.inventory = items;
 		this.currentRoom = room;
 		this.MAX_WEIGHT = maxWeight;
@@ -82,24 +77,6 @@ public abstract class Character {
 		}
 
 		room.addCharacter(this);
-	}
-
-	/**
-	 * Get the character name
-	 * 
-	 * @return name of character
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * Get the description of the character
-	 * 
-	 * @return description character
-	 */
-	public String getDescription() {
-		return description;
 	}
 
 	/**
@@ -245,8 +222,8 @@ public abstract class Character {
 	 */
 	@Override
 	public String toString() {
-		return String.format(InternationalisationManager.im.getMessage("c.toString"), name,
-				description != null ? description : InternationalisationManager.im.getMessage("print.empty"),
+		return String.format(InternationalisationManager.im.getMessage("c.toString"), getName(),
+				getDescription() != null ? getDescription() : InternationalisationManager.im.getMessage("print.empty"),
 				inventory.isEmpty() ? InternationalisationManager.im.getMessage("c.invEmpty") : inventory.toString());
 	}
 

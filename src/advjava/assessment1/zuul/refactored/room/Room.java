@@ -12,6 +12,7 @@ import advjava.assessment1.zuul.refactored.exception.InvalidRoomNamingException;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
+import advjava.assessment1.zuul.refactored.utils.Resource;
 
 /**
  * The Room class stores all the references to exits, characters and items
@@ -23,7 +24,7 @@ import advjava.assessment1.zuul.refactored.utils.PrintableList;
  * @author Daniel
  *
  */
-public class Room {
+public class Room extends Resource{
 
 	// Exits from the room
 	private Map<String, Room> rooms;
@@ -31,10 +32,6 @@ public class Room {
 
 	// Characters in the room
 	private List<Character> characters;
-
-	// Room details
-	private String name;
-	private String description;
 
 	/**
 	 * Create a room with a name and description, an example might be "Kitchen"
@@ -51,10 +48,7 @@ public class Room {
 	 *             if name is null or empty
 	 */
 	public Room(String name, String description) throws InvalidRoomNamingException {
-		if (name == null || name.equals(""))
-			throw new InvalidRoomNamingException();
-		this.name = name.replaceAll(" ", "");
-		this.description = description;
+		super(name.replaceAll(" ", ""), description);
 		this.items = new PrintableList<>();
 		this.characters = new PrintableList<>();
 		this.rooms = new HashMap<>();
@@ -132,21 +126,22 @@ public class Room {
 
 		StringBuilder out = new StringBuilder();
 
-		out.append(String.format(InternationalisationManager.im.getMessage("room.desc1"), name,
-				description != null ? System.lineSeparator() + description : "",
+		out.append(String.format(InternationalisationManager.im.getMessage("room.desc1"), getName(),
+				getDescription() != null ? System.lineSeparator() + getDescription() : "",
 				(characters.isEmpty() ? InternationalisationManager.im.getMessage("room.desc2") : ""),
-				System.lineSeparator()));
-
-		out.append(InternationalisationManager.im.getMessage("room.desc3")).append(System.lineSeparator()).append("  ").append(rooms.entrySet().stream()
-                        .map(e -> e.getKey().toUpperCase() + " -> " + e.getValue().name + System.lineSeparator())
-                        .collect(Collectors.joining("  ")));
-
-		out.append((!items.isEmpty()
+				System.lineSeparator())).append(InternationalisationManager.im.getMessage("room.desc3"))
+		
+		.append(System.lineSeparator()).append("  ").append(rooms.entrySet().stream()
+                        .map(e -> e.getKey().toUpperCase() + " -> " + e.getValue().getName() + System.lineSeparator())
+                        .collect(Collectors.joining("  ")))
+		
+		.append((!items.isEmpty()
 				? InternationalisationManager.im.getMessage("room.desc4")
 						+ items.stream().map(i -> i.toString()).collect(Collectors.joining(", "))
-				: InternationalisationManager.im.getMessage("room.desc5")));
-
-		out.append(".");
+				: InternationalisationManager.im.getMessage("room.desc5")))
+		
+		.append(".");
+		
 		if (!characters.isEmpty() && characters.stream().filter(c->!c.isPlayer()).count() > 0) {
 			out.append(String.format(InternationalisationManager.im.getMessage("room.desc6"), System.lineSeparator(),
 					System.lineSeparator(), characters.stream().filter((c -> !c.isPlayer())).map(i -> i.toString())
@@ -154,15 +149,6 @@ public class Room {
 		}
 
 		return out.toString();
-	}
-
-	/**
-	 * Description of the room
-	 * 
-	 * @return The description of the room.
-	 */
-	public String getDescription() {
-		return description;
 	}
 
 	/**
@@ -277,15 +263,6 @@ public class Room {
 	public void addCharacter(Character... characters) {
 		for (Character c : characters)
 			addCharacter(c);
-	}
-
-	/**
-	 * Get the name of the room
-	 * 
-	 * @return name
-	 */
-	public String getName() {
-		return name;
 	}
 
 	/**
