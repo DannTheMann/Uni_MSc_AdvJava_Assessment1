@@ -3,11 +3,14 @@ package advjava.assessment1.zuul.refactored.character;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.Out;
+import advjava.assessment1.zuul.refactored.utils.PrintableList;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 
 /**
@@ -56,8 +59,8 @@ public abstract class Character extends Resource{
 	 * @throws InvalidCharacterNamingException
 	 *             If name is null or an empty String
 	 */
-	public Character(String name, String description, Room room, List<Item> items, int maxWeight){
-		super(name.replaceAll("", ""), description);
+	public Character(String name, String description, Room room, List<Item> items, int maxWeight, String url){
+		super(name.replaceAll("", ""), description, url);
 		this.inventory = items;
 		this.currentRoom = room;
 		this.MAX_WEIGHT = maxWeight;
@@ -158,8 +161,9 @@ public abstract class Character extends Resource{
 	 * 
 	 * @return Collection of items
 	 */
-	public Collection<Item> getInventory() {
-		return inventory;
+	public Collection<Resource> getInventory() {
+		return inventory.stream()
+				.collect(Collectors.toCollection(PrintableList::new));
 	}
 
 	/**

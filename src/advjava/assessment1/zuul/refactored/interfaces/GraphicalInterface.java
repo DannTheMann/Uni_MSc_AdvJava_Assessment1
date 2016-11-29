@@ -15,6 +15,7 @@ import advjava.assessment1.zuul.refactored.utils.Resource;
 import advjava.assessment1.zuul.refactored.utils.ResourceManager;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -24,15 +25,18 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class GraphicalInterface extends Application implements UserInterface {
 
 	private static Game game;
 	private static FontManager fontManager;
-	
+
 	private static List<Button> commandButtons;
 	private static Stage stage;
 	private static Scene scene;
@@ -41,11 +45,11 @@ public class GraphicalInterface extends Application implements UserInterface {
 	private static TilePane inventory;
 	private static TilePane characters;
 	private static TilePane exits;
-	
+
 	/* Constants for nodes used in gridpanes (indentations) */
 	private static final int NODE_VERTICAL_INSET = 10;
 	private static final int NODE_HORIZONTAL_INSET = 10;
-	
+
 	/* Constants for spacing offsets between nodes in gridpanes */
 	private static final int NODE_LEFT_OFFSET = 25;
 	private static final int NODE_TOP_OFFSET = 10;
@@ -55,7 +59,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 	public static String getExternalCSS() {
 		return Main.XML_CONFIGURATION_FILES + File.separator + Main.game.getProperty("css");
 	}
-	
+
 	@Override
 	public void print(Object obj) {
 		System.out.print(obj);
@@ -112,48 +116,49 @@ public class GraphicalInterface extends Application implements UserInterface {
 		game = Main.game;
 		fontManager = new FontManager(game.getProperty("defaultFont"));
 		stage = primaryStage;
-		
+
 		// Set title of the game from what is within our .properties file
 		stage.setTitle(game.getProperty("title"));
-		
+
 		// Define the minimum resolution of the root container of the stage
 		stage.setMinWidth(720);
 		stage.setMinHeight(480);
-		
+
 		// Define the maximum resolution of the root container of the stage
 		stage.setMaxWidth(1920);
 		stage.setMaxHeight(1080);
-		
+
 		// Create resource manager, needed to handle resources such as images
 		ResourceManager.newResourceManager();
 
 		commands = getCommandHBox();
-		
+
 		setBackgroundImage("outside");
 
 		/* Create root pane, a border pane */
 		root = new BorderPane();
-		//root.setStyle("");
+		// root.setStyle("");
 		root.setStyle("" + "-fx-background-image: url(outside.jpg);" + "-fx-background-size: cover;");
 		root.setBottom(commands);
 		
-		//inventory = getSidePanel("-fx-background-color: rgba(255, 255, 255, 0.25); -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);");
-		
+		inventory = getSidePanel("-fx-background-color: rgba(59, 165, 100, 0.25); -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);", game.getPlayer().getInventory());
+		// 0.25); -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);");
+
 		characters = new TilePane();
 		characters.setAlignment(Pos.BASELINE_CENTER);
 		characters.setPrefWidth(200);
 		characters.setHgap(NODE_HORIZONTAL_INSET);
 		characters.setVgap(NODE_VERTICAL_INSET);
-		
-		// Insets, in order of 
+
+		// Insets, in order of
 		// top, right, bottom, left
-		characters.setPadding(new Insets(NODE_TOP_OFFSET,NODE_RIGHT_OFFSET,NODE_BOTTOM_OFFSET,NODE_LEFT_OFFSET));
+		characters.setPadding(new Insets(NODE_TOP_OFFSET, NODE_RIGHT_OFFSET, NODE_BOTTOM_OFFSET, NODE_LEFT_OFFSET));
 		characters.setPrefRows(4);
 		characters.setStyle(
-				"-fx-background-color: rgba(255, 255, 255, 0.25); -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);");
-		
+				"-fx-background-color: rgba(255, 125, 0, 0.25); -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);");
+
 		// Load all items...
-		//game.getPlayer().getInventory().stream().forEach(i->inventory.getChildren().add(getDisplayItem(i)));
+		// game.getPlayer().getInventory().stream().forEach(i->inventory.getChildren().add(getDisplayItem(i)));
 
 		scene = new Scene(root, 1280, 720);
 		scene.getStylesheets().add(getExternalCSS());
@@ -165,36 +170,62 @@ public class GraphicalInterface extends Application implements UserInterface {
 	}
 
 	private Node getDisplayItem(Resource resource) {
-		Rectangle r = new Rectangle();
-		r.setWidth(75);
-		r.setHeight(75);
-		r.setArcWidth(10);
-		r.setArcHeight(10);
-		return r;
-		//return new Button(i.getName());
+
+		Out.out.logln("Loading: " + resource.getName() + "...");
+		
+		  VBox vbox = new VBox();
+		  vbox.setPadding(new Insets(NODE_TOP_OFFSET, NODE_RIGHT_OFFSET, NODE_BOTTOM_OFFSET, NODE_LEFT_OFFSET));
+//		Rectangle r = new Rectangle();
+//		r.setWidth(75);
+//		r.setHeight(75);
+//		r.setArcWidth(10);
+//		r.setArcHeight(10);
+
+		Text text = new Text(resource.getName() + (resource.getDescription() != null ? System.lineSeparator() + resource.getDescription() : ""));
+		ImageView iv = new ImageView(resource.getImage());
+		iv.setFitWidth(100);
+		iv.setFitHeight(100);
+		
+		vbox.getChildren().add(iv);
+		
+		if (resource instanceof Item) {
+			Item item = (Item) resource;
+			text.setText(text.getText() + System.lineSeparator() + item.getWeight());
+			Button button = new Button("Drop");
+			button.setOnAction(e -> {
+				parameters = "drop " + resource.getName().toLowerCase();
+				executeCommand(game.getCommandManager().getCommand("Drop"), e);
+				parameters = "";
+			});
+			vbox.getChildren().addAll(button);
+		}
+
+		vbox.getChildren().addAll(text);
+		return vbox;
+		// return new Button(i.getName());
 	}
 
 	private void setBackgroundImage(String resource) {
 		ImageView iv = new ImageView(ResourceManager.getResourceManager().getImage(resource));
 		iv.fitWidthProperty().bind(stage.widthProperty());
 		iv.fitHeightProperty().bind(stage.heightProperty());
-		
 		// ...
 	}
-	
-	private TilePane getSidePanel(String css, Collection<Resource> stream){
+
+	private TilePane getSidePanel(String css, Collection<Resource> stream) {
 		TilePane pane = new TilePane();
 		pane.setAlignment(Pos.BASELINE_CENTER);
 		pane.setPrefWidth(200);
 		pane.setHgap(NODE_HORIZONTAL_INSET);
 		pane.setVgap(NODE_VERTICAL_INSET);
-		
-		// Insets, in order of 
+
+		// Insets, in order of
 		// top, right, bottom, left
-		pane.setPadding(new Insets(NODE_TOP_OFFSET,NODE_RIGHT_OFFSET,NODE_BOTTOM_OFFSET,NODE_LEFT_OFFSET));
+		pane.setPadding(new Insets(NODE_TOP_OFFSET, NODE_RIGHT_OFFSET, NODE_BOTTOM_OFFSET, NODE_LEFT_OFFSET));
 		pane.setPrefRows(4);
-		pane.setStyle(css);		
-		stream.forEach(i->pane.getChildren().add(getDisplayItem(i)));	
+		pane.setStyle(css);
+		Out.out.logln("Adding player inventory... [" + stream.size() + "]");
+		stream.forEach(i -> pane.getChildren().add(getDisplayItem(i)));
 		return pane;
 	}
 
@@ -243,55 +274,51 @@ public class GraphicalInterface extends Application implements UserInterface {
 	@Override
 	public void showInventory() {
 
-		if(root.getLeft() != null){
+		if (root.getLeft() != null) {
 			root.setLeft(null);
 			return;
 		}
-		
+
 		disableOtherWindows();
-		
+
 		root.setLeft(inventory);
 
-		// sliding transition... from left ... 
+		// sliding transition... from left ...
 
 	}
 
 	@Override
 	public void showCharacters() {
-		if(root.getRight() != null){
+		if (root.getRight() != null) {
 			root.setRight(null);
 			return;
 		}
-		
+
 		disableOtherWindows();
-		
+
 		root.setRight(characters);
 
-		// sliding transition... from left ... 
+		// sliding transition... from left ...
 	}
 
 	@Override
 	public void showRoom() {
 
-		
-		
 	}
 
 	@Override
 	public void showExits() {
-		
-		
-		
+
 	}
-	
-	private void disableOtherWindows(){
+
+	private void disableOtherWindows() {
 		root.setLeft(null);
 		root.setRight(null);
 		root.setTop(null);
 	}
-	
-	public String getCurrentParameters(){
+
+	public String getCurrentParameters() {
 		return parameters;
 	}
-	
+
 }

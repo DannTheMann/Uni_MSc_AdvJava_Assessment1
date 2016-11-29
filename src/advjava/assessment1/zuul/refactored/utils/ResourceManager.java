@@ -9,61 +9,87 @@ import advjava.assessment1.zuul.refactored.Main;
 import javafx.scene.image.Image;
 
 public class ResourceManager {
-	
+
 	private static ResourceManager rm;
 	private File resourceDirectory;
-	private Map<String, Image> resources; 
-	
-	private ResourceManager(String dir){
+	private Map<String, Image> resources;
+
+	private ResourceManager(String dir) {
 		resources = new HashMap<>();
 		resourceDirectory = new File(dir);
-		
-		if(!resourceDirectory.exists()){
-                    Out.out.loglnErr("Directory did not exist! Trying to create it now... ");
-                    resourceDirectory.mkdir();
+
+		if (!resourceDirectory.exists()) {
+			Out.out.loglnErr("Directory did not exist! Trying to create it now... ");
+			resourceDirectory.mkdir();
 		}
-		
+
 		loadResources();
 	}
-	
+
 	private void loadResources() {
-		
+
 		Out.out.logln("Loading resources from '" + resourceDirectory.getAbsolutePath() + "'.");
-                try{
-                    File error = new File(resourceDirectory.getAbsolutePath() + File.separator + Main.game.getProperty("noResourceFound"));
-                    resources.put("error", new Image(error.toURI().toString()));
-                    Arrays.stream(resourceDirectory.listFiles())
-                                    .filter(f->f.getName().endsWith(".jpg") 
-                                                    || f.getName().endsWith(".jpeg") 
-                                                    || f.getName().endsWith(".png"))
-                                    .forEach(f->resources.put(f.getName().split("\\.")[0], new Image(f.toURI().toString())));
-                }catch(Exception e){
-                    Out.out.loglnErr("Failed to load resources! " +e.toString());
-                    Out.out.loglnErr("Exiting game, cannot proceed without resources.");
-                    System.exit(0);
-                }
-                
-                resources.entrySet().stream()
-                        .forEach(e->Out.out.logln("Loaded resource: " + e.getKey()));
+		try {
+			File error = new File(
+					resourceDirectory.getAbsolutePath() + File.separator + Main.game.getProperty("noResourceFound"));
+			resources.put("error", new Image(error.toURI().toString()));
+
+			Main.game.getCharacterManager().characters().stream().forEach(r -> {
+				r.loadImage(this);
+				resources.put(r.getResourceName(), r.getImage());
+			});
+
+			Main.game.getRoomManager().rooms().stream().forEach(r -> {
+				r.loadImage(this);
+				resources.put(r.getResourceName(), r.getImage());
+			});
+
+			Main.game.getItemManager().items().stream().forEach(r -> {
+				r.loadImage(this);
+				resources.put(r.getResourceName(), r.getImage());
+			});
+
+			// Arrays.stream(resourceDirectory.listFiles())
+			// .filter(f->f.getName().endsWith(".jpg")
+			// || f.getName().endsWith(".jpeg")
+			// || f.getName().endsWith(".png"))
+			// .forEach(f->resources.put(f.getName().split("\\.")[0], new
+			// Image(f.toURI().toString())));
+		} catch (Exception e) {
+			Out.out.loglnErr("Failed to load resources! " + e.toString());
+			Out.out.loglnErr("Exiting game, cannot proceed without resources.");
+			System.exit(0);
+		}
+
+		resources.entrySet().stream().forEach(e -> Out.out.logln("Loaded resource: " + e.getKey()));
 		Out.out.logln("Resources loaded = " + resources.size());
 	}
 
-	public static void newResourceManager(){
+	public static void newResourceManager() {
 		Out.out.logln("Creating new resource manager @ '" + Main.game.getProperty("resourceDirectory") + "'.");
 		rm = new ResourceManager(Main.game.getProperty("resourceDirectory"));
 	}
-	
-	public static ResourceManager getResourceManager(){
+
+	public static ResourceManager getResourceManager() {
 		return rm;
 	}
 	
-	public Image getImage(String key){
+	public boolean containsImage(String key){
+		return resources.containsKey(key);
+	}
+
+	public Image getImage(String key) {
 		Out.out.logln("Trying to retrieve '" + key + "' from ResourceManager.");
-		return resources.entrySet().stream()
-				.filter(k->key.equals(k.getKey()))
-				.map(v->v.getValue())
-				.findFirst()
-				.orElse(resources.get("error"));	
+		return resources.entrySet().stream().filter(k -> key.equals(k.getKey())).map(v -> v.getValue()).findFirst()
+				.orElse(resources.get("error"));
+	}
+
+	public boolean add(String resourceName, Image image) {
+		if(!resources.containsKey(resourceName)){
+			resources.put(resourceName, image);
+			return true;
+		}
+		return false;
 	}
 
 }

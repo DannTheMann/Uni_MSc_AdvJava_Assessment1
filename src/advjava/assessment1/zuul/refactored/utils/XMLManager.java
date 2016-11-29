@@ -60,7 +60,7 @@ public abstract class XMLManager {
 			// Loop through every 'room' node
 			for (int i = 0; i < nList.getLength(); i++) {
 				node = nList.item(i);
-				String name, desc = null;
+				String name, desc, url = null;
 
 				// If room is indeed an element node
 				if (node.getNodeType() == Node.ELEMENT_NODE) {
@@ -70,14 +70,19 @@ public abstract class XMLManager {
 					eElement = (Element) node;
 					name = getElement(eElement, "name");
 					desc = getElement(eElement, "description");
+					url = getElement(eElement, "url");
 
+					if(name == null || name.equals("")){
+						throw new NullPointerException("Room cannot have a null name.");
+					}
+					
 					// If the room has already been created
 					// then load it from the room manager
 					if (rm.hasRoom(name)) {
 						finalRoom = rm.getRoom(name);
 					} else {
 						// create new room otherwise
-						finalRoom = new Room(name, desc);
+						finalRoom = new Room(name, desc, url);
 					}
 
 					// If the room has any items, loop through and add them
@@ -132,7 +137,7 @@ public abstract class XMLManager {
 								} else {
 									// create new room otherwise and fill it in
 									// later
-									room = new Room(rName, null);
+									room = new Room(rName, null, null);
 									rm.addRoom(room);
 								}
 								// Set the exit
@@ -202,7 +207,7 @@ public abstract class XMLManager {
 			NonPlayerCharacter npc = null;
 			Player player = null;
 			List<Item> items = null;
-			String name, desc, roomName, iName;
+			String name, desc, roomName, iName, url;
 			int weight = 0;
 			Room room = null;
 
@@ -224,6 +229,7 @@ public abstract class XMLManager {
 
 					// get default details on this character
 					desc = getElement(eElement, "description");
+					url = getElement(eElement, "url");
 					roomName = getElement(eElement, "room");
 					room = Main.game.getRoomManager().getRoom(roomName);
 
@@ -264,13 +270,13 @@ public abstract class XMLManager {
 					
 					// Is there a player tag? If so, is this a player to add to the game?
 					if(hasElement(eElement, "player") && getElement(eElement, "player").equals("true")){
-						player = new Player(name, desc, room, items, weight);
+						player = new Player(name, desc, room, items, weight, url);
 						Out.out.logln(String.format(InternationalisationManager.im.getMessage("xml.playerLoad"), player.getName()));
 						cm.addCharacter(player);
 						continue;
 					}
 					
-					npc = new NonPlayerCharacter(name, desc, room, items, weight);
+					npc = new NonPlayerCharacter(name, desc, room, items, weight, url);
 				}
 
 				// Add character
@@ -307,7 +313,7 @@ public abstract class XMLManager {
 			Node node;
 			Element eElement;
 			Item item = null;
-			String name, desc = null;
+			String name, desc, url = null;
 			int weight = 0;
 
 			// loop through every 'item' node
@@ -320,11 +326,18 @@ public abstract class XMLManager {
 
 					eElement = (Element) node;
 					name = getElement(eElement, "name");
+					
+					// If the characters name is null
+					if (name == null) {
+						throw new NullPointerException("Item cannot have null name.");
+					}
+					
 					desc = getElement(eElement, "description");
+					url = getElement(eElement, "url");
 					weight = Integer.parseInt(getElement(eElement, "weight"));
 
 					// create new item
-					item = new Item(name, desc, weight);
+					item = new Item(name, desc, weight, url);
 
 				}
 

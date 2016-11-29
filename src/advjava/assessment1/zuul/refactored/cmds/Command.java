@@ -7,7 +7,7 @@ package advjava.assessment1.zuul.refactored.cmds;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
-import advjava.assessment1.zuul.refactored.utils.Resource;
+import advjava.assessment1.zuul.refactored.utils.Descriptor;
 
 /**
  * Command class, all commands extend this framework to build upon.
@@ -19,7 +19,7 @@ import advjava.assessment1.zuul.refactored.utils.Resource;
  * 
  * @author dja33
  */
-public abstract class Command extends Resource{
+public abstract class Command extends Descriptor{
 
 	/**
 	 * Create a new command.

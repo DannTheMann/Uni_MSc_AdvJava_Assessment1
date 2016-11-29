@@ -19,7 +19,7 @@ import advjava.assessment1.zuul.refactored.utils.PrintableList;
  */
 public class CharacterManager {
 
-	private static final Map<String, Character> characters = new HashMap<>();
+	private final Map<String, Character> characters = new HashMap<>();
 
 	/**
 	 * Retrieves the player in the CharacterManager
@@ -70,7 +70,7 @@ public class CharacterManager {
 	 *            the name of the character
 	 * @return character if present else null
 	 */
-	public static Character getCharacter(String name) {
+	public Character getCharacter(String name) {
 		return characters.get(name);
 	}
 
@@ -87,7 +87,7 @@ public class CharacterManager {
 	/**
 	 * Clear all characters from the CharacterManager
 	 */
-	public static void clearCharacters() {
+	public void clearCharacters() {
 		characters.clear();
 	}
 

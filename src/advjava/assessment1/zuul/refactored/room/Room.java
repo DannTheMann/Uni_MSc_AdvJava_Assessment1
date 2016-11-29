@@ -47,8 +47,8 @@ public class Room extends Resource{
 	 * @throws InvalidRoomNamingException
 	 *             if name is null or empty
 	 */
-	public Room(String name, String description) throws InvalidRoomNamingException {
-		super(name.replaceAll(" ", ""), description);
+	public Room(String name, String description, String url) throws InvalidRoomNamingException {
+		super(name.replaceAll(" ", ""), description, url);
 		this.items = new PrintableList<>();
 		this.characters = new PrintableList<>();
 		this.rooms = new HashMap<>();

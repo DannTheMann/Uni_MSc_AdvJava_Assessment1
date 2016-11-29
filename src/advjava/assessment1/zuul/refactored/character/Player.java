@@ -38,9 +38,9 @@ public class Player extends Character {
 	 * @throws InvalidCharacterNamingException
 	 *             The name of the player cannot be null or an empty String
 	 */
-	public Player(String name, String description, Room startingRoom, List<Item> items, int maxWeight)
+	public Player(String name, String description, Room startingRoom, List<Item> items, int maxWeight, String url)
 			throws InvalidCharacterNamingException {
-		super(name, description, startingRoom, items, maxWeight <= 0 ? DEFAULT_MAX_WEIGHT : maxWeight);
+		super(name, description, startingRoom, items, maxWeight <= 0 ? DEFAULT_MAX_WEIGHT : maxWeight, url);
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class Player extends Character {
 	 *             The name of the player cannot be null or an empty String
 	 */
 	public Player(String name, String description, Room startingRoom) throws InvalidCharacterNamingException {
-		super(name, description, startingRoom, new PrintableList<>(), DEFAULT_MAX_WEIGHT);
+		super(name, description, startingRoom, new PrintableList<>(), DEFAULT_MAX_WEIGHT, null);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class Player extends Character {
 	 *             The name of the player cannot be null or an empty String
 	 */
 	public Player(String name, Room startingRoom) throws InvalidCharacterNamingException {
-		super(name, null, startingRoom, new PrintableList<>(), DEFAULT_MAX_WEIGHT);
+		super(name, null, startingRoom, new PrintableList<>(), DEFAULT_MAX_WEIGHT, null);
 	}
 
 	/**

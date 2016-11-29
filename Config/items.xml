@@ -2,28 +2,34 @@
 	<item>
 		<name>apple</name>
 		<weight>3</weight>
+		<url>items\apple.png</url>
 	</item>
 	<item>
 		<name>book</name>
 		<weight>7</weight>
+		<url>items\apple.png</url>
 	</item>
 	<item>
 		<name>gun</name>
 		<description>A rusty old gun</description>
 		<weight>4</weight>
+		<url>items\apple.png</url>
 	</item>
 	<item>
 		<name>tomato</name>
 		<description>A ripened tomato</description>
 		<weight>1</weight>
+		<url>items\apple.png</url>
 	</item>
 	<item>
 		<name>pear</name>a
 		<weight>20</weight>
+		<url>items\apple.png</url>
 	</item>
 	<item>
 		<name>grapes</name>
 		<description>A bunch of grapes</description>
 		<weight>12</weight>
+		<url>items\apple.png</url>
 	</item>
 </game-items>

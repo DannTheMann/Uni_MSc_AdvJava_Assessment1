@@ -33,8 +33,8 @@ public class Item extends Resource{
 	 * @throws NullPointerException
 	 *             if name is null
 	 */
-	public Item(String name, String description, int weight) {
-		super(name.replaceAll(" ", ""), description == null || description.equals("") ? null : description);
+	public Item(String name, String description, int weight, String url) {
+		super(name.replaceAll(" ", ""), description == null || description.equals("") ? null : description, url);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class Item extends Resource{
          * @param weight
 	 */
 	public Item(String name, int weight) {
-		this(name, null, weight);
+		this(name, null, weight, null);
 	}
 
 	/**

@@ -10,6 +10,7 @@ import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
+import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 
 /**
@@ -43,6 +44,11 @@ public class DebugCommand extends Command {
 
 		if (cmd.commandLength() > 1) {
 
+			if(interfaceAcceptable(game.getInterface())){
+				game.getInterface().showCharacters();
+				return true;
+			}
+			
 			String param = cmd.getWord(1);
 
 			if (param.equalsIgnoreCase("rooms")) {
@@ -111,7 +117,7 @@ public class DebugCommand extends Command {
 
    @Override
     public boolean interfaceAcceptable(UserInterface ui) {
-        return ui instanceof CommandLineInterface;
+        return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
     }
 
 }

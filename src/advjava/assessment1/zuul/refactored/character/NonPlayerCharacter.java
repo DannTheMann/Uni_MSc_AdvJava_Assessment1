@@ -39,9 +39,9 @@ public class NonPlayerCharacter extends Character {
 	 * @throws InvalidCharacterNamingException
 	 *             If the NPC's name is null or an empty String
 	 */
-	public NonPlayerCharacter(String name, String description, Room room, List<Item> items, int maxWeight)
+	public NonPlayerCharacter(String name, String description, Room room, List<Item> items, int maxWeight, String url)
 			throws InvalidCharacterNamingException {
-		super(name, description, room, items, maxWeight <= 0 ? DEFAULT_MAX_WEIGHT : maxWeight);
+		super(name, description, room, items, maxWeight <= 0 ? DEFAULT_MAX_WEIGHT : maxWeight, url);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class NonPlayerCharacter extends Character {
 	 */
 	public NonPlayerCharacter(String name, String description, Room room, List<Item> items)
 			throws InvalidCharacterNamingException {
-		this(name, description, room, items, DEFAULT_MAX_WEIGHT);
+		this(name, description, room, items, DEFAULT_MAX_WEIGHT, null);
 	}
 
 	/**
@@ -74,11 +74,14 @@ public class NonPlayerCharacter extends Character {
 	 *            Description of NPC
 	 * @param room
 	 *            NPC room
+	 * @param url 
+	 * @param weight 
+	 * @param items 
 	 * @throws InvalidCharacterNamingException
 	 *             If the NPC's name is null or an empty String
 	 */
-	public NonPlayerCharacter(String name, String description, Room room) throws InvalidCharacterNamingException {
-		this(name, description, room, new PrintableList<>(), DEFAULT_MAX_WEIGHT);
+	public NonPlayerCharacter(String name, String description, Room room, List<Item> items, int weight) throws InvalidCharacterNamingException {
+		this(name, description, room, new PrintableList<>(), DEFAULT_MAX_WEIGHT, null);
 	}
 
 	/**

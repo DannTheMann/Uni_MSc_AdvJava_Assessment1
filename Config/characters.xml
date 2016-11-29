@@ -5,9 +5,9 @@
 		<room>outside</room>
 		<player>true</player>
 		<maxweight>50</maxweight>
-		<inventory>
-			<item>apple</item>
+		<inventory>	
 			<item>gun</item>
+			<item>book</item>
 		</inventory>
 	</character>
 	<character>
@@ -58,5 +58,9 @@
 		<room>lab</room>
 		<player>true</player>
 		<maxweight>10</maxweight>
+		<inventory>
+			<item>apple</item>
+			<item>book</item>
+		</inventory>
 	</character>
 </game-characters>
