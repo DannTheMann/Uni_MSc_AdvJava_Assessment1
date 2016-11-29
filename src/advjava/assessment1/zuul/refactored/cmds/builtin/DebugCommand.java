@@ -42,20 +42,20 @@ public class DebugCommand extends Command {
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {
 
+		if(interfaceAcceptable(game.getInterface())){
+			game.getInterface().showCharacters();
+			return true;
+		}
+		
 		if (cmd.commandLength() > 1) {
-
-			if(interfaceAcceptable(game.getInterface())){
-				game.getInterface().showCharacters();
-				return true;
-			}
 			
 			String param = cmd.getWord(1);
 
 			if (param.equalsIgnoreCase("rooms")) {
 
 				game.getInterface().println();
-				game.getInterface().println(String.format("Total rooms: %s", game.getRoomManager().rooms().size()));
-				game.getRoomManager().rooms().stream().forEach((room) -> {
+				game.getInterface().println(String.format("Total rooms: %s", game.getRoomManager().values().size()));
+				game.getRoomManager().values().stream().forEach((room) -> {
 					game.getInterface()
 							.println(String.format("Room: %s | exits: %s | items: %s | characters: %s", room.getName(),
 									room.getExits().size(), room.getItems().size(), room.getCharacters().size()));
@@ -64,7 +64,7 @@ public class DebugCommand extends Command {
 				if(cmd.commandLength() > 2){
 					
 					game.getInterface().println("Printing them characters!");
-					game.getRoomManager().getRoom(cmd.getWord(2)).getCharacters().stream()
+					game.getRoomManager().get(cmd.getWord(2)).getCharacters().stream()
 						.forEach(game.getInterface()::print);
 					
 					
@@ -85,8 +85,8 @@ public class DebugCommand extends Command {
 			} else if (param.equalsIgnoreCase("items")) {
 
 				game.getInterface().println();
-				game.getInterface().println(String.format("Total items: %s", game.getItemManager().items().size()));
-				game.getItemManager().items().stream().forEach((item) -> {
+				game.getInterface().println(String.format("Total items: %s", game.getItemManager().values().size()));
+				game.getItemManager().values().stream().forEach((item) -> {
 					game.getInterface().println(String.format("Item: %s | name: %s | description: %s | weight: %s",
 							item.getName(), item.getDescription(), item.getWeight()));
 				});

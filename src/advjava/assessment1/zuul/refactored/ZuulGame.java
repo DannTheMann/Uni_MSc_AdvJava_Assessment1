@@ -1,7 +1,12 @@
 package advjava.assessment1.zuul.refactored;
 
-import advjava.assessment1.zuul.refactored.utils.Out;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.List;
+
+import advjava.assessment1.zuul.refactored.utils.Out;
+import advjava.assessment1.zuul.refactored.utils.PrintableList;
+import advjava.assessment1.zuul.refactored.utils.Resource;
 
 /**
  * 
@@ -53,5 +58,20 @@ public class ZuulGame extends Game{
         @Override
 	public boolean hasTerminated(){
 		return finished;
+	}
+
+	public Collection<Resource> loadAllResources() {
+			
+			List<Resource> resources = new PrintableList<>();
+			
+			characterManager.values().stream()
+				.forEach(s->resources.add(s));
+			roomManager.values().stream()
+			.forEach(s->resources.add(s));
+			itemManager.values().stream()
+			.forEach(s->resources.add(s));
+		
+		
+			return resources;
 	}
 }

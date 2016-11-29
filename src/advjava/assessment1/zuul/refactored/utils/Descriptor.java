@@ -2,12 +2,17 @@ package advjava.assessment1.zuul.refactored.utils;
 
 public abstract class Descriptor {
 	
+	private static final int MAX_CHARS_PER_LINE = 75;
 	private String name;
 	private String description;
 	
 	public Descriptor(String name, String descriptor){
 		this.name = name;
 		this.description = descriptor;
+		
+		if(this.description != null && this.description.length() > MAX_CHARS_PER_LINE){
+			this.description = this.description.replaceAll(System.lineSeparator(), "").replaceAll("(.{"+MAX_CHARS_PER_LINE+"})", "$1-\n");
+		}
 	}
 	
 	public String getName(){

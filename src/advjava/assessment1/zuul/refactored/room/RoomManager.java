@@ -1,10 +1,7 @@
 package advjava.assessment1.zuul.refactored.room;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
 import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
+import advjava.assessment1.zuul.refactored.utils.CollectionManager;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
@@ -15,35 +12,7 @@ import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
  * @author dja33
  *
  */
-public class RoomManager {
-
-	private final Map<String, Room> rooms;
-
-	public RoomManager() {
-		rooms = new HashMap<>();
-	}
-
-	/**
-	 * Check whether the RoomManager has a cerain room
-	 * 
-	 * @param name
-	 *            Name of room
-	 * @return true if manager has room
-	 */
-	public boolean hasRoom(String name) {
-		return rooms.containsKey(name);
-	}
-
-	/**
-	 * Return room instance from manager if present
-	 * 
-	 * @param name
-	 *            Name of room
-	 * @return room instance
-	 */
-	public Room getRoom(String name) {
-		return rooms.get(name);
-	}
+public class RoomManager extends CollectionManager<Room>{
 
 	/**
 	 * Add a room to the room manager, if the room already exists then it won't
@@ -54,34 +23,11 @@ public class RoomManager {
 	 * @return true if room was added
 	 */
 	public boolean addRoom(Room room) {
-		if (rooms.containsKey(room.getName()))
+		if (has(room.getName()))
 			return false;
 		else
-			rooms.put(room.getName(), room);
+			add(room.getName(), room);
 		return true;
-	}
-
-	/**
-	 * Clear all rooms stored in map
-	 */
-	public void clearRooms() {
-		rooms.clear();
-	}
-
-	/**
-	 * Remove a room from the room manager.
-	 * 
-	 * @param name
-	 *            Name of room
-	 * @return true if removed
-	 */
-	public boolean removeRoom(String name) {
-		if (hasRoom(name)) {
-			rooms.remove(name);
-			return true;
-		} else
-			return false;
-
 	}
 
 	/**
@@ -93,21 +39,11 @@ public class RoomManager {
 	 */
 	public void checkIntegrity() throws MalformedXMLException {
 
-		for (Room room : rooms.values()){
+		for (Room room : values()){
 			if (!room.isComplete()){
 				throw new MalformedXMLException(String.format(InternationalisationManager.im.getMessage("rm.badXML"),
 						room.getName(), room.getExits().size(), System.lineSeparator()));
 			}
 		}
 	}
-
-	/**
-	 * Get all rooms
-	 * 
-	 * @return Collection<Room> rooms
-	 */
-	public Collection<Room> rooms() {
-		return rooms.values();
-	}
-
 }

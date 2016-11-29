@@ -8,6 +8,8 @@ import java.util.Properties;
 
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 /**
  * The starting point of the game, handles directory creation for the game and
@@ -117,6 +119,7 @@ public class Main {
                 properties.setProperty("css", "zuul_style.css");
                 properties.setProperty("resourceDirectory", RESOURCE_FILES);
                 properties.setProperty("noResourceFound", "error.png");
+                properties.setProperty("defaultFont", "Arial");
                 
                 properties.store(fileOut, "Zuul Configuration");
 
@@ -138,6 +141,7 @@ public class Main {
                 checkProperty("css", "zuul_style.css");
                 checkProperty("resourceDirectory", RESOURCE_FILES);
                 checkProperty("noResourceFound", "error.png");
+                checkProperty("defaultFont", "Arial");
 
                 // Save any changes made, if any properties were missing
                 fileOut = new FileOutputStream(propFile);

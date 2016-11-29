@@ -6,7 +6,7 @@
 		<player>true</player>
 		<maxweight>50</maxweight>
 		<inventory>	
-			<item>gun</item>
+			<item>sword</item>
 			<item>book</item>
 		</inventory>
 	</character>
@@ -17,7 +17,7 @@
 		<maxweight>30</maxweight>
 		<inventory>
 			<item>apple</item>
-			<item>gun</item>
+			<item>sword</item>
 			<item>book</item>
 		</inventory>
 	</character>
@@ -48,7 +48,7 @@
 		<maxweight>15</maxweight>
 		<inventory>
 			<item>apple</item>
-			<item>gun</item>
+			<item>sword</item>
 			<item>book</item>
 		</inventory>
 	</character>
@@ -57,10 +57,14 @@
 		<description>Terrible game for the Sega Megadrive.</description>
 		<room>lab</room>
 		<player>true</player>
-		<maxweight>10</maxweight>
+		<maxweight>60</maxweight>
 		<inventory>
 			<item>apple</item>
 			<item>book</item>
+			<item>sword</item>
+			<item>grapes</item>
+			<item>tomato</item>
+			<item>TheGoldenPearOfDoom</item>
 		</inventory>
 	</character>
 </game-characters>

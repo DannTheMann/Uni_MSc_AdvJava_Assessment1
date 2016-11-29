@@ -1,11 +1,26 @@
 
+.root {
+    -fx-background-image: url(outside.jpg);
+    -fx-background-size: cover;
+}
 
+.sidebar-text-node{
+     -fx-fill: rgba(255,255,255, 0.25);
+     -fx-stroke: green;
+}
 
-#command {
-    -fx-background-color: linear-gradient(#ff5400, #be1d00);
-    -fx-background-radius: 30;
-    -fx-background-insets: 0;
+.sidebar-button {    
+    -fx-text-fill: black;
+    -fx-background-color: white;
+}
+
+.command-button {    
     -fx-text-fill: white;
+    -fx-background-color: red;
+}
+
+.command-box {
+    -fx-background-color: #336699;
 }
 
 #paneItem {
@@ -17,4 +32,13 @@
     -fx-background-insets: 0,1,2;
     -fx-text-fill: black;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.scroll-pane {
+    -fx-background-color: rgba(59, 165, 100, 0.3); 
+    -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
+}
+
+.scroll-pane > .viewport  {
+    -fx-background-color: rgba(59, 165, 100, 0.3); 
 }

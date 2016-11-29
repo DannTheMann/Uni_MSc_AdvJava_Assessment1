@@ -78,8 +78,8 @@ public abstract class XMLManager {
 					
 					// If the room has already been created
 					// then load it from the room manager
-					if (rm.hasRoom(name)) {
-						finalRoom = rm.getRoom(name);
+					if (rm.has(name)) {
+						finalRoom = rm.get(name);
 					} else {
 						// create new room otherwise
 						finalRoom = new Room(name, desc, url);
@@ -95,7 +95,7 @@ public abstract class XMLManager {
 						// for every item add it
 						for (int j = 0; j < innerElement.getElementsByTagName("item").getLength(); j++) {
 							iName = getElement(innerElement, "item", j);
-							finalRoom.addItems(Main.game.getItemManager().getItem(iName));
+							finalRoom.addItems(Main.game.getItemManager().get(iName));
 						}
 
 					}
@@ -131,9 +131,9 @@ public abstract class XMLManager {
 								// Need to check whether this room exists in
 								// order
 								// to use it as a reference for an exit
-								if (rm.hasRoom(rName)) {
+								if (rm.has(rName)) {
 									// it does exit, then load it
-									room = rm.getRoom(rName);
+									room = rm.get(rName);
 								} else {
 									// create new room otherwise and fill it in
 									// later
@@ -231,7 +231,7 @@ public abstract class XMLManager {
 					desc = getElement(eElement, "description");
 					url = getElement(eElement, "url");
 					roomName = getElement(eElement, "room");
-					room = Main.game.getRoomManager().getRoom(roomName);
+					room = Main.game.getRoomManager().get(roomName);
 
 					// If the room they belong to is null
 					if (room == null) {
@@ -256,8 +256,8 @@ public abstract class XMLManager {
 						for (int j = 0; j < innerElement.getElementsByTagName("item").getLength(); j++) {
 							iName = getElement(innerElement, "item", j);
 							// if the item exists, add it
-							if ((Main.game.getItemManager().hasItem(iName))) {
-								items.add(Main.game.getItemManager().getItem(iName));
+							if ((Main.game.getItemManager().has(iName))) {
+								items.add(Main.game.getItemManager().get(iName));
 							} else {
 								// else throw exception, can't add an item that
 								// doesn't exist

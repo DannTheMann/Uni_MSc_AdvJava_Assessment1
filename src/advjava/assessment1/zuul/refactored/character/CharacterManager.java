@@ -1,11 +1,10 @@
 package advjava.assessment1.zuul.refactored.character;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import advjava.assessment1.zuul.refactored.Game;
+import advjava.assessment1.zuul.refactored.utils.CollectionManager;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
 
@@ -17,9 +16,7 @@ import advjava.assessment1.zuul.refactored.utils.PrintableList;
  * @author dja33
  *
  */
-public class CharacterManager {
-
-	private final Map<String, Character> characters = new HashMap<>();
+public class CharacterManager extends CollectionManager<Character>{
 
 	/**
 	 * Retrieves the player in the CharacterManager
@@ -29,7 +26,7 @@ public class CharacterManager {
 	 * @return Player if found
 	 */
 	public Player getPlayer(String playerName){
-		Character player =  characters.values().stream()
+		Character player =  values().stream()
 				.filter(Character::isPlayer)
 				.filter(c->c.getName().equals(playerName))
 				.findFirst()
@@ -43,7 +40,7 @@ public class CharacterManager {
 	 * @return The first player added, if none exist return null
 	 */
 	public Player getFirstPlayer(){
-		Character player =  characters.values().stream()
+		Character player =  values().stream()
 				.filter(Character::isPlayer)
 				.findFirst()
 				.orElse(null);
@@ -57,38 +54,10 @@ public class CharacterManager {
 	 *            to add
 	 */
 	public void addCharacter(Character character) {
-		if (characters.containsKey(character.getName()))
+		if (has(character.getName()))
 			throw new IllegalArgumentException(
 					String.format(InternationalisationManager.im.getMessage("cm.null"), character.getName()));
-		characters.put(character.getName(), character);
-	}
-
-	/**
-	 * Get a character from the CharacterManager
-	 * 
-	 * @param name
-	 *            the name of the character
-	 * @return character if present else null
-	 */
-	public Character getCharacter(String name) {
-		return characters.get(name);
-	}
-
-	/**
-	 * Remove a character from the CharacterManager
-	 * 
-	 * @param charName
-	 *            the character name of the character to remove
-	 */
-	public void removeCharacter(String charName) {
-		characters.remove(charName);
-	}
-
-	/**
-	 * Clear all characters from the CharacterManager
-	 */
-	public void clearCharacters() {
-		characters.clear();
+		add(character.getName(), character);
 	}
 
 	/**
@@ -97,7 +66,7 @@ public class CharacterManager {
 	 * @return Collection<Character> of characters
 	 */
 	public PrintableList<Character> characters() {
-		return PrintableList.fromCollection(characters.values());
+		return PrintableList.fromCollection(values());
 	}
 	
 	/**
@@ -105,7 +74,7 @@ public class CharacterManager {
 	 * @return List of players
 	 */
 	public List<Character> players(){
-		return characters.values().stream()
+		return values().stream()
 				.filter(Character::isPlayer)
 				.collect(Collectors.toList());
 	}
@@ -115,7 +84,7 @@ public class CharacterManager {
 	 * @return List of non player characters
 	 */
 	public List<Character> nonPlayerCharacters(){
-		return characters.values().stream()
+		return values().stream()
 				.filter(c->!c.isPlayer())
 				.collect(Collectors.toList());
 	}
@@ -127,7 +96,7 @@ public class CharacterManager {
 	 * @param game The game instance
 	 */
 	public void act(Game game) {
-		characters.values().stream()
+		values().stream()
 			.filter(c->!c.isPlayer())
 			.forEach(c->((NonPlayerCharacter) c).act(game));
 	}

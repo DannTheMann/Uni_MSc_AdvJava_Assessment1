@@ -35,6 +35,7 @@ public class Item extends Resource{
 	 */
 	public Item(String name, String description, int weight, String url) {
 		super(name.replaceAll(" ", ""), description == null || description.equals("") ? null : description, url);
+		this.weight = weight;
 	}
 
 	/**
