@@ -2,6 +2,7 @@ package advjava.assessment1.zuul.refactored.utils;
 
 public abstract class Descriptor {
 	
+        public static final int MAX_CHARACTER_PER_LINE = 25;
 	private String name;
 	private String description;
 	

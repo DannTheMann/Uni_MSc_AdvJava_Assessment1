@@ -78,8 +78,8 @@ public abstract class XMLManager {
 					
 					// If the room has already been created
 					// then load it from the room manager
-					if (rm.hasRoom(name)) {
-						finalRoom = rm.getRoom(name);
+					if (rm.has(name)) {
+						finalRoom = rm.get(name);
 					} else {
 						// create new room otherwise
 						finalRoom = new Room(name, desc, url);
@@ -131,14 +131,14 @@ public abstract class XMLManager {
 								// Need to check whether this room exists in
 								// order
 								// to use it as a reference for an exit
-								if (rm.hasRoom(rName)) {
+								if (rm.has(rName)) {
 									// it does exit, then load it
-									room = rm.getRoom(rName);
+									room = rm.get(rName);
 								} else {
 									// create new room otherwise and fill it in
 									// later
 									room = new Room(rName, null, null);
-									rm.addRoom(room);
+									rm.add(room);
 								}
 								// Set the exit
 								finalRoom.setExit(room, rDir, true);
@@ -158,7 +158,7 @@ public abstract class XMLManager {
 					}
 
 					// Was the room added? Stop duplication of room names
-					boolean added = rm.addRoom(finalRoom);
+					boolean added = rm.add(finalRoom);
 
 					// If the room is new or has a final implementation of it
 					if (added || (!added && finalRoom.isComplete())) {
@@ -188,7 +188,7 @@ public abstract class XMLManager {
 	 * Load all characters found in the XML file and add them to the character
 	 * manager
 	 * 
-	 * @param rm
+	 * @param cm
 	 *            The character manager
 	 * @throws MalformedXMLException
 	 *             If XML is malformed or is missing key nodes
@@ -231,7 +231,7 @@ public abstract class XMLManager {
 					desc = getElement(eElement, "description");
 					url = getElement(eElement, "url");
 					roomName = getElement(eElement, "room");
-					room = Main.game.getRoomManager().getRoom(roomName);
+					room = Main.game.getRoomManager().get(roomName);
 
 					// If the room they belong to is null
 					if (room == null) {
@@ -242,7 +242,7 @@ public abstract class XMLManager {
 					if(hasElement(eElement, "maxweight"))
 						weight = Integer.parseInt(getElement(eElement, "maxweight"));
 
-					items = new PrintableList<Item>();
+					items = new PrintableList<>();
 
 					// If they have an inventory, load through it and set their
 					// items
@@ -297,8 +297,8 @@ public abstract class XMLManager {
 	/**
 	 * Load all rooms found in the XML file and add them to the room manager
 	 * 
-	 * @param rm
-	 *            The room manager
+	 * @param im
+	 *            The item manager
 	 * @throws MalformedXMLException
 	 *             If XML is malformed or is missing key nodes
 	 */
@@ -335,7 +335,7 @@ public abstract class XMLManager {
 					desc = getElement(eElement, "description");
 					url = getElement(eElement, "url");
 					weight = Integer.parseInt(getElement(eElement, "weight"));
-
+                                        
 					// create new item
 					item = new Item(name, desc, weight, url);
 

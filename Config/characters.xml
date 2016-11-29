@@ -7,6 +7,7 @@
 		<maxweight>50</maxweight>
 		<inventory>	
 			<item>gun</item>
+			<item>apple</item>
 			<item>book</item>
 		</inventory>
 	</character>
@@ -57,8 +58,9 @@
 		<description>Terrible game for the Sega Megadrive.</description>
 		<room>lab</room>
 		<player>true</player>
-		<maxweight>10</maxweight>
+		<maxweight>25</maxweight>
 		<inventory>
+			<item>gun</item>
 			<item>apple</item>
 			<item>book</item>
 		</inventory>

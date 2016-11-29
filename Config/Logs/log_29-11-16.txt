@@ -1,0 +1,1193 @@
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[10:32:15] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_29-11-16.txt'
+[10:32:15] LOCALE: en_GB - United Kingdom
+[10:32:15] Loading default commands...
+[10:32:16] Loaded default commands...
+[10:32:16] Starting World of Zuul... ENGLISH
+[10:32:16] Loading properties.ini file...
+[10:32:16] Property file found, loading properties...
+[10:32:16] Closed I/O streams.
+[10:32:16] Properties loaded.
+[10:32:17] Creating game session...
+[10:32:17] 
+[10:32:17]  - - - - - - - - - - - - - - - - - - - - 
+[10:32:17]       Loading Plugins ...          
+[10:32:17]  - - - - - - - - - - - - - - - - - - - - 
+[10:32:17] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[10:32:17] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [10:32:17] - Finished  - - - - - - - - - - - - - - 
+[10:32:17]  - - - - - - - - - - - - - - - - - - - - 
+[10:32:17]       Loading XML Config files ...    
+[10:32:17] -> X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config
+[10:32:17]  - - - - - - - - - - - - - - - - - - - - 
+[10:32:17] Added item 'apple'
+[10:32:17] Added item 'book'
+[10:32:17] Added item 'gun'
+[10:32:17] Added item 'tomato'
+[10:32:17] Added item 'pear'
+[10:32:17] Added item 'grapes'
+[10:32:17] Loaded room 'outside'
+[10:32:17] Loaded room 'library'
+[10:32:17] Loaded room 'theatre'
+[10:32:17] Loaded room 'lab'
+[10:32:17] Loaded room 'pub'
+[10:32:17] Added new player 'Richard Jones'.
+[10:32:17] Added new character 'Bob'.
+[10:32:17] Added new character 'Chris'.
+[10:32:17] Added new character 'Mitch'.
+[10:32:17] Added new character 'Louis'.
+[10:32:17] Added new character 'Craig'.
+[10:32:17] Added new character 'Donald Trump'.
+[10:32:17] Added new player 'James Pond'.
+[10:32:17] - - Finished - - - - - - - - - - - - - - 
+[10:32:17] There are 2 players playing.
+[10:32:17] Assuming the control of player 'James Pond'.
+[10:32:17] Creating new resource manager @ 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:32:17] Loading resources from 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:32:17] Loading resource: apple.png...
+[10:32:17] Loading resource: apple.png...
+[10:32:17] Trying to retrieve 'apple.png' from ResourceManager.
+[10:32:17] Loading resource: apple.png...
+[10:32:17] Trying to retrieve 'apple.png' from ResourceManager.
+[10:32:17] Loading resource: apple.png...
+[10:32:17] Trying to retrieve 'apple.png' from ResourceManager.
+[10:32:17] Loading resource: apple.png...
+[10:32:17] Trying to retrieve 'apple.png' from ResourceManager.
+[10:32:17] Loading resource: apple.png...
+[10:32:17] Trying to retrieve 'apple.png' from ResourceManager.
+[10:32:17] Loaded resource: null
+[10:32:17] Loaded resource: apple.png
+[10:32:17] Loaded resource: error
+[10:32:17] Resources loaded = 3
+[10:32:17] Trying to retrieve 'outside' from ResourceManager.
+[10:32:17] Adding player inventory... [3]
+[10:32:17] Loading: gun...
+[10:32:18] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[10:32:18] Closing logger.
+[10:32:18] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[10:32:31] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_29-11-16.txt'
+[10:32:31] LOCALE: en_GB - United Kingdom
+[10:32:31] Loading default commands...
+[10:32:31] Loaded default commands...
+[10:32:31] Starting World of Zuul... ENGLISH
+[10:32:31] Loading properties.ini file...
+[10:32:31] Property file found, loading properties...
+[10:32:31] Closed I/O streams.
+[10:32:31] Properties loaded.
+[10:32:32] Creating game session...
+[10:32:32] 
+[10:32:32]  - - - - - - - - - - - - - - - - - - - - 
+[10:32:32]       Loading Plugins ...          
+[10:32:32]  - - - - - - - - - - - - - - - - - - - - 
+[10:32:32] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[10:32:32] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [10:32:32] - Finished  - - - - - - - - - - - - - - 
+[10:32:32]  - - - - - - - - - - - - - - - - - - - - 
+[10:32:32]       Loading XML Config files ...    
+[10:32:32] -> X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config
+[10:32:32]  - - - - - - - - - - - - - - - - - - - - 
+[10:32:32] Added item 'apple'
+[10:32:32] Added item 'book'
+[10:32:32] Added item 'gun'
+[10:32:32] Added item 'tomato'
+[10:32:32] Added item 'pear'
+[10:32:32] Added item 'grapes'
+[10:32:32] Loaded room 'outside'
+[10:32:32] Loaded room 'library'
+[10:32:32] Loaded room 'theatre'
+[10:32:32] Loaded room 'lab'
+[10:32:32] Loaded room 'pub'
+[10:32:32] Added new player 'Richard Jones'.
+[10:32:32] Added new character 'Bob'.
+[10:32:32] Added new character 'Chris'.
+[10:32:32] Added new character 'Mitch'.
+[10:32:32] Added new character 'Louis'.
+[10:32:32] Added new character 'Craig'.
+[10:32:32] Added new character 'Donald Trump'.
+[10:32:32] Added new player 'James Pond'.
+[10:32:32] - - Finished - - - - - - - - - - - - - - 
+[10:32:32] There are 2 players playing.
+[10:32:32] Assuming the control of player 'James Pond'.
+[10:32:33] Creating new resource manager @ 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:32:33] Loading resources from 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:32:33] Loading resource: apple.png...
+[10:32:33] Loading resource: apple.png...
+[10:32:33] Trying to retrieve 'apple.png' from ResourceManager.
+[10:32:33] Loading resource: apple.png...
+[10:32:33] Trying to retrieve 'apple.png' from ResourceManager.
+[10:32:33] Loading resource: apple.png...
+[10:32:33] Trying to retrieve 'apple.png' from ResourceManager.
+[10:32:33] Loading resource: apple.png...
+[10:32:33] Trying to retrieve 'apple.png' from ResourceManager.
+[10:32:33] Loading resource: apple.png...
+[10:32:33] Trying to retrieve 'apple.png' from ResourceManager.
+[10:32:33] Loaded resource: null
+[10:32:33] Loaded resource: apple.png
+[10:32:33] Loaded resource: error
+[10:32:33] Resources loaded = 3
+[10:32:33] Trying to retrieve 'outside' from ResourceManager.
+[10:32:33] Adding player inventory... [3]
+[10:32:33] Loading: gun...
+[10:32:33] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[10:32:33] Closing logger.
+[10:32:33] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[10:33:28] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_29-11-16.txt'
+[10:33:28] LOCALE: en_GB - United Kingdom
+[10:33:28] Loading default commands...
+[10:33:28] Loaded default commands...
+[10:33:28] Starting World of Zuul... ENGLISH
+[10:33:28] Loading properties.ini file...
+[10:33:28] Property file found, loading properties...
+[10:33:28] Closed I/O streams.
+[10:33:28] Properties loaded.
+[10:33:29] Creating game session...
+[10:33:29] 
+[10:33:29]  - - - - - - - - - - - - - - - - - - - - 
+[10:33:29]       Loading Plugins ...          
+[10:33:29]  - - - - - - - - - - - - - - - - - - - - 
+[10:33:29] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[10:33:29] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [10:33:29] - Finished  - - - - - - - - - - - - - - 
+[10:33:29]  - - - - - - - - - - - - - - - - - - - - 
+[10:33:29]       Loading XML Config files ...    
+[10:33:29] -> X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config
+[10:33:29]  - - - - - - - - - - - - - - - - - - - - 
+[10:33:29] Added item 'apple'
+[10:33:29] Added item 'book'
+[10:33:29] Added item 'gun'
+[10:33:29] Added item 'tomato'
+[10:33:29] Added item 'pear'
+[10:33:29] Added item 'grapes'
+[10:33:29] Loaded room 'outside'
+[10:33:29] Loaded room 'library'
+[10:33:29] Loaded room 'theatre'
+[10:33:29] Loaded room 'lab'
+[10:33:29] Loaded room 'pub'
+[10:33:29] Added new player 'Richard Jones'.
+[10:33:29] Added new character 'Bob'.
+[10:33:29] Added new character 'Chris'.
+[10:33:29] Added new character 'Mitch'.
+[10:33:29] Added new character 'Louis'.
+[10:33:29] Added new character 'Craig'.
+[10:33:29] Added new character 'Donald Trump'.
+[10:33:29] Added new player 'James Pond'.
+[10:33:29] - - Finished - - - - - - - - - - - - - - 
+[10:33:29] There are 2 players playing.
+[10:33:29] Assuming the control of player 'James Pond'.
+[10:33:29] Fonts available.
+[10:33:29] Font: Adobe Devanagari
+[10:33:29] Font: Agency FB
+[10:33:29] Font: Aharoni
+[10:33:29] Font: Aldhabi
+[10:33:29] Font: Algerian
+[10:33:29] Font: Ami R
+[10:33:29] Font: Andalus
+[10:33:29] Font: Angsana New
+[10:33:29] Font: AngsanaUPC
+[10:33:29] Font: Anonymous
+[10:33:29] Font: Arabic Typesetting
+[10:33:29] Font: Arial
+[10:33:29] Font: Arial Black
+[10:33:29] Font: Arial Narrow
+[10:33:29] Font: Arial Rounded MT Bold
+[10:33:29] Font: Baskerville Old Face
+[10:33:29] Font: Batang
+[10:33:29] Font: BatangChe
+[10:33:29] Font: Bauhaus 93
+[10:33:29] Font: Bell MT
+[10:33:29] Font: Berlin Sans FB
+[10:33:29] Font: Berlin Sans FB Demi
+[10:33:29] Font: Bernard MT Condensed
+[10:33:29] Font: Blackadder ITC
+[10:33:29] Font: Bodoni MT
+[10:33:29] Font: Bodoni MT Black
+[10:33:29] Font: Bodoni MT Condensed
+[10:33:29] Font: Bodoni MT Poster Compressed
+[10:33:29] Font: Book Antiqua
+[10:33:29] Font: Bookman Old Style
+[10:33:29] Font: Bookshelf Symbol 7
+[10:33:29] Font: Bradley Hand ITC
+[10:33:29] Font: Britannic Bold
+[10:33:29] Font: Broadway
+[10:33:29] Font: Browallia New
+[10:33:29] Font: BrowalliaUPC
+[10:33:29] Font: Brush Script MT
+[10:33:29] Font: Calibri
+[10:33:29] Font: Calibri Light
+[10:33:29] Font: Californian FB
+[10:33:29] Font: Calisto MT
+[10:33:29] Font: Cambria
+[10:33:29] Font: Cambria Math
+[10:33:29] Font: Candara
+[10:33:29] Font: Castellar
+[10:33:29] Font: Centaur
+[10:33:29] Font: Century
+[10:33:29] Font: Century Gothic
+[10:33:29] Font: Century Schoolbook
+[10:33:29] Font: Charis SIL
+[10:33:29] Font: Chiller
+[10:33:29] Font: Colonna MT
+[10:33:29] Font: Comic Sans MS
+[10:33:29] Font: Consolas
+[10:33:29] Font: Constantia
+[10:33:29] Font: Cooper Black
+[10:33:29] Font: Copperplate Gothic Bold
+[10:33:29] Font: Copperplate Gothic Light
+[10:33:29] Font: Corbel
+[10:33:29] Font: Cordia New
+[10:33:29] Font: CordiaUPC
+[10:33:29] Font: Courant
+[10:33:29] Font: Courier New
+[10:33:29] Font: Curlz MT
+[10:33:29] Font: DFKai-SB
+[10:33:29] Font: David
+[10:33:29] Font: DejaVu Sans
+[10:33:29] Font: DejaVu Sans Condensed
+[10:33:29] Font: DejaVu Sans Light
+[10:33:29] Font: DejaVu Sans Mono
+[10:33:29] Font: DejaVu Serif
+[10:33:29] Font: DejaVu Serif Condensed
+[10:33:29] Font: DengXian
+[10:33:29] Font: DengXian Light
+[10:33:29] Font: DilleniaUPC
+[10:33:29] Font: Dotum
+[10:33:29] Font: DotumChe
+[10:33:29] Font: Doulos SIL
+[10:33:29] Font: ESRI AMFM Electric
+[10:33:29] Font: ESRI AMFM Gas
+[10:33:29] Font: ESRI AMFM Sewer
+[10:33:29] Font: ESRI AMFM Water
+[10:33:29] Font: ESRI ArcPad
+[10:33:29] Font: ESRI Arrowhead
+[10:33:29] Font: ESRI Business
+[10:33:29] Font: ESRI Cartography
+[10:33:29] Font: ESRI Caves 1
+[10:33:29] Font: ESRI Caves 2
+[10:33:29] Font: ESRI Caves 3
+[10:33:29] Font: ESRI Climate & Precipitation
+[10:33:29] Font: ESRI Commodities
+[10:33:29] Font: ESRI Conservation
+[10:33:29] Font: ESRI Crime Analysis
+[10:33:29] Font: ESRI Default Marker
+[10:33:29] Font: ESRI Dimensioning
+[10:33:29] Font: ESRI ERS Infrastructures S1
+[10:33:29] Font: ESRI ERS Operations S1
+[10:33:29] Font: ESRI Elements
+[10:33:29] Font: ESRI Enviro Hazard Analysis
+[10:33:29] Font: ESRI Enviro Hazard Incident
+[10:33:29] Font: ESRI Enviro Hazard Sites
+[10:33:29] Font: ESRI Environmental & Icons
+[10:33:29] Font: ESRI Fire Incident NFPA
+[10:33:29] Font: ESRI Geology
+[10:33:29] Font: ESRI Geology AGSO 1
+[10:33:29] Font: ESRI Geology USGS 95-525
+[10:33:29] Font: ESRI Geometric Symbols
+[10:33:29] Font: ESRI Hazardous Materials
+[10:33:29] Font: ESRI Hydrants
+[10:33:29] Font: ESRI IGL Font16
+[10:33:29] Font: ESRI IGL Font20
+[10:33:29] Font: ESRI IGL Font21
+[10:33:29] Font: ESRI IGL Font22
+[10:33:29] Font: ESRI IGL Font23
+[10:33:29] Font: ESRI IGL Font24
+[10:33:29] Font: ESRI IGL Font25
+[10:33:29] Font: ESRI Meteorological 01
+[10:33:29] Font: ESRI Mil2525C Modifiers
+[10:33:29] Font: ESRI MilMod 01
+[10:33:29] Font: ESRI MilMod 02
+[10:33:29] Font: ESRI MilRed 01
+[10:33:29] Font: ESRI MilSym 01
+[10:33:29] Font: ESRI MilSym 02
+[10:33:29] Font: ESRI MilSym 03
+[10:33:29] Font: ESRI MilSym 04
+[10:33:29] Font: ESRI MilSym 05
+[10:33:29] Font: ESRI NIMA City Graphic LN
+[10:33:29] Font: ESRI NIMA City Graphic PT
+[10:33:29] Font: ESRI NIMA DNC LN
+[10:33:29] Font: ESRI NIMA DNC PT
+[10:33:29] Font: ESRI NIMA VMAP1&2 LN
+[10:33:29] Font: ESRI NIMA VMAP1&2 PT
+[10:33:29] Font: ESRI North
+[10:33:29] Font: ESRI Oil, Gas, & Water
+[10:33:29] Font: ESRI Ordnance Survey
+[10:33:29] Font: ESRI Pipeline US 1
+[10:33:29] Font: ESRI Public1
+[10:33:29] Font: ESRI SDS 1.95 1
+[10:33:29] Font: ESRI SDS 1.95 2
+[10:33:29] Font: ESRI SDS 2.00 1
+[10:33:29] Font: ESRI SDS 2.00 2
+[10:33:29] Font: ESRI Shields
+[10:33:29] Font: ESRI Surveyor
+[10:33:29] Font: ESRI Telecom
+[10:33:29] Font: ESRI Transportation & Civic
+[10:33:29] Font: ESRI US Forestry 1
+[10:33:29] Font: ESRI US Forestry 2
+[10:33:29] Font: ESRI US MUTCD 1
+[10:33:29] Font: ESRI US MUTCD 2
+[10:33:29] Font: ESRI US MUTCD 3
+[10:33:29] Font: ESRI Weather
+[10:33:29] Font: ESSTIXEight
+[10:33:29] Font: ESSTIXEleven
+[10:33:29] Font: ESSTIXFifteen
+[10:33:29] Font: ESSTIXFive
+[10:33:29] Font: ESSTIXFour
+[10:33:29] Font: ESSTIXFourteen
+[10:33:29] Font: ESSTIXNine
+[10:33:29] Font: ESSTIXOne
+[10:33:29] Font: ESSTIXSeven
+[10:33:29] Font: ESSTIXSeventeen
+[10:33:29] Font: ESSTIXSix
+[10:33:29] Font: ESSTIXSixteen
+[10:33:29] Font: ESSTIXTen
+[10:33:29] Font: ESSTIXThirteen
+[10:33:29] Font: ESSTIXThree
+[10:33:29] Font: ESSTIXTwelve
+[10:33:29] Font: ESSTIXTwo
+[10:33:29] Font: Ebrima
+[10:33:29] Font: Edwardian Script ITC
+[10:33:29] Font: Elephant
+[10:33:29] Font: Engravers MT
+[10:33:29] Font: Eras Bold ITC
+[10:33:29] Font: Eras Demi ITC
+[10:33:29] Font: Eras Light ITC
+[10:33:29] Font: Eras Medium ITC
+[10:33:29] Font: EucrosiaUPC
+[10:33:29] Font: Expo M
+[10:33:29] Font: FZShuTi
+[10:33:29] Font: FZYaoTi
+[10:33:29 ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[10:36:38] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_29-11-16.txt'
+[10:36:38] LOCALE: en_GB - United Kingdom
+[10:36:38] Loading default commands...
+[10:36:38] Loaded default commands...
+[10:36:38] Starting World of Zuul... ENGLISH
+[10:36:38] Loading properties.ini file...
+[10:36:38] Property file found, loading properties...
+[10:36:38] Closed I/O streams.
+[10:36:38] Properties loaded.
+[10:36:39] Creating game session...
+[10:36:39] 
+[10:36:39]  - - - - - - - - - - - - - - - - - - - - 
+[10:36:39]       Loading Plugins ...          
+[10:36:39]  - - - - - - - - - - - - - - - - - - - - 
+[10:36:39] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[10:36:39] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [10:36:39] - Finished  - - - - - - - - - - - - - - 
+[10:36:39]  - - - - - - - - - - - - - - - - - - - - 
+[10:36:39]       Loading XML Config files ...    
+[10:36:39] -> X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config
+[10:36:39]  - - - - - - - - - - - - - - - - - - - - 
+[10:36:39] Added item 'apple'
+[10:36:39] Added item 'book'
+[10:36:39] Added item 'gun'
+[10:36:39] Added item 'tomato'
+[10:36:39] Added item 'pear'
+[10:36:39] Added item 'grapes'
+[10:36:39] Loaded room 'outside'
+[10:36:39] Loaded room 'library'
+[10:36:39] Loaded room 'theatre'
+[10:36:39] Loaded room 'lab'
+[10:36:39] Loaded room 'pub'
+[10:36:39] Added new player 'Richard Jones'.
+[10:36:39] Added new character 'Bob'.
+[10:36:39] Added new character 'Chris'.
+[10:36:39] Added new character 'Mitch'.
+[10:36:39] Added new character 'Louis'.
+[10:36:39] Added new character 'Craig'.
+[10:36:39] Added new character 'Donald Trump'.
+[10:36:39] Added new player 'James Pond'.
+[10:36:39] - - Finished - - - - - - - - - - - - - - 
+[10:36:39] There are 2 players playing.
+[10:36:39] Assuming the control of player 'James Pond'.
+[10:36:39] Fonts available.
+[10:36:39] Font: Adobe Devanagari
+[10:36:39] Font: Agency FB
+[10:36:39] Font: Aharoni
+[10:36:39] Font: Aldhabi
+[10:36:39] Font: Algerian
+[10:36:39] Font: Ami R
+[10:36:39] Font: Andalus
+[10:36:39] Font: Angsana New
+[10:36:39] Font: AngsanaUPC
+[10:36:39] Font: Anonymous
+[10:36:39] Font: Arabic Typesetting
+[10:36:39] Font: Arial
+[10:36:39] Font: Arial Black
+[10:36:39] Font: Arial Narrow
+[10:36:39] Font: Arial Rounded MT Bold
+[10:36:39] Font: Baskerville Old Face
+[10:36:39] Font: Batang
+[10:36:39] Font: BatangChe
+[10:36:39] Font: Bauhaus 93
+[10:36:39] Font: Bell MT
+[10:36:39] Font: Berlin Sans FB
+[10:36:39] Font: Berlin Sans FB Demi
+[10:36:39] Font: Bernard MT Condensed
+[10:36:39] Font: Blackadder ITC
+[10:36:39] Font: Bodoni MT
+[10:36:39] Font: Bodoni MT Black
+[10:36:39] Font: Bodoni MT Condensed
+[10:36:39] Font: Bodoni MT Poster Compressed
+[10:36:39] Font: Book Antiqua
+[10:36:39] Font: Bookman Old Style
+[10:36:39] Font: Bookshelf Symbol 7
+[10:36:39] Font: Bradley Hand ITC
+[10:36:39] Font: Britannic Bold
+[10:36:39] Font: Broadway
+[10:36:39] Font: Browallia New
+[10:36:39] Font: BrowalliaUPC
+[10:36:39] Font: Brush Script MT
+[10:36:39] Font: Calibri
+[10:36:39] Font: Calibri Light
+[10:36:39] Font: Californian FB
+[10:36:39] Font: Calisto MT
+[10:36:39] Font: Cambria
+[10:36:39] Font: Cambria Math
+[10:36:39] Font: Candara
+[10:36:39] Font: Castellar
+[10:36:39] Font: Centaur
+[10:36:39] Font: Century
+[10:36:39] Font: Century Gothic
+[10:36:39] Font: Century Schoolbook
+[10:36:39] Font: Charis SIL
+[10:36:39] Font: Chiller
+[10:36:39] Font: Colonna MT
+[10:36:39] Font: Comic Sans MS
+[10:36:39] Font: Consolas
+[10:36:39] Font: Constantia
+[10:36:39] Font: Cooper Black
+[10:36:39] Font: Copperplate Gothic Bold
+[10:36:39] Font: Copperplate Gothic Light
+[10:36:39] Font: Corbel
+[10:36:39] Font: Cordia New
+[10:36:39] Font: CordiaUPC
+[10:36:39] Font: Courant
+[10:36:39] Font: Courier New
+[10:36:39] Font: Curlz MT
+[10:36:39] Font: DFKai-SB
+[10:36:39] Font: David
+[10:36:39] Font: DejaVu Sans
+[10:36:39] Font: DejaVu Sans Condensed
+[10:36:39] Font: DejaVu Sans Light
+[10:36:39] Font: DejaVu Sans Mono
+[10:36:39] Font: DejaVu Serif
+[10:36:39] Font: DejaVu Serif Condensed
+[10:36:39] Font: DengXian
+[10:36:39] Font: DengXian Light
+[10:36:39] Font: DilleniaUPC
+[10:36:39] Font: Dotum
+[10:36:39] Font: DotumChe
+[10:36:39] Font: Doulos SIL
+[10:36:39] Font: ESRI AMFM Electric
+[10:36:39] Font: ESRI AMFM Gas
+[10:36:39] Font: ESRI AMFM Sewer
+[10:36:39] Font: ESRI AMFM Water
+[10:36:39] Font: ESRI ArcPad
+[10:36:39] Font: ESRI Arrowhead
+[10:36:39] Font: ESRI Business
+[10:36:39] Font: ESRI Cartography
+[10:36:39] Font: ESRI Caves 1
+[10:36:39] Font: ESRI Caves 2
+[10:36:39] Font: ESRI Caves 3
+[10:36:39] Font: ESRI Climate & Precipitation
+[10:36:39] Font: ESRI Commodities
+[10:36:39] Font: ESRI Conservation
+[10:36:39] Font: ESRI Crime Analysis
+[10:36:39] Font: ESRI Default Marker
+[10:36:39] Font: ESRI Dimensioning
+[10:36:39] Font: ESRI ERS Infrastructures S1
+[10:36:39] Font: ESRI ERS Operations S1
+[10:36:39] Font: ESRI Elements
+[10:36:39] Font: ESRI Enviro Hazard Analysis
+[10:36:39] Font: ESRI Enviro Hazard Incident
+[10:36:39] Font: ESRI Enviro Hazard Sites
+[10:36:39] Font: ESRI Environmental & Icons
+[10:36:39] Font: ESRI Fire Incident NFPA
+[10:36:39] Font: ESRI Geology
+[10:36:39] Font: ESRI Geology AGSO 1
+[10:36:39] Font: ESRI Geology USGS 95-525
+[10:36:39] Font: ESRI Geometric Symbols
+[10:36:39] Font: ESRI Hazardous Materials
+[10:36:39] Font: ESRI Hydrants
+[10:36:39] Font: ESRI IGL Font16
+[10:36:39] Font: ESRI IGL Font20
+[10:36:39] Font: ESRI IGL Font21
+[10:36:39] Font: ESRI IGL Font22
+[10:36:39] Font: ESRI IGL Font23
+[10:36:39] Font: ESRI IGL Font24
+[10:36:39] Font: ESRI IGL Font25
+[10:36:39] Font: ESRI Meteorological 01
+[10:36:39] Font: ESRI Mil2525C Modifiers
+[10:36:39] Font: ESRI MilMod 01
+[10:36:39] Font: ESRI MilMod 02
+[10:36:39] Font: ESRI MilRed 01
+[10:36:39] Font: ESRI MilSym 01
+[10:36:39] Font: ESRI MilSym 02
+[10:36:39] Font: ESRI MilSym 03
+[10:36:39] Font: ESRI MilSym 04
+[10:36:39] Font: ESRI MilSym 05
+[10:36:39] Font: ESRI NIMA City Graphic LN
+[10:36:39] Font: ESRI NIMA City Graphic PT
+[10:36:39] Font: ESRI NIMA DNC LN
+[10:36:39] Font: ESRI NIMA DNC PT
+[10:36:39] Font: ESRI NIMA VMAP1&2 LN
+[10:36:39] Font: ESRI NIMA VMAP1&2 PT
+[10:36:39] Font: ESRI North
+[10:36:39] Font: ESRI Oil, Gas, & Water
+[10:36:39] Font: ESRI Ordnance Survey
+[10:36:39] Font: ESRI Pipeline US 1
+[10:36:39] Font: ESRI Public1
+[10:36:39] Font: ESRI SDS 1.95 1
+[10:36:39] Font: ESRI SDS 1.95 2
+[10:36:39] Font: ESRI SDS 2.00 1
+[10:36:39] Font: ESRI SDS 2.00 2
+[10:36:39] Font: ESRI Shields
+[10:36:39] Font: ESRI Surveyor
+[10:36:39] Font: ESRI Telecom
+[10:36:39] Font: ESRI Transportation & Civic
+[10:36:39] Font: ESRI US Forestry 1
+[10:36:39] Font: ESRI US Forestry 2
+[10:36:39] Font: ESRI US MUTCD 1
+[10:36:39] Font: ESRI US MUTCD 2
+[10:36:39] Font: ESRI US MUTCD 3
+[10:36:39] Font: ESRI Weather
+[10:36:39] Font: ESSTIXEight
+[10:36:39] Font: ESSTIXEleven
+[10:36:39] Font: ESSTIXFifteen
+[10:36:39] Font: ESSTIXFive
+[10:36:39] Font: ESSTIXFour
+[10:36:39] Font: ESSTIXFourteen
+[10:36:39] Font: ESSTIXNine
+[10:36:39] Font: ESSTIXOne
+[10:36:39] Font: ESSTIXSeven
+[10:36:39] Font: ESSTIXSeventeen
+[10:36:39] Font: ESSTIXSix
+[10:36:39] Font: ESSTIXSixteen
+[10:36:39] Font: ESSTIXTen
+[10:36:39] Font: ESSTIXThirteen
+[10:36:39] Font: ESSTIXThree
+[10:36:39] Font: ESSTIXTwelve
+[10:36:39] Font: ESSTIXTwo
+[10:36:39] Font: Ebrima
+[10:36:39] Font: Edwardian Script ITC
+[10:36:39] Font: Elephant
+[10:36:39] Font: Engravers MT
+[10:36:39] Font: Eras Bold ITC
+[10:36:39] Font: Eras Demi ITC
+[10:36:39] Font: Eras Light ITC
+[10:36:39] Font: Eras Medium ITC
+[10:36:39] Font: EucrosiaUPC
+[10:36:39] Font: Expo M
+[10:36:39] Font: FZShuTi
+[10:36:39] Font: FZYaoTi
+[10:36:39] Font: FangSong
+[10:36:39] Font: Felix Titling
+[10:36:39] Font: Footlight MT Light
+[10:36:39] Font: Forte
+[10:36:39] Font: FrankRuehl
+[10:36:39] Font: Franklin Gothic Book
+[10:36:39] Font: Franklin Gothic Demi
+[10:36:39] Font: Franklin Gothic Demi Cond
+[10:36:39] Font: Franklin Gothic Heavy
+[10:36:39] Font: Franklin Gothic Medium
+[10:36:39] Font: Franklin Gothic Medium Cond
+[10:36:39] Font: FreesiaUPC
+[10:36:39] Font: Freestyle Script
+[10:36:39] Font: French Script MT
+[10:36:39] Font: Gabriola
+[10:36:39] Font: Gadugi
+[10:36:39] Font: Garamond
+[10:36:39] Font: Georgia
+[10:36:39] Font: Gigi
+[10:36:39] Font: Gill Sans MT
+[10:36:39] Font: Gill Sans MT Condensed
+[10:36:39] Font: Gill Sans MT Ext Condensed Bold
+[10:36:39] Font: Gill Sans Ultra Bold
+[10:36:39] Font: Gill Sans Ultra Bold Condensed
+[10:36:39] Font: Gisha
+[10:36:39] Font: Gloucester MT Extra Condensed
+[10:36:39] Font: Goudy Old Style
+[10:36:39] Font: Goudy Stout
+[10:36:39] Font: Gulim
+[10:36:39] Font: GulimChe
+[10:36:39] Font: Gungsuh
+[10:36:39] Font: GungsuhChe
+[10:36:39] Font: HGGothicE
+[10:36:39] Font: HGGothicM
+[10:36:39] Font: HGGyoshotai
+[10:36:39] Font: HGKyokashotai
+[10:36:39] Font: HGMaruGothicMPRO
+[10:36:39] Font: HGMinchoB
+[10:36:39] Font: HGMinchoE
+[10:36:39] Font: HGPGothicE
+[10:36:39] Font: HGPGothicM
+[10:36:39] Font: HGPGyoshotai
+[10:36:39] Font: HGPKyokashotai
+[10:36:39] Font: HGPMinchoB
+[10:36:39] Font: HGPMinchoE
+[10:36:39] Font: HGPSoeiKakugothicUB
+[10:36:39] Font: HGPSoeiKakupoptai
+[10:36:39] Font: HGPSoeiPresenceEB
+[10:36:39] Font: HGSGothicE
+[10:36:39] Font: HGSGothicM
+[10:36:39] Font: HGSGyoshotai
+[10:36:39] Font: HGSKyokashotai
+[10:36:39] Font: HGSMinchoB
+[10:36:39] Font: HGSMinchoE
+[10:36:39] Font: HGSSoeiKakugothicUB
+[10:36:39] Font: HGSSoeiKakupoptai
+[10:36:39] Font: HGSSoeiPresenceEB
+[10:36:39] Font: HGSeikaishotaiPRO
+[10:36:39] Font: HGSoeiKakugothicUB
+[10:36:39] Font: HGSoeiKakupoptai
+[10:36:39] Font: HGSoeiPresenceEB
+[10:36:39] Font: HYGothic-Extra
+[10:36:39] Font: HYGothic-Medium
+[10:36:39] Font: HYGraphic-Medium
+[10:36:39] Font: HYGungSo-Bold
+[10:36:39] Font: HYHeadLine-Medium
+[10:36:39] Font: HYMyeongJo-Extra
+[10:36:39] Font: HYPMokGak-Bold
+[10:36:39] Font: HYPost-Light
+[10:36:39] Font: HYPost-Medium
+[10:36:39] Font: HYShortSamul-Medium
+[10:36:39] Font: HYSinMyeongJo-Medium
+[10:36:39] Font: Haettenschweiler
+[10:36:39] Font: Harlow Solid Italic
+[10:36:39] Font: Harrington
+[10:36:39] Font: Headline R
+[10:36:39] Font: Helonia
+[10:36:39] Font: High Tower Text
+[10:36:39] Font: Impact
+[10:36:39] Font: Imprint MT Shadow
+[10:36:39] Font: Informal Roman
+[10:36:39] Font: IrisUPC
+[10:36:39] Font: JasmineUPC
+[10:36:39] Font: Javanese Text
+[10:36:39] Font: Jokerman
+[10:36:39] Font: Juice ITC
+[10:36:39] Font: KaiTi
+[10:36:39] Font: KodchiangUPC
+[10:36:39] Font: Kristen ITC
+[10:36:39] Font: Kunstler Script
+[10:36:39] Font: Leelawadee
+[10:36:39] Font: Leelawadee UI
+[10:36:39] Font: Leelawadee UI Semilight
+[10:36:39] Font: Levenim MT
+[10:36:39] Font: LiSu
+[10:36:39] Font: LilyUPC
+[10:36:39] Font: Lucida Bright
+[10:36:39] Font: Lucida Calligraphy
+[10:36:39] Font: Lucida Console
+[10:36:39] Font: Lucida Fax
+[10:36:39] Font: Lucida Handwriting
+[10:36:39] Font: Lucida Sans
+[10:36:39] Font: Lucida Sans Typewriter
+[10:36:39] Font: Lucida Sans Unicode
+[10:36:39] Font: MS Gothic
+[10:36:39] Font: MS Mincho
+[10:36:39] Font: MS Outlook
+[10:36:39] Font: MS PGothic
+[10:36:39] Font: MS PMincho
+[10:36:39] Font: MS Reference Sans Serif
+[10:36:39] Font: MS Reference Specialty
+[10:36:39] Font: MS UI Gothic
+[10:36:39] Font: MT Extra
+[10:36:39] Font: MV Boli
+[10:36:39] Font: Magic R
+[10:36:39] Font: Magneto
+[10:36:39] Font: Maiandra GD
+[10:36:39] Font: Malgun Gothic
+[10:36:39] Font: Malgun Gothic Semilight
+[10:36:39] Font: MaplePi
+[10:36:39] Font: Marlett
+[10:36:39] Font: Matura MT Script Capitals
+[10:36:39] Font: Meiryo
+[10:36:39] Font: Meiryo UI
+[10:36:39] Font: Microsoft Himalaya
+[10:36:39] Font: Microsoft JhengHei
+[10:36:39] Font: Microsoft JhengHei Light
+[10:36:39] Font: Microsoft JhengHei UI
+[10:36:39] Font: Microsoft JhengHei UI Light
+[10:36:39] Font: Microsoft New Tai Lue
+[10:36:39] Font: Microsoft PhagsPa
+[10:36:39] Font: Microsoft Sans Serif
+[10:36:39] Font: Microsoft Tai Le
+[10:36:39] Font: Microsoft Uighur
+[10:36:39] Font: Microsoft YaHei
+[10:36:39] Font: Microsoft YaHei Light
+[10:36:39] Font: Microsoft YaHei UI
+[10:36:39] Font: Microsoft YaHei UI Light
+[10:36:39] Font: Microsoft Yi Baiti
+[10:36:39] Font: MingLiU
+[10:36:39] Font: MingLiU-ExtB
+[10:36:39] Font: MingLiU_HKSCS
+[10:36:39] Font: MingLiU_HKSCS-ExtB
+[10:36:39] Font: Miriam
+[10:36:39] Font: Miriam Fixed
+[10:36:39] Font: Mistral
+[10:36:39] Font: Modern No. 20
+[10:36:39] Font: MoeumT R
+[10:36:39] Font: Mongolian Baiti
+[10:36:39] Font: Monospaced
+[10:36:39] Font: Monotype Corsiva
+[10:36:39] Font: Myanmar Text
+[10:36:39] Font: NSimSun
+[10:36:39] Font: Narkisim
+[10:36:39] Font: New Gulim
+[10:36:39] Font: Niagara Engraved
+[10:36:39] Font: Niagara Solid
+[10:36:39] Font: Nirmala UI
+[10:36:39] Font: Nirmala UI Semilight
+[10:36:39] Font: OCR A Extended
+[10:36:39] Font: OCRB
+[10:36:39] Font: Old English Text MT
+[10:36:39] Font: Onyx
+[10:36:39] Font: PMingLiU
+[10:36:39] Font: PMingLiU-ExtB
+[10:36:39] Font: Palace Script MT
+[10:36:39] Font: Palatino Linotype
+[10:36:39] Font: Papyrus
+[10:36:39] Font: Parchment
+[10:36:39] Font: Perpetua
+[10:36:39] Font: Perpetua Titling MT
+[10:36:39] Font: Playbill
+[10:36:39] Font: Poor Richard
+[10:36:39] Font: Pristina
+[10:36:39] Font: Pyunji R
+[10:36:39] Font: Rage Italic
+[10:36:39] Font: Ravie
+[10:36:39] Font: Rockwell
+[10:36:39] Font: Rockwell Condensed
+[10:36:39] Font: Rockwell Extra Bold
+[10:36:39] Font: Rod
+[10:36:39] Font: STCaiyun
+[10:36:39] Font: STFangsong
+[10:36:39] Font: STHupo
+[10:36:39] Font: STKaiti
+[10:36:39] Font: STLiti
+[10:36:39] Font: STSong
+[10:36:39] Font: STXihei
+[10:36:39] Font: STXingkai
+[10:36:39] Font: STXinwei
+[10:36:39] Font: STZhongsong
+[10:36:39] Font: Sakkal Majalla
+[10:36:39] Font: SansSerif
+[10:36:39] Font: Script MT Bold
+[10:36:39] Font: Segoe MDL2 Assets
+[10:36:39] Font: Segoe Print
+[10:36:39] Font: Segoe Script
+[10:36:39] Font: Segoe UI
+[10:36:39] Font: Segoe UI Black
+[10:36:39] Font: Segoe UI Emoji
+[10:36:39] Font: Segoe UI Historic
+[10:36:39] Font: Segoe UI Light
+[10:36:39] Font: Segoe UI Semibold
+[10:36:39] Font: Segoe UI Semilight
+[10:36:39] Font: Segoe UI Symbol
+[10:36:39] Font: Serif
+[10:36:39] Font: Showcard Gothic
+[10:36:39] Font: SimHei
+[10:36:39] Font: SimSun
+[10:36:39] Font: SimSun-ExtB
+[10:36:39] Font: Simplified Arabic
+[10:36:39] Font: Simplified Arabic Fixed
+[10:36:39] Font: Sitka Banner
+[10:36:39] Font: Sitka Display
+[10:36:39] Font: Sitka Heading
+[10:36:39] Font: Sitka Small
+[10:36:39] Font: Sitka Subheading
+[10:36:39] Font: Sitka Text
+[10:36:39] Font: Snap ITC
+[10:36:39] Font: Stencil
+[10:36:39] Font: Sylfaen
+[10:36:39] Font: Symbol
+[10:36:39] Font: SymbolPi
+[10:36:39] Font: System
+[10:36:39] Font: Tahoma
+[10:36:39] Font: Tempus Sans ITC
+[10:36:39] Font: Thames
+[10:36:39] Font: Times New Roman
+[10:36:39] Font: Traditional Arabic
+[10:36:39] Font: Trebuchet MS
+[10:36:39] Font: Tw Cen MT
+[10:36:39] Font: Tw Cen MT Condensed
+[10:36:39] Font: Tw Cen MT Condensed Extra Bold
+[10:36:39] Font: Urdu Typesetting
+[10:36:39] Font: Verdana
+[10:36:39] Font: Viner Hand ITC
+[10:36:39] Font: Vivaldi
+[10:36:39] Font: Vladimir Script
+[10:36:39] Font: Webdings
+[10:36:39] Font: Wide Latin
+[10:36:39] Font: Wingdings
+[10:36:39] Font: Wingdings 2
+[10:36:39] Font: Wingdings 3
+[10:36:39] Font: Yet R
+[10:36:39] Font: YouYuan
+[10:36:39] Font: Yu Gothic
+[10:36:39] Font: Yu Gothic Light
+[10:36:39] Font: Yu Gothic Medium
+[10:36:39] Font: Yu Gothic UI
+[10:36:39] Font: Yu Gothic UI Light
+[10:36:39] Font: Yu Gothic UI Semibold
+[10:36:39] Font: Yu Gothic UI Semilight
+[10:36:39] Font: Yu Mincho
+[10:36:39] Font: Yu Mincho Demibold
+[10:36:39] Font: Yu Mincho Light
+[10:36:40] Creating new resource manager @ 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:36:40] Loading resources from 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:36:40] Loading resource: apple.png...
+[10:36:40] Loading resource: apple.png...
+[10:36:40] Trying to retrieve 'apple.png' from ResourceManager.
+[10:36:40] Loading resource: apple.png...
+[10:36:40] Trying to retrieve 'apple.png' from ResourceManager.
+[10:36:40] Loading resource: apple.png...
+[10:36:40] Trying to retrieve 'apple.png' from ResourceManager.
+[10:36:40] Loading resource: apple.png...
+[10:36:40] Trying to retrieve 'apple.png' from ResourceManager.
+[10:36:40] Loading resource: apple.png...
+[10:36:40] Trying to retrieve 'apple.png' from ResourceManager.
+[10:36:40] Loaded resource: null
+[10:36:40] Loaded resource: apple.png
+[10:36:40] Loaded resource: error
+[10:36:40] Resources loaded = 3
+[10:36:40] Trying to retrieve 'outside' from ResourceManager.
+[10:36:40] Adding player inventory... [3]
+[10:36:40] Loading: gun...
+[10:36:41] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[10:36:41] Closing logger.
+[10:36:41] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[10:37:47] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_29-11-16.txt'
+[10:37:47] LOCALE: en_GB - United Kingdom
+[10:37:47] Loading default commands...
+[10:37:47] Loaded default commands...
+[10:37:47] Starting World of Zuul... ENGLISH
+[10:37:47] Loading properties.ini file...
+[10:37:47] Property file found, loading properties...
+[10:37:47] Closed I/O streams.
+[10:37:47] Properties loaded.
+[10:37:48] Creating game session...
+[10:37:48] 
+[10:37:48]  - - - - - - - - - - - - - - - - - - - - 
+[10:37:48]       Loading Plugins ...          
+[10:37:48]  - - - - - - - - - - - - - - - - - - - - 
+[10:37:48] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[10:37:48] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [10:37:48] - Finished  - - - - - - - - - - - - - - 
+[10:37:48]  - - - - - - - - - - - - - - - - - - - - 
+[10:37:48]       Loading XML Config files ...    
+[10:37:48] -> X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config
+[10:37:48]  - - - - - - - - - - - - - - - - - - - - 
+[10:37:48] Added item 'apple'
+[10:37:48] Added item 'book'
+[10:37:48] Added item 'gun'
+[10:37:48] Added item 'tomato'
+[10:37:48] Added item 'pear'
+[10:37:48] Added item 'grapes'
+[10:37:48] Loaded room 'outside'
+[10:37:48] Loaded room 'library'
+[10:37:48] Loaded room 'theatre'
+[10:37:48] Loaded room 'lab'
+[10:37:48] Loaded room 'pub'
+[10:37:48] Added new player 'Richard Jones'.
+[10:37:48] Added new character 'Bob'.
+[10:37:48] Added new character 'Chris'.
+[10:37:48] Added new character 'Mitch'.
+[10:37:48] Added new character 'Louis'.
+[10:37:48] Added new character 'Craig'.
+[10:37:48] Added new character 'Donald Trump'.
+[10:37:48] Added new player 'James Pond'.
+[10:37:48] - - Finished - - - - - - - - - - - - - - 
+[10:37:48] There are 2 players playing.
+[10:37:48] Assuming the control of player 'James Pond'.
+[10:37:49] Creating new resource manager @ 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:37:49] Loading resources from 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:37:49] Loading resource: apple.png...
+[10:37:49] Loading resource: apple.png...
+[10:37:49] Trying to retrieve 'apple.png' from ResourceManager.
+[10:37:49] Loading resource: apple.png...
+[10:37:49] Trying to retrieve 'apple.png' from ResourceManager.
+[10:37:49] Loading resource: apple.png...
+[10:37:49] Trying to retrieve 'apple.png' from ResourceManager.
+[10:37:49] Loading resource: apple.png...
+[10:37:49] Trying to retrieve 'apple.png' from ResourceManager.
+[10:37:49] Loading resource: apple.png...
+[10:37:49] Trying to retrieve 'apple.png' from ResourceManager.
+[10:37:49] Loaded resource: null
+[10:37:49] Loaded resource: apple.png
+[10:37:49] Loaded resource: error
+[10:37:49] Resources loaded = 3
+[10:37:49] Trying to retrieve 'outside' from ResourceManager.
+[10:37:49] Adding player inventory... [3]
+[10:37:49] Loading: gun...
+[10:37:50] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[10:37:50] Closing logger.
+[10:37:50] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[10:48:27] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_29-11-16.txt'
+[10:48:27] LOCALE: en_GB - United Kingdom
+[10:48:27] Loading default commands...
+[10:48:27] Loaded default commands...
+[10:48:27] Starting World of Zuul... ENGLISH
+[10:48:27] Loading properties.ini file...
+[10:48:27] Property file found, loading properties...
+[10:48:27] Closed I/O streams.
+[10:48:27] Properties loaded.
+[10:48:28] Creating game session...
+[10:48:28] 
+[10:48:28]  - - - - - - - - - - - - - - - - - - - - 
+[10:48:28]       Loading Plugins ...          
+[10:48:28]  - - - - - - - - - - - - - - - - - - - - 
+[10:48:28] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[10:48:28] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [10:48:28] - Finished  - - - - - - - - - - - - - - 
+[10:48:28]  - - - - - - - - - - - - - - - - - - - - 
+[10:48:28]       Loading XML Config files ...    
+[10:48:28] -> X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config
+[10:48:28]  - - - - - - - - - - - - - - - - - - - - 
+[10:48:28] Added item 'apple'
+[10:48:28] Added item 'book'
+[10:48:28] Added item 'gun'
+[10:48:28] Added item 'tomato'
+[10:48:28] Added item 'pear'
+[10:48:28] Added item 'grapes'
+[10:48:28] Loaded room 'outside'
+[10:48:28] Loaded room 'library'
+[10:48:28] Loaded room 'theatre'
+[10:48:28] Loaded room 'lab'
+[10:48:28] Loaded room 'pub'
+[10:48:28] Added new player 'Richard Jones'.
+[10:48:28] Added new character 'Bob'.
+[10:48:28] Added new character 'Chris'.
+[10:48:28] Added new character 'Mitch'.
+[10:48:28] Added new character 'Louis'.
+[10:48:28] Added new character 'Craig'.
+[10:48:28] Added new character 'Donald Trump'.
+[10:48:28] Added new player 'James Pond'.
+[10:48:28] - - Finished - - - - - - - - - - - - - - 
+[10:48:28] There are 2 players playing.
+[10:48:28] Assuming the control of player 'James Pond'.
+[10:48:29] Creating new resource manager @ 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:48:29] Loading resources from 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:48:29] Loading resource: apple.png...
+[10:48:29] Loading resource: apple.png...
+[10:48:29] Trying to retrieve 'apple.png' from ResourceManager.
+[10:48:29] Loading resource: apple.png...
+[10:48:29] Trying to retrieve 'apple.png' from ResourceManager.
+[10:48:29] Loading resource: apple.png...
+[10:48:29] Trying to retrieve 'apple.png' from ResourceManager.
+[10:48:29] Loading resource: apple.png...
+[10:48:29] Trying to retrieve 'apple.png' from ResourceManager.
+[10:48:29] Loading resource: apple.png...
+[10:48:29] Trying to retrieve 'apple.png' from ResourceManager.
+[10:48:29] Loaded resource: null
+[10:48:29] Loaded resource: apple.png
+[10:48:29] Loaded resource: error
+[10:48:29] Resources loaded = 3
+[10:48:29] Trying to retrieve 'outside' from ResourceManager.
+[10:48:29] Adding player inventory... [3]
+[10:48:29] Loading: gun...
+[10:48:29] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[10:48:29] Closing logger.
+[10:48:29] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[10:59:20] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_29-11-16.txt'
+[10:59:20] LOCALE: en_GB - United Kingdom
+[10:59:20] Loading default commands...
+[10:59:20] Loaded default commands...
+[10:59:20] Starting World of Zuul... ENGLISH
+[10:59:20] Loading properties.ini file...
+[10:59:20] Property file found, loading properties...
+[10:59:20] Closed I/O streams.
+[10:59:20] Properties loaded.
+[10:59:21] Creating game session...
+[10:59:21] 
+[10:59:21]  - - - - - - - - - - - - - - - - - - - - 
+[10:59:21]       Loading Plugins ...          
+[10:59:21]  - - - - - - - - - - - - - - - - - - - - 
+[10:59:21] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[10:59:21] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [10:59:21] - Finished  - - - - - - - - - - - - - - 
+[10:59:21]  - - - - - - - - - - - - - - - - - - - - 
+[10:59:21]       Loading XML Config files ...    
+[10:59:21] -> X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config
+[10:59:21]  - - - - - - - - - - - - - - - - - - - - 
+[10:59:21] Added item 'apple'
+[10:59:21] Added item 'book'
+[10:59:21] Added item 'gun'
+[10:59:21] Added item 'tomato'
+[10:59:21] Added item 'pear'
+[10:59:21] Added item 'grapes'
+[10:59:21] Loaded room 'outside'
+[10:59:21] Loaded room 'library'
+[10:59:21] Loaded room 'theatre'
+[10:59:21] Loaded room 'lab'
+[10:59:21] Loaded room 'pub'
+[10:59:21] Added new player 'Richard Jones'.
+[10:59:21] Added new character 'Bob'.
+[10:59:21] Added new character 'Chris'.
+[10:59:21] Added new character 'Mitch'.
+[10:59:21] Added new character 'Louis'.
+[10:59:21] Added new character 'Craig'.
+[10:59:21] Added new character 'Donald Trump'.
+[10:59:21] Added new player 'James Pond'.
+[10:59:21] - - Finished - - - - - - - - - - - - - - 
+[10:59:21] There are 2 players playing.
+[10:59:21] Assuming the control of player 'James Pond'.
+[10:59:22] Creating new resource manager @ 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:59:22] Loading resources from 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[10:59:22] Loading resource: apple.png...
+[10:59:22] Loading resource: apple.png...
+[10:59:22] Trying to retrieve 'apple.png' from ResourceManager.
+[10:59:22] Loading resource: apple.png...
+[10:59:22] Trying to retrieve 'apple.png' from ResourceManager.
+[10:59:22] Loading resource: apple.png...
+[10:59:22] Trying to retrieve 'apple.png' from ResourceManager.
+[10:59:22] Loading resource: apple.png...
+[10:59:22] Trying to retrieve 'apple.png' from ResourceManager.
+[10:59:22] Loading resource: apple.png...
+[10:59:22] Trying to retrieve 'apple.png' from ResourceManager.
+[10:59:22] Loaded resource: null
+[10:59:22] Loaded resource: apple.png
+[10:59:22] Loaded resource: error
+[10:59:22] Resources loaded = 3
+[10:59:22] Trying to retrieve 'outside' from ResourceManager.
+[10:59:22] Adding player inventory... [3]
+[10:59:22] Loading: gun...
+[10:59:22] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[10:59:22] Closing logger.
+[10:59:22] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[11:15:12] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_29-11-16.txt'
+[11:15:12] LOCALE: en_GB - United Kingdom
+[11:15:12] Loading default commands...
+[11:15:12] Loaded default commands...
+[11:15:12] Starting World of Zuul... ENGLISH
+[11:15:12] Loading properties.ini file...
+[11:15:12] Property file found, loading properties...
+[11:15:12] Closed I/O streams.
+[11:15:12] Properties loaded.
+[11:15:12] Creating game session...
+[11:15:12] 
+[11:15:12]  - - - - - - - - - - - - - - - - - - - - 
+[11:15:12]       Loading Plugins ...          
+[11:15:12]  - - - - - - - - - - - - - - - - - - - - 
+[11:15:12] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[11:15:12] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [11:15:12] - Finished  - - - - - - - - - - - - - - 
+[11:15:12]  - - - - - - - - - - - - - - - - - - - - 
+[11:15:12]       Loading XML Config files ...    
+[11:15:12] -> X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config
+[11:15:12]  - - - - - - - - - - - - - - - - - - - - 
+[11:15:12] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\apple.png
+[11:15:12] Added item 'apple'
+[11:15:12] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\book.svg
+[11:15:12] Added item 'book'
+[11:15:12] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\fail_me.txt
+[11:15:12] [ERROR] Invalid imageURL given, cannot load resource: 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\fail_me.txt'.[11:15:12] Added item 'gun'
+[11:15:12] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\apple.png
+[11:15:12] Added item 'tomato'
+[11:15:12] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\apple.png
+[11:15:12] Added item 'pear'
+[11:15:12] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\apple.png
+[11:15:12] Added item 'grapes'
+[11:15:12] Loaded room 'outside'
+[11:15:12] Loaded room 'library'
+[11:15:12] Loaded room 'theatre'
+[11:15:12] Loaded room 'lab'
+[11:15:12] Loaded room 'pub'
+[11:15:13] Added new player 'Richard Jones'.
+[11:15:13] Added new character 'Bob'.
+[11:15:13] Added new character 'Chris'.
+[11:15:13] Added new character 'Mitch'.
+[11:15:13] Added new character 'Louis'.
+[11:15:13] Added new character 'Craig'.
+[11:15:13] Added new character 'Donald Trump'.
+[11:15:13] Added new player 'James Pond'.
+[11:15:13] - - Finished - - - - - - - - - - - - - - 
+[11:15:13] There are 2 players playing.
+[11:15:13] Assuming the control of player 'James Pond'.
+[11:15:13] Creating new resource manager @ 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[11:15:13] Loading resources from 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[11:15:13] Loading resource: apple.png...
+[11:15:13] Loading resource: book.svg...
+[11:15:13] Loading resource: apple.png...
+[11:15:14] Loading resource: apple.png...
+[11:15:14] Loading resource: apple.png...
+[11:15:14] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[11:15:14] Closing logger.
+[11:15:14] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[11:15:29] Created new logger. 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config\Logs\log_29-11-16.txt'
+[11:15:29] LOCALE: en_GB - United Kingdom
+[11:15:29] Loading default commands...
+[11:15:29] Loaded default commands...
+[11:15:29] Starting World of Zuul... ENGLISH
+[11:15:29] Loading properties.ini file...
+[11:15:29] Property file found, loading properties...
+[11:15:29] Closed I/O streams.
+[11:15:29] Properties loaded.
+[11:15:29] Creating game session...
+[11:15:29] 
+[11:15:29]  - - - - - - - - - - - - - - - - - - - - 
+[11:15:29]       Loading Plugins ...          
+[11:15:29]  - - - - - - - - - - - - - - - - - - - - 
+[11:15:29] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[11:15:29] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [11:15:29] - Finished  - - - - - - - - - - - - - - 
+[11:15:29]  - - - - - - - - - - - - - - - - - - - - 
+[11:15:29]       Loading XML Config files ...    
+[11:15:29] -> X:\home\AdvJava\AdvJava-Assessment1-Zuul\Config
+[11:15:29]  - - - - - - - - - - - - - - - - - - - - 
+[11:15:29] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\apple.png
+[11:15:29] Added item 'apple'
+[11:15:29] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\book.svg
+[11:15:29] Added item 'book'
+[11:15:29] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\fail_me.txt
+[11:15:29] [ERROR] Invalid imageURL given, cannot load resource: 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\fail_me.txt'.[11:15:29] Added item 'gun'
+[11:15:29] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\apple.png
+[11:15:29] Added item 'tomato'
+[11:15:29] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\apple.png
+[11:15:29] Added item 'pear'
+[11:15:29] IU: X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources\items\apple.png
+[11:15:29] Added item 'grapes'
+[11:15:29] Loaded room 'outside'
+[11:15:29] Loaded room 'library'
+[11:15:29] Loaded room 'theatre'
+[11:15:29] Loaded room 'lab'
+[11:15:29] Loaded room 'pub'
+[11:15:29] Added new player 'Richard Jones'.
+[11:15:29] Added new character 'Bob'.
+[11:15:29] Added new character 'Chris'.
+[11:15:29] Added new character 'Mitch'.
+[11:15:29] Added new character 'Louis'.
+[11:15:29] Added new character 'Craig'.
+[11:15:29] Added new character 'Donald Trump'.
+[11:15:29] Added new player 'James Pond'.
+[11:15:29] - - Finished - - - - - - - - - - - - - - 
+[11:15:29] There are 2 players playing.
+[11:15:29] Assuming the control of player 'James Pond'.
+[11:15:30] Creating new resource manager @ 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[11:15:30] Loading resources from 'X:\home\AdvJava\AdvJava-Assessment1-Zuul\Resources'.
+[11:15:30] Loading resource: apple.png...
+[11:15:30] Loading resource: book.svg...
+[11:15:30] Loading resource: apple.png...
+[11:15:30] Loading resource: apple.png...
+[11:15:30] Loading resource: apple.png...
+[11:15:30] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[11:15:30] Closing logger.
+[11:15:30] Closing writer for logger.

@@ -4,20 +4,26 @@ import java.io.File;
 import java.nio.file.Paths;
 
 import advjava.assessment1.zuul.refactored.Main;
+import java.util.Arrays;
 import javafx.scene.image.Image;
 
 public abstract class Resource extends Descriptor{
     
-	private String resourceName;
+    private String resourceName;
     private String imageURL;
     private Image image;
+    private static final String[] IMG_FORMAT = {"jpg", "jpeg", "png", "svg"};
     
     public Resource(String name, String description, String url){
     	super(name, description);
     	imageURL = url;
     	if(imageURL != null){
         	imageURL = Main.RESOURCE_FILES + File.separator + url;
-    		if(imageURL.endsWith(".jpg") || imageURL.endsWith(".png") || imageURL.endsWith(".jpeg")){
+    		Out.out.logln("IU: " + imageURL);
+                if(Arrays.stream(IMG_FORMAT)
+                        .filter(img->imageURL.endsWith("."+img))
+                        .findAny()
+                        .isPresent()){
     			resourceName = Paths.get(imageURL).getFileName().toString();
     		}else{
     			Out.out.loglnErr("Invalid imageURL given, cannot load resource: '" + imageURL + "'.");
@@ -38,10 +44,12 @@ public abstract class Resource extends Descriptor{
     	return image;
     }
 
-    public boolean loadImage(ResourceManager resourceManager){
+    public boolean loadImage(ResourceManager resourceManager, Image errorImage){
     	
-    	if(imageURL == null)
-    		return false;
+    	if(imageURL == null){
+            image = errorImage;
+            return false;
+        }
     	
     	Out.out.logln("Loading resource: " + resourceName + "...");
     	try{
@@ -58,7 +66,6 @@ public abstract class Resource extends Descriptor{
     		}
     		
     		image = new Image(f.toURI().toString());
-    		resourceManager.add(resourceName, image);
     	}catch(Exception e){
     		e.printStackTrace();
     		Out.out.loglnErr("Failed to load resource: " + resourceName + " @ " + imageURL);

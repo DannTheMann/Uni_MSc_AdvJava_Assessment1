@@ -8,6 +8,7 @@ import java.util.Properties;
 
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
+import javafx.scene.text.Font;
 
 /**
  * The starting point of the game, handles directory creation for the game and
@@ -60,7 +61,7 @@ public class Main {
             Out.out.logln(InternationalisationManager.im.getMessage("main.finishProp"));
 
             // Delay to allow everything to be ready...
-            Thread.sleep(1000);
+            //Thread.sleep(1000);
             Out.out.logln(InternationalisationManager.im.getMessage("main.createSession"));
             // Create the game, initialise and start it
             game.initialiseGame(properties);

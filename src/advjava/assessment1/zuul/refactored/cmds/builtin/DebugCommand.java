@@ -55,7 +55,7 @@ public class DebugCommand extends Command {
 
 				game.getInterface().println();
 				game.getInterface().println(String.format("Total rooms: %s", game.getRoomManager().rooms().size()));
-				game.getRoomManager().rooms().stream().forEach((room) -> {
+				game.getRoomManager().values().stream().forEach((room) -> {
 					game.getInterface()
 							.println(String.format("Room: %s | exits: %s | items: %s | characters: %s", room.getName(),
 									room.getExits().size(), room.getItems().size(), room.getCharacters().size()));
@@ -64,7 +64,7 @@ public class DebugCommand extends Command {
 				if(cmd.commandLength() > 2){
 					
 					game.getInterface().println("Printing them characters!");
-					game.getRoomManager().getRoom(cmd.getWord(2)).getCharacters().stream()
+					game.getRoomManager().get(cmd.getWord(2)).getCharacters().stream()
 						.forEach(game.getInterface()::print);
 					
 					
