@@ -80,14 +80,15 @@ public abstract class XMLManager {
 					// then load it from the room manager
 					if (rm.has(name)) {
 						finalRoom = rm.get(name);
+						finalRoom.update(name, desc, url);
 					} else {
 						// create new room otherwise
 						finalRoom = new Room(name, desc, url);
 					}
 
 					// If the room has any items, loop through and add them
-					if (eElement.getElementsByTagName("items-in-room") != null) {
-
+					if (eElement.getElementsByTagName("items-in-room") != null && eElement.getElementsByTagName("items-in-room").getLength() > 0) {
+						
 						String iName = null;
 						innerNode = eElement.getElementsByTagName("items-in-room").item(0);
 						innerElement = (Element) innerNode;
@@ -164,6 +165,7 @@ public abstract class XMLManager {
 					if (added || (!added && finalRoom.isComplete())) {
 						Out.out.logln(String.format(InternationalisationManager.im.getMessage("xml.loadRoom"),
 								finalRoom.getName()));
+
 					} else {
 						// Duplicated room
 						Out.out.logln(String.format(InternationalisationManager.im.getMessage("xml.roomExists"),

@@ -25,6 +25,7 @@ public class GoCommand extends Command {
 
 	/**
 	 * Move to another room from the existing room.
+	 * 
 	 * @return true if command executed correctly
 	 */
 	@Override
@@ -51,20 +52,28 @@ public class GoCommand extends Command {
 			// Print room information
 			game.getInterface().println();
 			game.getInterface().println(nextRoom);
+			game.getInterface().update();
 
 			return true;
 
 		} else {
+
+			// GUI Alternative
+			if (game.getInterface() instanceof GraphicalInterface) {
+				game.getInterface().showExits();
+				return true;
+			}
+
 			// Not enough params
 			game.getInterface().println(InternationalisationManager.im.getMessage("go.noparam"));
 		}
 
 		return false;
 	}
-        
-    @Override
-    public boolean interfaceAcceptable(UserInterface ui) {
-        return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
-    }
+
+	@Override
+	public boolean interfaceAcceptable(UserInterface ui) {
+		return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
+	}
 
 }

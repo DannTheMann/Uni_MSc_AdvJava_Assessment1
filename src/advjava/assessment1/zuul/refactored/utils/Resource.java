@@ -21,8 +21,9 @@ public abstract class Resource extends Descriptor {
 			imageURL = Main.RESOURCE_FILES + File.separator + url;
 			if (Arrays.stream(IMAGE_FORMATS).anyMatch(i -> imageURL.endsWith("." + i))) {
 				resourceName = Paths.get(imageURL).getFileName().toString();
+				Out.out.logln("Loading -> " + resourceName + " >> " + imageURL);
 			} else {
-				Out.out.loglnErr("Invalid imageURL given, cannot load resource: '" + imageURL + "'.");
+				Out.out.logln("Invalid imageURL given, cannot load resource: '" + imageURL + "'.");
 				imageURL = null;
 			}
 		}
@@ -68,6 +69,17 @@ public abstract class Resource extends Descriptor {
 	public void loadImage(Image img){
 		assert img != null : "Image cannot be null.";
 		image = img;
+	}
+	
+	public void update(String name, String description, String url){
+		super.update(name, description);
+		if(this.imageURL == null){
+			this.imageURL = url;
+		}
+	}
+
+	public String getImageFileURL() {		
+		return new File(imageURL).toURI().toString();
 	}
 
 }

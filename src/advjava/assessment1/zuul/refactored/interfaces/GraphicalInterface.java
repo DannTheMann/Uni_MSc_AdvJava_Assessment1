@@ -1,46 +1,32 @@
 package advjava.assessment1.zuul.refactored.interfaces;
 
 import java.io.File;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.Main;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
-import advjava.assessment1.zuul.refactored.item.Item;
+import advjava.assessment1.zuul.refactored.interfaces.graphical.SidePanel;
 import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 import advjava.assessment1.zuul.refactored.utils.ResourceManager;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.TilePane;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class GraphicalInterface extends Application implements UserInterface {
-
+	
 	private static Game game;
 	private static FontManager fontManager;
 
@@ -49,23 +35,20 @@ public class GraphicalInterface extends Application implements UserInterface {
 	private static Scene scene;
 	private static BorderPane root;
 	private static HBox commands;
-	private static Node inventory;
-	private static TilePane characters;
-	private static TilePane exits;
-
-	/* Constants for nodes used in gridpanes (indentations) */
-	private static final int NODE_VERTICAL_INSET = 10;
-	private static final int NODE_HORIZONTAL_INSET = 10;
+	private static SidePanel inventory;
+	private static SidePanel characters;
+	private static SidePanel exits;
+	private static String parameters = "hello darkness my old friend";
 
 	/* Constants for spacing offsets between nodes in gridpanes */
-	private static final int NODE_LEFT_OFFSET = 10;
-	private static final int NODE_TOP_OFFSET = 10;
-	private static final int NODE_RIGHT_OFFSET = 10;
-	private static final int NODE_BOTTOM_OFFSET = 10;
+//	private static final int NODE_LEFT_OFFSET = 10;
+//	private static final int NODE_TOP_OFFSET = 10;
+//	private static final int NODE_RIGHT_OFFSET = 10;
+//	private static final int NODE_BOTTOM_OFFSET = 10;
 
-	private static final int SIDEBAR_IMAGE_WIDTH = 50;
-	private static final int SIDEBAR_IMAGE_HEIGHT = 50;
-	private static final int MAX_WIDTH_CHAR = 8;
+//	private static final int SIDEBAR_IMAGE_WIDTH = 50;
+//	private static final int SIDEBAR_IMAGE_HEIGHT = 50;
+//	private static final int MAX_WIDTH_CHAR = 8;
 	
 	public static String getExternalCSS() {
 		return new File(Main.XML_CONFIGURATION_FILES + File.separator + Main.game.getProperty("css")).toURI().toString();
@@ -113,8 +96,17 @@ public class GraphicalInterface extends Application implements UserInterface {
 	}
 
 	public boolean update() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		// Update all panels, change anything that may have been
+		// used, dropped etc
+		exits.update(game.getPlayer().getCurrentRoom().getExits());
+		inventory.update(game.getPlayer().getInventory());
+		characters.update(game.getPlayer().getCurrentRoom().getNonPlayerCharacters());
+		
+		// Let the characters when we move
+		game.getCharacterManager().act(game);
+		
+		return true;
 	}
 
 	@Override
@@ -144,134 +136,61 @@ public class GraphicalInterface extends Application implements UserInterface {
 		
 		commands = getCommandHBox();
 
-		setBackgroundImage("outside");
-
 		/* Create root pane, a border pane */
 		root = new BorderPane();
 		// root.setStyle("");
-		root.setStyle("-fx-background-image: url(outside.jpg); -fx-background-size: cover;");
+		root.setStyle("root");
 		root.setBottom(commands);
 		
-		inventory = getSidePanel(game.getPlayer().getInventory());
-		// 0.25); -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);");
-
-		characters = new TilePane();
-		characters.setAlignment(Pos.BASELINE_CENTER);
-		characters.setPrefWidth(200);
-		characters.setHgap(NODE_HORIZONTAL_INSET);
-		characters.setVgap(NODE_VERTICAL_INSET);
-
-		// Insets, in order of
-		// top, right, bottom, left
-		characters.setPadding(new Insets(NODE_TOP_OFFSET, NODE_RIGHT_OFFSET, NODE_BOTTOM_OFFSET, NODE_LEFT_OFFSET));
-		characters.setPrefRows(4);
-
-		// Load all items...
-		// game.getPlayer().getInventory().stream().forEach(i->inventory.getChildren().add(getDisplayItem(i)));
+		inventory = new SidePanel("Inventory", game.getPlayer().getInventory(), fontManager, game);
+		characters = new SidePanel("Characters in the room", game.getPlayer().getCurrentRoom().getNonPlayerCharacters(), fontManager, game);	
+		exits = new SidePanel("Exits available", game.getPlayer().getCurrentRoom().getExits(), fontManager, game);
 
 		scene = new Scene(root, 1280, 720);
 		
 		// Setup styling
 		scene.getStylesheets().add(getExternalCSS());
 
+		setBackgroundImage(game.getPlayer().getCurrentRoom());
+		
+		Out.out.log("Room: " + game.getPlayer().getCurrentRoom().getName());
+		
 		stage.setScene(scene);
 
 		stage.show();
 
 	}
-
-	private Node getDisplayItem(Resource resource) {
-
-		Out.out.logln("Loading: " + resource.getName() + "...");
-		
-		GridPane grid = new GridPane();
-		grid.setPadding(new Insets(NODE_TOP_OFFSET, NODE_LEFT_OFFSET, NODE_BOTTOM_OFFSET, NODE_RIGHT_OFFSET));
-		grid.setHgap(NODE_RIGHT_OFFSET);
-		grid.setVgap(NODE_BOTTOM_OFFSET);
-		grid.setAlignment(Pos.BASELINE_CENTER);
-		
-		Text text = new Text(resource.getName().length() > MAX_WIDTH_CHAR ? resource.getName().substring(0, MAX_WIDTH_CHAR-2) + "..." : resource.getName());
-		text.setTextAlignment(TextAlignment.CENTER);
-		ImageView iv = new ImageView(resource.getImage());
-		iv.setPreserveRatio(true);
-		iv.setFitHeight(SIDEBAR_IMAGE_HEIGHT);
-		iv.setFitWidth(SIDEBAR_IMAGE_WIDTH);
-		
-		grid.add(text, 0, 0);		
-		grid.add(iv, 0, 1);
-		
-		if (resource instanceof Item) {
-			
-			String css = "sidebar-button";
-			
-			Item item = (Item) resource;
-			text.setText(text.getText() + System.lineSeparator() + "Weight: " + item.getWeight());
-			text.setFont(fontManager.getFont("SansSerif"));
-			
-			// Create drop button
-			Button button = newCommandButton("drop " + resource.getName().toLowerCase(), game.getCommandManager().getCommand("Drop"), css);
-			button.setPrefSize(50, 20);
-			grid.add(button, 1, 0);
-			
-			//Create give button
-			button = newCommandButton("give " + resource.getName().toLowerCase(), game.getCommandManager().getCommand("Give"), css);
-			button.setPrefSize(50, 20);
-			
-			grid.add(button, 1, 1);
-		}
-		
-		if(resource.getDescription() != null){
-			Tooltip tp = new Tooltip(resource.getName() + System.lineSeparator() + System.lineSeparator() + resource.getDescription());
-			tp.setContentDisplay(ContentDisplay.BOTTOM);
-			tp.setFont(fontManager.getFont("Yu Gothic"));
-			tp.setOpacity(.85);
-			modifyTooltipTimer(tp, 25);
-			Tooltip.install(grid, tp);
-		}
-		
-		return grid;
+	
+	public static EventHandler<Event> getCommandEvent(String params, Command command){
+		return new EventHandler<Event>() {
+            @Override
+            public void handle(Event e) {
+    			parameters += params;
+    			executeCommand(command, e);
+            }
+        };
 	}
 
-	private Button newCommandButton(String parameters, Command command, String css) {
-		this.parameters = parameters;
+	public static Button newCommandButton(String params, Command command, String css) {
 		Button button = new Button(command.getName());
 		button.getStyleClass().add(css);
 		button.setOnAction(e -> {
+			parameters = params;
 			executeCommand(command, e);
-			this.parameters = "";
 		});
 		return button;
 	}
 
-	private void setBackgroundImage(String resource) {
-		ImageView iv = new ImageView(ResourceManager.getResourceManager().getImage(resource));
-		iv.fitWidthProperty().bind(stage.widthProperty());
-		iv.fitHeightProperty().bind(stage.heightProperty());
+	private void setBackgroundImage(Resource image) {
+		
+		root.setStyle(
+				"-fx-background-image: url(" + image.getImageFileURL() + ");"
+				+ " -fx-background-size: cover;");
+		
+//		ImageView iv = new ImageView(ResourceManager.getResourceManager().getImage(resource));
+//		iv.fitWidthProperty().bind(stage.widthProperty());
+//		iv.fitHeightProperty().bind(stage.heightProperty());
 		// ...
-	}
-
-	private Node getSidePanel(Collection<Resource> stream) {
-		
-		ScrollPane sp = new ScrollPane();
-		sp.setHbarPolicy(ScrollBarPolicy.NEVER);
-		sp.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
-		
-		TilePane pane = new TilePane();
-		pane.setAlignment(Pos.BASELINE_CENTER);
-		pane.setPrefWidth(300);
-		pane.setHgap(NODE_HORIZONTAL_INSET);
-		pane.setVgap(NODE_VERTICAL_INSET);
-
-		// Insets, in order of
-		// top, right, bottom, left
-		pane.setPadding(new Insets(NODE_TOP_OFFSET, NODE_RIGHT_OFFSET, NODE_BOTTOM_OFFSET, 0));
-		pane.setPrefRows(4);
-		Out.out.logln("Adding player inventory... [" + stream.size() + "]");
-		stream.forEach(i -> pane.getChildren().add(getDisplayItem(i)));
-		
-		sp.setContent(pane);
-		
-		return sp;
 	}
 
 	private HBox getCommandHBox() {
@@ -300,11 +219,9 @@ public class GraphicalInterface extends Application implements UserInterface {
 		return hbox;
 	}
 
-	private String parameters = "hello darkness my old friend";
+	private static void executeCommand(Command cmd, Event event) {
 
-	private void executeCommand(Command cmd, ActionEvent event) {
-
-		Out.out.logln(event.getEventType().getName() + " > [" + cmd.getName() + "] >> " + parameters);
+		Out.out.logln(event.getEventType().getName() + " > [" + cmd.getName() + "] >> " + parameters + " >> " + game.getInterface().getCurrentParameters());
 
 		CommandExecution ce = new CommandExecution(parameters);
 
@@ -322,7 +239,8 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 		disableOtherWindows();
 
-		root.setLeft(inventory);
+		root.setLeft(inventory.getNode());
+		root.setBottom(commands);
 
 		// sliding transition... from left ...
 
@@ -337,7 +255,8 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 		disableOtherWindows();
 
-		root.setRight(characters);
+		root.setRight(characters.getNode());
+		root.setBottom(commands);
 
 		// sliding transition... from left ...
 	}
@@ -349,34 +268,25 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	@Override
 	public void showExits() {
+		if (root.getTop() != null) {
+			root.setTop(null);
+			return;
+		}
 
+		disableOtherWindows();
+
+		root.setTop(exits.getNode());
+		root.setBottom(commands);
 	}
 
 	private void disableOtherWindows() {
 		root.setLeft(null);
 		root.setRight(null);
 		root.setTop(null);
+		root.setBottom(null);
 	}
 
 	public String getCurrentParameters() {
 		return parameters;
 	}
-	
-	public static void modifyTooltipTimer(Tooltip tooltip, int delay) {
-	    try {
-	        Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
-	        fieldBehavior.setAccessible(true);
-	        Object objBehavior = fieldBehavior.get(tooltip);
-
-	        Field fieldTimer = objBehavior.getClass().getDeclaredField("activationTimer");
-	        fieldTimer.setAccessible(true);
-	        Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
-
-	        objTimer.getKeyFrames().clear();
-	        objTimer.getKeyFrames().add(new KeyFrame(new Duration(delay)));
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	}
-
 }

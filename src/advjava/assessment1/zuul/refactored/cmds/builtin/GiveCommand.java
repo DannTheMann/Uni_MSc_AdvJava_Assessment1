@@ -51,6 +51,7 @@ public class GiveCommand extends Command {
 
 			// If the character specified is NOT in the room
 			if (character == null) {
+				
 				game.getInterface()
 						.println(String.format(InternationalisationManager.im.getMessage("give.noone"), characterName));
 				return false;
@@ -71,9 +72,17 @@ public class GiveCommand extends Command {
 
 			game.getInterface().println(String.format(InternationalisationManager.im.getMessage("give.success"),
 					character.getName(), item.getName()));
+			game.getInterface().update();
 			return true;
 
 		} else {
+			
+			// GUI Alternative
+			if(game.getInterface() instanceof GraphicalInterface){
+				game.getInterface().showCharacters();				
+				return true;
+			}
+			
 			// Not enough parameters
 			game.getInterface().println(InternationalisationManager.im.getMessage("give.noparam"));
 		}
@@ -83,7 +92,7 @@ public class GiveCommand extends Command {
         
     @Override
     public boolean interfaceAcceptable(UserInterface ui) {
-        return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
+        return ui instanceof CommandLineInterface;
     }
 
 }

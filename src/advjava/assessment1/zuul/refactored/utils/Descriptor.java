@@ -27,4 +27,13 @@ public abstract class Descriptor {
 		return name + " -> " + description;
 	}
 
+	public void update(String name, String description){
+		if(this.name == null){
+			this.name = name;
+		}
+		if(this.description == null){
+			this.description = description;
+		}
+	}
+	
 }

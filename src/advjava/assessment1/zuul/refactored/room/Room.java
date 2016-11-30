@@ -5,12 +5,15 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import advjava.assessment1.zuul.refactored.character.Character;
 import advjava.assessment1.zuul.refactored.exception.InvalidRoomNamingException;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 
@@ -108,10 +111,11 @@ public class Room extends Resource{
 	 * 
 	 * @return Collection<Room> all exits
 	 */
-	public Collection<Room> getExits() {
-		return PrintableList.fromCollection(rooms.values());
+	public Collection<Resource> getExits() {
+		return rooms.values().stream()
+				.collect(Collectors.toCollection(PrintableList::new));
 	}
-
+	
 	/**
 	 * Overrides toString()
 	 * 
@@ -125,7 +129,9 @@ public class Room extends Resource{
 	public String toString() {
 
 		StringBuilder out = new StringBuilder();
-
+		
+		items.stream().forEach(e->{Out.out.logln(e);});
+		
 		out.append(String.format(InternationalisationManager.im.getMessage("room.desc1"), getName(),
 				getDescription() != null ? System.lineSeparator() + getDescription() : "",
 				(characters.isEmpty() ? InternationalisationManager.im.getMessage("room.desc2") : ""),
@@ -137,7 +143,7 @@ public class Room extends Resource{
 		
 		.append((!items.isEmpty()
 				? InternationalisationManager.im.getMessage("room.desc4")
-						+ items.stream().map(i -> i.toString()).collect(Collectors.joining(", "))
+						+ items.stream().map(Object::toString).collect(Collectors.joining(", "))
 				: InternationalisationManager.im.getMessage("room.desc5")))
 		
 		.append(".");
@@ -218,8 +224,9 @@ public class Room extends Resource{
 	 * 
 	 * @return Collection<Character> characters in room
 	 */
-	public Collection<Character> getCharacters() {
-		return characters;
+	public Collection<Resource> getCharacters() {
+		return characters.stream()
+				.collect(Collectors.toCollection(PrintableList::new));
 	}
 
 	/**
@@ -285,6 +292,25 @@ public class Room extends Resource{
 	 */
 	public Character getCharacter(String characterName) {
 		return characters.stream().filter(c -> c.getName().equals(characterName)).findFirst().orElse(null);
+	}
+
+	public String getExitFromRoomName(String roomName) {
+		
+		Optional<String> exit = rooms.entrySet().stream()
+									.filter(k->k.getValue().getName().equals(roomName))
+									.map(Entry::getKey)
+									.findFirst();
+		
+		return exit.isPresent() ? exit.get() : null;
+									
+									
+		
+	}
+
+	public Collection<Resource> getNonPlayerCharacters() {
+		return characters.stream()
+				.filter(c->!c.isPlayer())
+				.collect(Collectors.toCollection(PrintableList::new));
 	}
 
 }

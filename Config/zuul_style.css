@@ -1,7 +1,6 @@
 
 .root {
-    -fx-background-image: url(outside.jpg);
-    -fx-background-size: cover;
+-fx-background-image: url(outside.jpg); -fx-background-size: cover;
 }
 
 .sidebar-text-node{

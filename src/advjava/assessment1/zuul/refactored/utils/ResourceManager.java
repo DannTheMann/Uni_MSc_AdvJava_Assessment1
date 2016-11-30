@@ -38,27 +38,33 @@ public class ResourceManager {
 	}
 
 	private void loadResources() {
-
+		
+		String errorImgDirectory = resourceDirectory.getAbsolutePath() + File.separator + Main.game.getProperty("noResourceFound");
+		
 		Out.out.logln("Loading resources from '" + resourceDirectory.getAbsolutePath() + "'.");
 		try {
-			File error = new File(
-					resourceDirectory.getAbsolutePath() + File.separator + Main.game.getProperty("noResourceFound"));
+			File error = new File(errorImgDirectory);
 			this.error = new Image(error.toURI().toString());
 
 			this.rawResources.stream()
 				.forEach(res -> {
 					
+					Out.out.log(String.format("Loading '%s' [%d/%d]. = ", res.getName(), loadedResources.size()+1, rawResources.size()));
 					if(res.getResourceName() != null && !loadedResources.containsKey(res.getResourceName())){
-						Out.out.logln(String.format("Loading '%s' [%d/%d].", res.getResourceName(), loadedResources.size(), rawResources.size()));
 						if(!res.loadImage()){
+							Out.out.logln("Failed.");
 							res.loadImage(this.error);
 						}else{
+							Out.out.logln("Success.");
 							loadedResources.put(res.getResourceName(), res);
 						}
 					}else if(res.getResourceName() != null && loadedResources.containsKey(res.getResourceName())){
+						Out.out.logln("Already loaded.");
 						res.loadImage(loadedResources.get(res.getResourceName()).getImage());
 					}else{
+						Out.out.logln("No URL provided.");
 						res.loadImage(this.error);
+						res.update(null, null, errorImgDirectory);
 					}
 					
 				});

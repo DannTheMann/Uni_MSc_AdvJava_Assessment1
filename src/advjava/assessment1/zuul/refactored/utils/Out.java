@@ -155,4 +155,16 @@ public final class Out {
         return log.getAbsolutePath();
     }
 
+	public void log(Object obj) {
+        if (isPrintingDebugMessages()) {
+            if(Main.game != null){
+                Main.game.getInterface().print(obj);
+            }else{
+                System.out.print(obj.toString());
+            }
+        }
+        recordToLog(obj.toString());
+		
+	}
+
 }

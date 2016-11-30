@@ -83,6 +83,6 @@ public class TakeCommand extends Command {
 
     @Override
     public boolean interfaceAcceptable(UserInterface ui) {
-        return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
+        return ui instanceof CommandLineInterface;
     }
 }

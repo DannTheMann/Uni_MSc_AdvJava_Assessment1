@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.Collection;
 import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -197,7 +198,7 @@ public class CommandManager {
      *
      * @return Collection of commands
      */
-    public PrintableList<Command> commands() {
+    public Collection<Command> commands() {
         return PrintableList.fromCollection(commands.values());
     }
 

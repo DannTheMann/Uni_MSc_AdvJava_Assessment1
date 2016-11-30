@@ -32,7 +32,7 @@ public class PrintableList<E> extends ArrayList<E> {
 		return stream().map(o -> o.toString()).collect(Collectors.joining(", "));
 	}
 
-	public static <T> PrintableList<T> fromCollection(Collection<T> values) {
+	public static <T> Collection<T> fromCollection(Collection<T> values) {
 		return values.stream().collect(Collectors.toCollection(PrintableList::new));
 	}
 

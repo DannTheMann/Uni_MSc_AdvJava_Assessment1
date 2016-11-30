@@ -20,6 +20,7 @@
 				<room-name>pub</room-name>
 			</exit>
 		</exits>
+		<url>rooms\lab.jpg</url>
 	</room>
 	<room>
 		<name>library</name>
@@ -37,12 +38,13 @@
 				<room-name>library</room-name>
 			</exit>
 		</exits>
+		<url>rooms\library.jpg</url>
 	</room>
 	<room>
 		<name>theatre</name>
 		<description>A musical drama theatre, it's rather empty today.</description>
 		<items-in-room>
-			<item>gun</item>
+			<item>sword</item>
 		</items-in-room>
 		<exits>
 			<exit>
@@ -71,13 +73,11 @@
 				<room-name>theatre</room-name>
 			</exit>
 		</exits>
+		<url>rooms\outside.jpg</url>
 	</room>
 	<room>
 		<name>pub</name>
 		<description>A classic English pub, although appearing rather dormant.</description>
-		<items-in-room>
-			<item>pear</item>
-		</items-in-room>
 		<exits>
 			<exit>
 				<direction>west</direction>

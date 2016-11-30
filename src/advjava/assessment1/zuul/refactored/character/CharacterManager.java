@@ -1,5 +1,6 @@
 package advjava.assessment1.zuul.refactored.character;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,8 +66,8 @@ public class CharacterManager extends CollectionManager<Character>{
 	 * 
 	 * @return Collection<Character> of characters
 	 */
-	public PrintableList<Character> characters() {
-		return PrintableList.fromCollection(values());
+	public Collection<Character> characters() {
+		return values();
 	}
 	
 	/**
