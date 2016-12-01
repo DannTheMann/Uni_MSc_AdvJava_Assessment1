@@ -106,6 +106,9 @@ public class GraphicalInterface extends Application implements UserInterface {
 		// Let the characters when we move
 		game.getCharacterManager().act(game);
 		
+		// Update background
+		setBackgroundImage(game.getPlayer().getCurrentRoom());
+		
 		return true;
 	}
 
@@ -116,6 +119,11 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		
+		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
+		Out.out.logln("             Creating GUI...             ");
+		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
+		
 		game = Main.game;
 		fontManager = new FontManager(game.getProperty("defaultFont"));
 		stage = primaryStage;
@@ -153,11 +161,13 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 		setBackgroundImage(game.getPlayer().getCurrentRoom());
 		
-		Out.out.log("Room: " + game.getPlayer().getCurrentRoom().getName());
-		
 		stage.setScene(scene);
 
 		stage.show();
+		
+		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
+		Out.out.logln("              Finished GUI.              ");
+		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
 
 	}
 	
@@ -184,7 +194,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 	private void setBackgroundImage(Resource image) {
 		
 		root.setStyle(
-				"-fx-background-image: url(" + image.getImageFileURL() + ");"
+				"   -fx-background-image: url(" + image.getImageFileURL() + ");"
 				+ " -fx-background-size: cover;");
 		
 //		ImageView iv = new ImageView(ResourceManager.getResourceManager().getImage(resource));

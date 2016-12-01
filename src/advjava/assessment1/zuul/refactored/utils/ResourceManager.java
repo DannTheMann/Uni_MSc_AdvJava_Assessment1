@@ -45,27 +45,28 @@ public class ResourceManager {
 		try {
 			File error = new File(errorImgDirectory);
 			this.error = new Image(error.toURI().toString());
-
+			
 			this.rawResources.stream()
 				.forEach(res -> {
-					
+					Out.out.log("[LOG] ");
 					Out.out.log(String.format("Loading '%s' [%d/%d]. = ", res.getName(), loadedResources.size()+1, rawResources.size()));
 					if(res.getResourceName() != null && !loadedResources.containsKey(res.getResourceName())){
 						if(!res.loadImage()){
-							Out.out.logln("Failed.");
+							Out.out.log("Failed. [" + res.getResourceName() + "]");
 							res.loadImage(this.error);
 						}else{
-							Out.out.logln("Success.");
+							Out.out.log("Success. [" + res.getResourceName() + "]");
 							loadedResources.put(res.getResourceName(), res);
 						}
 					}else if(res.getResourceName() != null && loadedResources.containsKey(res.getResourceName())){
-						Out.out.logln("Already loaded.");
+						Out.out.log("Already loaded.");
 						res.loadImage(loadedResources.get(res.getResourceName()).getImage());
 					}else{
-						Out.out.logln("No URL provided.");
+						Out.out.log("No URL provided.");
 						res.loadImage(this.error);
 						res.update(null, null, errorImgDirectory);
 					}
+					Out.out.logln();
 					
 				});
 			

@@ -68,7 +68,7 @@ public class Main {
             game.initialiseGame(properties);
             
             Out.out.setPrintingDebugMessages(Boolean.parseBoolean(properties.getProperty("logEverything")));
-            game.getInterface().println("Are we logging everything (properties file): " + Out.out.isPrintingDebugMessages());
+            Out.out.logln("Are we logging everything (properties file): " + Out.out.isPrintingDebugMessages());
             
             game.play();
 

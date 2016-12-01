@@ -31,12 +31,6 @@ import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
 public class SidePanel {
-
-	public enum SidePanelType{
-		ITEMS,
-		CHARACTERS,
-		ROOMS
-	}
 	
 	/* Constants for nodes used in gridpanes (indentations) */
 	private static final int NODE_VERTICAL_INSET = 10;
@@ -86,7 +80,7 @@ public class SidePanel {
 	}
 
 	private Node getDisplayItem(Resource resource) {
-		Out.out.logln("Loading: " + resource.getName() + "...");
+		//Out.out.logln("Loading: " + resource.getName() + "...");
 
 		String css = "sidebar-button";
 
@@ -100,7 +94,7 @@ public class SidePanel {
 				? resource.getName().substring(0, MAX_WIDTH_CHAR - 2) + "..." : resource.getName());
 		text.setTextAlignment(TextAlignment.CENTER);
 		ImageView iv = new ImageView(resource.getImage());
-		iv.setPreserveRatio(true);
+		//iv.setPreserveRatio(true);
 		iv.setFitHeight(SIDEBAR_IMAGE_HEIGHT);
 		iv.setFitWidth(SIDEBAR_IMAGE_WIDTH);
 

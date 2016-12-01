@@ -20,7 +20,7 @@
 				<room-name>pub</room-name>
 			</exit>
 		</exits>
-		<url>rooms\lab.jpg</url>
+		<url>rooms\outside.jpg</url>
 	</room>
 	<room>
 		<name>library</name>
@@ -60,6 +60,7 @@
 				<room-name>lab</room-name>
 			</exit>
 		</exits>
+		<url>rooms\theatre.jpg</url>
 	</room>
 	<room>
 		<name>lab</name>
@@ -73,7 +74,7 @@
 				<room-name>theatre</room-name>
 			</exit>
 		</exits>
-		<url>rooms\outside.jpg</url>
+		<url>rooms\lab.jpg</url>
 	</room>
 	<room>
 		<name>pub</name>
@@ -84,5 +85,6 @@
 				<room-name>outside</room-name>
 			</exit>
 		</exits>
+		<url>rooms\bar.jpg</url>
 	</room>
 </game-rooms>
