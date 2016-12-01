@@ -24,11 +24,11 @@ package advjava.assessment1.zuul;
 @Deprecated
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-        new Game().play();
-    }
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String[] args) {
+//        
+//        new Game().play();
+//    }
 }

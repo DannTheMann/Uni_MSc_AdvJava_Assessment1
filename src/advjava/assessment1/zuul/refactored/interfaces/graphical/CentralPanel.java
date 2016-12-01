@@ -10,7 +10,6 @@ import advjava.assessment1.zuul.refactored.interfaces.FontManager;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
-import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -26,9 +25,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
@@ -54,7 +56,7 @@ public class CentralPanel {
     private static final int SIDEBAR_IMAGE_HEIGHT = 50;
     private static final int MAX_WIDTH_CHAR = 8;
 
-    private TilePane root;
+    private HBox root;
     private FontManager fm;
     private Game game;
     private Map<String, Collection<GridPane>> panels;
@@ -64,7 +66,8 @@ public class CentralPanel {
         this.game = game;
         this.fm = fm;
 
-        root = new TilePane();
+        root = new HBox();
+        SplitPane.setResizableWithParent(root, Boolean.FALSE);
 //            
 //
 //		root = sp;
@@ -79,18 +82,18 @@ public class CentralPanel {
 
         TilePane tileHolder = new TilePane();
         tileHolder.setAlignment(Pos.BASELINE_CENTER);
-        //tileHolder.setPrefWidth(300);
+        tileHolder.setMinSize(GraphicalInterface.WINDOW_MIN_WIDTH, GraphicalInterface.WINDOW_MIN_HEIGHT);
+        tileHolder.setMaxSize(GraphicalInterface.WINDOW_MAX_WIDTH, GraphicalInterface.WINDOW_MAX_HEIGHT);
         tileHolder.setHgap(NODE_HORIZONTAL_INSET);
         tileHolder.setVgap(NODE_VERTICAL_INSET);
 
         // Insets, in order of
         // top, right, bottom, left
         tileHolder.setPadding(new Insets(NODE_TOP_OFFSET, NODE_RIGHT_OFFSET, NODE_BOTTOM_OFFSET, NODE_LEFT_OFFSET));
-        tileHolder.setPrefRows(4);
+        tileHolder.setPrefRows(8);
+        tileHolder.setPrefHeight(100);
 
         panels.put(panelName, new ArrayList<>());
-
-        Out.out.logln("CentralPanel == Loading... " + panelName);
         
         stream.forEach(i -> tileHolder.getChildren().add(getDisplayItem(i, panelName)));
 
@@ -102,8 +105,6 @@ public class CentralPanel {
     }
 
     private Node getDisplayItem(Resource resource, String panelName) {
-
-        Out.out.logln("CENTRALPANEL = Loading... " + resource.getName());
         
         String css = "sidebar-button";
 
@@ -121,8 +122,8 @@ public class CentralPanel {
         iv.setFitHeight(SIDEBAR_IMAGE_HEIGHT);
         iv.setFitWidth(SIDEBAR_IMAGE_WIDTH);
 
-        grid.add(text, 0, 0);
-        grid.add(iv, 0, 1);
+        grid.add(text, 1, 0);
+        grid.add(iv, 0, 0);
 
         if (resource instanceof Item) {
             Item item = (Item) resource;
@@ -130,17 +131,11 @@ public class CentralPanel {
             text.setFont(fm.getFont("SansSerif"));
 
             // Create drop button
-            Button button = GraphicalInterface.newCommandButton("drop " + resource.getName(),
-                    game.getCommandManager().getCommand("Drop"), css);
-            button.setPrefSize(50, 20);
-            grid.add(button, 1, 0);
-
-            // Create give button
-            button = GraphicalInterface.newCommandButton("give " + resource.getName(),
-                    game.getCommandManager().getCommand("Give"), css);
+            Button button = GraphicalInterface.newCommandButton("take " + resource.getName(),
+                    game.getCommandManager().getCommand("Take"), css);
             button.setPrefSize(50, 20);
 
-            grid.add(button, 1, 1);
+            grid.add(button, 0, 1);
         }
 
         if (resource instanceof Room) {

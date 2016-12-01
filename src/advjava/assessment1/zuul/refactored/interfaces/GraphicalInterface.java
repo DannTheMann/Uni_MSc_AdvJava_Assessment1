@@ -40,10 +40,10 @@ public class GraphicalInterface extends Application implements UserInterface {
 	private static String parameters = "hello darkness my old friend";
 
 	/* Constants for spacing offsets between nodes in gridpanes */
-//	private static final int NODE_LEFT_OFFSET = 10;
-//	private static final int NODE_TOP_OFFSET = 10;
-//	private static final int NODE_RIGHT_OFFSET = 10;
-//	private static final int NODE_BOTTOM_OFFSET = 10;
+	public static final int WINDOW_MAX_WIDTH = 1920;
+	public static final int WINDOW_MAX_HEIGHT = 1080;
+	public static final int WINDOW_MIN_WIDTH = 720;
+	public static final int WINDOW_MIN_HEIGHT = 480;
 
 //	private static final int SIDEBAR_IMAGE_WIDTH = 50;
 //	private static final int SIDEBAR_IMAGE_HEIGHT = 50;
@@ -132,12 +132,12 @@ public class GraphicalInterface extends Application implements UserInterface {
 		stage.setTitle(game.getProperty("title"));
 
 		// Define the minimum resolution of the root container of the stage
-		stage.setMinWidth(720);
-		stage.setMinHeight(480);
+		stage.setMinWidth(WINDOW_MIN_WIDTH);
+		stage.setMinHeight(WINDOW_MIN_HEIGHT);
 
 		// Define the maximum resolution of the root container of the stage
-		stage.setMaxWidth(1920);
-		stage.setMaxHeight(1080);
+		stage.setMaxWidth(WINDOW_MAX_WIDTH);
+		stage.setMaxHeight(WINDOW_MAX_HEIGHT);
 
 		// Create resource manager, needed to handle resources such as images
 		ResourceManager.newResourceManager();
@@ -186,7 +186,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	public static Button newCommandButton(String params, Command command, String css) {
 		Button button = new Button(command.getName());
-		button.getStyleClass().add(css);
+		button.getStyleClass().add(css); // node
 		button.setOnAction(e -> {
 			parameters = params;
 			executeCommand(command, e);
@@ -195,7 +195,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 	}
 
 	private void setBackgroundImage(Resource image) {
-		
+            
 		root.setStyle(
 				"   -fx-background-image: url(" + image.getImageFileURL() + ");"
 				+ " -fx-background-size: cover;");
@@ -308,6 +308,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 		root.setLeft(null);
 		root.setRight(null);
 		root.setTop(null);
+                root.setCenter(null);
 		root.setBottom(null);
 	}
 

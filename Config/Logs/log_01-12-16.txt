@@ -1,0 +1,78 @@
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[14:33:16] Created new logger. 'X:\home\AdvJava\AdvJava_Assessment2\Config\Logs\log_01-12-16.txt'
+[14:33:16] LOCALE: en_GB - United Kingdom
+[14:33:16] Loading default commands...
+[14:33:16] Loaded default commands...
+[14:33:16] Starting World of Zuul... ENGLISH
+[14:33:16] Loading properties.ini file...
+[14:33:16] Property file found, loading properties...
+[14:33:16] Closed I/O streams.
+[14:33:16] Properties loaded.
+[14:33:17] Creating game session...
+[14:33:17] 
+[14:33:17]  - - - - - - - - - - - - - - - - - - - - 
+[14:33:17]       Loading Plugins ...          
+[14:33:17]  - - - - - - - - - - - - - - - - - - - - 
+[14:33:17] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[14:33:17] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [14:33:17] - Finished  - - - - - - - - - - - - - - 
+[14:33:17]  - - - - - - - - - - - - - - - - - - - - 
+[14:33:17]       Loading XML Config files ...    
+[14:33:17] -> X:\home\AdvJava\AdvJava_Assessment2\Config
+[14:33:17]  - - - - - - - - - - - - - - - - - - - - 
+[14:33:18] Added item 'apple'
+[14:33:18] Added item 'book'
+[14:33:18] Added item 'sword'
+[14:33:18] Added item 'tomato'
+[14:33:18] Added item 'pear'
+[14:33:18] Added item 'grapes'
+[14:33:18] Added item 'TheGoldenPearOfDoom'
+[14:33:18] Loaded room 'outside'
+[14:33:18] Loaded room 'library'
+[14:33:18] Loaded room 'theatre'
+[14:33:18] Loaded room 'lab'
+[14:33:18] Loaded room 'pub'
+[14:33:18] Added new player 'Richard Jones'.
+[14:33:18] Added new character 'Bob'.
+[14:33:18] Added new character 'Chris'.
+[14:33:18] Added new character 'Mitch'.
+[14:33:18] Added new character 'Louis'.
+[14:33:18] Added new character 'Craig'.
+[14:33:18] Added new character 'Donald Trump'.
+[14:33:18] Added new player 'James Pond'.
+[14:33:18] - - Finished - - - - - - - - - - - - - - 
+[14:33:18] There are 2 players playing.
+[14:33:18] Assuming the control of player 'James Pond'.
+[14:33:18] Are we logging everything (properties file): true
+[14:33:18]  - - - - - - - - - - - - - - - - - - - - 
+[14:33:18]              Creating GUI...             
+[14:33:18]  - - - - - - - - - - - - - - - - - - - - 
+[14:33:18] Creating new resource manager @ 'X:\home\AdvJava\AdvJava_Assessment2\Resources'.
+[14:33:18] Loading resources from 'X:\home\AdvJava\AdvJava_Assessment2\Resources'.
+[14:33:18] [LOG] [14:33:18] Loading 'Bob' [1/20]. = [14:33:18] No URL provided.[14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'Chris' [1/20]. = [14:33:18] No URL provided.[14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'Craig' [1/20]. = [14:33:18] No URL provided.[14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'Donald Trump' [1/20]. = [14:33:18] No URL provided.[14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'James Pond' [1/20]. = [14:33:18] No URL provided.[14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'Louis' [1/20]. = [14:33:18] No URL provided.[14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'Mitch' [1/20]. = [14:33:18] No URL provided.[14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'Richard Jones' [1/20]. = [14:33:18] No URL provided.[14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'lab' [1/20]. = [14:33:18] Success. [lab.jpg][14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'library' [2/20]. = [14:33:18] Success. [library.jpg][14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'outside' [3/20]. = [14:33:18] Success. [outside.jpg][14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'pub' [4/20]. = [14:33:18] Success. [bar.jpg][14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'theatre' [5/20]. = [14:33:18] Success. [theatre.jpg][14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'TheGoldenPearOfDoom' [6/20]. = [14:33:18] Success. [grapes.png][14:33:18] 
+[14:33:18] [LOG] [14:33:18] Loading 'apple' [7/20]. = [14:33:19] Success. [apple.png][14:33:19] 
+[14:33:19] [LOG] [14:33:19] Loading 'book' [8/20]. = [14:33:19] Success. [book.png][14:33:19] 
+[14:33:19] [LOG] [14:33:19] Loading 'grapes' [9/20]. = [14:33:19] Already loaded.[14:33:19] 
+[14:33:19] [LOG] [14:33:19] Loading 'pear' [9/20]. = [14:33:19] Success. [pear.png][14:33:19] 
+[14:33:19] [LOG] [14:33:19] Loading 'sword' [10/20]. = [14:33:19] Success. [sword.png][14:33:19] 
+[14:33:19] [LOG] [14:33:19] Loading 'tomato' [11/20]. = [14:33:19] Success. [tomato.png][14:33:19] 
+[14:33:19] Resources loaded = 11
+[14:33:19] 
+[14:33:19] Creating panels...
+[14:33:19] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[14:33:19] Closing logger.
+[14:33:19] Closing writer for logger.

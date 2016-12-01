@@ -71,6 +71,12 @@ public class SidePanel {
 		// top, right, bottom, left
 		tileHolder.setPadding(new Insets(NODE_TOP_OFFSET, NODE_RIGHT_OFFSET, NODE_BOTTOM_OFFSET, NODE_LEFT_OFFSET));
 		tileHolder.setPrefRows(4);
+                
+                Text textTitle = new Text(title);
+                textTitle.setStyle("sidebar-title");           
+                
+//                tileHolder.getChildren().add(textTitle);
+//                tileHolder.getChildren().add(new Text());
 		stream.forEach(i -> tileHolder.getChildren().add(getDisplayItem(i)));
 
 		sp.setContent(tileHolder);

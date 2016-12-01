@@ -48,6 +48,7 @@ public class ResourceManager {
 			
 			this.rawResources.stream()
 				.forEach(res -> {
+                                    // 
 					Out.out.log("[LOG] ");
 					Out.out.log(String.format("Loading '%s' [%d/%d]. = ", res.getName(), loadedResources.size()+1, rawResources.size()));
 					if(res.getResourceName() != null && !loadedResources.containsKey(res.getResourceName())){
