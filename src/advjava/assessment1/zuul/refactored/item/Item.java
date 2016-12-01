@@ -6,8 +6,8 @@
 package advjava.assessment1.zuul.refactored.item;
 
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.Resource;
+import advjava.assessment1.zuul.refactored.character.Character;
 
 /**
  * 
@@ -57,6 +57,15 @@ public class Item extends Resource{
 	public int getWeight() {
 		return weight;
 	}
+        
+        /**
+         * Can the Character pick up this item
+         * @param character The character to compare against
+         * @return true if can pick up
+         */
+        public boolean canPickUp(Character character){
+            return character.getWeight()+weight <= character.getMaxWeight();
+        }
 	
 	/**
 	 * Override toString and provide a detailed explaination of the item in a

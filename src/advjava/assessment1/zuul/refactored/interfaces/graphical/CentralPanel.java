@@ -30,7 +30,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
@@ -61,7 +60,7 @@ public class CentralPanel {
     private Game game;
     private Map<String, Collection<GridPane>> panels;
 
-    public CentralPanel(String title, FontManager fm, Game game) {
+    public CentralPanel(String title, FontManager fm, Game game, String cssStyling) {
         this.panels = new TreeMap<>();
         this.game = game;
         this.fm = fm;
@@ -82,16 +81,15 @@ public class CentralPanel {
 
         TilePane tileHolder = new TilePane();
         tileHolder.setAlignment(Pos.BASELINE_CENTER);
-        tileHolder.setMinSize(GraphicalInterface.WINDOW_MIN_WIDTH, GraphicalInterface.WINDOW_MIN_HEIGHT);
-        tileHolder.setMaxSize(GraphicalInterface.WINDOW_MAX_WIDTH, GraphicalInterface.WINDOW_MAX_HEIGHT);
+        tileHolder.setMinSize(GraphicalInterface.WINDOW_MIN_WIDTH+100, GraphicalInterface.WINDOW_MIN_HEIGHT);
+        tileHolder.setMaxSize(GraphicalInterface.WINDOW_MAX_WIDTH+100, GraphicalInterface.WINDOW_MAX_HEIGHT);
         tileHolder.setHgap(NODE_HORIZONTAL_INSET);
         tileHolder.setVgap(NODE_VERTICAL_INSET);
-
         // Insets, in order of
         // top, right, bottom, left
         tileHolder.setPadding(new Insets(NODE_TOP_OFFSET, NODE_RIGHT_OFFSET, NODE_BOTTOM_OFFSET, NODE_LEFT_OFFSET));
         tileHolder.setPrefRows(8);
-        tileHolder.setPrefHeight(100);
+        //tileHolder.setPrefHeight(100);
 
         panels.put(panelName, new ArrayList<>());
         
@@ -138,27 +136,10 @@ public class CentralPanel {
             grid.add(button, 0, 1);
         }
 
-        if (resource instanceof Room) {
-
-            Room room = (Room) resource;
-
-            Button button = GraphicalInterface.newCommandButton(
-                    "go " + game.getPlayer().getCurrentRoom().getExitFromRoomName(resource.getName()),
-                    game.getCommandManager().getCommand("Go"), css);
-            //button.setPrefSize(50, 20);
-            grid.add(button, 0, 2);
-
-        }
-
         if (resource instanceof advjava.assessment1.zuul.refactored.character.Character) {
 
             advjava.assessment1.zuul.refactored.character.Character c = (advjava.assessment1.zuul.refactored.character.Character) resource;
-
-            grid.setOnMouseClicked(
-                    GraphicalInterface.getCommandEvent(
-                            " " + c.getName(),
-                            game.getCommandManager().getCommand("Give")));
-
+            // ...
         }
 
         if (resource.getDescription() != null) {
@@ -167,7 +148,7 @@ public class CentralPanel {
             tp.setContentDisplay(ContentDisplay.BOTTOM);
             tp.setFont(fm.getFont("Yu Gothic"));
             tp.setOpacity(.85);
-            modifyTooltipTimer(tp, 25);
+            GraphicalInterface.modifyTooltipTimer(tp, 25);
             Tooltip.install(grid, tp);
         }
 
@@ -178,23 +159,6 @@ public class CentralPanel {
 
     public Node getNode() {
         return root;
-    }
-
-    private static void modifyTooltipTimer(Tooltip tooltip, int delay) {
-        try {
-            Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
-            fieldBehavior.setAccessible(true);
-            Object objBehavior = fieldBehavior.get(tooltip);
-
-            Field fieldTimer = objBehavior.getClass().getDeclaredField("activationTimer");
-            fieldTimer.setAccessible(true);
-            Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
-
-            objTimer.getKeyFrames().clear();
-            objTimer.getKeyFrames().add(new KeyFrame(new Duration(delay)));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void update(Collection<Resource> newContents) {

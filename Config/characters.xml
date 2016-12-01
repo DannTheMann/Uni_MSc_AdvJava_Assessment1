@@ -9,6 +9,7 @@
 			<item>sword</item>
 			<item>book</item>
 		</inventory>
+		<url>characters\harold.jpg</url>
 	</character>
 	<character>
 		<name>Bob</name>
@@ -20,26 +21,31 @@
 			<item>sword</item>
 			<item>book</item>
 		</inventory>
+		<url>characters\harold.jpg</url>
 	</character>
 	<character>
 		<name>Chris</name>
 		<description>Lovely bloke.</description>
 		<room>outside</room>
+		<url>characters\harold.jpg</url>
 	</character>
 	<character>
 		<name>Mitch</name>
 		<description>A crazy looking scientist.</description>
 		<room>lab</room>
+		<url>characters\harold.jpg</url>
 	</character>
 	<character>
 		<name>Louis</name>
 		<description>The landlord.</description>
 		<room>pub</room>
+		<url>characters\harold.jpg</url>
 	</character>
 	<character>
 		<name>Craig</name>
 		<description>A drama student, equipped with a violin.</description>
 		<room>theatre</room>
+		<url>characters\harold.jpg</url>
 	</character>
 	<character>
 		<name>Donald Trump</name>
@@ -51,13 +57,14 @@
 			<item>sword</item>
 			<item>book</item>
 		</inventory>
+		<url>characters\harold.jpg</url>
 	</character>
 	<character>
 		<name>James Pond</name>
 		<description>Terrible game for the Sega Megadrive.</description>
 		<room>lab</room>
 		<player>true</player>
-		<maxweight>60</maxweight>
+		<maxweight>200</maxweight>
 		<inventory>
 			<item>apple</item>
 			<item>book</item>
@@ -65,6 +72,11 @@
 			<item>grapes</item>
 			<item>tomato</item>
 			<item>TheGoldenPearOfDoom</item>
+			<item>apple</item>
+			<item>book</item>
+			<item>sword</item>
+			<item>grapes</item>
 		</inventory>
+		<url>characters\harold.jpg</url>
 	</character>
 </game-characters>

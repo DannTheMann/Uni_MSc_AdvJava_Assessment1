@@ -30,6 +30,26 @@
     -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
 }
 
+.sidepanel-inventory{
+    -fx-background-color: rgba(59, 165, 100, 0.3); 
+    -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
+}
+
+.sidepanel-characters{
+    -fx-background-color: rgba(59, 165, 100, 0.3); 
+    -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
+}
+
+.sidepanel-exits{
+    -fx-background-color: rgba(244, 194, 66, 0.3); 
+    -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
+}
+
+.sidepanel-room{
+    -fx-background-color: rgba(59, 165, 100, 0.3); 
+    -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
+}
+
 .scroll-pane > .viewport  {
     -fx-background-color: rgba(59, 165, 100, 0.3); 
 }

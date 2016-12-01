@@ -1,6 +1,5 @@
 package advjava.assessment1.zuul.refactored.interfaces.graphical;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -13,8 +12,6 @@ import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 import java.util.stream.Stream;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -28,7 +25,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import javafx.util.Duration;
 
 public class SidePanel {
 	
@@ -52,7 +48,7 @@ public class SidePanel {
 	private Game game;
 	private List<Node> grids;
 
-	public SidePanel(String title, Stream<Resource> stream, FontManager fm, Game game) {
+	public SidePanel(String title, Stream<Resource> stream, FontManager fm, Game game, String cssStyling) {
 		this.grids = new ArrayList<>();
 		this.game = game;
 		this.fm = fm;
@@ -62,6 +58,7 @@ public class SidePanel {
 		sp.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
 
 		tileHolder = new TilePane();
+                tileHolder.getStyleClass().add(cssStyling);
 		tileHolder.setAlignment(Pos.BASELINE_CENTER);
 		tileHolder.setPrefWidth(300);
 		tileHolder.setHgap(NODE_HORIZONTAL_INSET);
@@ -157,7 +154,7 @@ public class SidePanel {
 			tp.setContentDisplay(ContentDisplay.BOTTOM);
 			tp.setFont(fm.getFont("Yu Gothic"));
 			tp.setOpacity(.85);
-			modifyTooltipTimer(tp, 25);
+			GraphicalInterface.modifyTooltipTimer(tp, 25);
 			Tooltip.install(grid, tp);
 		}
 		
@@ -168,23 +165,6 @@ public class SidePanel {
 
 	public Node getNode() {
 		return root;
-	}
-
-	private static void modifyTooltipTimer(Tooltip tooltip, int delay) {
-		try {
-			Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
-			fieldBehavior.setAccessible(true);
-			Object objBehavior = fieldBehavior.get(tooltip);
-
-			Field fieldTimer = objBehavior.getClass().getDeclaredField("activationTimer");
-			fieldTimer.setAccessible(true);
-			Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
-
-			objTimer.getKeyFrames().clear();
-			objTimer.getKeyFrames().add(new KeyFrame(new Duration(delay)));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void update(Collection<Resource> newContents) {

@@ -80,7 +80,7 @@ public class GiveCommand extends Command {
 			// GUI Alternative
 			if(game.getInterface() instanceof GraphicalInterface){
 				game.getInterface().showCharacters();				
-				return true;
+				return false;
 			}
 			
 			// Not enough parameters

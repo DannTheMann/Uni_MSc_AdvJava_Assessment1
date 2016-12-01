@@ -13,307 +13,335 @@ import advjava.assessment1.zuul.refactored.interfaces.graphical.SidePanel;
 import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 import advjava.assessment1.zuul.refactored.utils.ResourceManager;
+import java.lang.reflect.Field;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class GraphicalInterface extends Application implements UserInterface {
-	
-	private static Game game;
-	private static FontManager fontManager;
 
-	private static List<Button> commandButtons;
-	private static Stage stage;
-	private static Scene scene;
-	private static BorderPane root;
-	private static HBox commands;
-	private static SidePanel inventory;
-	private static SidePanel characters;
-	private static SidePanel exits;
-        private static CentralPanel room;
-	private static String parameters = "hello darkness my old friend";
+    private static Game game;
+    private static FontManager fontManager;
 
-	/* Constants for spacing offsets between nodes in gridpanes */
-	public static final int WINDOW_MAX_WIDTH = 1920;
-	public static final int WINDOW_MAX_HEIGHT = 1080;
-	public static final int WINDOW_MIN_WIDTH = 720;
-	public static final int WINDOW_MIN_HEIGHT = 480;
+    private static List<Button> commandButtons;
+    private static Stage stage;
+    private static Scene scene;
+    private static BorderPane root;
+    private static HBox commands;
+    private static SidePanel inventory;
+    private static SidePanel characters;
+    private static SidePanel exits;
+    private static CentralPanel room;
+    private static String parameters = "hello darkness my old friend";
+
+    /* Constants for spacing offsets between nodes in gridpanes */
+    public static final int WINDOW_MAX_WIDTH = 1920;
+    public static final int WINDOW_MAX_HEIGHT = 1080;
+    public static final int WINDOW_MIN_WIDTH = 720;
+    public static final int WINDOW_MIN_HEIGHT = 480;
 
 //	private static final int SIDEBAR_IMAGE_WIDTH = 50;
 //	private static final int SIDEBAR_IMAGE_HEIGHT = 50;
 //	private static final int MAX_WIDTH_CHAR = 8;
-	
-	public static String getExternalCSS() {
-		return new File(Main.XML_CONFIGURATION_FILES + File.separator + Main.game.getProperty("css")).toURI().toString();
-	}
+    public static String getExternalCSS() {
+        return new File(Main.XML_CONFIGURATION_FILES + File.separator + Main.game.getProperty("css")).toURI().toString();
+    }
 
-	@Override
-	public void print(Object obj) {
-		System.out.print(obj);
-	}
+    @Override
+    public void print(Object obj) {
+        System.out.print(obj);
+    }
 
-	@Override
-	public void println(Object obj) {
-		System.out.println(obj);
-	}
+    @Override
+    public void println(Object obj) {
+        System.out.println(obj);
+    }
 
-	@Override
-	public void println() {
-		System.out.println();
-	}
+    @Override
+    public void println() {
+        System.out.println();
+    }
 
-	@Override
-	public void printErr(Object obj) {
-		System.err.print(obj);
-	}
+    @Override
+    public void printErr(Object obj) {
+        System.err.print(obj);
+    }
 
-	@Override
-	public void printlnErr(Object obj) {
-		System.err.println(obj);
-	}
+    @Override
+    public void printlnErr(Object obj) {
+        System.err.println(obj);
+    }
 
-	@Override
-	public void exit() {
-		// TODO Auto-generated method stub
+    @Override
+    public void exit() {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public void displayLocale(Object obj) {
+    @Override
+    public void displayLocale(Object obj) {
 
-	}
+    }
 
-	@Override
-	public void displaylnLocale(Object obj) {
+    @Override
+    public void displaylnLocale(Object obj) {
 
-	}
+    }
 
-        @Override
-	public boolean update() {
-		
-		// Update all panels, change anything that may have been
-		// used, dropped etc
-		exits.update(game.getPlayer().getCurrentRoom().getExits());
-		inventory.update(game.getPlayer().getInventory());
-		characters.update(game.getPlayer().getCurrentRoom().getNonPlayerCharacters());
-		
-		// Let the characters when we move
-		game.getCharacterManager().act(game);
-		
-		// Update background
-		setBackgroundImage(game.getPlayer().getCurrentRoom());
-		
-		return true;
-	}
+    @Override
+    public boolean update() {
 
-	@Override
-	public void play(Game zuulGame) {
-		launch();
-	}
+        // Let the characters when we move
+        game.getCharacterManager().act(game);
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		
-		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
-		Out.out.logln("             Creating GUI...             ");
-		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
-		
-		game = Main.game;
-		fontManager = new FontManager(game.getProperty("defaultFont"));
-		stage = primaryStage;
+        // Update all panels, change anything that may have been
+        // used, dropped etc
+        exits.update(game.getPlayer().getCurrentRoom().getExits());
+        inventory.update(game.getPlayer().getInventory());
+        characters.update(game.getPlayer().getCurrentRoom().getNonPlayerCharacters());
+        room.update(null);
 
-		// Set title of the game from what is within our .properties file
-		stage.setTitle(game.getProperty("title"));
+        // Update background
+        setBackgroundImage(game.getPlayer().getCurrentRoom());
 
-		// Define the minimum resolution of the root container of the stage
-		stage.setMinWidth(WINDOW_MIN_WIDTH);
-		stage.setMinHeight(WINDOW_MIN_HEIGHT);
+        return true;
+    }
 
-		// Define the maximum resolution of the root container of the stage
-		stage.setMaxWidth(WINDOW_MAX_WIDTH);
-		stage.setMaxHeight(WINDOW_MAX_HEIGHT);
+    @Override
+    public void play(Game zuulGame) {
+        launch();
+    }
 
-		// Create resource manager, needed to handle resources such as images
-		ResourceManager.newResourceManager();
-		
-		commands = getCommandHBox();
+    @Override
+    public void start(Stage primaryStage) throws Exception {
 
-		/* Create root pane, a border pane */
-		root = new BorderPane();
-		// root.setStyle("");
-		root.setStyle("root");
-		root.setBottom(commands);
-		
-                Out.out.logln();
-                Out.out.logln("Creating panels...");
-                
-		inventory = new SidePanel("Inventory", game.getPlayer().getInventory().stream(), fontManager, game);
-		characters = new SidePanel("Characters in the room", game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(), fontManager, game);	
-		exits = new SidePanel("Exits available", game.getPlayer().getCurrentRoom().getExits().stream(), fontManager, game);
-                room = new CentralPanel("Room Details", fontManager, game);
-                room.addPanel("characters", game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream());
-                room.addPanel("items", game.getPlayer().getCurrentRoom().getItems().stream());
+        Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
+        Out.out.logln("             Creating GUI...             ");
+        Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
 
-		scene = new Scene(root, 1280, 720);
-		
-		// Setup styling
-		scene.getStylesheets().add(getExternalCSS());
+        game = Main.game;
+        fontManager = new FontManager(game.getProperty("defaultFont"));
+        stage = primaryStage;
 
-		setBackgroundImage(game.getPlayer().getCurrentRoom());
-		
-		stage.setScene(scene);
+        // Set title of the game from what is within our .properties file
+        stage.setTitle(game.getProperty("title"));
 
-		stage.show();
-		
-		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
-		Out.out.logln("              Finished GUI.              ");
-		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
+        // Define the minimum resolution of the root container of the stage
+        stage.setMinWidth(WINDOW_MIN_WIDTH);
+        stage.setMinHeight(WINDOW_MIN_HEIGHT);
 
-	}
-	
-	public static EventHandler<Event> getCommandEvent(String params, Command command){
-		return (Event e) -> {
-                    parameters += params;
-                    executeCommand(command, e);
-                };
-	}
+        // Define the maximum resolution of the root container of the stage
+        stage.setMaxWidth(WINDOW_MAX_WIDTH);
+        stage.setMaxHeight(WINDOW_MAX_HEIGHT);
 
-	public static Button newCommandButton(String params, Command command, String css) {
-		Button button = new Button(command.getName());
-		button.getStyleClass().add(css); // node
-		button.setOnAction(e -> {
-			parameters = params;
-			executeCommand(command, e);
-		});
-		return button;
-	}
+        // Create resource manager, needed to handle resources such as images
+        ResourceManager.newResourceManager();
 
-	private void setBackgroundImage(Resource image) {
-            
-		root.setStyle(
-				"   -fx-background-image: url(" + image.getImageFileURL() + ");"
-				+ " -fx-background-size: cover;");
-		
+        commands = getCommandHBox();
+
+        /* Create root pane, a border pane */
+        root = new BorderPane();
+        // root.setStyle("");
+        root.setStyle("root");
+        root.setBottom(commands);
+
+        Out.out.logln();
+        Out.out.logln("Creating panels...");
+
+        inventory = new SidePanel("Inventory", game.getPlayer().getInventory().stream(), fontManager, game, "sidepanel-inventory");
+        characters = new SidePanel("Characters in the room", game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(), fontManager, game, "sidepanel-characters");
+        exits = new SidePanel("Exits available", game.getPlayer().getCurrentRoom().getExits().stream(), fontManager, game, "sidepanel-exits");
+        room = new CentralPanel("Room Details", fontManager, game, "sidepanel-room");
+        room.addPanel("characters", game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream());
+        room.addPanel("items", game.getPlayer().getCurrentRoom().getItems().stream());
+
+        scene = new Scene(root, 1280, 720);
+
+        // Setup styling
+        scene.getStylesheets().add(getExternalCSS());
+
+        setBackgroundImage(game.getPlayer().getCurrentRoom());
+
+        stage.setScene(scene);
+
+        stage.show();
+
+        Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
+        Out.out.logln("              Finished GUI.              ");
+        Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
+
+    }
+
+    public static EventHandler<Event> getCommandEvent(String params, Command command) {
+        return (Event e) -> {
+            parameters += params;
+            if (executeCommand(command, e)) {
+                parameters = "";
+            }
+            //parameters = "";
+        };
+    }
+
+    public static Button newCommandButton(String params, Command command, String css) {
+        Button button = new Button(command.getName());
+        button.getStyleClass().add(css); // node
+        button.setOnAction(e -> {
+            parameters = params;
+            if (executeCommand(command, e)) {
+                parameters = "";
+            }
+            //parameters = "";
+        });
+        return button;
+    }
+
+    private void setBackgroundImage(Resource image) {
+
+        root.setStyle(
+                "   -fx-background-image: url(" + image.getImageFileURL() + ");"
+                + " -fx-background-size: cover;");
+
 //		ImageView iv = new ImageView(ResourceManager.getResourceManager().getImage(resource));
 //		iv.fitWidthProperty().bind(stage.widthProperty());
 //		iv.fitHeightProperty().bind(stage.heightProperty());
-		// ...
-	}
+        // ...
+    }
 
-	private HBox getCommandHBox() {
-		HBox hbox = new HBox();
-		hbox.setPrefHeight(50);
-		hbox.setPadding(new Insets(15, 12, 15, 12));
-		hbox.setSpacing(10);
-		hbox.setStyle("-fx-background-color: #336699;");
+    private HBox getCommandHBox() {
+        HBox hbox = new HBox();
+        hbox.setPrefHeight(50);
+        hbox.setPadding(new Insets(15, 12, 15, 12));
+        hbox.setSpacing(10);
+        hbox.setStyle("-fx-background-color: #336699;");
 
-		commandButtons = new ArrayList<>(game.getCommandManager().commands().size());
+        commandButtons = new ArrayList<>(game.getCommandManager().commands().size());
 
-		Button buttonCurrent = null;
+        Button buttonCurrent = null;
 
-		for (Command command : game.getCommandManager().commands()) {
+        for (Command command : game.getCommandManager().commands()) {
 
-			if (!command.interfaceAcceptable(this)) {
-				continue;
-			}
+            if (!command.interfaceAcceptable(this)) {
+                continue;
+            }
 
-			buttonCurrent = newCommandButton("", command, "command-button");
-			buttonCurrent.setPrefSize(100, 20);
-			hbox.getChildren().add(buttonCurrent);
-                        
-                        commandButtons.add(buttonCurrent);
+            buttonCurrent = newCommandButton("", command, "command-button");
+            buttonCurrent.setPrefSize(100, 20);
+            hbox.getChildren().add(buttonCurrent);
 
-		}
+            commandButtons.add(buttonCurrent);
 
-		return hbox;
-	}
+        }
 
-	private static void executeCommand(Command cmd, Event event) {
+        return hbox;
+    }
 
-		Out.out.logln(event.getEventType().getName() + " > [" + cmd.getName() + "] >> " + parameters);
+    private static boolean executeCommand(Command cmd, Event event) {
 
-		CommandExecution ce = new CommandExecution(parameters);
+        Out.out.logln(event.getEventType().getName() + " > [" + cmd.getName() + "] >> " + parameters);
 
-		cmd.action(game, ce);
+        CommandExecution ce = new CommandExecution(parameters);
 
-	}
+        return cmd.action(game, ce);
 
-	@Override
-	public void showInventory() {
+    }
 
-		if (root.getLeft() != null) {
-			root.setLeft(null);
-			return;
-		}
+    @Override
+    public void showInventory() {
 
-		disableOtherWindows();
+        if (root.getLeft() != null) {
+            root.setLeft(null);
+            return;
+        }
 
-		root.setLeft(inventory.getNode());
-		root.setBottom(commands);
+        disableOtherWindows();
 
-		// sliding transition... from left ...
+        root.setLeft(inventory.getNode());
+        root.setBottom(commands);
 
-	}
+        // sliding transition... from left ...
+    }
 
-	@Override
-	public void showCharacters() {
-		if (root.getRight() != null) {
-			root.setRight(null);
-			return;
-		}
+    @Override
+    public void showCharacters() {
+        if (root.getRight() != null) {
+            root.setRight(null);
+            return;
+        }
 
-		disableOtherWindows();
+        disableOtherWindows();
 
-		root.setRight(characters.getNode());
-		root.setBottom(commands);
+        root.setRight(characters.getNode());
+        root.setBottom(commands);
 
-		// sliding transition... from left ...
-	}
+        // sliding transition... from left ...
+    }
 
-	@Override
-	public void showRoom() {
-            
-            	if (root.getCenter() != null) {
-			root.setCenter(null);
-			return;
-		}
+    @Override
+    public void showRoom() {
 
-		disableOtherWindows();
+        if (root.getCenter() != null) {
+            root.setCenter(null);
+            return;
+        }
 
-		root.setCenter(room.getNode());
-		root.setBottom(commands);
+        disableOtherWindows();
 
-	}
+        root.setCenter(room.getNode());
+        root.setBottom(commands);
 
-	@Override
-	public void showExits() {
-		if (root.getTop() != null) {
-			root.setTop(null);
-			return;
-		}
+    }
 
-		disableOtherWindows();
+    @Override
+    public void showExits() {
+        if (root.getTop() != null) {
+            root.setTop(null);
+            return;
+        }
 
-		root.setTop(exits.getNode());
-		root.setBottom(commands);
-	}
+        disableOtherWindows();
 
-	private void disableOtherWindows() {
-		root.setLeft(null);
-		root.setRight(null);
-		root.setTop(null);
-                root.setCenter(null);
-		root.setBottom(null);
-	}
+        root.setTop(exits.getNode());
+        root.setBottom(commands);
+    }
 
-        @Override
-	public String getCurrentParameters() {
-		return parameters;
-	}
+    private void disableOtherWindows() {
+        root.setLeft(null);
+        root.setRight(null);
+        root.setTop(null);
+        root.setCenter(null);
+        root.setBottom(null);
+    }
+
+    @Override
+    public String getCurrentParameters() {
+        return parameters;
+    }
+
+    public static void modifyTooltipTimer(Tooltip tooltip, int delay) {
+        try {
+            Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
+            fieldBehavior.setAccessible(true);
+            Object objBehavior = fieldBehavior.get(tooltip);
+
+            Field fieldTimer = objBehavior.getClass().getDeclaredField("activationTimer");
+            fieldTimer.setAccessible(true);
+            Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
+
+            objTimer.getKeyFrames().clear();
+            objTimer.getKeyFrames().add(new KeyFrame(new Duration(delay)));
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+            Out.out.loglnErr("Failed to create ToolTip!");
+            e.printStackTrace();
+        }
+    }
 }
