@@ -8,19 +8,17 @@ import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.Main;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
+import advjava.assessment1.zuul.refactored.interfaces.graphical.CentralPanel;
 import advjava.assessment1.zuul.refactored.interfaces.graphical.SidePanel;
 import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 import advjava.assessment1.zuul.refactored.utils.ResourceManager;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -38,6 +36,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 	private static SidePanel inventory;
 	private static SidePanel characters;
 	private static SidePanel exits;
+        private static CentralPanel room;
 	private static String parameters = "hello darkness my old friend";
 
 	/* Constants for spacing offsets between nodes in gridpanes */
@@ -95,6 +94,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	}
 
+        @Override
 	public boolean update() {
 		
 		// Update all panels, change anything that may have been
@@ -150,9 +150,15 @@ public class GraphicalInterface extends Application implements UserInterface {
 		root.setStyle("root");
 		root.setBottom(commands);
 		
-		inventory = new SidePanel("Inventory", game.getPlayer().getInventory(), fontManager, game);
-		characters = new SidePanel("Characters in the room", game.getPlayer().getCurrentRoom().getNonPlayerCharacters(), fontManager, game);	
-		exits = new SidePanel("Exits available", game.getPlayer().getCurrentRoom().getExits(), fontManager, game);
+                Out.out.logln();
+                Out.out.logln("Creating panels...");
+                
+		inventory = new SidePanel("Inventory", game.getPlayer().getInventory().stream(), fontManager, game);
+		characters = new SidePanel("Characters in the room", game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(), fontManager, game);	
+		exits = new SidePanel("Exits available", game.getPlayer().getCurrentRoom().getExits().stream(), fontManager, game);
+                room = new CentralPanel("Room Details", fontManager, game);
+                room.addPanel("characters", game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream());
+                room.addPanel("items", game.getPlayer().getCurrentRoom().getItems().stream());
 
 		scene = new Scene(root, 1280, 720);
 		
@@ -172,13 +178,10 @@ public class GraphicalInterface extends Application implements UserInterface {
 	}
 	
 	public static EventHandler<Event> getCommandEvent(String params, Command command){
-		return new EventHandler<Event>() {
-            @Override
-            public void handle(Event e) {
-    			parameters += params;
-    			executeCommand(command, e);
-            }
-        };
+		return (Event e) -> {
+                    parameters += params;
+                    executeCommand(command, e);
+                };
 	}
 
 	public static Button newCommandButton(String params, Command command, String css) {
@@ -223,6 +226,8 @@ public class GraphicalInterface extends Application implements UserInterface {
 			buttonCurrent = newCommandButton("", command, "command-button");
 			buttonCurrent.setPrefSize(100, 20);
 			hbox.getChildren().add(buttonCurrent);
+                        
+                        commandButtons.add(buttonCurrent);
 
 		}
 
@@ -231,7 +236,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	private static void executeCommand(Command cmd, Event event) {
 
-		Out.out.logln(event.getEventType().getName() + " > [" + cmd.getName() + "] >> " + parameters + " >> " + game.getInterface().getCurrentParameters());
+		Out.out.logln(event.getEventType().getName() + " > [" + cmd.getName() + "] >> " + parameters);
 
 		CommandExecution ce = new CommandExecution(parameters);
 
@@ -273,6 +278,16 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	@Override
 	public void showRoom() {
+            
+            	if (root.getCenter() != null) {
+			root.setCenter(null);
+			return;
+		}
+
+		disableOtherWindows();
+
+		root.setCenter(room.getNode());
+		root.setBottom(commands);
 
 	}
 
@@ -296,6 +311,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 		root.setBottom(null);
 	}
 
+        @Override
 	public String getCurrentParameters() {
 		return parameters;
 	}

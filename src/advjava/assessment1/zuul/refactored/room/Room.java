@@ -72,7 +72,7 @@ public class Room extends Resource{
 	 */
 	public void setExit(Room room, String direction, boolean override) {
 
-		if (direction == null || direction == "")
+		if (direction == null || "".equals(direction))
 			throw new NullPointerException(InternationalisationManager.im.getMessage("room.badSetExit"));
 
 		if ((override && rooms.containsKey(direction)) || (!rooms.containsKey(direction))) {
@@ -109,7 +109,7 @@ public class Room extends Resource{
 	/**
 	 * Return all exits in this room as collection
 	 * 
-	 * @return Collection<Room> all exits
+	 * @return Collection<Resource> all exits
 	 */
 	public Collection<Resource> getExits() {
 		return rooms.values().stream()
@@ -215,8 +215,9 @@ public class Room extends Resource{
 	 * 
 	 * @return Collection<Item> items in room
 	 */
-	public Collection<Item> getItems() {
-		return items;
+	public Collection<Resource> getItems() {
+		return items.stream()
+				.collect(Collectors.toCollection(PrintableList::new));
 	}
 
 	/**

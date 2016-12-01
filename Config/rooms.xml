@@ -35,7 +35,7 @@
 			</exit>
 			<exit>
 				<direction>east</direction>
-				<room-name>library</room-name>
+				<room-name>outside</room-name>
 			</exit>
 		</exits>
 		<url>rooms\library.jpg</url>

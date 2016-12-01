@@ -31,7 +31,11 @@ public class InternationalisationManager {
 	 */
 	private InternationalisationManager(Locale locale) {
 		Out.out.logln("LOCALE: " + locale.toString() + " - " + locale.getDisplayCountry());
-		bundle = ResourceBundle.getBundle("Zuul_Messages", locale);
+                try{
+                    bundle = ResourceBundle.getBundle("Zuul_Messages", locale);
+                }catch(Exception e){
+                    Out.out.loglnErr("Failed to create message bundle!");
+                }
 	}
 
 	/**
@@ -42,7 +46,7 @@ public class InternationalisationManager {
 	 * @return The translated text
 	 */
 	public String getMessage(String messageKey) {
-		return bundle.getString(messageKey);
+		return bundle != null ? bundle.getString(messageKey) : "NULL";
 	}
 
 }

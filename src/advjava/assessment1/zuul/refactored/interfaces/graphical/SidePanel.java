@@ -11,8 +11,8 @@ import advjava.assessment1.zuul.refactored.interfaces.FontManager;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
-import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.Resource;
+import java.util.stream.Stream;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Insets;
@@ -52,7 +52,7 @@ public class SidePanel {
 	private Game game;
 	private List<Node> grids;
 
-	public SidePanel(String title, Collection<Resource> stream, FontManager fm, Game game) {
+	public SidePanel(String title, Stream<Resource> stream, FontManager fm, Game game) {
 		this.grids = new ArrayList<>();
 		this.game = game;
 		this.fm = fm;
@@ -196,7 +196,7 @@ public class SidePanel {
 			.filter(item->{
 				return !grids.stream()
 				.filter(i->i.equals(item))
-				.findFirst()
+			.findFirst()
 				.isPresent();
 			})
 			.forEach(i->tileHolder.getChildren().add(getDisplayItem(i)));

@@ -8,8 +8,6 @@ import java.util.Properties;
 
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 
 /**
  * The starting point of the game, handles directory creation for the game and
@@ -66,10 +64,10 @@ public class Main {
             Out.out.logln(InternationalisationManager.im.getMessage("main.createSession"));
             // Create the game, initialise and start it
             game.initialiseGame(properties);
-            
+
             Out.out.setPrintingDebugMessages(Boolean.parseBoolean(properties.getProperty("logEverything")));
             Out.out.logln("Are we logging everything (properties file): " + Out.out.isPrintingDebugMessages());
-            
+
             game.play();
 
         } catch (Exception e) {
@@ -78,6 +76,7 @@ public class Main {
             try {
                 Out.close();
             } catch (IOException ioe) {
+                Out.out.loglnErr("Failed to close logger, it can't get much worse than this. " + ioe.getMessage());
             }
         }
 
@@ -120,7 +119,7 @@ public class Main {
                 properties.setProperty("resourceDirectory", RESOURCE_FILES);
                 properties.setProperty("noResourceFound", "error.png");
                 properties.setProperty("defaultFont", "Arial");
-                
+
                 properties.store(fileOut, "Zuul Configuration");
 
                 // File does exist
@@ -195,7 +194,7 @@ public class Main {
      * @param dir Directory to check
      * @return true if it exists
      */
-    private static final boolean checkDirectory(String dir) {
+    private static boolean checkDirectory(String dir) {
         File directory = new File(dir);
 
         if (!directory.exists()) {

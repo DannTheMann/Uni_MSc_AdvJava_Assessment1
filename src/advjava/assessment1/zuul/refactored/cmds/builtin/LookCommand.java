@@ -35,6 +35,11 @@ public class LookCommand extends Command {
 	 */
 	public boolean action(Game game, CommandExecution cmd) {
 
+                if(game.getInterface() instanceof GraphicalInterface){
+                    game.getInterface().showRoom();
+                    return true;
+                }
+            
 		// If the command length is greater than 1, we're looking for a
 		// character
 		// e.g "look Tom"
