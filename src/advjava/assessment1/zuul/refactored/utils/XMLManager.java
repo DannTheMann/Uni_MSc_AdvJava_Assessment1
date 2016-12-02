@@ -259,7 +259,7 @@ public abstract class XMLManager {
 							iName = getElement(innerElement, "item", j);
 							// if the item exists, add it
 							if ((Main.game.getItemManager().has(iName))) {
-								items.add(Main.game.getItemManager().get(iName));
+								items.add(Main.game.getItemManager().createNewItem(iName));
 							} else {
 								// else throw exception, can't add an item that
 								// doesn't exist

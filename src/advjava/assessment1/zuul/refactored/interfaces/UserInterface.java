@@ -6,7 +6,6 @@
 package advjava.assessment1.zuul.refactored.interfaces;
 
 import advjava.assessment1.zuul.refactored.Game;
-import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 
 /**
  *
@@ -25,7 +24,7 @@ public interface UserInterface {
     public void printlnErr(Object obj);
     
     public void exit();  
-    public boolean update();
+    public boolean update(boolean actCharacters);
     public void play(Game zuulGame);
 
     public void showInventory();

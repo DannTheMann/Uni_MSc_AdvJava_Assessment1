@@ -72,7 +72,7 @@ public class GiveCommand extends Command {
 
 			game.getInterface().println(String.format(InternationalisationManager.im.getMessage("give.success"),
 					character.getName(), item.getName()));
-			game.getInterface().update();
+			game.getInterface().update(false);
 			return true;
 
 		} else {

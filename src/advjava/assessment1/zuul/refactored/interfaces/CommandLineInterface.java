@@ -93,7 +93,7 @@ public class CommandLineInterface implements UserInterface {
     }
 
     @Override
-    public boolean update() {
+    public boolean update(boolean act) {
         CommandExecution command = getCommand();
 
         // If the command is empty of null
@@ -127,7 +127,7 @@ public class CommandLineInterface implements UserInterface {
         // Enter the main command loop. Here we repeatedly read commands and
         // execute them until the game is over.
         while (!game.hasTerminated()) {
-            if (update()) {
+            if (update(true)) {
                 game.getCharacterManager().act(game);
             }
         }

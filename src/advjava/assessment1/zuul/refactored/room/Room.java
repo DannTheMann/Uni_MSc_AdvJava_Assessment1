@@ -6,16 +6,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
+import advjava.assessment1.zuul.refactored.Main;
 import advjava.assessment1.zuul.refactored.character.Character;
 import advjava.assessment1.zuul.refactored.exception.InvalidRoomNamingException;
+import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
 import advjava.assessment1.zuul.refactored.utils.Resource;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 
 /**
  * The Room class stores all the references to exits, characters and items
@@ -30,8 +33,8 @@ import advjava.assessment1.zuul.refactored.utils.Resource;
 public class Room extends Resource{
 
 	// Exits from the room
-	private Map<String, Room> rooms;
-	private List<Item> items;
+	private final Map<String, Room> rooms;
+	private final List<Item> items;
 
 	// Characters in the room
 	private List<Character> characters;
@@ -129,8 +132,6 @@ public class Room extends Resource{
 	public String toString() {
 
 		StringBuilder out = new StringBuilder();
-		
-		items.stream().forEach(e->{Out.out.logln(e);});
 		
 		out.append(String.format(InternationalisationManager.im.getMessage("room.desc1"), getName(),
 				getDescription() != null ? System.lineSeparator() + getDescription() : "",
@@ -296,13 +297,11 @@ public class Room extends Resource{
 	}
 
 	public String getExitFromRoomName(String roomName) {
-		
-		Optional<String> exit = rooms.entrySet().stream()
+		return rooms.entrySet().stream()
 									.filter(k->k.getValue().getName().equals(roomName))
 									.map(Entry::getKey)
-									.findFirst();
-		
-		return exit.isPresent() ? exit.get() : null;
+									.findFirst()
+									.orElse(null);
 									
 									
 		
@@ -312,6 +311,17 @@ public class Room extends Resource{
 		return characters.stream()
 				.filter(c->!c.isPlayer())
 				.collect(Collectors.toCollection(PrintableList::new));
+	}
+
+	@Override
+	public void applyInformation(GridPane grid, Text text, Resource resource, String css) {
+		
+		Button button = GraphicalInterface.newCommandButton(
+				"go " + Main.game.getPlayer().getCurrentRoom().getExitFromRoomName(resource.getName()),
+				Main.game.getCommandManager().getCommand("Go"), ".sidebar-button");
+		//button.setPrefSize(50, 20);
+		grid.add(button, 0, 2);
+		
 	}
 
 }

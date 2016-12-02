@@ -52,7 +52,7 @@ public class GoCommand extends Command {
 			// Print room information
 			game.getInterface().println();
 			game.getInterface().println(nextRoom);
-			game.getInterface().update();
+			game.getInterface().update(true);
 
 			return true;
 

@@ -6,17 +6,21 @@ import java.util.Arrays;
 
 import advjava.assessment1.zuul.refactored.Main;
 import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 
-public abstract class Resource extends Descriptor {
+public abstract class Resource extends Descriptor{
 
 	private String resourceName;
 	private String imageURL;
+	private String rawURL;
 	private Image image;
 	private static final String[] IMAGE_FORMATS = { "png", "svg", "tiff", "jpg", "jpeg" };
 
 	public Resource(String name, String description, String url) {
 		super(name, description);
 		imageURL = url;
+		rawURL = url;
 		setImage();
 	}
 
@@ -24,6 +28,10 @@ public abstract class Resource extends Descriptor {
 		return resourceName;
 	}
 
+	public String getRawImageURL(){
+		return rawURL;
+	}
+	
 	public String getImageURL() {
 		return imageURL;
 	}
@@ -72,7 +80,7 @@ public abstract class Resource extends Descriptor {
 
 	private void setImage() {
 		if (imageURL != null && image == null) {
-			imageURL = Main.RESOURCE_FILES + File.separator + imageURL;
+				imageURL = Main.RESOURCE_FILES + File.separator + imageURL;
 			if (Arrays.stream(IMAGE_FORMATS).anyMatch(i -> imageURL.endsWith("." + i))) {
 				resourceName = Paths.get(imageURL).getFileName().toString();
 			} else {
@@ -85,5 +93,11 @@ public abstract class Resource extends Descriptor {
 	public String getImageFileURL() {
 		return new File(imageURL).toURI().toString();
 	}
+	
+	public String getType() {
+		return getClass().getName().toUpperCase();
+	}
+
+	public abstract void applyInformation(GridPane grid, Text text, Resource resource, String css);
 
 }

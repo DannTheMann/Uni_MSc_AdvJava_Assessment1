@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.utils.CollectionManager;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.utils.PrintableList;
 
 /**
  * 

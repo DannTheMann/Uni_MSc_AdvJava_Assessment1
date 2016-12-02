@@ -1,10 +1,7 @@
 package advjava.assessment1.zuul.refactored.item;
 
-import java.util.Collection;
-import java.util.List;
-
 import advjava.assessment1.zuul.refactored.utils.CollectionManager;
-import advjava.assessment1.zuul.refactored.utils.PrintableList;
+import advjava.assessment1.zuul.refactored.utils.ResourceManager;
 
 /**
  * 
@@ -46,6 +43,20 @@ public class ItemManager extends CollectionManager<Item>{
 		} else
 			return false;
 
+	}
+
+	public Item createNewItem(String name) {
+		
+		if(has(name)){
+			Item original = get(name);
+			Item copy = new Item(original.getName(), original.getDescription(), 
+					original.getWeight(), original.getRawImageURL());
+			if(ResourceManager.isLoaded())
+				copy.loadImage(ResourceManager.getResourceManager().getImage(copy.getResourceName()));
+			return copy;
+		}
+		
+		return null;
 	}
 
 }

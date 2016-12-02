@@ -3,6 +3,7 @@ package advjava.assessment1.zuul.refactored;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Stream;
 
 import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
@@ -64,12 +65,10 @@ public class ZuulGame extends Game{
 			
 			List<Resource> resources = new PrintableList<>();
 			
-			characterManager.values().stream()
-				.forEach(s->resources.add(s));
-			roomManager.values().stream()
-			.forEach(s->resources.add(s));
-			itemManager.values().stream()
-			.forEach(s->resources.add(s));
+			Stream.concat(characterManager.values().stream()
+					, Stream.concat(roomManager.values().stream()
+							, Stream.concat(getPlayer().getInventory().stream()
+									, itemManager.values().stream()))).forEach(s->resources.add(s));
 		
 		
 			return resources;

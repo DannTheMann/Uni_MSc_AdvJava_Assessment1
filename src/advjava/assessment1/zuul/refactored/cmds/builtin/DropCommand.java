@@ -5,7 +5,6 @@ import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
-import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
@@ -46,7 +45,7 @@ public class DropCommand extends Command {
 				player.setWeight(player.getWeight() - item.getWeight());
 				player.removeItem(item);
 				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("dropitem.success"), item));
-                                game.getInterface().update();
+                                game.getInterface().update(true);
                                 
 				return true;
 

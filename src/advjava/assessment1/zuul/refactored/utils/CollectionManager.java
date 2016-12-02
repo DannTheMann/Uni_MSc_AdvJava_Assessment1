@@ -4,9 +4,6 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 
-import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
-import advjava.assessment1.zuul.refactored.room.Room;
-
 public abstract class CollectionManager<T> {
 	
 

@@ -3,6 +3,7 @@ package advjava.assessment1.zuul.refactored.interfaces;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.Main;
@@ -13,20 +14,15 @@ import advjava.assessment1.zuul.refactored.interfaces.graphical.SidePanel;
 import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 import advjava.assessment1.zuul.refactored.utils.ResourceManager;
-import java.lang.reflect.Field;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class GraphicalInterface extends Application implements UserInterface {
 
@@ -49,10 +45,21 @@ public class GraphicalInterface extends Application implements UserInterface {
     public static final int WINDOW_MAX_HEIGHT = 1080;
     public static final int WINDOW_MIN_WIDTH = 720;
     public static final int WINDOW_MIN_HEIGHT = 480;
+    
+    /* Panel Identifiers for Central Panel*/
+    private static final String CENTRAL_PANEL_CHARACTERS = "Characters";
+    private static final String CENTRAL_PANEL_ITEMS = "Items";
 
-//	private static final int SIDEBAR_IMAGE_WIDTH = 50;
-//	private static final int SIDEBAR_IMAGE_HEIGHT = 50;
-//	private static final int MAX_WIDTH_CHAR = 8;
+    /* Panel identifiers for other panels */
+    private static final String NO_CHARACTERS_IN_ROOM = "There is no one in the room.";
+    private static final String NO_ITEMS_IN_ROOM = "There are no items.";
+    private static final String NO_EXITS_IN_ROOM = "There are no exits. We're trapped Bob.";
+    private static final String NO_ITEMS_IN_INVENTORY = "You have no items.";
+	private static final String SIDE_PANEL_INVENTORY = "Inventory";
+	private static final String SIDE_PANEL_CHARACTERS = "Characters";
+	private static final String SIDE_PANEL_EXITS = "Exits";
+	private static final String CENTRAL_PANEL_TITLE = "Room Information";
+
     public static String getExternalCSS() {
         return new File(Main.XML_CONFIGURATION_FILES + File.separator + Main.game.getProperty("css")).toURI().toString();
     }
@@ -99,18 +106,20 @@ public class GraphicalInterface extends Application implements UserInterface {
     }
 
     @Override
-    public boolean update() {
-
+    public boolean update(boolean act) {
+    	
         // Let the characters when we move
-        game.getCharacterManager().act(game);
+    	if(act)
+    		game.getCharacterManager().act(game);
 
         // Update all panels, change anything that may have been
         // used, dropped etc
         exits.update(game.getPlayer().getCurrentRoom().getExits());
         inventory.update(game.getPlayer().getInventory());
         characters.update(game.getPlayer().getCurrentRoom().getNonPlayerCharacters());
-        room.update(null);
-
+        room.update(CENTRAL_PANEL_CHARACTERS, game.getPlayer().getCurrentRoom().getNonPlayerCharacters());
+        room.update(CENTRAL_PANEL_ITEMS, game.getPlayer().getCurrentRoom().getItems());
+        
         // Update background
         setBackgroundImage(game.getPlayer().getCurrentRoom());
 
@@ -121,7 +130,7 @@ public class GraphicalInterface extends Application implements UserInterface {
     public void play(Game zuulGame) {
         launch();
     }
-
+    
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -156,14 +165,18 @@ public class GraphicalInterface extends Application implements UserInterface {
         root.setBottom(commands);
 
         Out.out.logln();
-        Out.out.logln("Creating panels...");
+        Out.out.logln("	Creating panels...");
 
-        inventory = new SidePanel("Inventory", game.getPlayer().getInventory().stream(), fontManager, game, "sidepanel-inventory");
-        characters = new SidePanel("Characters in the room", game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(), fontManager, game, "sidepanel-characters");
-        exits = new SidePanel("Exits available", game.getPlayer().getCurrentRoom().getExits().stream(), fontManager, game, "sidepanel-exits");
-        room = new CentralPanel("Room Details", fontManager, game, "sidepanel-room");
-        room.addPanel("characters", game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream());
-        room.addPanel("items", game.getPlayer().getCurrentRoom().getItems().stream());
+        Stream<Resource> centralResources = Stream.concat(game.getPlayer().getCurrentRoom().getItems().stream(),
+        		game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream());
+        
+        inventory = new SidePanel(SIDE_PANEL_INVENTORY, NO_ITEMS_IN_INVENTORY, game.getPlayer().getInventory().stream(), fontManager, game, "sidepanel-inventory");
+        characters = new SidePanel(SIDE_PANEL_CHARACTERS, NO_CHARACTERS_IN_ROOM, game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(), fontManager, game, "sidepanel-characters");
+        exits = new SidePanel(SIDE_PANEL_EXITS,  NO_EXITS_IN_ROOM, game.getPlayer().getCurrentRoom().getExits().stream(), fontManager, game, "sidepanel-exits");
+        
+        room = new CentralPanel(CENTRAL_PANEL_TITLE, centralResources, fontManager, game, "sidepanel-room");
+        room.addPanel(CENTRAL_PANEL_CHARACTERS, NO_CHARACTERS_IN_ROOM, game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream());
+        room.addPanel(CENTRAL_PANEL_ITEMS,  NO_ITEMS_IN_ROOM, game.getPlayer().getCurrentRoom().getItems().stream());
 
         scene = new Scene(root, 1280, 720);
 
@@ -211,10 +224,6 @@ public class GraphicalInterface extends Application implements UserInterface {
                 "   -fx-background-image: url(" + image.getImageFileURL() + ");"
                 + " -fx-background-size: cover;");
 
-//		ImageView iv = new ImageView(ResourceManager.getResourceManager().getImage(resource));
-//		iv.fitWidthProperty().bind(stage.widthProperty());
-//		iv.fitHeightProperty().bind(stage.heightProperty());
-        // ...
     }
 
     private HBox getCommandHBox() {
@@ -325,23 +334,5 @@ public class GraphicalInterface extends Application implements UserInterface {
     @Override
     public String getCurrentParameters() {
         return parameters;
-    }
-
-    public static void modifyTooltipTimer(Tooltip tooltip, int delay) {
-        try {
-            Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
-            fieldBehavior.setAccessible(true);
-            Object objBehavior = fieldBehavior.get(tooltip);
-
-            Field fieldTimer = objBehavior.getClass().getDeclaredField("activationTimer");
-            fieldTimer.setAccessible(true);
-            Timeline objTimer = (Timeline) fieldTimer.get(objBehavior);
-
-            objTimer.getKeyFrames().clear();
-            objTimer.getKeyFrames().add(new KeyFrame(new Duration(delay)));
-        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
-            Out.out.loglnErr("Failed to create ToolTip!");
-            e.printStackTrace();
-        }
     }
 }

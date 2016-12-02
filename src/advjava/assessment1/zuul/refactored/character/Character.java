@@ -5,13 +5,16 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import advjava.assessment1.zuul.refactored.Main;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
+import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
-import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
 import advjava.assessment1.zuul.refactored.utils.Resource;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 
 /**
  * Represents a superclass for any Characters in the game NonPlayerCharacter and
@@ -27,7 +30,7 @@ import advjava.assessment1.zuul.refactored.utils.Resource;
  * @author dja33
  *
  */
-public abstract class Character extends Resource{
+public abstract class Character extends Resource {
 
 	// Constant for MAX_WEIGHT, declared on constructor
 	private final int MAX_WEIGHT;
@@ -59,7 +62,7 @@ public abstract class Character extends Resource{
 	 * @throws InvalidCharacterNamingException
 	 *             If name is null or an empty String
 	 */
-	public Character(String name, String description, Room room, List<Item> items, int maxWeight, String url){
+	public Character(String name, String description, Room room, List<Item> items, int maxWeight, String url) {
 		super(name.replaceAll("", ""), description, url);
 		this.inventory = items;
 		this.currentRoom = room;
@@ -162,8 +165,7 @@ public abstract class Character extends Resource{
 	 * @return Collection of items
 	 */
 	public Collection<Resource> getInventory() {
-		return inventory.stream()
-				.collect(Collectors.toCollection(PrintableList::new));
+		return inventory.stream().collect(Collectors.toCollection(PrintableList::new));
 	}
 
 	/**
@@ -231,11 +233,35 @@ public abstract class Character extends Resource{
 				inventory.isEmpty() ? InternationalisationManager.im.getMessage("c.invEmpty") : inventory.toString());
 	}
 
+	@Override
+	public String getDescription() {
+		return inventory.isEmpty() ? "They have no items."
+				: "Weight [" + weight + " / " + MAX_WEIGHT + "]" + System.lineSeparator() +
+
+						"They have: " + System.lineSeparator() + " > " + inventory.stream().map(Item::getName)
+								.collect(Collectors.joining(System.lineSeparator() + " > "));
+
+	}
+
 	/**
 	 * Whether this a NonPlayerCharacter of a Player Character
 	 * 
 	 * @return true if Player Character
 	 */
 	public abstract boolean isPlayer();
+
+	@Override
+	public void applyInformation(GridPane grid, Text text, Resource resource, String css) {
+
+		if(css.equals("sidepanel-room"))
+			return;
+		
+		grid.setOnMouseClicked(GraphicalInterface.getCommandEvent(
+
+				" " + getName(),
+
+				Main.game.getCommandManager().getCommand("Give")));
+
+	}
 
 }

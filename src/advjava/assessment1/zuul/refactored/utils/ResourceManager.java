@@ -1,9 +1,7 @@
 package advjava.assessment1.zuul.refactored.utils;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
@@ -14,9 +12,9 @@ import javafx.scene.image.Image;
 public class ResourceManager {
 
 	private static ResourceManager rm;
-	private File resourceDirectory;
-	private Map<String, Resource> loadedResources;
-	private Collection<Resource> rawResources;
+	private final File resourceDirectory;
+	private final Map<String, Resource> loadedResources;
+	private final Collection<Resource> rawResources;
 	private Image error;
 
 	private ResourceManager(String dir, Collection<Resource> rawResources) {
@@ -90,6 +88,10 @@ public class ResourceManager {
 
 	public static ResourceManager getResourceManager() {
 		return rm;
+	}
+	
+	public static boolean isLoaded(){
+		return rm != null;
 	}
 	
 	public boolean hasImage(String key){

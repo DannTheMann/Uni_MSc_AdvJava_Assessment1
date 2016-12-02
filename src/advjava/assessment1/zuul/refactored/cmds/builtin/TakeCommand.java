@@ -5,7 +5,6 @@ import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
-import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
@@ -66,6 +65,7 @@ public class TakeCommand extends Command {
 				player.setWeight(player.getWeight() + item.getWeight());
 
 				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("pickup.success"), item));
+				game.getInterface().update(true);
 
 				return true;
 			} else {

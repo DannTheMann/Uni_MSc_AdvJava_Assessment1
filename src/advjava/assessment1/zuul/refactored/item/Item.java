@@ -7,7 +7,12 @@ package advjava.assessment1.zuul.refactored.item;
 
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Resource;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
+import advjava.assessment1.zuul.refactored.Main;
 import advjava.assessment1.zuul.refactored.character.Character;
+import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 
 /**
  * 
@@ -20,8 +25,8 @@ import advjava.assessment1.zuul.refactored.character.Character;
  */
 public class Item extends Resource{
 
-	private int weight;
-	
+	private final int weight;
+
 	/**
 	 * Create a new item
 	 * 
@@ -42,8 +47,9 @@ public class Item extends Resource{
 	/**
 	 * If the item doesn't have a description, alternatively use this
 	 * constructor
-         * @param name
-         * @param weight
+	 * 
+	 * @param name
+	 * @param weight
 	 */
 	public Item(String name, int weight) {
 		this(name, null, weight, null);
@@ -57,27 +63,65 @@ public class Item extends Resource{
 	public int getWeight() {
 		return weight;
 	}
-        
-        /**
-         * Can the Character pick up this item
-         * @param character The character to compare against
-         * @return true if can pick up
-         */
-        public boolean canPickUp(Character character){
-            return character.getWeight()+weight <= character.getMaxWeight();
-        }
+
+	/**
+	 * Can the Character pick up this item
+	 * 
+	 * @param character
+	 *            The character to compare against
+	 * @return true if can pick up
+	 */
+	public boolean canPickUp(Character character) {
+		return character.getWeight() + weight <= character.getMaxWeight();
+	}
+
+	@Override
+	public String getDescription(){
+		return "Weight: " + getWeight() + System.lineSeparator() + super.getDescription();
+	}
 	
 	/**
 	 * Override toString and provide a detailed explaination of the item in a
 	 * formatted string
-         * @return 
+	 * 
+	 * @return
 	 */
 	@Override
 	public String toString() {
 		return getDescription() == null
 				? String.format(InternationalisationManager.im.getMessage("item.toStringNoDesc"), getName(), weight)
-				: String.format(InternationalisationManager.im.getMessage("item.toStringWithDesc"), getName(), getDescription(),
-						weight);
+				: String.format(InternationalisationManager.im.getMessage("item.toStringWithDesc"), getName(),
+						getDescription(), weight);
+	}
+
+	@Override
+	public void applyInformation(GridPane grid, Text text, Resource resource, String css) {
+		
+		if (css.equals("sidepanel-room")) {
+
+			// Create drop button
+			Button button = GraphicalInterface.newCommandButton("take " + resource.getName(),
+					Main.game.getCommandManager().getCommand("Take"), ".sidebar-button");
+			button.setPrefSize(50, 20);
+			grid.add(button, 0, 2);
+
+		} else {
+
+			// Create drop button
+			Button button = GraphicalInterface.newCommandButton("drop " + resource.getName(),
+					Main.game.getCommandManager().getCommand("Drop"), ".sidebar-button");
+			button.setPrefSize(50, 20);
+			grid.add(button, 1, 0);
+
+			// Create give button
+			button = GraphicalInterface.newCommandButton("give " + resource.getName(),
+					Main.game.getCommandManager().getCommand("Give"), ".sidebar-button");
+			button.setPrefSize(50, 20);
+
+			grid.add(button, 1, 1);
+
+		}
+
 	}
 
 }

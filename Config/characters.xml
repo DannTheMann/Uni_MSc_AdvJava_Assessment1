@@ -26,7 +26,17 @@
 	<character>
 		<name>Chris</name>
 		<description>Lovely bloke.</description>
+		<maxweight>100</maxweight>
 		<room>outside</room>
+		<inventory>
+			<item>apple</item>
+			<item>book</item>
+			<item>sword</item>
+			<item>grapes</item>
+			<item>tomato</item>
+			<item>TheGoldenPearOfDoom</item>
+			<item>apple</item>
+		</inventory>
 		<url>characters\harold.jpg</url>
 	</character>
 	<character>
@@ -39,6 +49,9 @@
 		<name>Louis</name>
 		<description>The landlord.</description>
 		<room>pub</room>
+		<inventory>
+			<item>apple</item>
+		</inventory>
 		<url>characters\harold.jpg</url>
 	</character>
 	<character>
