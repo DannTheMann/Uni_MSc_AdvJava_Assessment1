@@ -2,12 +2,14 @@ package advjava.assessment1.zuul.refactored.character;
 
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
+import advjava.assessment1.zuul.refactored.utils.Resource;
 
 /**
  * AI controlled Character class, implements all functionality provided by it's
@@ -91,6 +93,16 @@ public class NonPlayerCharacter extends Character {
 	@Override
 	public final boolean isPlayer() {
 		return false;
+	}
+
+	@Override
+	public String getDescription() {
+		return super.getDescription() + System.lineSeparator() + (getInventory().isEmpty() ? "They have no items."
+				: "Weight [" + getWeight() + " / " + getMaxWeight() + "]" + System.lineSeparator() +
+
+						"They have: " + System.lineSeparator() + " > " + getInventory().stream().map(Resource::getName)
+								.collect(Collectors.joining(System.lineSeparator() + " > ")));
+
 	}
 
 	// For moving between rooms

@@ -22,7 +22,70 @@
 }
 
 .command-box {
-    -fx-background-color: #336699;
+    -fx-background-color: transparent;
+}
+
+.node-image {
+    -fx-fill: rgba(90, 115, 132);
+}
+
+.node-text {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Microsoft Sans Serif";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}
+
+.sidepanel-inventory-node-root {
+    -fx-fill: rgba(255,255,255);
+}
+
+.sidepanel-characters-node-root {
+    -fx-fill: rgba(255,255,255);
+}
+
+.sidepanel-exits-node-root {
+    -fx-fill: rgba(255,255,255);
+}
+
+.sidepanel-room-node-root {
+    -fx-fill: rgba(255,255,255);
+}
+
+.player-information-root {
+    -fx-fill: rgba(104, 115, 132, 0.8);
+}
+
+.player-information-detail-root {
+    -fx-fill: rgba(182, 195, 216);
+}
+
+.player-information-image {
+    -fx-fill: rgba(104, 115, 132);
+}
+
+.player-information-name {
+    -fx-font-size: 16pt;
+    -fx-text-fill: black;
+}
+
+.player-information-filler {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}
+
+.player-information-weight {
+    -fx-fill: rgba(59, 165, 100);
+    -fx-effect: dropshadow(gaussian, green, 5, 0, 0, 0);
+}
+
+.player-information-weight-text {
+    -fx-font-size: 13pt;
+    -fx-font-family: "Marlett";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
 }
 
 .scroll-pane {
@@ -41,7 +104,6 @@
 }
 
 .sidepanel-exits{
-    -fx-background-color: rgba(244, 194, 66, 0.3); 
     -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
 }
 

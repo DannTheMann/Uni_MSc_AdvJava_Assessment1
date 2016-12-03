@@ -37,13 +37,13 @@ public class CentralPanel extends SidePanel{
 	private final Map<String, SidePanel> panels;
 
 	public CentralPanel(String title, Stream<Resource> stream, FontManager fm, Game game, String cssStyling) {
-		super(title, null, stream, fm, game, cssStyling);
+		super(title, null, stream, fm, game, cssStyling, 0, 0, 0, 0);
 		this.panels = new HashMap<>();
 		this.game = game;
 		this.fm = fm;
 
 		root = new HBox();
-		root.setAlignment(Pos.TOP_CENTER);
+		root.setAlignment(Pos.CENTER);
 		root.setMaxSize(GraphicalInterface.WINDOW_MAX_WIDTH, GraphicalInterface.WINDOW_MAX_HEIGHT);
 		root.setPadding(new Insets(0, NODE_RIGHT_OFFSET, 0, NODE_LEFT_OFFSET));
 		root.setSpacing(NODE_RIGHT_OFFSET);
@@ -54,12 +54,12 @@ public class CentralPanel extends SidePanel{
 
 	}
 
-	public boolean addPanel(String panelName, String empty, Stream<Resource> stream) {
+	public boolean addPanel(String panelName, String empty, Stream<Resource> stream, int imageWidth, int imageHeight, int nodeWidth, int nodeHeight) {
 
 		if(panels.containsKey(panelName))
 			return false;
 		
-		SidePanel sp = new SidePanel(panelName, empty, stream, fm, game, getCSS());
+		SidePanel sp = new SidePanel(panelName, empty, stream, fm, game, getCSS(), imageWidth, imageHeight, nodeWidth, nodeHeight);
 
 		root.getChildren().add(sp.getNode());
 		

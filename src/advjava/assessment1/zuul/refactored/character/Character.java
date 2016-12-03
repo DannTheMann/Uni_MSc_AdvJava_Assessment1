@@ -233,16 +233,6 @@ public abstract class Character extends Resource {
 				inventory.isEmpty() ? InternationalisationManager.im.getMessage("c.invEmpty") : inventory.toString());
 	}
 
-	@Override
-	public String getDescription() {
-		return inventory.isEmpty() ? "They have no items."
-				: "Weight [" + weight + " / " + MAX_WEIGHT + "]" + System.lineSeparator() +
-
-						"They have: " + System.lineSeparator() + " > " + inventory.stream().map(Item::getName)
-								.collect(Collectors.joining(System.lineSeparator() + " > "));
-
-	}
-
 	/**
 	 * Whether this a NonPlayerCharacter of a Player Character
 	 * 
@@ -251,7 +241,7 @@ public abstract class Character extends Resource {
 	public abstract boolean isPlayer();
 
 	@Override
-	public void applyInformation(GridPane grid, Text text, Resource resource, String css) {
+	public void applyInformation(GridPane grid, String css) {
 
 		if(css.equals("sidepanel-room"))
 			return;

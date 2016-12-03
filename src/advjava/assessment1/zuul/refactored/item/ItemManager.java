@@ -49,7 +49,7 @@ public class ItemManager extends CollectionManager<Item>{
 		
 		if(has(name)){
 			Item original = get(name);
-			Item copy = new Item(original.getName(), original.getDescription(), 
+			Item copy = new Item(original.getName(), original.getRawDescription(), 
 					original.getWeight(), original.getRawImageURL());
 			if(ResourceManager.isLoaded())
 				copy.loadImage(ResourceManager.getResourceManager().getImage(copy.getResourceName()));

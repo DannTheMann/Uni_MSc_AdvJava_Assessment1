@@ -1,0 +1,9 @@
+To Fix
+
+
+Change CSS to fix style
+Fix Help button
+Maybe quit button?
+More images/design
+Animations
+Documentation

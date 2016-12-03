@@ -18,6 +18,7 @@ import advjava.assessment1.zuul.refactored.utils.PrintableList;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 
 /**
@@ -314,13 +315,10 @@ public class Room extends Resource{
 	}
 
 	@Override
-	public void applyInformation(GridPane grid, Text text, Resource resource, String css) {
+	public void applyInformation(GridPane grid, String css) {
 		
-		Button button = GraphicalInterface.newCommandButton(
-				"go " + Main.game.getPlayer().getCurrentRoom().getExitFromRoomName(resource.getName()),
-				Main.game.getCommandManager().getCommand("Go"), ".sidebar-button");
-		//button.setPrefSize(50, 20);
-		grid.add(button, 0, 2);
+		grid.add(new StackPane(GraphicalInterface.newCommandButton("go " + Main.game.getPlayer().getCurrentRoom().getExitFromRoomName(getName()),
+				Main.game.getCommandManager().getCommand("Go"), ".sidebar-button")), 0, 2);
 		
 	}
 

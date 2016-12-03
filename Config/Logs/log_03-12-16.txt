@@ -1,0 +1,431 @@
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[00:21:11] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_03-12-16.txt'
+[00:21:11] LOCALE: en_GB - United Kingdom
+[00:21:11] Loading default commands...
+[00:21:11] Loaded default commands...
+[00:21:11] Starting World of Zuul... ENGLISH
+[00:21:11] Loading properties.ini file...
+[00:21:11] Property file found, loading properties...
+[00:21:11] Closed I/O streams.
+[00:21:11] Properties loaded.
+[00:21:12] Creating game session...
+[00:21:12] 
+[00:21:12]  - - - - - - - - - - - - - - - - - - - - 
+[00:21:12]       Loading Plugins ...          
+[00:21:12]  - - - - - - - - - - - - - - - - - - - - 
+[00:21:12] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[00:21:12] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [00:21:12] - Finished  - - - - - - - - - - - - - - 
+[00:21:12]  - - - - - - - - - - - - - - - - - - - - 
+[00:21:12]       Loading XML Config files ...    
+[00:21:12] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[00:21:12]  - - - - - - - - - - - - - - - - - - - - 
+[00:21:12] Added item 'apple'
+[00:21:12] Added item 'book'
+[00:21:12] Added item 'sword'
+[00:21:12] Added item 'tomato'
+[00:21:12] Added item 'pear'
+[00:21:12] Added item 'grapes'
+[00:21:12] Added item 'TheGoldenPearOfDoom'
+[00:21:12] Loaded room 'outside'
+[00:21:12] Loaded room 'library'
+[00:21:12] Loaded room 'theatre'
+[00:21:12] Loaded room 'lab'
+[00:21:12] Loaded room 'pub'
+[00:21:12] Added new player 'Richard Jones'.
+[00:21:12] Added new character 'Bob'.
+[00:21:12] Added new character 'Joe Harrison'.
+[00:21:12] Added new character 'Mitch'.
+[00:21:12] Added new character 'Daniel Andrews'.
+[00:21:12] Added new character 'Jack McBride'.
+[00:21:12] Added new character 'Louis'.
+[00:21:12] Added new character 'Craig'.
+[00:21:12] Added new character 'Donald Trump'.
+[00:21:12] Added new player 'Charlie Andrews'.
+[00:21:12] - - Finished - - - - - - - - - - - - - - 
+[00:21:12] There are 2 players playing.
+[00:21:12] Assuming the control of player 'Charlie Andrews'.
+[00:21:12] Are we logging everything (properties file): true
+[00:21:12]  - - - - - - - - - - - - - - - - - - - - 
+[00:21:12]              Creating GUI...             
+[00:21:12]  - - - - - - - - - - - - - - - - - - - - 
+[00:21:12] Creating new resource manager @ 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[00:21:12] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[00:21:12] [LOG] [00:21:12] Loading 'Bob' [1/28]. = [00:21:12] Success. [harold.jpg][00:21:12] 
+[00:21:12] [LOG] [00:21:12] Loading 'Charlie Andrews' [2/28]. = [00:21:12] Success. [charlie.jpg][00:21:12] 
+[00:21:12] [LOG] [00:21:12] Loading 'Craig' [3/28]. = [00:21:12] Already loaded.[00:21:12] 
+[00:21:12] [LOG] [00:21:12] Loading 'Daniel Andrews' [3/28]. = [00:21:12] Success. [dan.png][00:21:12] 
+[00:21:12] [LOG] [00:21:12] Loading 'Donald Trump' [4/28]. = [00:21:12] Already loaded.[00:21:12] 
+[00:21:12] [LOG] [00:21:12] Loading 'Jack McBride' [4/28]. = [00:21:12] Success. [jack.png][00:21:12] 
+[00:21:12] [LOG] [00:21:12] Loading 'Joe Harrison' [5/28]. = [00:21:13] Success. [joe.png][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'Louis' [6/28]. = [00:21:13] Already loaded.[00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'Mitch' [6/28]. = [00:21:13] Already loaded.[00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'Richard Jones' [6/28]. = [00:21:13] Already loaded.[00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'lab' [6/28]. = [00:21:13] Success. [lab.jpg][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'library' [7/28]. = [00:21:13] Success. [library.jpg][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'outside' [8/28]. = [00:21:13] Success. [outside.jpg][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'pub' [9/28]. = [00:21:13] Success. [bar.jpg][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'theatre' [10/28]. = [00:21:13] Success. [theatre.jpg][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'apple' [11/28]. = [00:21:13] Success. [apple.png][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'book' [12/28]. = [00:21:13] Success. [book.png][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'sword' [13/28]. = [00:21:13] Success. [sword.png][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'grapes' [14/28]. = [00:21:13] Success. [grapes.png][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'tomato' [15/28]. = [00:21:13] Success. [tomato.png][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'TheGoldenPearOfDoom' [16/28]. = [00:21:13] Already loaded.[00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'TheGoldenPearOfDoom' [16/28]. = [00:21:13] Already loaded.[00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'apple' [16/28]. = [00:21:13] Already loaded.[00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'book' [16/28]. = [00:21:13] Already loaded.[00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'grapes' [16/28]. = [00:21:13] Already loaded.[00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'pear' [16/28]. = [00:21:13] Success. [pear.png][00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'sword' [17/28]. = [00:21:13] Already loaded.[00:21:13] 
+[00:21:13] [LOG] [00:21:13] Loading 'tomato' [17/28]. = [00:21:13] Already loaded.[00:21:13] 
+[00:21:13] Resources loaded = 16
+[00:21:13] 
+[00:21:13] 	Creating panels...
+[00:21:13] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[00:21:13] Closing logger.
+[00:21:13] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[01:05:32] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_03-12-16.txt'
+[01:05:33] LOCALE: en_GB - United Kingdom
+[01:05:33] Loading default commands...
+[01:05:33] Loaded default commands...
+[01:05:33] Starting World of Zuul... ENGLISH
+[01:05:33] Loading properties.ini file...
+[01:05:33] Property file found, loading properties...
+[01:05:33] Closed I/O streams.
+[01:05:33] Properties loaded.
+[01:05:34] Creating game session...
+[01:05:34] 
+[01:05:34]  - - - - - - - - - - - - - - - - - - - - 
+[01:05:34]       Loading Plugins ...          
+[01:05:34]  - - - - - - - - - - - - - - - - - - - - 
+[01:05:34] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[01:05:34] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [01:05:34] - Finished  - - - - - - - - - - - - - - 
+[01:05:34]  - - - - - - - - - - - - - - - - - - - - 
+[01:05:34]       Loading XML Config files ...    
+[01:05:34] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[01:05:34]  - - - - - - - - - - - - - - - - - - - - 
+[01:05:34] Added item 'apple'
+[01:05:34] Added item 'book'
+[01:05:34] Added item 'sword'
+[01:05:34] Added item 'tomato'
+[01:05:34] Added item 'pear'
+[01:05:34] Added item 'grapes'
+[01:05:34] Added item 'TheGoldenPearOfDoom'
+[01:05:34] Loaded room 'outside'
+[01:05:34] Loaded room 'library'
+[01:05:34] Loaded room 'theatre'
+[01:05:34] Loaded room 'lab'
+[01:05:34] Loaded room 'pub'
+[01:05:34] Added new player 'Richard Jones'.
+[01:05:34] Added new character 'Bob'.
+[01:05:34] Added new character 'Joe Harrison'.
+[01:05:34] Added new character 'Mitch'.
+[01:05:34] Added new character 'Daniel Andrews'.
+[01:05:34] Added new character 'Jack McBride'.
+[01:05:34] Added new character 'Louis'.
+[01:05:34] Added new character 'Craig'.
+[01:05:34] Added new character 'Donald Trump'.
+[01:05:34] Added new player 'Charlie Andrews'.
+[01:05:34] - - Finished - - - - - - - - - - - - - - 
+[01:05:34] There are 2 players playing.
+[01:05:34] Assuming the control of player 'Charlie Andrews'.
+[01:05:34] Are we logging everything (properties file): true
+[01:05:34]  - - - - - - - - - - - - - - - - - - - - 
+[01:05:34]              Creating GUI...             
+[01:05:34]  - - - - - - - - - - - - - - - - - - - - 
+[01:05:34] Creating new resource manager @ 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[01:05:34] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[01:05:34] [LOG] [01:05:34] Loading 'Bob' [1/28]. = [01:05:34] Success. [harold.jpg][01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'Charlie Andrews' [2/28]. = [01:05:34] Success. [charlie.jpg][01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'Craig' [3/28]. = [01:05:34] Already loaded.[01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'Daniel Andrews' [3/28]. = [01:05:34] Success. [dan.png][01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'Donald Trump' [4/28]. = [01:05:34] Already loaded.[01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'Jack McBride' [4/28]. = [01:05:34] Success. [jack.png][01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'Joe Harrison' [5/28]. = [01:05:34] Success. [joe.png][01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'Louis' [6/28]. = [01:05:34] Already loaded.[01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'Mitch' [6/28]. = [01:05:34] Already loaded.[01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'Richard Jones' [6/28]. = [01:05:34] Already loaded.[01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'lab' [6/28]. = [01:05:34] Success. [lab.jpg][01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'library' [7/28]. = [01:05:34] Success. [library.jpg][01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'outside' [8/28]. = [01:05:34] Success. [outside.jpg][01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'pub' [9/28]. = [01:05:34] Success. [bar.jpg][01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'theatre' [10/28]. = [01:05:34] Success. [theatre.jpg][01:05:34] 
+[01:05:34] [LOG] [01:05:34] Loading 'apple' [11/28]. = [01:05:35] Success. [apple.png][01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'book' [12/28]. = [01:05:35] Success. [book.png][01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'sword' [13/28]. = [01:05:35] Success. [sword.png][01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'grapes' [14/28]. = [01:05:35] Success. [grapes.png][01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'tomato' [15/28]. = [01:05:35] Success. [tomato.png][01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'TheGoldenPearOfDoom' [16/28]. = [01:05:35] Already loaded.[01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'TheGoldenPearOfDoom' [16/28]. = [01:05:35] Already loaded.[01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'apple' [16/28]. = [01:05:35] Already loaded.[01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'book' [16/28]. = [01:05:35] Already loaded.[01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'grapes' [16/28]. = [01:05:35] Already loaded.[01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'pear' [16/28]. = [01:05:35] Success. [pear.png][01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'sword' [17/28]. = [01:05:35] Already loaded.[01:05:35] 
+[01:05:35] [LOG] [01:05:35] Loading 'tomato' [17/28]. = [01:05:35] Already loaded.[01:05:35] 
+[01:05:35] Resources loaded = 16
+[01:05:35] 
+[01:05:35] 	Creating panels...
+[01:05:35] apple==Weight: 3
+A juicy apple, looks good!
+[01:05:35] book==Weight: 7
+Objects first Java, an introductory text book. You consider reading it
+, but quickly remember that you cannot read.
+[01:05:35] sword==Weight: 4
+A sword, precisely what an adventurer needs to slay dragons! Except yo
+u're at University. Well done.
+[01:05:35] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:35] tomato==Weight: 1
+A ripened tomato, shiny and large - just like this mountain of text. M
+aybe I'm purely testing the length I can get without it looking insane
+. Who knows? I sure want a tomato right now though...
+[01:05:35] TheGoldenPearOfDoom==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:35] Mitch==
+A crazy looking scientist.
+They have no items.
+[01:05:35] Daniel Andrews==
+A crazy looking scientist, should probably stay away from him.
+They have no items.
+[01:05:35] Jack McBride==
+A crazy looking scientist.
+They have no items.
+[01:05:35] theatre==A musical drama theatre, it's rather empty today.
+[01:05:35] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:35] Mitch==
+A crazy looking scientist.
+They have no items.
+[01:05:35] Daniel Andrews==
+A crazy looking scientist, should probably stay away from him.
+They have no items.
+[01:05:35] Jack McBride==
+A crazy looking scientist.
+They have no items.
+[01:05:35] Mitch==
+A crazy looking scientist.
+They have no items.
+[01:05:35] Daniel Andrews==
+A crazy looking scientist, should probably stay away from him.
+They have no items.
+[01:05:35] Jack McBride==
+A crazy looking scientist.
+They have no items.
+[01:05:35] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:35]  - - - - - - - - - - - - - - - - - - - - 
+[01:05:35]               Finished GUI.              
+[01:05:35]  - - - - - - - - - - - - - - - - - - - - 
+[01:05:36] ACTION > [Look] >> 
+[01:05:55] ACTION > [Inventory] >> 
+[01:05:56] ACTION > [Drop] >> drop tomato
+[01:05:56] theatre==A musical drama theatre, it's rather empty today.
+[01:05:56] apple==Weight: 3
+A juicy apple, looks good!
+[01:05:56] book==Weight: 7
+Objects first Java, an introductory text book. You consider reading it
+, but quickly remember that you cannot read.
+[01:05:56] sword==Weight: 4
+A sword, precisely what an adventurer needs to slay dragons! Except yo
+u're at University. Well done.
+[01:05:56] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:56] TheGoldenPearOfDoom==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:56] Daniel Andrews==
+A crazy looking scientist, should probably stay away from him.
+They have no items.
+[01:05:56] Jack McBride==
+A crazy looking scientist.
+They have no items.
+[01:05:56] Daniel Andrews==
+A crazy looking scientist, should probably stay away from him.
+They have no items.
+[01:05:56] Jack McBride==
+A crazy looking scientist.
+They have no items.
+[01:05:56] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:56] tomato==Weight: 1
+A ripened tomato, shiny and large - just like this mountain of text. M
+aybe I'm purely testing the length I can get without it looking insane
+. Who knows? I sure want a tomato right now though...
+[01:05:57] ACTION > [Drop] >> drop apple
+[01:05:57] theatre==A musical drama theatre, it's rather empty today.
+[01:05:57] book==Weight: 7
+Objects first Java, an introductory text book. You consider reading it
+, but quickly remember that you cannot read.
+[01:05:57] sword==Weight: 4
+A sword, precisely what an adventurer needs to slay dragons! Except yo
+u're at University. Well done.
+[01:05:57] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] TheGoldenPearOfDoom==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] Daniel Andrews==
+A crazy looking scientist, should probably stay away from him.
+They have no items.
+[01:05:57] Daniel Andrews==
+A crazy looking scientist, should probably stay away from him.
+They have no items.
+[01:05:57] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] tomato==Weight: 1
+A ripened tomato, shiny and large - just like this mountain of text. M
+aybe I'm purely testing the length I can get without it looking insane
+. Who knows? I sure want a tomato right now though...
+[01:05:57] apple==Weight: 3
+A juicy apple, looks good!
+[01:05:57] ACTION > [Drop] >> drop book
+[01:05:57] theatre==A musical drama theatre, it's rather empty today.
+[01:05:57] sword==Weight: 4
+A sword, precisely what an adventurer needs to slay dragons! Except yo
+u're at University. Well done.
+[01:05:57] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] TheGoldenPearOfDoom==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] tomato==Weight: 1
+A ripened tomato, shiny and large - just like this mountain of text. M
+aybe I'm purely testing the length I can get without it looking insane
+. Who knows? I sure want a tomato right now though...
+[01:05:57] apple==Weight: 3
+A juicy apple, looks good!
+[01:05:57] book==Weight: 7
+Objects first Java, an introductory text book. You consider reading it
+, but quickly remember that you cannot read.
+[01:05:57] ACTION > [Drop] >> drop sword
+[01:05:57] theatre==A musical drama theatre, it's rather empty today.
+[01:05:57] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] TheGoldenPearOfDoom==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] tomato==Weight: 1
+A ripened tomato, shiny and large - just like this mountain of text. M
+aybe I'm purely testing the length I can get without it looking insane
+. Who knows? I sure want a tomato right now though...
+[01:05:57] apple==Weight: 3
+A juicy apple, looks good!
+[01:05:57] book==Weight: 7
+Objects first Java, an introductory text book. You consider reading it
+, but quickly remember that you cannot read.
+[01:05:57] sword==Weight: 4
+A sword, precisely what an adventurer needs to slay dragons! Except yo
+u're at University. Well done.
+[01:05:57] ACTION > [Drop] >> drop grapes
+[01:05:57] theatre==A musical drama theatre, it's rather empty today.
+[01:05:57] TheGoldenPearOfDoom==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] Craig==
+A drama student, equipped with a violin.
+They have no items.
+[01:05:57] Craig==
+A drama student, equipped with a violin.
+They have no items.
+[01:05:57] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:05:57] tomato==Weight: 1
+A ripened tomato, shiny and large - just like this mountain of text. M
+aybe I'm purely testing the length I can get without it looking insane
+. Who knows? I sure want a tomato right now though...
+[01:05:57] apple==Weight: 3
+A juicy apple, looks good!
+[01:05:57] book==Weight: 7
+Objects first Java, an introductory text book. You consider reading it
+, but quickly remember that you cannot read.
+[01:05:57] sword==Weight: 4
+A sword, precisely what an adventurer needs to slay dragons! Except yo
+u're at University. Well done.
+[01:05:57] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:00] ACTION > [Drop] >> drop TheGoldenPearOfDoom
+[01:06:00] theatre==A musical drama theatre, it's rather empty today.
+[01:06:00] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:00] tomato==Weight: 1
+A ripened tomato, shiny and large - just like this mountain of text. M
+aybe I'm purely testing the length I can get without it looking insane
+. Who knows? I sure want a tomato right now though...
+[01:06:00] apple==Weight: 3
+A juicy apple, looks good!
+[01:06:00] book==Weight: 7
+Objects first Java, an introductory text book. You consider reading it
+, but quickly remember that you cannot read.
+[01:06:00] sword==Weight: 4
+A sword, precisely what an adventurer needs to slay dragons! Except yo
+u're at University. Well done.
+[01:06:00] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:00] TheGoldenPearOfDoom==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:02] ACTION > [Look] >> 
+[01:06:04] ACTION > [Take] >> take grapes
+[01:06:04] theatre==A musical drama theatre, it's rather empty today.
+[01:06:04] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:04] tomato==Weight: 1
+A ripened tomato, shiny and large - just like this mountain of text. M
+aybe I'm purely testing the length I can get without it looking insane
+. Who knows? I sure want a tomato right now though...
+[01:06:04] apple==Weight: 3
+A juicy apple, looks good!
+[01:06:04] book==Weight: 7
+Objects first Java, an introductory text book. You consider reading it
+, but quickly remember that you cannot read.
+[01:06:04] sword==Weight: 4
+A sword, precisely what an adventurer needs to slay dragons! Except yo
+u're at University. Well done.
+[01:06:04] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:04] TheGoldenPearOfDoom==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:04] ACTION > [Take] >> take tomato
+[01:06:04] theatre==A musical drama theatre, it's rather empty today.
+[01:06:04] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:04] tomato==Weight: 1
+A ripened tomato, shiny and large - just like this mountain of text. M
+aybe I'm purely testing the length I can get without it looking insane
+. Who knows? I sure want a tomato right now though...
+[01:06:04] Craig==
+A drama student, equipped with a violin.
+They have no items.
+[01:06:04] Craig==
+A drama student, equipped with a violin.
+They have no items.
+[01:06:04] apple==Weight: 3
+A juicy apple, looks good!
+[01:06:04] book==Weight: 7
+Objects first Java, an introductory text book. You consider reading it
+, but quickly remember that you cannot read.
+[01:06:04] sword==Weight: 4
+A sword, precisely what an adventurer needs to slay dragons! Except yo
+u're at University. Well done.
+[01:06:04] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:04] TheGoldenPearOfDoom==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:04] ACTION > [Take] >> take apple
+[01:06:04] theatre==A musical drama theatre, it's rather empty today.
+[01:06:04] grapes==Weight: 12
+A bunch of grapes. They're graptastic.
+[01:06:04] tomato==Weight: 1
+A ripened tomato, shiny and large - just like this mountain of text. M
+aybe I'm purely testing the length I can get without it looking insane
+. Who knows? I sure want a tomato right now though...
+[01:06:04] apple==Weight: 3
+A juicy apple, looks good!
+[01:06:05] Craig==
+A drama student, equipped with a violin.
+They have no it

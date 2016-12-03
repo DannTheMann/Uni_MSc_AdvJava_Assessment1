@@ -5,14 +5,16 @@
  */
 package advjava.assessment1.zuul.refactored.item;
 
+import advjava.assessment1.zuul.refactored.Main;
+import advjava.assessment1.zuul.refactored.character.Character;
+import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import advjava.assessment1.zuul.refactored.Main;
-import advjava.assessment1.zuul.refactored.character.Character;
-import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 
 /**
  * 
@@ -80,8 +82,13 @@ public class Item extends Resource{
 		return "Weight: " + getWeight() + System.lineSeparator() + super.getDescription();
 	}
 	
+	@Override
+	public String getRawDescription(){
+		return super.getDescription();
+	}
+	
 	/**
-	 * Override toString and provide a detailed explaination of the item in a
+	 * Override toString and provide a detailed explanation of the item in a
 	 * formatted string
 	 * 
 	 * @return
@@ -95,30 +102,25 @@ public class Item extends Resource{
 	}
 
 	@Override
-	public void applyInformation(GridPane grid, Text text, Resource resource, String css) {
+	public void applyInformation(GridPane grid, String css) {
 		
 		if (css.equals("sidepanel-room")) {
-
-			// Create drop button
-			Button button = GraphicalInterface.newCommandButton("take " + resource.getName(),
-					Main.game.getCommandManager().getCommand("Take"), ".sidebar-button");
-			button.setPrefSize(50, 20);
-			grid.add(button, 0, 2);
+			
+			// Create take button
+			grid.add(new StackPane(GraphicalInterface.newCommandButton("take " + getName(),
+					Main.game.getCommandManager().getCommand("Take"), ".sidebar-button")), 0, 2);
 
 		} else {
 
-			// Create drop button
-			Button button = GraphicalInterface.newCommandButton("drop " + resource.getName(),
-					Main.game.getCommandManager().getCommand("Drop"), ".sidebar-button");
-			button.setPrefSize(50, 20);
-			grid.add(button, 1, 0);
+			// create drop and give button, wrap them in a VBox
+			VBox buttonHolder = new VBox();	
+			buttonHolder.getChildren().add(GraphicalInterface.newCommandButton("drop " + getName(),
+					Main.game.getCommandManager().getCommand("Drop"), ".sidebar-button"));
+			buttonHolder.getChildren().add(GraphicalInterface.newCommandButton("give " + getName(),
+					Main.game.getCommandManager().getCommand("Give"), ".sidebar-button"));			
+			buttonHolder.setSpacing(12);
 
-			// Create give button
-			button = GraphicalInterface.newCommandButton("give " + resource.getName(),
-					Main.game.getCommandManager().getCommand("Give"), ".sidebar-button");
-			button.setPrefSize(50, 20);
-
-			grid.add(button, 1, 1);
+			grid.add(buttonHolder, 1, 1);
 
 		}
 

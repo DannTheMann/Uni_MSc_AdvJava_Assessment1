@@ -98,6 +98,6 @@ public abstract class Resource extends Descriptor{
 		return getClass().getName().toUpperCase();
 	}
 
-	public abstract void applyInformation(GridPane grid, Text text, Resource resource, String css);
+	public abstract void applyInformation(GridPane grid, String css);
 
 }

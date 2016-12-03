@@ -24,7 +24,7 @@
 		<url>characters\harold.jpg</url>
 	</character>
 	<character>
-		<name>Chris</name>
+		<name>Joe Harrison</name>
 		<description>Lovely bloke.</description>
 		<maxweight>100</maxweight>
 		<room>outside</room>
@@ -37,13 +37,25 @@
 			<item>TheGoldenPearOfDoom</item>
 			<item>apple</item>
 		</inventory>
-		<url>characters\harold.jpg</url>
+		<url>characters\joe.png</url>
 	</character>
 	<character>
 		<name>Mitch</name>
 		<description>A crazy looking scientist.</description>
 		<room>lab</room>
 		<url>characters\harold.jpg</url>
+	</character>
+	<character>
+		<name>Daniel Andrews</name>
+		<description>A crazy looking scientist, should probably stay away from him.</description>
+		<room>lab</room>
+		<url>characters\dan.png</url>
+	</character>
+	<character>
+		<name>Jack McBride</name>
+		<description>A crazy looking scientist.</description>
+		<room>lab</room>
+		<url>characters\jack.png</url>
 	</character>
 	<character>
 		<name>Louis</name>
@@ -73,8 +85,8 @@
 		<url>characters\harold.jpg</url>
 	</character>
 	<character>
-		<name>James Pond</name>
-		<description>Terrible game for the Sega Megadrive.</description>
+		<name>Charlie Andrews</name>
+		<description>This is the player description, as you may have guessed. It's not very exciting. Also that's my brother!</description>
 		<room>lab</room>
 		<player>true</player>
 		<maxweight>200</maxweight>
@@ -85,11 +97,7 @@
 			<item>grapes</item>
 			<item>tomato</item>
 			<item>TheGoldenPearOfDoom</item>
-			<item>apple</item>
-			<item>book</item>
-			<item>sword</item>
-			<item>grapes</item>
 		</inventory>
-		<url>characters\harold.jpg</url>
+		<url>characters\charlie.jpg</url>
 	</character>
 </game-characters>

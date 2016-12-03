@@ -1566,4 +1566,265 @@
 [00:32:25] [LOG] [00:32:25] Loading 'Rosalyn' [2/623]. = [00:32:25] Already loaded.[00:32:25] 
 [00:32:25] [LOG] [00:32:25] Loading 'Rosemaria' [2/623]. = [00:32:25] Already loaded.[00:32:25] 
 [00:32:25] [LOG] [00:32:25] Loading 'Rosemarie' [2/623]. = [00:32:25] Already loaded.[00:32:25] 
-[00:32:25] [LOG] [00:3
+[00:32:25] [LOG] [00:3 ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[17:57:52] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_02-12-16.txt'
+[17:57:52] LOCALE: en_GB - United Kingdom
+[17:57:52] Loading default commands...
+[17:57:52] Loaded default commands...
+[17:57:52] Starting World of Zuul... ENGLISH
+[17:57:52] Loading properties.ini file...
+[17:57:52] Property file found, loading properties...
+[17:57:52] Closed I/O streams.
+[17:57:52] Properties loaded.
+[17:57:53] Creating game session...
+[17:57:53] 
+[17:57:53]  - - - - - - - - - - - - - - - - - - - - 
+[17:57:53]       Loading Plugins ...          
+[17:57:53]  - - - - - - - - - - - - - - - - - - - - 
+[17:57:53] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[17:57:53] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [17:57:53] - Finished  - - - - - - - - - - - - - - 
+[17:57:53]  - - - - - - - - - - - - - - - - - - - - 
+[17:57:53]       Loading XML Config files ...    
+[17:57:53] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[17:57:53]  - - - - - - - - - - - - - - - - - - - - 
+[17:57:53] Added item 'apple'
+[17:57:53] Added item 'book'
+[17:57:53] Added item 'sword'
+[17:57:53] Added item 'tomato'
+[17:57:53] Added item 'pear'
+[17:57:53] Added item 'grapes'
+[17:57:53] Added item 'TheGoldenPearOfDoom'
+[17:57:53] Loaded room 'outside'
+[17:57:53] Loaded room 'library'
+[17:57:53] Loaded room 'theatre'
+[17:57:53] Loaded room 'lab'
+[17:57:53] Loaded room 'pub'
+[17:57:53] Added new player 'Richard Jones'.
+[17:57:53] Added new character 'Bob'.
+[17:57:53] Added new character 'Chris'.
+[17:57:53] Added new character 'Mitch'.
+[17:57:53] Added new character 'Louis'.
+[17:57:53] Added new character 'Craig'.
+[17:57:53] Added new character 'Donald Trump'.
+[17:57:53] Added new player 'James Pond'.
+[17:57:53] - - Finished - - - - - - - - - - - - - - 
+[17:57:53] There are 2 players playing.
+[17:57:53] Assuming the control of player 'James Pond'.
+[17:57:53] Are we logging everything (properties file): true
+[17:57:54]  - - - - - - - - - - - - - - - - - - - - 
+[17:57:54]              Creating GUI...             
+[17:57:54]  - - - - - - - - - - - - - - - - - - - - 
+[17:57:54] Creating new resource manager @ 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[17:57:54] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[17:57:54] [LOG] [17:57:54] Loading 'Bob' [1/30]. = [17:57:54] Success. [harold.jpg][17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'Chris' [2/30]. = [17:57:54] Already loaded.[17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'Craig' [2/30]. = [17:57:54] Already loaded.[17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'Donald Trump' [2/30]. = [17:57:54] Already loaded.[17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'James Pond' [2/30]. = [17:57:54] Already loaded.[17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'Louis' [2/30]. = [17:57:54] Already loaded.[17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'Mitch' [2/30]. = [17:57:54] Already loaded.[17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'Richard Jones' [2/30]. = [17:57:54] Already loaded.[17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'lab' [2/30]. = [17:57:54] Success. [lab.jpg][17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'library' [3/30]. = [17:57:54] Success. [library.jpg][17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'outside' [4/30]. = [17:57:54] Success. [outside.jpg][17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'pub' [5/30]. = [17:57:54] Success. [bar.jpg][17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'theatre' [6/30]. = [17:57:54] Success. [theatre.jpg][17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'apple' [7/30]. = [17:57:54] Success. [apple.png][17:57:54] 
+[17:57:54] [LOG] [17:57:54] Loading 'book' [8/30]. = [17:57:55] Success. [book.png][17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'sword' [9/30]. = [17:57:55] Success. [sword.png][17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'grapes' [10/30]. = [17:57:55] Success. [grapes.png][17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'tomato' [11/30]. = [17:57:55] Success. [tomato.png][17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'TheGoldenPearOfDoom' [12/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'apple' [12/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'book' [12/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'sword' [12/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'grapes' [12/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'TheGoldenPearOfDoom' [12/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'apple' [12/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'book' [12/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'grapes' [12/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'pear' [12/30]. = [17:57:55] Success. [pear.png][17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'sword' [13/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] [LOG] [17:57:55] Loading 'tomato' [13/30]. = [17:57:55] Already loaded.[17:57:55] 
+[17:57:55] Resources loaded = 12
+[17:57:55] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[17:57:55] Closing logger.
+[17:57:55] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[19:56:41] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_02-12-16.txt'
+[19:56:41] LOCALE: en_GB - United Kingdom
+[19:56:41] Loading default commands...
+[19:56:41] Loaded default commands...
+[19:56:41] Starting World of Zuul... ENGLISH
+[19:56:41] Loading properties.ini file...
+[19:56:41] Property file found, loading properties...
+[19:56:41] Closed I/O streams.
+[19:56:41] Properties loaded.
+[19:56:42] Creating game session...
+[19:56:42] 
+[19:56:42]  - - - - - - - - - - - - - - - - - - - - 
+[19:56:42]       Loading Plugins ...          
+[19:56:42]  - - - - - - - - - - - - - - - - - - - - 
+[19:56:42] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[19:56:42] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [19:56:42] - Finished  - - - - - - - - - - - - - - 
+[19:56:42]  - - - - - - - - - - - - - - - - - - - - 
+[19:56:42]       Loading XML Config files ...    
+[19:56:42] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[19:56:42]  - - - - - - - - - - - - - - - - - - - - 
+[19:56:42] Added item 'apple'
+[19:56:42] Added item 'book'
+[19:56:42] Added item 'sword'
+[19:56:42] Added item 'tomato'
+[19:56:42] Added item 'pear'
+[19:56:42] Added item 'grapes'
+[19:56:42] Added item 'TheGoldenPearOfDoom'
+[19:56:42] Loaded room 'outside'
+[19:56:42] Loaded room 'library'
+[19:56:42] Loaded room 'theatre'
+[19:56:42] Loaded room 'lab'
+[19:56:42] Loaded room 'pub'
+[19:56:42] Added new player 'Richard Jones'.
+[19:56:42] Added new character 'Bob'.
+[19:56:42] Added new character 'Chris'.
+[19:56:42] Added new character 'Mitch'.
+[19:56:42] Added new character 'Louis'.
+[19:56:42] Added new character 'Craig'.
+[19:56:42] Added new character 'Donald Trump'.
+[19:56:42] Added new player 'Charlie Andrews'.
+[19:56:42] - - Finished - - - - - - - - - - - - - - 
+[19:56:42] There are 2 players playing.
+[19:56:42] Assuming the control of player 'Charlie Andrews'.
+[19:56:42] Are we logging everything (properties file): true
+[19:56:43]  - - - - - - - - - - - - - - - - - - - - 
+[19:56:43]              Creating GUI...             
+[19:56:43]  - - - - - - - - - - - - - - - - - - - - 
+[19:56:43] Creating new resource manager @ 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[19:56:43] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[19:56:43] [LOG] [19:56:43] Loading 'Bob' [1/30]. = [19:56:43] Success. [harold.jpg][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'Charlie Andrews' [2/30]. = [19:56:43] Success. [charlie.jpg][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'Chris' [3/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'Craig' [3/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'Donald Trump' [3/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'Louis' [3/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'Mitch' [3/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'Richard Jones' [3/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'lab' [3/30]. = [19:56:43] Success. [lab.jpg][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'library' [4/30]. = [19:56:43] Success. [library.jpg][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'outside' [5/30]. = [19:56:43] Success. [outside.jpg][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'pub' [6/30]. = [19:56:43] Success. [bar.jpg][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'theatre' [7/30]. = [19:56:43] Success. [theatre.jpg][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'apple' [8/30]. = [19:56:43] Success. [apple.png][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'book' [9/30]. = [19:56:43] Success. [book.png][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'sword' [10/30]. = [19:56:43] Success. [sword.png][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'grapes' [11/30]. = [19:56:43] Success. [grapes.png][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'tomato' [12/30]. = [19:56:43] Success. [tomato.png][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'TheGoldenPearOfDoom' [13/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'apple' [13/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'book' [13/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'sword' [13/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'grapes' [13/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'TheGoldenPearOfDoom' [13/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'apple' [13/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'book' [13/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'grapes' [13/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'pear' [13/30]. = [19:56:43] Success. [pear.png][19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'sword' [14/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] [LOG] [19:56:43] Loading 'tomato' [14/30]. = [19:56:43] Already loaded.[19:56:43] 
+[19:56:43] Resources loaded = 13
+[19:56:44] 
+[19:56:44] 	Creating panels...
+[19:56:44] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[19:56:44] Closing logger.
+[19:56:44] Closing writer for logger.
+ ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[20:01:48] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_02-12-16.txt'
+[20:01:48] LOCALE: en_GB - United Kingdom
+[20:01:48] Loading default commands...
+[20:01:48] Loaded default commands...
+[20:01:48] Starting World of Zuul... ENGLISH
+[20:01:48] Loading properties.ini file...
+[20:01:48] Property file found, loading properties...
+[20:01:48] Closed I/O streams.
+[20:01:48] Properties loaded.
+[20:01:49] Creating game session...
+[20:01:49] 
+[20:01:49]  - - - - - - - - - - - - - - - - - - - - 
+[20:01:49]       Loading Plugins ...          
+[20:01:49]  - - - - - - - - - - - - - - - - - - - - 
+[20:01:49] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[20:01:49] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [20:01:49] - Finished  - - - - - - - - - - - - - - 
+[20:01:49]  - - - - - - - - - - - - - - - - - - - - 
+[20:01:49]       Loading XML Config files ...    
+[20:01:49] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[20:01:49]  - - - - - - - - - - - - - - - - - - - - 
+[20:01:49] Added item 'apple'
+[20:01:49] Added item 'book'
+[20:01:49] Added item 'sword'
+[20:01:49] Added item 'tomato'
+[20:01:49] Added item 'pear'
+[20:01:49] Added item 'grapes'
+[20:01:49] Added item 'TheGoldenPearOfDoom'
+[20:01:49] Loaded room 'outside'
+[20:01:49] Loaded room 'library'
+[20:01:49] Loaded room 'theatre'
+[20:01:49] Loaded room 'lab'
+[20:01:49] Loaded room 'pub'
+[20:01:49] Added new player 'Richard Jones'.
+[20:01:49] Added new character 'Bob'.
+[20:01:49] Added new character 'Chris'.
+[20:01:49] Added new character 'Mitch'.
+[20:01:49] Added new character 'Louis'.
+[20:01:49] Added new character 'Craig'.
+[20:01:49] Added new character 'Donald Trump'.
+[20:01:49] Added new player 'Charlie Andrews'.
+[20:01:49] - - Finished - - - - - - - - - - - - - - 
+[20:01:49] There are 2 players playing.
+[20:01:49] Assuming the control of player 'Charlie Andrews'.
+[20:01:49] Are we logging everything (properties file): true
+[20:01:50]  - - - - - - - - - - - - - - - - - - - - 
+[20:01:50]              Creating GUI...             
+[20:01:50]  - - - - - - - - - - - - - - - - - - - - 
+[20:01:50] Creating new resource manager @ 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[20:01:50] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[20:01:50] [LOG] [20:01:50] Loading 'Bob' [1/30]. = [20:01:50] Success. [harold.jpg][20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'Charlie Andrews' [2/30]. = [20:01:50] Success. [charlie.jpg][20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'Chris' [3/30]. = [20:01:50] Already loaded.[20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'Craig' [3/30]. = [20:01:50] Already loaded.[20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'Donald Trump' [3/30]. = [20:01:50] Already loaded.[20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'Louis' [3/30]. = [20:01:50] Already loaded.[20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'Mitch' [3/30]. = [20:01:50] Already loaded.[20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'Richard Jones' [3/30]. = [20:01:50] Already loaded.[20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'lab' [3/30]. = [20:01:50] Success. [lab.jpg][20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'library' [4/30]. = [20:01:50] Success. [library.jpg][20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'outside' [5/30]. = [20:01:50] Success. [outside.jpg][20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'pub' [6/30]. = [20:01:50] Success. [bar.jpg][20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'theatre' [7/30]. = [20:01:50] Success. [theatre.jpg][20:01:50] 
+[20:01:50] [LOG] [20:01:50] Loading 'apple' [8/30]. = [20:01:51] Success. [apple.png][20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'book' [9/30]. = [20:01:51] Success. [book.png][20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'sword' [10/30]. = [20:01:51] Success. [sword.png][20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'grapes' [11/30]. = [20:01:51] Success. [grapes.png][20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'tomato' [12/30]. = [20:01:51] Success. [tomato.png][20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'TheGoldenPearOfDoom' [13/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'apple' [13/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'book' [13/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'sword' [13/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'grapes' [13/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'TheGoldenPearOfDoom' [13/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'apple' [13/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'book' [13/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'grapes' [13/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'pear' [13/30]. = [20:01:51] Success. [pear.png][20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'sword' [14/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] [LOG] [20:01:51] Loading 'tomato' [14/30]. = [20:01:51] Already loaded.[20:01:51] 
+[20:01:51] Resources loaded = 13
+[20:01:51] 
+[20:01:51] 	Creating panels...
+[20:01:51] [ERROR] An error occurred somewhere, closing logger. Exception in Application start method[20:01:51] Closing logger.
+[20:01:51] Closing writer for logger.

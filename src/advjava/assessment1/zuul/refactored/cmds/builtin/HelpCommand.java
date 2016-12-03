@@ -30,7 +30,15 @@ public class HelpCommand extends Command {
 	public boolean action(Game game, CommandExecution cmd) {
 
 		if(game instanceof ZuulGame){
-		
+	
+			if(game.getInterface() instanceof GraphicalInterface){
+				
+				GraphicalInterface gi = (GraphicalInterface) game.getInterface();
+				gi.showDialog("", "", "");
+				
+				return false;
+			}
+			
 			StringBuilder sb = new StringBuilder();
 	
 			// Go through every loaded command in the game.
@@ -51,9 +59,9 @@ public class HelpCommand extends Command {
 		return false;
 	}
 
-    @Override
-    public boolean interfaceAcceptable(UserInterface ui) {
-        return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
-    }
+	@Override
+	public boolean interfaceAcceptable(UserInterface ui) {
+		return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
+	}
 
 }

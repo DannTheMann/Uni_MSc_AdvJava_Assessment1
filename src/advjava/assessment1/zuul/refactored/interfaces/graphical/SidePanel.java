@@ -14,11 +14,10 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.Tooltip;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 
 public class SidePanel {
 
@@ -27,13 +26,15 @@ public class SidePanel {
 	private static final int NODE_HORIZONTAL_INSET = 10;
 
 	/* Constants for spacing offsets between nodes in gridpanes */
-	private static final int NODE_LEFT_OFFSET = 0;
-	private static final int NODE_TOP_OFFSET = 10;
-	private static final int NODE_RIGHT_OFFSET = 10;
-	private static final int NODE_BOTTOM_OFFSET = 10;
+	private static final int NODE_LEFT_OFFSET = 3;
+	private static final int NODE_TOP_OFFSET = 5;
+	private static final int NODE_RIGHT_OFFSET = 3;
+	private static final int NODE_BOTTOM_OFFSET = 5;
 
-	private static final int SIDEBAR_IMAGE_WIDTH = 50;
-	private static final int SIDEBAR_IMAGE_HEIGHT = 50;
+	private final int SIDEBAR_IMAGE_WIDTH;
+	private final int SIDEBAR_IMAGE_HEIGHT;
+	private final int SIDEBAR_NODE_HEIGHT;
+	private final int SIDEBAR_NODE_WIDTH;
 	private static final int MAX_WIDTH_CHAR = 8;
 
 	private final Node root;
@@ -44,11 +45,15 @@ public class SidePanel {
 	private final String emptyMessage;
 
 	public SidePanel(String title, String empty, Stream<Resource> stream, FontManager fm, Game game,
-			String cssStyling) {
+			String cssStyling, int nodeImageWidth, int nodeImageHeight, int nodeWidth, int nodeHeight) {
 		this.grids = new ArrayList<>();
 		this.fm = fm;
 		this.css = cssStyling;
 		this.emptyMessage = empty;
+		this.SIDEBAR_IMAGE_HEIGHT = nodeImageHeight;
+		this.SIDEBAR_IMAGE_WIDTH = nodeImageWidth;
+		this.SIDEBAR_NODE_HEIGHT = nodeHeight;
+		this.SIDEBAR_NODE_WIDTH = nodeWidth;
 
 		ScrollPane sp = new ScrollPane();
 		sp.setHbarPolicy(ScrollBarPolicy.NEVER);
@@ -57,7 +62,7 @@ public class SidePanel {
 		tileHolder = new TilePane();
 		tileHolder.getStyleClass().add(cssStyling);
 		tileHolder.setAlignment(Pos.BASELINE_CENTER);
-		tileHolder.setPrefWidth(300);
+		tileHolder.setPrefWidth(315);
 		tileHolder.setHgap(NODE_HORIZONTAL_INSET);
 		tileHolder.setVgap(NODE_VERTICAL_INSET);
 
@@ -68,9 +73,6 @@ public class SidePanel {
 
 		Text textTitle = new Text(title);
 		textTitle.setStyle("sidebar-title");
-
-		// tileHolder.getChildren().add(textTitle);
-		// tileHolder.getChildren().add(new Text());
 		
 		stream.forEach(i -> tileHolder.getChildren().add(getDisplayItem(i)));
 		
@@ -101,50 +103,49 @@ public class SidePanel {
 
 	}
 
-	private ImageView createIconImageView(Resource resource) {
-		ImageView iv = new ImageView(resource.getImage());
-		//iv.setPreserveRatio(true);
-		iv.setFitHeight(SIDEBAR_IMAGE_HEIGHT);
-		iv.setFitWidth(SIDEBAR_IMAGE_WIDTH);
-		return iv;
-	}
-
-	private Text createIconText(String txt) {
-		Text text = new Text(txt);
-		text.setTextAlignment(TextAlignment.CENTER);
-		return text;
-	}
-
 	private Node getDisplayItem(Resource resource) {
 
-		GridPane grid = createGridPane();
-
-		// Text from the resource, if the resource name exceeds
-		// MAX_WIDTH_CHAR then slice off and concat with "..."
-		Text text = createIconText(resource.getName().length() > MAX_WIDTH_CHAR
-				? " " + resource.getName().substring(0, MAX_WIDTH_CHAR - 2) + "..." : " " + resource.getName());
-
-		// Add the text and create an image of the resource
-		grid.add(text, 0, 0);
-		grid.add(createIconImageView(resource), 0, 1);
+		StackPane root = new StackPane();
 		
-		// Will add buttons (commands), text and other nodes
-		// based on whether this is an item, character or room.
-		// Items will have either drop, give or take
-		// Characters will have mouse events applied to them
-		// Rooms will have a Go command
-		resource.applyInformation(grid, text, resource, css);
+		root.getChildren().add(GraphicsUtil.createNewRectangle(css + "-node-root", SIDEBAR_NODE_WIDTH, SIDEBAR_NODE_HEIGHT));
+		
+		{
+		
+			GridPane grid = createGridPane();
 
-		// Apply the description in this manner, makes much
-		// more neater and less in our face
-		Tooltip.install(grid, GraphicsUtil.createNewToolTip(
-				resource.getName() + System.lineSeparator() + System.lineSeparator() + resource.getDescription(),
-				fm.getFont("Yu Gothic"), 25));
+			{
+		    	StackPane cover = new StackPane();	
+		    	cover.getChildren().add(GraphicsUtil.createNewRectangle("node-image", SIDEBAR_IMAGE_WIDTH+15, SIDEBAR_IMAGE_HEIGHT+15));
+		    	cover.getChildren().add(GraphicsUtil.createIconImage(resource.getImage(), SIDEBAR_IMAGE_WIDTH, SIDEBAR_IMAGE_HEIGHT));
+				
+		    	cover.setAlignment(Pos.CENTER);
+		    	
+				grid.add(cover, 0, 1);
+				grid.add(new StackPane(GraphicsUtil.createNewText(resource.getName().length() > MAX_WIDTH_CHAR
+					? " " + resource.getName().substring(0, MAX_WIDTH_CHAR - 2) + "..." : " " + resource.getName(), "node-text")), 0, 0);
+			}
+			
+			// Will add buttons (commands), text and other nodes
+			// based on whether this is an item, character or room.
+			// Items will have either drop, give or take
+			// Characters will have mouse events applied to them
+			// Rooms will have a Go command
+			resource.applyInformation(grid, css);
+			
+			// Apply the description in this manner, makes much
+			// more neater and less in our face
+			Tooltip.install(grid, GraphicsUtil.createNewToolTip(
+					resource.getName() + System.lineSeparator() + resource.getDescription(),
+					fm.getFont("Yu Gothic"), 25));
+			
+			root.getChildren().add(grid);
 
+		}
+		
 		// Add to our knowledge of current grids loaded
-		grids.add(new PanelNode(grid, resource));
-
-		return grid;
+		grids.add(new PanelNode(root, resource));
+		
+		return root;
 	}
 
 	public Node getNode() {
