@@ -178,7 +178,7 @@ public class Room extends Resource{
 	 * @return true if room has item
 	 */
 	public boolean hasItem(String itemName) {
-		return items.stream().anyMatch(i -> i.getName().equals(itemName));
+		return items.stream().anyMatch(i -> i.getRawName().equals(itemName));
 	}
 
 	/**
@@ -240,7 +240,7 @@ public class Room extends Resource{
 	 * @return item if present else null
 	 */
 	public Item getItem(String itemName) {
-		return items.stream().filter(i -> i.getName().equals(itemName)).findFirst().orElse(null);
+		return items.stream().filter(i -> i.getRawName().equals(itemName)).findFirst().orElse(null);
 	}
 
 	/**
@@ -271,8 +271,7 @@ public class Room extends Resource{
 	 *            characters to add
 	 */
 	public void addCharacter(Character... characters) {
-		for (Character c : characters)
-			addCharacter(c);
+		Arrays.stream(characters).forEach(c->addCharacter(c));
 	}
 
 	/**
@@ -294,12 +293,12 @@ public class Room extends Resource{
 	 * @return
 	 */
 	public Character getCharacter(String characterName) {
-		return characters.stream().filter(c -> c.getName().equals(characterName)).findFirst().orElse(null);
+		return characters.stream().filter(c -> c.getRawName().equals(characterName)).findFirst().orElse(null);
 	}
 
 	public String getExitFromRoomName(String roomName) {
 		return rooms.entrySet().stream()
-									.filter(k->k.getValue().getName().equals(roomName))
+									.filter(k->k.getValue().getRawName().equals(roomName))
 									.map(Entry::getKey)
 									.findFirst()
 									.orElse(null);

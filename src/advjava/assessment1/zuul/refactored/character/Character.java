@@ -248,7 +248,7 @@ public abstract class Character extends Resource {
 		
 		grid.setOnMouseClicked(GraphicalInterface.getCommandEvent(
 
-				" " + getName(),
+				" " + getRawName(),
 
 				Main.game.getCommandManager().getCommand("Give")));
 

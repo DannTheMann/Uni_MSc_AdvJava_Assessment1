@@ -5,10 +5,14 @@ import java.lang.reflect.Field;
 import advjava.assessment1.zuul.refactored.utils.Out;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Tooltip;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -78,4 +82,13 @@ public class GraphicsUtil {
     	text.getStyleClass().add(css);
     	return text;	
     }
+    
+
+	public static void showAlert(String title, String mast, String body, AlertType dialogType) {
+		Alert alert = new Alert(dialogType, body, ButtonType.OK);
+		alert.setTitle(title);
+		alert.setHeaderText(mast);
+		alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+		alert.show();
+	}
 }

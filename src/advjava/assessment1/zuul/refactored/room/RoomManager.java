@@ -23,10 +23,10 @@ public class RoomManager extends CollectionManager<Room>{
 	 * @return true if room was added
 	 */
 	public boolean addRoom(Room room) {
-		if (has(room.getName()))
+		if (has(room.getRawName()))
 			return false;
 		else
-			add(room.getName(), room);
+			add(room.getRawName(), room);
 		return true;
 	}
 
@@ -42,7 +42,7 @@ public class RoomManager extends CollectionManager<Room>{
 		for (Room room : values()){
 			if (!room.isComplete()){
 				throw new MalformedXMLException(String.format(InternationalisationManager.im.getMessage("rm.badXML"),
-						room.getName(), room.getExits().size(), System.lineSeparator()));
+						room.getRawName(), room.getExits().size(), System.lineSeparator()));
 			}
 		}
 	}

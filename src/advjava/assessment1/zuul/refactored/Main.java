@@ -20,191 +20,211 @@ import advjava.assessment1.zuul.refactored.utils.Out;
  */
 public class Main {
 
-    // Constants for directorys and files
-    public static final String PLUGIN_COMMANDS_FOLDER = System.getProperty("user.dir") + File.separator + "Plugins";
-    public static final String XML_CONFIGURATION_FILES = System.getProperty("user.dir") + File.separator + "Config";
-    public static final String LOG_FILES = System.getProperty("user.dir") + File.separator + "Config" + File.separator + "Logs";
-    public static final String RESOURCE_FILES = System.getProperty("user.dir") + File.separator + "Resources";
-    public static final String PROPERTIES_FILE = XML_CONFIGURATION_FILES + File.separator + "zuul.properties";
+	// Constants for directorys and files
+	public static final String PLUGIN_COMMANDS_FOLDER = System.getProperty("user.dir") + File.separator + "Plugins";
+	public static final String XML_CONFIGURATION_FILES = System.getProperty("user.dir") + File.separator + "Config";
+	public static final String LOG_FILES = System.getProperty("user.dir") + File.separator + "Config" + File.separator
+			+ "Logs";
+	public static final String RESOURCE_FILES = System.getProperty("user.dir") + File.separator + "Resources";
+	public static final String PROPERTIES_FILE = XML_CONFIGURATION_FILES + File.separator + "zuul.properties";
 
-    private static Properties properties = null;
+	private static Properties properties = null;
 
-    /**
-     * Singleton for game
-     */
-    public static final ZuulGame game = new ZuulGame();
+	/**
+	 * Singleton for game
+	 */
+	public static final ZuulGame game = new ZuulGame();
 
-    /**
-     * Starting point for the game, checks directories exist for config and
-     * plugins, else creates them, loads the properties and finally initialises
-     * the game and passes the properties.
-     *
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+	/**
+	 * Starting point for the game, checks directories exist for config and
+	 * plugins, else creates them, loads the properties and finally initialises
+	 * the game and passes the properties.
+	 *
+	 * @param args
+	 *            the command line arguments
+	 */
+	public static void main(String[] args) {
 
-        try {
-    
-            Out.out.setPrintingDebugMessages(true);
-            Out.out.logln(InternationalisationManager.im.getMessage("main.start"));
+		try {
 
-            // Check directories for plugins/xml files
-            checkDirectory(PLUGIN_COMMANDS_FOLDER);
-            checkDirectory(XML_CONFIGURATION_FILES);
+			Out.out.setPrintingDebugMessages(true);
+			Out.out.logln(InternationalisationManager.im.getMessage("main.start"));
 
-            // Load properties file to gather default parameters for game
-            Out.out.logln(InternationalisationManager.im.getMessage("main.loadProp"));
-            properties = loadProperties();
+			// Check directories for plugins/xml files
+			checkDirectory(PLUGIN_COMMANDS_FOLDER);
+			checkDirectory(XML_CONFIGURATION_FILES);
 
-            //Out.close();
-            //Out.createLogger(properties.getProperty("logFile"));
-            Out.out.logln(InternationalisationManager.im.getMessage("main.finishProp"));
+			// Load properties file to gather default parameters for game
+			Out.out.logln(InternationalisationManager.im.getMessage("main.loadProp"));
+			properties = loadProperties();
 
-            // Delay to allow everything to be ready...
-            Thread.sleep(1000);
-            Out.out.logln(InternationalisationManager.im.getMessage("main.createSession"));
-            // Create the game, initialise and start it
-            game.initialiseGame(properties);
+			// Out.close();
+			// Out.createLogger(properties.getProperty("logFile"));
+			Out.out.logln(InternationalisationManager.im.getMessage("main.finishProp"));
 
-            Out.out.setPrintingDebugMessages(Boolean.parseBoolean(properties.getProperty("logEverything")));
-            Out.out.logln("Are we logging everything (properties file): " + Out.out.isPrintingDebugMessages());
+			// Delay to allow everything to be ready...
+			Thread.sleep(1000);
+			Out.out.logln(InternationalisationManager.im.getMessage("main.createSession"));
+			// Create the game, initialise and start it
+			game.initialiseGame(properties);
 
-            game.play();
+			Out.out.setPrintingDebugMessages(Boolean.parseBoolean(properties.getProperty("logEverything")));
+			Out.out.logln("Are we logging everything (properties file): " + Out.out.isPrintingDebugMessages());
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            Out.out.loglnErr("An error occurred somewhere, closing logger. " + e.getMessage());
-            try {
-                Out.close();
-            } catch (IOException ioe) {
-                Out.out.loglnErr("Failed to close logger, it can't get much worse than this. " + ioe.getMessage());
-            }
-        }
+			game.play();
 
-    }
+		} catch (Exception e) {
+			e.printStackTrace();
+			Out.out.loglnErr("An error occurred somewhere, closing logger. " + e.getMessage());
+			try {
+				Out.close();
+			} catch (IOException ioe) {
+				Out.out.loglnErr("Failed to close logger, it can't get much worse than this. " + ioe.getMessage());
+			}
+		}
 
-    /**
-     * Load properties if they exist, else return the existing properties
-     *
-     * @return Properties properties of the game
-     */
-    private static Properties loadProperties() {
+	}
 
-        // Prepare variables for use
-        properties = new Properties();
-        FileInputStream fileIn = null;
-        FileOutputStream fileOut = null;
-        File propFile = new File(PROPERTIES_FILE);
+	/**
+	 * Load properties if they exist, else return the existing properties
+	 *
+	 * @return Properties properties of the game
+	 */
+	private static Properties loadProperties() {
 
-        // Catch any IO issues
-        try {
+		// Prepare variables for use
+		properties = new Properties();
+		FileInputStream fileIn = null;
+		FileOutputStream fileOut = null;
+		File propFile = new File(PROPERTIES_FILE);
 
-            // A file doesn't exist
-            if (!propFile.exists()) {
+		// Catch any IO issues
+		try {
 
-                // Create the file, store default values
-                Out.out.logln(InternationalisationManager.im.getMessage("main.createProp"));
-                fileOut = new FileOutputStream(propFile);
+			// A file doesn't exist
+			if (!propFile.exists()) {
 
-                /**
-                 * Used to use these to store a single reference to a player but
-                 * sided against this to use the XML structure I created as it
-                 * reduces repeated information but allows for multiple players.
-                 */
-                properties.setProperty("helpIntroductionText",
-                        InternationalisationManager.im.getMessage("main.introText"));
-                properties.setProperty("logFile", LOG_FILES);
-                properties.setProperty("logEverything", "true");
-                properties.setProperty("title", "World of Zuul");
-                properties.setProperty("css", "zuul_style.css");
-                properties.setProperty("resourceDirectory", RESOURCE_FILES);
-                properties.setProperty("noResourceFound", "error.png");
-                properties.setProperty("defaultFont", "Arial");
+				// Create the file, store default values
+				Out.out.logln(InternationalisationManager.im.getMessage("main.createProp"));
+				fileOut = new FileOutputStream(propFile);
 
-                properties.store(fileOut, "Zuul Configuration");
+				/**
+				 * Used to use these to store a single reference to a player but
+				 * sided against this to use the XML structure I created as it
+				 * reduces repeated information but allows for multiple players.
+				 */
+				properties.setProperty("helpIntroductionText",
+						InternationalisationManager.im.getMessage("main.introText"));
+				properties.setProperty("logFile", LOG_FILES);
+				properties.setProperty("logEverything", "true");
+				properties.setProperty("title", "World of Zuul");
+				properties.setProperty("css", "zuul_style.css");
+				properties.setProperty("resourceDirectory", RESOURCE_FILES);
+				properties.setProperty("noResourceFound", "error.png");
+				properties.setProperty("defaultFont", "Arial");
+				properties.setProperty("guiHelpDescription",
+						"Welcome to World of Zuul! You're running the GUI implementation of the game" + ". "
+								+ System.lineSeparator() + System.lineSeparator()
+								+ " Your player information is seen below (name, description and weight). Clicking the inventory button will show you"
+								+ " what items you currently have, you can drop or give these items from here. Using look, you can see what and who"
+								+ " is currently in the room with you. Finally, using go will let you traverse the nearby exits and allow you to explore."
+								+ System.lineSeparator() + System.lineSeparator()
+								+ "Hovering your mouse over any object in the game will give you more information on this object.");
 
-                // File does exist
-            } else {
+				properties.store(fileOut, "Zuul Configuration");
 
-                Out.out.logln(InternationalisationManager.im.getMessage("main.propFound"));
-                fileIn = new FileInputStream(propFile);
-                // load properties
-                properties.load(fileIn);
+				// File does exist
+			} else {
 
-                /**
-                 * check all properties exist, if any do not add them
-                 */
-                checkProperty("helpIntroductionText", InternationalisationManager.im.getMessage("main.introText"));
-                checkProperty("logFile", LOG_FILES);
-                checkProperty("logEverything", "true");
-                checkProperty("title", "World of Zuul");
-                checkProperty("css", "zuul_style.css");
-                checkProperty("resourceDirectory", RESOURCE_FILES);
-                checkProperty("noResourceFound", "error.png");
-                checkProperty("defaultFont", "Arial");
+				Out.out.logln(InternationalisationManager.im.getMessage("main.propFound"));
+				fileIn = new FileInputStream(propFile);
+				// load properties
+				properties.load(fileIn);
 
-                // Save any changes made, if any properties were missing
-                fileOut = new FileOutputStream(propFile);
-                properties.store(fileOut, "Zuul Configuration");
+				/**
+				 * check all properties exist, if any do not add them
+				 */
+				checkProperty("helpIntroductionText", InternationalisationManager.im.getMessage("main.introText"));
+				checkProperty("logFile", LOG_FILES);
+				checkProperty("logEverything", "true");
+				checkProperty("title", "World of Zuul");
+				checkProperty("css", "zuul_style.css");
+				checkProperty("resourceDirectory", RESOURCE_FILES);
+				checkProperty("noResourceFound", "error.png");
+				checkProperty("defaultFont", "Arial");
+				checkProperty("guiHelpDescription",
+						"Welcome to World of Zuul! You're running the GUI implementation of the game" + ". "
+								+ System.lineSeparator() + System.lineSeparator()
+								+ " Your player information is seen below (name, description and weight). Clicking the inventory button will show you"
+								+ " what items you currently have, you can drop or give these items from here. Using look, you can see what and who"
+								+ " is currently in the room with you. Finally, using go will let you traverse the nearby exits and allow you to explore."
+								+ System.lineSeparator() + System.lineSeparator()
+								+ "Hovering your mouse over any object in the game will give you more information on this object.");
 
-            }
+				// Save any changes made, if any properties were missing
+				fileOut = new FileOutputStream(propFile);
+				properties.store(fileOut, "Zuul Configuration");
 
-        } catch (Exception e) {
-            Out.out.loglnErr(InternationalisationManager.im.getMessage("main.propFail"));
-            e.printStackTrace();
-            System.exit(1);
-        } finally {
-            try {
+			}
 
-                // Close any resources we were using
-                if (fileOut != null) {
-                    fileOut.close();
-                }
-                if (fileIn != null) {
-                    fileIn.close();
-                }
-                Out.out.logln(InternationalisationManager.im.getMessage("main.closeIO"));
-            } catch (IOException e) {
-                Out.out.loglnErr(InternationalisationManager.im.getMessage("main.IOFail"));
-                e.printStackTrace();
-            }
-        }
-        return properties;
-    }
+		} catch (Exception e) {
+			Out.out.loglnErr(InternationalisationManager.im.getMessage("main.propFail"));
+			e.printStackTrace();
+			System.exit(1);
+		} finally {
+			try {
 
-    /**
-     * Checks to see if a property exists, if not creates the property with the
-     * assigned key and value
-     *
-     * @param key The key
-     * @param value The value
-     * @return true if property existed
-     */
-    private static boolean checkProperty(String key, String value) {
-        if (!properties.containsKey(key)) {
-            Out.out.loglnErr(String.format(InternationalisationManager.im.getMessage("main.badProp"), key, value));
-            properties.setProperty(key, value);
-            return false;
-        }
-        return true;
-    }
+				// Close any resources we were using
+				if (fileOut != null) {
+					fileOut.close();
+				}
+				if (fileIn != null) {
+					fileIn.close();
+				}
+				Out.out.logln(InternationalisationManager.im.getMessage("main.closeIO"));
+			} catch (IOException e) {
+				Out.out.loglnErr(InternationalisationManager.im.getMessage("main.IOFail"));
+				e.printStackTrace();
+			}
+		}
+		return properties;
+	}
 
-    /**
-     * Check to see if a directory exists, if not create it.
-     *
-     * @param dir Directory to check
-     * @return true if it exists
-     */
-    private static boolean checkDirectory(String dir) {
-        File directory = new File(dir);
+	/**
+	 * Checks to see if a property exists, if not creates the property with the
+	 * assigned key and value
+	 *
+	 * @param key
+	 *            The key
+	 * @param value
+	 *            The value
+	 * @return true if property existed
+	 */
+	private static boolean checkProperty(String key, String value) {
+		if (!properties.containsKey(key)) {
+			Out.out.loglnErr(String.format(InternationalisationManager.im.getMessage("main.badProp"), key, value));
+			properties.setProperty(key, value);
+			return false;
+		}
+		return true;
+	}
 
-        if (!directory.exists()) {
-            Out.out.logln(String.format(InternationalisationManager.im.getMessage("main.noDir"),
-                    directory.getAbsolutePath()));
-            Out.out.logln(
-                    String.format(InternationalisationManager.im.getMessage("main.mkdir"), directory.mkdirs()));
-            return false;
-        }
-        return true;
-    }
+	/**
+	 * Check to see if a directory exists, if not create it.
+	 *
+	 * @param dir
+	 *            Directory to check
+	 * @return true if it exists
+	 */
+	private static boolean checkDirectory(String dir) {
+		File directory = new File(dir);
+
+		if (!directory.exists()) {
+			Out.out.logln(String.format(InternationalisationManager.im.getMessage("main.noDir"),
+					directory.getAbsolutePath()));
+			Out.out.logln(String.format(InternationalisationManager.im.getMessage("main.mkdir"), directory.mkdirs()));
+			return false;
+		}
+		return true;
+	}
 }

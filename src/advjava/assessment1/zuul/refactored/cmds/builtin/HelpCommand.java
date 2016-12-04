@@ -7,7 +7,9 @@ import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
+import advjava.assessment1.zuul.refactored.interfaces.graphical.GraphicsUtil;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import javafx.scene.control.Alert.AlertType;
 
 /**
  * The Help Command is designed to print every command currently loaded in the
@@ -29,31 +31,18 @@ public class HelpCommand extends Command {
 	@Override
 	public boolean action(Game game, CommandExecution cmd) {
 
-		if(game instanceof ZuulGame){
-	
+		if(game instanceof ZuulGame){	
+			
 			if(game.getInterface() instanceof GraphicalInterface){
 				
-				GraphicalInterface gi = (GraphicalInterface) game.getInterface();
-				gi.showDialog("", "", "");
+				GraphicsUtil.showAlert(getName(), "All commands available to you.", game.getInterface().getHelpDescription(), AlertType.INFORMATION);
 				
-				return false;
-			}
-			
-			StringBuilder sb = new StringBuilder();
+			}else{
 	
-			// Go through every loaded command in the game.
-			for (Command c : game.getCommandManager().commands()) {
-				// Add the command name and description to the stringbuilder
-				sb.append(String.format(InternationalisationManager.im.getMessage("help.list"), c.getName(),
-						c.getDescription(), System.lineSeparator()));
-			}
-	
-			// Print out the concatenated list of commands
-			game.getInterface().println(String.format(InternationalisationManager.im.getMessage("help.intro"),
-					((ZuulGame) game).getProperty("helpIntroductionText"), System.lineSeparator()));
-			game.getInterface().println(String.format(InternationalisationManager.im.getMessage("help.print"),
-					System.lineSeparator(), sb.toString()));
+				// Print out the concatenated list of commands
+				game.getInterface().println(game.getInterface().getHelpDescription());
 			
+			}
 		}
 
 		return false;

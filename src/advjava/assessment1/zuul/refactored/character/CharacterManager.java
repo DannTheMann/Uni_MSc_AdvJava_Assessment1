@@ -28,7 +28,7 @@ public class CharacterManager extends CollectionManager<Character>{
 	public Player getPlayer(String playerName){
 		Character player =  values().stream()
 				.filter(Character::isPlayer)
-				.filter(c->c.getName().equals(playerName))
+				.filter(c->c.getRawName().equals(playerName))
 				.findFirst()
 				.orElse(null);
 		return player != null ? (Player) player : null;
@@ -54,10 +54,10 @@ public class CharacterManager extends CollectionManager<Character>{
 	 *            to add
 	 */
 	public void addCharacter(Character character) {
-		if (has(character.getName()))
+		if (has(character.getRawName()))
 			throw new IllegalArgumentException(
 					String.format(InternationalisationManager.im.getMessage("cm.null"), character.getName()));
-		add(character.getName(), character);
+		add(character.getRawName(), character);
 	}
 
 	/**

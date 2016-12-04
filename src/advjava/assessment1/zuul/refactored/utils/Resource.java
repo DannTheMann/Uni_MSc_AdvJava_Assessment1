@@ -7,7 +7,6 @@ import java.util.Arrays;
 import advjava.assessment1.zuul.refactored.Main;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 
 public abstract class Resource extends Descriptor{
 

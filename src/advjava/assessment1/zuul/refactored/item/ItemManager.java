@@ -22,10 +22,10 @@ public class ItemManager extends CollectionManager<Item>{
 	 * @return true if added the item
 	 */
 	public boolean addItem(Item item) {
-		if (has(item.getName()))
+		if (has(item.getRawName()))
 			return false;
 		else
-			add(item.getName(), item);
+			add(item.getRawName(), item);
 		return true;
 	}
 
@@ -49,7 +49,7 @@ public class ItemManager extends CollectionManager<Item>{
 		
 		if(has(name)){
 			Item original = get(name);
-			Item copy = new Item(original.getName(), original.getRawDescription(), 
+			Item copy = new Item(original.getRawName(), original.getRawDescription(), 
 					original.getWeight(), original.getRawImageURL());
 			if(ResourceManager.isLoaded())
 				copy.loadImage(ResourceManager.getResourceManager().getImage(copy.getResourceName()));

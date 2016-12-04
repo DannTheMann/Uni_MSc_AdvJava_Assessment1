@@ -1,8 +1,8 @@
 package advjava.assessment1.zuul.refactored.interfaces;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Stream;
 
 import advjava.assessment1.zuul.refactored.Game;
@@ -12,6 +12,7 @@ import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.interfaces.graphical.CentralPanel;
 import advjava.assessment1.zuul.refactored.interfaces.graphical.GraphicsUtil;
 import advjava.assessment1.zuul.refactored.interfaces.graphical.SidePanel;
+import advjava.assessment1.zuul.refactored.interfaces.graphical.SlideAnimation;
 import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 import advjava.assessment1.zuul.refactored.utils.ResourceManager;
@@ -25,6 +26,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -39,7 +42,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 	private static Game game;
 	private static FontManager fontManager;
 
-	private static List<Button> commandButtons;
+	private static Map<String, Button> commandButtons;
 	private static Stage stage;
 	private static Scene scene;
 	private static BorderPane root;
@@ -64,7 +67,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 	private static final int SIDE_PANEL_NODE_HEIGHT = 110;
 	private static final int SIDE_PANEL_NODE_WIDTH = 130;
 	private static final int CENTRAL_PANEL_NODE_HEIGHT = 130;
-	private static final int CENTRAL_PANEL_NODE_WIDTH = 95;
+	private static final int CENTRAL_PANEL_NODE_WIDTH = 90;
 
 	/* Panel Identifiers for Central Panel */
 	private static final String CENTRAL_PANEL_CHARACTERS = "Characters";
@@ -104,11 +107,14 @@ public class GraphicalInterface extends Application implements UserInterface {
 	@Override
 	public void printErr(Object obj) {
 		System.err.print(obj);
+		GraphicsUtil.showAlert("Error", "An error occurred somewhere.", obj.toString(), AlertType.ERROR);
 	}
 
 	@Override
 	public void printlnErr(Object obj) {
 		System.err.println(obj);
+		if(stage != null)
+			GraphicsUtil.showAlert("Error", "An error occurred somewhere.", obj.toString(), AlertType.ERROR);
 	}
 
 	@Override
@@ -118,7 +124,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	@Override
 	public void displayLocale(Object obj) {
-
+		GraphicsUtil.showAlert("Zuul", null, obj.toString(), AlertType.INFORMATION);
 	}
 
 	@Override
@@ -143,8 +149,13 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 		// Update background
 		setBackgroundImage(game.getPlayer().getCurrentRoom());
+		updateWeight();
 
 		return true;
+	}
+
+	private void updateWeight() {
+		playerWeight.setText(getWeightTranslation());
 	}
 
 	@Override
@@ -181,7 +192,6 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 		/* Create root pane, a border pane */
 		root = new BorderPane();
-		root.setBottom(playerToolbar);
 
 		Out.out.logln();
 		Out.out.logln("	Creating panels...");
@@ -189,24 +199,44 @@ public class GraphicalInterface extends Application implements UserInterface {
 		Stream<Resource> centralResources = Stream.concat(game.getPlayer().getCurrentRoom().getItems().stream(),
 				game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream());
 
-		inventory = new SidePanel(SIDE_PANEL_INVENTORY, NO_ITEMS_IN_INVENTORY, game.getPlayer().getInventory().stream(),
-				fontManager, game, "sidepanel-inventory", ITEMS_MAX_IMAGE_SIZE, ITEMS_MAX_IMAGE_SIZE,
+		inventory = new SidePanel(
+				SIDE_PANEL_INVENTORY, NO_ITEMS_IN_INVENTORY,
+				game.getPlayer().getInventory().stream(),
+				fontManager, game, "sidepanel-inventory", 
+				ITEMS_MAX_IMAGE_SIZE, ITEMS_MAX_IMAGE_SIZE,
 				SIDE_PANEL_NODE_WIDTH, SIDE_PANEL_NODE_HEIGHT);
+		
 		characters = new SidePanel(SIDE_PANEL_CHARACTERS, NO_CHARACTERS_IN_ROOM,
-				game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(), fontManager, game,
-				"sidepanel-characters", CHARACTERS_MAX_IMAGE_SIZE, CHARACTERS_MAX_IMAGE_SIZE, CENTRAL_PANEL_NODE_WIDTH,
-				CENTRAL_PANEL_NODE_HEIGHT);
-		exits = new SidePanel(SIDE_PANEL_EXITS, NO_EXITS_IN_ROOM, game.getPlayer().getCurrentRoom().getExits().stream(),
-				fontManager, game, "sidepanel-exits", CHARACTERS_MAX_IMAGE_SIZE, CHARACTERS_MAX_IMAGE_SIZE,
-				SIDE_PANEL_NODE_WIDTH-35, SIDE_PANEL_NODE_HEIGHT+35);
+				game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(),
+				fontManager, game,
+				"sidepanel-characters",
+				CHARACTERS_MAX_IMAGE_SIZE, CHARACTERS_MAX_IMAGE_SIZE, 
+				CENTRAL_PANEL_NODE_WIDTH,CENTRAL_PANEL_NODE_HEIGHT);
+		
+		
+		exits = new SidePanel(SIDE_PANEL_EXITS, NO_EXITS_IN_ROOM, 
+				game.getPlayer().getCurrentRoom().getExits().stream(),
+				fontManager, game, "sidepanel-exits", 
+				CHARACTERS_MAX_IMAGE_SIZE, CHARACTERS_MAX_IMAGE_SIZE,
+				SIDE_PANEL_NODE_WIDTH-35, SIDE_PANEL_NODE_HEIGHT+35, 500, 500);
+		
+		((ScrollPane) exits.getNode()).setFitToWidth(true);
+		
 
 		room = new CentralPanel(CENTRAL_PANEL_TITLE, centralResources, fontManager, game, "sidepanel-room");
+		
+		room.setVisible(false);
+		
 		room.addPanel(CENTRAL_PANEL_CHARACTERS, NO_CHARACTERS_IN_ROOM,
-				game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(), CHARACTERS_MAX_IMAGE_SIZE,
-				CHARACTERS_MAX_IMAGE_SIZE, CENTRAL_PANEL_NODE_WIDTH, CENTRAL_PANEL_NODE_HEIGHT);
-		room.addPanel(CENTRAL_PANEL_ITEMS, NO_ITEMS_IN_ROOM, game.getPlayer().getCurrentRoom().getItems().stream(),
-				ITEMS_MAX_IMAGE_SIZE, ITEMS_MAX_IMAGE_SIZE, CENTRAL_PANEL_NODE_WIDTH, CENTRAL_PANEL_NODE_HEIGHT);
-
+				game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(), 
+				CHARACTERS_MAX_IMAGE_SIZE,CHARACTERS_MAX_IMAGE_SIZE, 
+				CENTRAL_PANEL_NODE_WIDTH, CENTRAL_PANEL_NODE_HEIGHT);
+		
+		room.addPanel(CENTRAL_PANEL_ITEMS, NO_ITEMS_IN_ROOM, 
+				game.getPlayer().getCurrentRoom().getItems().stream(),
+				ITEMS_MAX_IMAGE_SIZE, ITEMS_MAX_IMAGE_SIZE, 
+				CENTRAL_PANEL_NODE_WIDTH, CENTRAL_PANEL_NODE_HEIGHT);
+		
 		scene = new Scene(root, 1280, 720);
 
 		// Setup styling
@@ -218,10 +248,39 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 		stage.show();
 
+		// WORKING CODE
+//		root.setBottom(playerToolbar);
+//		playerToolbar.toBack();
+//		root.setTop(exits.getNode());
+//		//root.setCenter(room.getNode());
+//		root.setRight(characters.getNode());
+//		root.setLeft(inventory.getNode());
+		
+		root.setCenter(playerToolbar);
+		playerToolbar.toFront();
+		root.setTop(exits.getNode());
+		//root.setCenter(room.getNode());
+		root.setRight(characters.getNode());
+		root.setLeft(inventory.getNode());
+		
+		updateAnimation();
+		
+		scene.heightProperty().addListener(s->updateAnimation());
+		scene.widthProperty().addListener(s->updateAnimation());
+		
 		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
 		Out.out.logln("              Finished GUI.              ");
+		Out.out.logln(" BorderPane w: " + root.getWidth() + ", h: " +root.getHeight());
 		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
-
+		
+	}
+	
+	private void updateAnimation(){
+		Out.out.logln("Updating...");
+		inventory.setSlideAnimation(root, SlideAnimation.LEFT, 300);
+		characters.setSlideAnimation(root, SlideAnimation.RIGHT, 500);
+		exits.setSlideAnimation(root, SlideAnimation.TOP, 500);
+		room.setSlideAnimation(room.getNode(), root, SlideAnimation.RIGHT, 500);
 	}
 
 	private StackPane getPlayerInformationNode() {
@@ -229,14 +288,14 @@ public class GraphicalInterface extends Application implements UserInterface {
 		StackPane root = new StackPane();
 
 		root.getChildren().add(GraphicsUtil.createNewRectangle("player-information-root", PLAYER_INFO_MAX_WIDTH, 150));
-		root.setAlignment(Pos.CENTER);
+		root.setAlignment(Pos.BOTTOM_CENTER);
 
 		{
 
 			VBox vbox = new VBox();
 
 			vbox.setMaxWidth(PLAYER_INFO_MAX_WIDTH);
-			vbox.setAlignment(Pos.CENTER_RIGHT);
+			vbox.setAlignment(Pos.BOTTOM_CENTER);
 
 			StackPane stack = new StackPane();
 
@@ -250,7 +309,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 				gp.setVgap(10);
 				gp.setPadding(new Insets(0, 5, 0, 5));
 
-				gp.setAlignment(Pos.CENTER_LEFT);
+				gp.setAlignment(Pos.BOTTOM_CENTER);
 
 				{
 					StackPane sp = new StackPane();
@@ -278,8 +337,8 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 					weightPane.getChildren().add(playerWeight);
 					weightPane.setPadding(new Insets(5, 5, 5, 5));
-					weightPane.setAlignment(Pos.CENTER);
-					innergp.setAlignment(Pos.CENTER_LEFT);
+					weightPane.setAlignment(Pos.BOTTOM_CENTER);
+					innergp.setAlignment(Pos.BOTTOM_CENTER);
 
 					innergp.add(weightPane, 1, 3);
 
@@ -308,7 +367,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 		hbox.setSpacing(10);
 		// hbox.setStyle("-fx-background-color: #336699;");
 
-		commandButtons = new ArrayList<>(game.getCommandManager().commands().size());
+		commandButtons = new HashMap<>();
 
 		Button buttonCurrent = null;
 
@@ -320,9 +379,10 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 			buttonCurrent = newCommandButton("", command, "command-button");
 			buttonCurrent.setPrefSize(100, 20);
+			Tooltip.install(buttonCurrent, GraphicsUtil.createNewToolTip(command.getDescription(), FontManager.getFontManager().getFont("DEFAULT_FONT"), 1000));
 			hbox.getChildren().add(buttonCurrent);
 
-			commandButtons.add(buttonCurrent);
+			commandButtons.put(command.getRawName(), buttonCurrent);
 
 		}
 
@@ -377,64 +437,106 @@ public class GraphicalInterface extends Application implements UserInterface {
 	@Override
 	public void showInventory() {
 
-		if (root.getLeft() != null) {
-			root.setLeft(null);
-			return;
+		if(inventory.isHidden()){
+			hideOtherPanes();
+			inventory.show();
+		}else{
+			inventory.hide();
 		}
-
-		disableOtherWindows();
-
-		root.setLeft(inventory.getNode());
-		root.setBottom(playerToolbar);
-		playerToolbar.toBack();
-		// sliding transition... from left ...
+		
+//		if (root.getLeft() != null) {
+//			root.setLeft(null);
+//			return;
+//		}
+//
+//		disableOtherWindows();
+//
+//		root.setLeft(inventory.getNode());
+//		root.setBottom(playerToolbar);
+//		playerToolbar.toBack();
+//		// sliding transition... from left ...
 	}
 
 	@Override
 	public void showCharacters() {
-		if (root.getRight() != null) {
-			root.setRight(null);
-			return;
+
+		if(characters.isHidden()){
+			
+			root.setRight(characters.getNode());
+			
+			characters.show();
+		}else{
+			hideOtherPanes();
+			characters.hide();
 		}
+		
+		
+		//		if (root.getRight() != null) {
+//			root.setRight(null);
+//			return;
+//		}
 
-		disableOtherWindows();
-
-		root.setRight(characters.getNode());
-		root.setBottom(playerToolbar);
-		playerToolbar.toBack();
-		// sliding transition... from left ...
+//		disableOtherWindows();
+//
+//		root.setRight(characters.getNode());
+//		root.setBottom(playerToolbar);
+//		playerToolbar.toBack();
+//		// sliding transition... from left ...
 	}
 
 	@Override
 	public void showRoom() {
 
-		if (root.getCenter() != null) {
-			root.setCenter(null);
-			return;
+		if(room.isHidden()){
+			hideOtherPanes();
+			
+			root.setRight(room.getNode());
+			
+			room.show();
+		}else{
+			room.hide();
 		}
-
-		disableOtherWindows();
-
-		root.setCenter(room.getNode());
-		root.setBottom(playerToolbar);
+		
+//		if (root.getCenter() != null) {
+//			root.setCenter(null);
+//			return;
+//		}
+//
+//		disableOtherWindows();
+//
+//		root.setCenter(room.getNode());
+//		root.setBottom(playerToolbar);
 
 	}
 
 	@Override
 	public void showExits() {
-		if (root.getTop() != null) {
-			root.setTop(null);
-			return;
+
+		if(exits.isHidden()){
+			hideOtherPanes();
+			exits.show();
+		}else{
+			exits.hide();
 		}
-
-		disableOtherWindows();
-
-		root.setBottom(playerToolbar);
-		root.setTop(exits.getNode());
+		
+		
+		//		if (root.getTop() != null) {
+//			root.setTop(null);
+//			return;
+//		}
+//
+//		disableOtherWindows();
+//
+//		root.setBottom(playerToolbar);
+//		root.setTop(exits.getNode());
 	}
 
-	private void disableOtherWindows() {
-		root.getChildren().clear();
+	private void hideOtherPanes(){
+		inventory.hide();
+		characters.hide();
+		exits.hide();
+		room.hide();
+		//
 	}
 
 	@Override
@@ -442,10 +544,8 @@ public class GraphicalInterface extends Application implements UserInterface {
 		return parameters;
 	}
 
-	public void showDialog(String title, String mast, String body) {
-		// TODO Auto-generated method stub
-		Alert alert = new Alert(AlertType.INFORMATION, "Content here", ButtonType.OK);
-				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				alert.show();
+	@Override
+	public String getHelpDescription() {
+		return game.getProperty("guiHelpDescription");
 	}
 }

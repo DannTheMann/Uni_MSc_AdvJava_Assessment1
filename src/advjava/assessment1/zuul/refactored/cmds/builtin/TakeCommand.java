@@ -53,7 +53,7 @@ public class TakeCommand extends Command {
 				// becoming over encumbered
 				if (player.getWeight() + item.getWeight() > player.getMaxWeight()) {
 					// Player is over encumbered
-					game.getInterface().println(String.format(InternationalisationManager.im.getMessage("pickup.heavy"), item,
+					game.getInterface().displayLocale(String.format(InternationalisationManager.im.getMessage("pickup.heavy"), item,
 							System.lineSeparator(), game.getPlayer().getWeight()));
 					return false;
 				}

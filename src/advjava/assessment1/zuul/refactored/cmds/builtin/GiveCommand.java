@@ -59,7 +59,7 @@ public class GiveCommand extends Command {
 
 			// If the character cannot hold anymore weight
 			if (item.getWeight() + character.getWeight() > character.getMaxWeight()) {
-				game.getInterface().println(
+				game.getInterface().displayLocale(
 						String.format(InternationalisationManager.im.getMessage("give.heavy"), character.getName()));
 				return false;
 			}
@@ -70,8 +70,11 @@ public class GiveCommand extends Command {
 			player.removeItem(item);
 			player.setWeight(player.getWeight() - item.getWeight());
 
-			game.getInterface().println(String.format(InternationalisationManager.im.getMessage("give.success"),
+			game.getInterface().displayLocale(String.format(InternationalisationManager.im.getMessage("give.success"),
 					character.getName(), item.getName()));
+			
+			game.getInterface().showCharacters();
+			
 			game.getInterface().update(false);
 			return true;
 

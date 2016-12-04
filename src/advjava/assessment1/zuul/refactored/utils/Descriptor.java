@@ -7,7 +7,7 @@ public abstract class Descriptor {
 	private String description;
 	
 	public Descriptor(String name, String descriptor){
-		this.name = name;
+		this.name = name.replaceAll(" ", "_");
 		this.description = descriptor;
 		
 		if(this.description != null && this.description.length() > MAX_CHARS_PER_LINE){
@@ -16,6 +16,10 @@ public abstract class Descriptor {
 	}
 	
 	public String getName(){
+		return name.replaceAll("_", " ");
+	}
+	
+	public String getRawName(){
 		return name;
 	}
 	

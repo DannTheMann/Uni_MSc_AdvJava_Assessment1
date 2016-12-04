@@ -159,4 +159,18 @@ public class CommandLineInterface implements UserInterface {
 		return parameters;
 	}
 
+	@Override
+	public String getHelpDescription() {
+		StringBuilder sb = new StringBuilder();
+		
+		// Go through every loaded command in the game.
+		game.getCommandManager().commands().stream()
+				// Filter based on whether this command is applicable
+				.filter(c->c.interfaceAcceptable(game.getInterface()))
+				.forEach(c->sb.append(String.format(InternationalisationManager.im.getMessage("help.list"), c.getName(),
+					c.getDescription(), System.lineSeparator())));
+		
+		return sb.toString();
+	}
+
 }

@@ -2,8 +2,7 @@ To Fix
 
 
 Change CSS to fix style
-Fix Help button
-Maybe quit button?
 More images/design
 Animations
 Documentation
+Donald Trump, Joe Harrison - Double ended names break giving

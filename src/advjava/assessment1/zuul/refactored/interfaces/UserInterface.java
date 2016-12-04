@@ -31,6 +31,8 @@ public interface UserInterface {
     public void showCharacters();
     public void showRoom();
 	void showExits();
+
+	public String getHelpDescription();
      
      
 }
