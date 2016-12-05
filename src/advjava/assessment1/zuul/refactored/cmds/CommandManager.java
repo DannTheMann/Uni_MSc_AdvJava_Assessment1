@@ -177,14 +177,13 @@ public class CommandManager {
                 new GiveCommand(InternationalisationManager.im.getMessage("loadGive"),
                         InternationalisationManager.im.getMessage("loadGiveDesc")));
         
-        /* CMD Commands */
+        /* GUI Commands */
+        commands.put("Inventory",
+                new InventoryCommand("Inventory", "Display your inventory."));
+        
         commands.put(InternationalisationManager.im.getMessage("loadQuit"),
                 new QuitCommand(InternationalisationManager.im.getMessage("loadQuit"),
                         InternationalisationManager.im.getMessage("loadQuitDesc")));
-        
-        /* GUI Commands */
-        commands.put("Inventory",
-                new InventoryCommand("Inventory", "Display the users inventory."));
         
         /* Other commands, purely for debugging */
         commands.put("Debug",

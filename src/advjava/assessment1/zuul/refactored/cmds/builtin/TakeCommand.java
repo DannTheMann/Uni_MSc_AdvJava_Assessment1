@@ -5,6 +5,7 @@ import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
+import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
@@ -55,25 +56,33 @@ public class TakeCommand extends Command {
 					// Player is over encumbered
 					game.getInterface().displayLocale(String.format(InternationalisationManager.im.getMessage("pickup.heavy"), item,
 							System.lineSeparator(), game.getPlayer().getWeight()));
+					game.getInterface().showRoom(false);
 					return false;
 				}
-
+				
 				// Add the item
 				player.addItem(item);
 				room.removeItem(item);
 				// Update weights
 				player.setWeight(player.getWeight() + item.getWeight());
-
+				
 				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("pickup.success"), item));
 				game.getInterface().update(true);
 
 				return true;
 			} else {
+				
 				// No item exists in this room called that
 				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("pickup.noone"), itemName));
 			}
 
 		} else {
+					
+			if(game.getInterface() instanceof GraphicalInterface){
+				game.getInterface().showRoom(false);
+				return false;
+			}
+			
 			// Not enough params
 			game.getInterface().println(InternationalisationManager.im.getMessage("pickup.noparam"));
 		}
@@ -83,6 +92,6 @@ public class TakeCommand extends Command {
 
     @Override
     public boolean interfaceAcceptable(UserInterface ui) {
-        return ui instanceof CommandLineInterface;
+        return ui instanceof CommandLineInterface|| ui instanceof GraphicalInterface;
     }
 }

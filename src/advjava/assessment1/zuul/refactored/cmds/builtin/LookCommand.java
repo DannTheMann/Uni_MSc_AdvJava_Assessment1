@@ -36,7 +36,7 @@ public class LookCommand extends Command {
 	public boolean action(Game game, CommandExecution cmd) {
 
                 if(game.getInterface() instanceof GraphicalInterface){
-                    game.getInterface().showRoom();
+                    game.getInterface().showRoom(true);
                     return true;
                 }
             

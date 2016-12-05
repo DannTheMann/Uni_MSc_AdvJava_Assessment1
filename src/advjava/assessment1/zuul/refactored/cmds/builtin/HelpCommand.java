@@ -8,7 +8,6 @@ import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.interfaces.graphical.GraphicsUtil;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import javafx.scene.control.Alert.AlertType;
 
 /**

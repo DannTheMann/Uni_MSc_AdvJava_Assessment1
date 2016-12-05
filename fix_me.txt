@@ -1,8 +1,7 @@
 To Fix
 
-
-Change CSS to fix style
+Test on different system (laptop?)
+***Change CSS to fix style
+-- Kinda done?
 More images/design
-Animations
 Documentation
-Donald Trump, Joe Harrison - Double ended names break giving

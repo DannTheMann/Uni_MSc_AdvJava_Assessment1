@@ -16,10 +16,7 @@ import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
 import advjava.assessment1.zuul.refactored.utils.Resource;
-import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 
 /**
  * The Room class stores all the references to exits, characters and items
@@ -55,7 +52,7 @@ public class Room extends Resource{
 	 *             if name is null or empty
 	 */
 	public Room(String name, String description, String url) throws InvalidRoomNamingException {
-		super(name.replaceAll(" ", ""), description, url);
+		super(name, description, url);
 		this.items = new PrintableList<>();
 		this.characters = new PrintableList<>();
 		this.rooms = new HashMap<>();
@@ -74,31 +71,33 @@ public class Room extends Resource{
 	 * @throws NullPointerException
 	 *             if direction is null or empty
 	 */
-	public void setExit(Room room, String direction, boolean override) {
+	public boolean setExit(Room room, String direction, boolean override) {
 
 		if (direction == null || "".equals(direction))
 			throw new NullPointerException(InternationalisationManager.im.getMessage("room.badSetExit"));
 
 		if ((override && rooms.containsKey(direction)) || (!rooms.containsKey(direction))) {
 			rooms.put(direction, room);
+			return true;
 		}
+		return false;
 	}
 
-	/**
-	 * Set multiple exits use varargs.
-	 * 
-	 * @param override
-	 *            Replace a room with the same direction if present
-	 * @param direction
-	 *            The direction the room is in
-	 * @param room
-	 *            The rooms to exit to
-	 */
-	@Deprecated
-	public void setExits(boolean override, String direction, Room... rooms) {
-		Arrays.stream(rooms).forEach(e -> setExit(e, direction, override));
+	public boolean removeExitByDirection(String direction){
+		return rooms.remove(direction) != null;
 	}
-
+	
+	public boolean removeExitByRoom(Room value){
+		return rooms.values().remove(value);
+	}
+	
+	public boolean removeExitByRoomName(String roomName){
+		return rooms.values().remove(rooms.values().stream()
+				.filter(r->r.getName().equals(roomName))	
+				.findAny()
+				.orElse(null));
+	}
+	
 	/**
 	 * Get an exit based on it's key value direction
 	 * 
@@ -316,8 +315,14 @@ public class Room extends Resource{
 	@Override
 	public void applyInformation(GridPane grid, String css) {
 		
-		grid.add(new StackPane(GraphicalInterface.newCommandButton("go " + Main.game.getPlayer().getCurrentRoom().getExitFromRoomName(getName()),
-				Main.game.getCommandManager().getCommand("Go"), ".sidebar-button")), 0, 2);
+		if(grid == null || css == null)
+			throw new NullPointerException("Null arguments given for ApplyInformation! "
+		+ (grid == null ? "Grid was null": "") + (css == null ? "CSS was null" :""));
+		
+		grid.setOnMouseClicked(GraphicalInterface.getVariableCommandEvent(Main.game.getPlayer().getCurrentRoom().getExitFromRoomName(getName())));
+		
+//		grid.add(new StackPane(GraphicalInterface.newCommandButton("go " + Main.game.getPlayer().getCurrentRoom().getExitFromRoomName(getName()),
+//				Main.game.getCommandManager().getCommand("Go"), ".sidebar-button")), 0, 2);
 		
 	}
 

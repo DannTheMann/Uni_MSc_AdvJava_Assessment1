@@ -60,8 +60,8 @@ public class GoCommand extends Command {
 
 			// GUI Alternative
 			if (game.getInterface() instanceof GraphicalInterface) {
-				game.getInterface().showExits();
-				return true;
+				game.getInterface().showExits(false);
+				return false;
 			}
 
 			// Not enough params

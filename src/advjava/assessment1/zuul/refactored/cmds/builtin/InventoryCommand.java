@@ -25,7 +25,7 @@ public class InventoryCommand extends Command{
     @Override
     public boolean action(Game game, CommandExecution cmd) {
     
-        game.getInterface().showInventory();
+        game.getInterface().showInventory(true);
         
         return false;
     }

@@ -20,7 +20,7 @@ import advjava.assessment1.zuul.refactored.utils.Out;
  */
 public class Main {
 
-	// Constants for directorys and files
+	// Constants for directories and files
 	public static final String PLUGIN_COMMANDS_FOLDER = System.getProperty("user.dir") + File.separator + "Plugins";
 	public static final String XML_CONFIGURATION_FILES = System.getProperty("user.dir") + File.separator + "Config";
 	public static final String LOG_FILES = System.getProperty("user.dir") + File.separator + "Config" + File.separator
@@ -125,11 +125,13 @@ public class Main {
 				properties.setProperty("guiHelpDescription",
 						"Welcome to World of Zuul! You're running the GUI implementation of the game" + ". "
 								+ System.lineSeparator() + System.lineSeparator()
-								+ " Your player information is seen below (name, description and weight). Clicking the inventory button will show you"
-								+ " what items you currently have, you can drop or give these items from here. Using look, you can see what and who"
-								+ " is currently in the room with you. Finally, using go will let you traverse the nearby exits and allow you to explore."
-								+ System.lineSeparator() + System.lineSeparator()
-								+ "Hovering your mouse over any object in the game will give you more information on this object.");
+								+ " Using the command buttons at the bottom you can interact with items,"
+								+ " characters and rooms in the game. When you click one you'll be presented "
+								+ "with a respective window relating to that command. If you click on an object"
+								+ " in that window then you'll be able to use that command in relation to that"
+								+ " object. For example, clicking Give will present you with your inventory, clicking"
+								+ " the item wish to give will show you the characters in the room, clicking one will"
+								+ " give the item to that character.");
 
 				properties.store(fileOut, "Zuul Configuration");
 
@@ -155,11 +157,13 @@ public class Main {
 				checkProperty("guiHelpDescription",
 						"Welcome to World of Zuul! You're running the GUI implementation of the game" + ". "
 								+ System.lineSeparator() + System.lineSeparator()
-								+ " Your player information is seen below (name, description and weight). Clicking the inventory button will show you"
-								+ " what items you currently have, you can drop or give these items from here. Using look, you can see what and who"
-								+ " is currently in the room with you. Finally, using go will let you traverse the nearby exits and allow you to explore."
-								+ System.lineSeparator() + System.lineSeparator()
-								+ "Hovering your mouse over any object in the game will give you more information on this object.");
+								+ " Using the command buttons at the bottom you can interact with items,"
+								+ " characters and rooms in the game. When you click one you'll be presented "
+								+ "with a respective window relating to that command. If you click on an object"
+								+ " in that window then you'll be able to use that command in relation to that"
+								+ " object. For example, clicking Give will present you with your inventory, clicking"
+								+ " the item wish to give will show you the characters in the room, clicking one will"
+								+ " give the item to that character.");
 
 				// Save any changes made, if any properties were missing
 				fileOut = new FileOutputStream(propFile);

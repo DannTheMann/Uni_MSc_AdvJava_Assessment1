@@ -17152,4 +17152,3578 @@
 [00:38:17] Setting animation: Exits
 [00:38:17] Setting animation: Room Information
 [00:38:17] Updating...
-[00:38:17] Setting animation: In
+[00:38:17] Setting animation: In ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[20:29:54] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_04-12-16.txt'
+[20:29:54] LOCALE: en_GB - United Kingdom
+[20:29:54] Loading default commands...
+[20:29:54] Loaded default commands...
+[20:29:54] Starting World of Zuul... ENGLISH
+[20:29:54] Loading properties.ini file...
+[20:29:54] Property file found, loading properties...
+[20:29:54] Closed I/O streams.
+[20:29:54] Properties loaded.
+[20:29:55] Creating game session...
+[20:29:55] 
+[20:29:55]  - - - - - - - - - - - - - - - - - - - - 
+[20:29:55]       Loading Plugins ...          
+[20:29:55]  - - - - - - - - - - - - - - - - - - - - 
+[20:29:55] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[20:29:55] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [20:29:55] - Finished  - - - - - - - - - - - - - - 
+[20:29:55]  - - - - - - - - - - - - - - - - - - - - 
+[20:29:55]       Loading XML Config files ...    
+[20:29:55] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[20:29:55]  - - - - - - - - - - - - - - - - - - - - 
+[20:29:55] Added item 'apple'
+[20:29:55] Added item 'book'
+[20:29:55] Added item 'sword'
+[20:29:55] Added item 'tomato'
+[20:29:55] Added item 'pear'
+[20:29:55] Added item 'grapes'
+[20:29:55] Added item 'TheGoldenPearOfDoom'
+[20:29:55] Loaded room 'outside'
+[20:29:55] Loaded room 'library'
+[20:29:55] Loaded room 'theatre'
+[20:29:55] Loaded room 'lab'
+[20:29:55] Loaded room 'pub'
+[20:29:55] Added new player 'Richard Jones'.
+[20:29:55] Added new character 'Rosie Andrews'.
+[20:29:55] Added new character 'Joe Harrison'.
+[20:29:55] Added new character 'Stephen Andrews'.
+[20:29:55] Added new character 'Daniel Andrews'.
+[20:29:55] Added new character 'Jack McBride'.
+[20:29:55] Added new character 'Louis'.
+[20:29:55] Added new character 'Craig'.
+[20:29:55] Added new character 'Donald Trump'.
+[20:29:55] Added new player 'Charlie Andrews'.
+[20:29:55] - - Finished - - - - - - - - - - - - - - 
+[20:29:55] There are 2 players playing.
+[20:29:55] Assuming the control of player 'Charlie Andrews'.
+[20:29:55] Are we logging everything (properties file): true
+[20:29:56]  - - - - - - - - - - - - - - - - - - - - 
+[20:29:56]              Creating GUI...             
+[20:29:56]  - - - - - - - - - - - - - - - - - - - - 
+[20:29:56] Creating new resource manager @ 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[20:29:56] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[20:29:56] [LOG] [20:29:56] Loading 'Charlie Andrews' [1/28]. = [20:29:56] Success. [charlie.jpg][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'Craig' [2/28]. = [20:29:56] Success. [harold.jpg][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'Daniel Andrews' [3/28]. = [20:29:56] Success. [dan.png][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'Donald Trump' [4/28]. = [20:29:56] Success. [donald.png][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'Jack McBride' [5/28]. = [20:29:56] Success. [jack.png][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'Joe Harrison' [6/28]. = [20:29:56] Success. [joe.png][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'Louis' [7/28]. = [20:29:56] Already loaded.[20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'Richard Jones' [7/28]. = [20:29:56] Already loaded.[20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'Rosie Andrews' [7/28]. = [20:29:56] Success. [rosie.png][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'Stephen Andrews' [8/28]. = [20:29:56] Success. [stephen.png][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'lab' [9/28]. = [20:29:56] Success. [lab.jpg][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'library' [10/28]. = [20:29:56] Success. [library.jpg][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'outside' [11/28]. = [20:29:56] Success. [outside.jpg][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'pub' [12/28]. = [20:29:56] Success. [bar.jpg][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'theatre' [13/28]. = [20:29:56] Success. [theatre.jpg][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'apple' [14/28]. = [20:29:56] Success. [apple.png][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'book' [15/28]. = [20:29:56] Success. [book.png][20:29:56] 
+[20:29:56] [LOG] [20:29:56] Loading 'sword' [16/28]. = [20:29:57] Success. [sword.png][20:29:57] 
+[20:29:57] [LOG] [20:29:57] Loading 'grapes' [17/28]. = [20:29:57] Success. [grapes.png][20:29:57] 
+[20:29:57] [LOG] [20:29:57] Loading 'tomato' [18/28]. = [20:29:57] Success. [tomato.png][20:29:57] 
+[20:29:57] [LOG] [20:29:57] Loading 'TheGoldenPearOfDoom' [19/28]. = [20:29:57] Already loaded.[20:29:57] 
+[20:29:57] [LOG] [20:29:57] Loading 'TheGoldenPearOfDoom' [19/28]. = [20:29:57] Already loaded.[20:29:57] 
+[20:29:57] [LOG] [20:29:57] Loading 'apple' [19/28]. = [20:29:57] Already loaded.[20:29:57] 
+[20:29:57] [LOG] [20:29:57] Loading 'book' [19/28]. = [20:29:57] Already loaded.[20:29:57] 
+[20:29:57] [LOG] [20:29:57] Loading 'grapes' [19/28]. = [20:29:57] Already loaded.[20:29:57] 
+[20:29:57] [LOG] [20:29:57] Loading 'pear' [19/28]. = [20:29:57] Success. [pear.png][20:29:57] 
+[20:29:57] [LOG] [20:29:57] Loading 'sword' [20/28]. = [20:29:57] Already loaded.[20:29:57] 
+[20:29:57] [LOG] [20:29:57] Loading 'tomato' [20/28]. = [20:29:57] Already loaded.[20:29:57] 
+[20:29:57] Resources loaded = 19
+[20:29:57] 
+[20:29:57] 	Creating panels...
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] 
+[20:29:57] Updating...
+[20:29:57] Setting animation: Inventory
+[20:29:57] Setting animation: Characters
+[20:29:57] Setting animation: Exits
+[20:29:57] Setting animation: Room Information
+[20:29:57]  - - - - - - - - - - - - - - - - - - - - 
+[20:29:57]               Finished GUI.              
+[20:29:57]  BorderPane w: 1280.0, h: 720.0
+[20:29:57]  - - - - - - - - - - - - - - - - - - - - 
+[20:29:58] ACTION > [Inventory] >> 
+[20:29:58] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[20:29:58] Hiding: Characters -> javafx.scene.control.ScrollPane
+[20:29:58] Hiding: Exits -> javafx.scene.control.ScrollPane
+[20:29:58] Hiding: Room Information -> javafx.scene.layout.VBox
+[20:29:58] Showing: Inventory -> javafx.scene.control.ScrollPane
+[20:29:58] Shown: Inventory -> javafx.scene.control.ScrollPane
+[20:29:59] ACTION > [debug] >> 
+[20:29:59] Showing: Characters -> javafx.scene.control.ScrollPane
+[20:30:00] Shown: Characters -> javafx.scene.control.ScrollPane
+[20:30:01] ACTION > [debug] >> 
+[20:30:01] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[20:30:01] Hiding: Characters -> javafx.scene.control.ScrollPane
+[20:30:01] Hiding: Exits -> javafx.scene.control.ScrollPane
+[20:30:01] Hiding: Room Information -> javafx.scene.layout.VBox
+[20:30:01] Hiding: Characters -> javafx.scene.control.ScrollPane
+[20:30:01] Hidden: Inventory -> javafx.scene.control.ScrollPane
+[20:30:01] Hidden: Characters -> javafx.scene.control.ScrollPane
+[20:30:02] ACTION > [Go] >> 
+[20:30:02] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[20:30:02] Hiding: Characters -> javafx.scene.control.ScrollPane
+[20:30:02] Hiding: Exits -> javafx.scene.control.ScrollPane
+[20:30:02] Hiding: Room Information -> javafx.scene.layout.VBox
+[20:30:02] Showing: Exits -> javafx.scene.control.ScrollPane
+[20:30:02] Shown: Exits -> javafx.scene.control.ScrollPane
+[20:30:04] ACTION > [Look] >> 
+[20:30:04] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[20:30:04] Hiding: Characters -> javafx.scene.control.ScrollPane
+[20:30:04] Hiding: Exits -> javafx.scene.control.ScrollPane
+[20:30:04] Hiding: Room I ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:53:49] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_04-12-16.txt'
+[21:53:49] LOCALE: en_GB - United Kingdom
+[21:53:49] Loading default commands...
+[21:53:49] Loaded default commands...
+[21:53:49] Starting World of Zuul... ENGLISH
+[21:53:49] Loading properties.ini file...
+[21:53:49] Property file found, loading properties...
+[21:53:49] Closed I/O streams.
+[21:53:49] Properties loaded.
+[21:53:50] Creating game session...
+[21:53:50] 
+[21:53:50]  - - - - - - - - - - - - - - - - - - - - 
+[21:53:50]       Loading Plugins ...          
+[21:53:50]  - - - - - - - - - - - - - - - - - - - - 
+[21:53:50] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:53:50] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:53:50] - Finished  - - - - - - - - - - - - - - 
+[21:53:50]  - - - - - - - - - - - - - - - - - - - - 
+[21:53:50]       Loading XML Config files ...    
+[21:53:50] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:53:50]  - - - - - - - - - - - - - - - - - - - - 
+[21:53:51] Added item 'apple'
+[21:53:51] Added item 'book'
+[21:53:51] Added item 'sword'
+[21:53:51] Added item 'tomato'
+[21:53:51] Added item 'pear'
+[21:53:51] Added item 'grapes'
+[21:53:51] Added item 'TheGoldenPearOfDoom'
+[21:53:51] Loaded room 'outside'
+[21:53:51] Loaded room 'library'
+[21:53:51] Loaded room 'theatre'
+[21:53:51] Loaded room 'lab'
+[21:53:51] Loaded room 'pub'
+[21:53:51] Added new player 'Richard Jones'.
+[21:53:51] Added new character 'Rosie Andrews'.
+[21:53:51] Added new character 'Joe Harrison'.
+[21:53:51] Added new character 'Stephen Andrews'.
+[21:53:51] Added new character 'Daniel Andrews'.
+[21:53:51] Added new character 'Jack McBride'.
+[21:53:51] Added new character 'Louis'.
+[21:53:51] Added new character 'Craig'.
+[21:53:51] Added new character 'Donald Trump'.
+[21:53:51] Added new player 'Charlie Andrews'.
+[21:53:51] - - Finished - - - - - - - - - - - - - - 
+[21:53:51] There are 2 players playing.
+[21:53:51] Assuming the control of player 'Charlie Andrews'.
+[21:53:51] Are we logging everything (properties file): true
+[21:53:51]  - - - - - - - - - - - - - - - - - - - - 
+[21:53:51]              Creating GUI...             
+[21:53:51]  - - - - - - - - - - - - - - - - - - - - 
+[21:53:51] Creating new resource manager @ 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[21:53:51] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[21:53:51] [LOG] [21:53:51] Loading 'Charlie Andrews' [1/28]. = [21:53:51] Success. [charlie.jpg][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'Craig' [2/28]. = [21:53:51] Success. [harold.jpg][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'Daniel Andrews' [3/28]. = [21:53:51] Success. [dan.png][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'Donald Trump' [4/28]. = [21:53:51] Success. [donald.png][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'Jack McBride' [5/28]. = [21:53:51] Success. [jack.png][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'Joe Harrison' [6/28]. = [21:53:51] Success. [joe.png][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'Louis' [7/28]. = [21:53:51] Already loaded.[21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'Richard Jones' [7/28]. = [21:53:51] Already loaded.[21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'Rosie Andrews' [7/28]. = [21:53:51] Success. [rosie.png][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'Stephen Andrews' [8/28]. = [21:53:51] Success. [stephen.png][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'lab' [9/28]. = [21:53:51] Success. [lab.jpg][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'library' [10/28]. = [21:53:51] Success. [library.jpg][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'outside' [11/28]. = [21:53:51] Success. [outside.jpg][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'pub' [12/28]. = [21:53:51] Success. [bar.jpg][21:53:51] 
+[21:53:51] [LOG] [21:53:51] Loading 'theatre' [13/28]. = [21:53:52] Success. [theatre.jpg][21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'apple' [14/28]. = [21:53:52] Success. [apple.png][21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'book' [15/28]. = [21:53:52] Success. [book.png][21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'sword' [16/28]. = [21:53:52] Success. [sword.png][21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'grapes' [17/28]. = [21:53:52] Success. [grapes.png][21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'tomato' [18/28]. = [21:53:52] Success. [tomato.png][21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'TheGoldenPearOfDoom' [19/28]. = [21:53:52] Already loaded.[21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'TheGoldenPearOfDoom' [19/28]. = [21:53:52] Already loaded.[21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'apple' [19/28]. = [21:53:52] Already loaded.[21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'book' [19/28]. = [21:53:52] Already loaded.[21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'grapes' [19/28]. = [21:53:52] Already loaded.[21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'pear' [19/28]. = [21:53:52] Success. [pear.png][21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'sword' [20/28]. = [21:53:52] Already loaded.[21:53:52] 
+[21:53:52] [LOG] [21:53:52] Loading 'tomato' [20/28]. = [21:53:52] Already loaded.[21:53:52] 
+[21:53:52] Resources loaded = 19
+[21:53:52] 
+[21:53:52] 	Creating panels...
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] 
+[21:53:52] Updating...
+[21:53:52] Setting animation: Inventory
+[21:53:52] Setting animation: Characters
+[21:53:52] Setting animation: Exits
+[21:53:52] Setting animation: Room Information
+[21:53:52]  - - - - - - - - - - - - - - - - - - - - 
+[21:53:52]               Finished GUI.              
+[21:53:52]  BorderPane w: 1280.0, h: 720.0
+[21:53:52]  - - - - - - - - - - - - - - - - - - - - 
+[21:53:54] Updating...
+[21:53:54] Setting animation: Inventory
+[21:53:54] Setting animation: Characters
+[21:53:54] Setting animation: Exits
+[21:53:54] Setting animation: Room Information
+[21:53:54] Updating...
+[21:53:54] Setting animation: Inventory
+[21:53:54] Setting animation: Characters
+[21:53:54] Setting animation: Exits
+[21:53:54] Setting animation: Room Information
+[21:53:55] Updating...
+[21:53:55] Setting animation: Inventory
+[21:53:55] Setting animation: Characters
+[21:53:55] Setting animation: Exits
+[21:53:55] Setting animation: Room Information
+[21:53:55] Updating...
+[21:53:55] Setting animation: Inventory
+[21:53:55] Setting animation: Characters
+[21:53:55] Setting animation: Exits
+[21:53:55] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:57] Updating...
+[21:53:57] Setting animation: Inventory
+[21:53:57] Setting animation: Characters
+[21:53:57] Setting animation: Exits
+[21:53:57] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:58] Updating...
+[21:53:58] Setting animation: Inventory
+[21:53:58] Setting animation: Characters
+[21:53:58] Setting animation: Exits
+[21:53:58] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:53:59] Updating...
+[21:53:59] Setting animation: Inventory
+[21:53:59] Setting animation: Characters
+[21:53:59] Setting animation: Exits
+[21:53:59] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:00] Updating...
+[21:54:00] Setting animation: Inventory
+[21:54:00] Setting animation: Characters
+[21:54:00] Setting animation: Exits
+[21:54:00] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:01] Updating...
+[21:54:01] Setting animation: Inventory
+[21:54:01] Setting animation: Characters
+[21:54:01] Setting animation: Exits
+[21:54:01] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:02] Updating...
+[21:54:02] Setting animation: Inventory
+[21:54:02] Setting animation: Characters
+[21:54:02] Setting animation: Exits
+[21:54:02] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:03] Updating...
+[21:54:03] Setting animation: Inventory
+[21:54:03] Setting animation: Characters
+[21:54:03] Setting animation: Exits
+[21:54:03] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:54:04] Setting animation: Characters
+[21:54:04] Setting animation: Exits
+[21:54:04] Setting animation: Room Information
+[21:54:04] Updating...
+[21:54:04] Setting animation: Inventory
+[21:5 ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[21:56:14] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_04-12-16.txt'
+[21:56:14] LOCALE: en_GB - United Kingdom
+[21:56:14] Loading default commands...
+[21:56:14] Loaded default commands...
+[21:56:14] Starting World of Zuul... ENGLISH
+[21:56:14] Loading properties.ini file...
+[21:56:14] Property file found, loading properties...
+[21:56:14] Closed I/O streams.
+[21:56:14] Properties loaded.
+[21:56:15] Creating game session...
+[21:56:15] 
+[21:56:15]  - - - - - - - - - - - - - - - - - - - - 
+[21:56:15]       Loading Plugins ...          
+[21:56:15]  - - - - - - - - - - - - - - - - - - - - 
+[21:56:15] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[21:56:15] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [21:56:15] - Finished  - - - - - - - - - - - - - - 
+[21:56:15]  - - - - - - - - - - - - - - - - - - - - 
+[21:56:15]       Loading XML Config files ...    
+[21:56:15] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[21:56:15]  - - - - - - - - - - - - - - - - - - - - 
+[21:56:15] Added item 'apple'
+[21:56:15] Added item 'book'
+[21:56:15] Added item 'sword'
+[21:56:15] Added item 'tomato'
+[21:56:15] Added item 'pear'
+[21:56:15] Added item 'grapes'
+[21:56:15] Added item 'TheGoldenPearOfDoom'
+[21:56:15] Loaded room 'outside'
+[21:56:15] Loaded room 'library'
+[21:56:15] Loaded room 'theatre'
+[21:56:15] Loaded room 'lab'
+[21:56:15] Loaded room 'pub'
+[21:56:15] Added new player 'Richard Jones'.
+[21:56:15] Added new character 'Rosie Andrews'.
+[21:56:15] Added new character 'Joe Harrison'.
+[21:56:15] Added new character 'Stephen Andrews'.
+[21:56:15] Added new character 'Daniel Andrews'.
+[21:56:15] Added new character 'Jack McBride'.
+[21:56:15] Added new character 'Louis'.
+[21:56:15] Added new character 'Craig'.
+[21:56:15] Added new character 'Donald Trump'.
+[21:56:15] Added new player 'Charlie Andrews'.
+[21:56:15] - - Finished - - - - - - - - - - - - - - 
+[21:56:15] There are 2 players playing.
+[21:56:15] Assuming the control of player 'Charlie Andrews'.
+[21:56:15] Are we logging everything (properties file): true
+[21:56:16]  - - - - - - - - - - - - - - - - - - - - 
+[21:56:16]              Creating GUI...             
+[21:56:16]  - - - - - - - - - - - - - - - - - - - - 
+[21:56:16] Creating new resource manager @ 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[21:56:16] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[21:56:16] [LOG] [21:56:16] Loading 'Charlie Andrews' [1/28]. = [21:56:16] Success. [charlie.jpg][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'Craig' [2/28]. = [21:56:16] Success. [harold.jpg][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'Daniel Andrews' [3/28]. = [21:56:16] Success. [dan.png][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'Donald Trump' [4/28]. = [21:56:16] Success. [donald.png][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'Jack McBride' [5/28]. = [21:56:16] Success. [jack.png][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'Joe Harrison' [6/28]. = [21:56:16] Success. [joe.png][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'Louis' [7/28]. = [21:56:16] Already loaded.[21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'Richard Jones' [7/28]. = [21:56:16] Already loaded.[21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'Rosie Andrews' [7/28]. = [21:56:16] Success. [rosie.png][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'Stephen Andrews' [8/28]. = [21:56:16] Success. [stephen.png][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'lab' [9/28]. = [21:56:16] Success. [lab.jpg][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'library' [10/28]. = [21:56:16] Success. [library.jpg][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'outside' [11/28]. = [21:56:16] Success. [outside.jpg][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'pub' [12/28]. = [21:56:16] Success. [bar.jpg][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'theatre' [13/28]. = [21:56:16] Success. [theatre.jpg][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'apple' [14/28]. = [21:56:16] Success. [apple.png][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'book' [15/28]. = [21:56:16] Success. [book.png][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'sword' [16/28]. = [21:56:16] Success. [sword.png][21:56:16] 
+[21:56:16] [LOG] [21:56:16] Loading 'grapes' [17/28]. = [21:56:17] Success. [grapes.png][21:56:17] 
+[21:56:17] [LOG] [21:56:17] Loading 'tomato' [18/28]. = [21:56:17] Success. [tomato.png][21:56:17] 
+[21:56:17] [LOG] [21:56:17] Loading 'TheGoldenPearOfDoom' [19/28]. = [21:56:17] Already loaded.[21:56:17] 
+[21:56:17] [LOG] [21:56:17] Loading 'TheGoldenPearOfDoom' [19/28]. = [21:56:17] Already loaded.[21:56:17] 
+[21:56:17] [LOG] [21:56:17] Loading 'apple' [19/28]. = [21:56:17] Already loaded.[21:56:17] 
+[21:56:17] [LOG] [21:56:17] Loading 'book' [19/28]. = [21:56:17] Already loaded.[21:56:17] 
+[21:56:17] [LOG] [21:56:17] Loading 'grapes' [19/28]. = [21:56:17] Already loaded.[21:56:17] 
+[21:56:17] [LOG] [21:56:17] Loading 'pear' [19/28]. = [21:56:17] Success. [pear.png][21:56:17] 
+[21:56:17] [LOG] [21:56:17] Loading 'sword' [20/28]. = [21:56:17] Already loaded.[21:56:17] 
+[21:56:17] [LOG] [21:56:17] Loading 'tomato' [20/28]. = [21:56:17] Already loaded.[21:56:17] 
+[21:56:17] Resources loaded = 19
+[21:56:17] 
+[21:56:17] 	Creating panels...
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] 
+[21:56:17] Updating...
+[21:56:17] Setting animation: Inventory
+[21:56:17] Setting animation: Characters
+[21:56:17] Setting animation: Exits
+[21:56:17] Setting animation: Room Information
+[21:56:17]  - - - - - - - - - - - - - - - - - - - - 
+[21:56:17]               Finished GUI.              
+[21:56:17]  BorderPane w: 1280.0, h: 720.0
+[21:56:17]  - - - - - - - - - - - - - - - - - - - - 
+[21:56:18] Updating...
+[21:56:18] Setting animation: Inventory
+[21:56:18] Setting animation: Characters
+[21:56:18] Setting animation: Exits
+[21:56:18] Setting animation: Room Information
+[21:56:18] Updating...
+[21:56:18] Setting animation: Inventory
+[21:56:18] Setting animation: Characters
+[21:56:18] Setting animation: Exits
+[21:56:18] Setting animation: Room Information
+[21:56:18] ACTION > [debug] >> 
+[21:56:18] Showing: Characters -> javafx.scene.control.ScrollPane
+[21:56:19] Shown: Characters -> javafx.scene.control.ScrollPane
+[21:56:19] ACTION > [debug] >> 
+[21:56:19] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[21:56:19] Hiding: Characters -> javafx.scene.control.ScrollPane
+[21:56:19] Hiding: Exits -> javafx.scene.control.ScrollPane
+[21:56:19] Hiding: Room Information -> javafx.scene.layout.VBox
+[21:56:19] Hiding: Characters -> javafx.scene.control.ScrollPane
+[21:56:20] Hidden: Characters -> javafx.scene.control.ScrollPane
+[21:56:20] ACTION > [Inventory] >> 
+[21:56:20] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[21:56:20] Hiding: Characters -> javafx.scene.control.ScrollPane
+[21:56:20] Hiding: Exits -> javafx.scene.control.ScrollPane
+[21:56:20] Hiding: Room Information -> javafx.scene.layout.VBox
+[21:56:20] Showing: Inventory -> javafx.scene.control.ScrollPane
+[21:56:21] Shown: Inventory -> javafx.scene.control.ScrollPane
+[21:56:21] ACTION > [Inventory] >> 
+[21:56:21] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[21:56:21] ACTION > [Go] >> 
+[21:56:21] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[21:56:21] Hiding: Characters -> javafx.scene.control.ScrollPane
+[21:56:21] Hiding: Exits -> javafx.scene.control.ScrollPane
+[21:56:21] Hidi ___________________________________________________________
+|                                                           |
+| - - Start - - - - - - - - - - - - - - - - - - - - - - - - |
+|___________________________________________________________|
+
+[22:14:15] Created new logger. 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config\Logs\log_04-12-16.txt'
+[22:14:15] LOCALE: en_GB - United Kingdom
+[22:14:15] Loading default commands...
+[22:14:15] Loaded default commands...
+[22:14:15] Starting World of Zuul... ENGLISH
+[22:14:15] Loading properties.ini file...
+[22:14:15] Property file found, loading properties...
+[22:14:15] Closed I/O streams.
+[22:14:15] Properties loaded.
+[22:14:16] Creating game session...
+[22:14:16] 
+[22:14:16]  - - - - - - - - - - - - - - - - - - - - 
+[22:14:16]       Loading Plugins ...          
+[22:14:16]  - - - - - - - - - - - - - - - - - - - - 
+[22:14:16] [ERROR] java.lang.AbstractMethodError: advjava.assessment1.zuul.example.Main.initialise(Ladvjava/assessment1/zuul/refactored/ZuulGame;)Z[22:14:16] [ERROR] Failed to load plugin 'ExamplePlugin_WorldOfZuul.jar'. [22:14:16] - Finished  - - - - - - - - - - - - - - 
+[22:14:16]  - - - - - - - - - - - - - - - - - - - - 
+[22:14:16]       Loading XML Config files ...    
+[22:14:16] -> G:\Java\Workbenches\University\AdvancedJava_Assessment1\Config
+[22:14:16]  - - - - - - - - - - - - - - - - - - - - 
+[22:14:16] Added item 'apple'
+[22:14:16] Added item 'book'
+[22:14:16] Added item 'sword'
+[22:14:16] Added item 'tomato'
+[22:14:16] Added item 'pear'
+[22:14:16] Added item 'grapes'
+[22:14:16] Added item 'TheGoldenPearOfDoom'
+[22:14:16] Loaded room 'outside'
+[22:14:16] Loaded room 'library'
+[22:14:16] Loaded room 'theatre'
+[22:14:16] Loaded room 'lab'
+[22:14:16] Loaded room 'pub'
+[22:14:16] Added new player 'Richard Jones'.
+[22:14:16] Added new character 'Rosie Andrews'.
+[22:14:16] Added new character 'Joe Harrison'.
+[22:14:16] Added new character 'Stephen Andrews'.
+[22:14:16] Added new character 'Daniel Andrews'.
+[22:14:16] Added new character 'Jack McBride'.
+[22:14:16] Added new character 'Louis'.
+[22:14:16] Added new character 'Craig'.
+[22:14:16] Added new character 'Donald Trump'.
+[22:14:16] Added new player 'Charlie Andrews'.
+[22:14:16] - - Finished - - - - - - - - - - - - - - 
+[22:14:16] There are 2 players playing.
+[22:14:16] Assuming the control of player 'Charlie Andrews'.
+[22:14:16] Are we logging everything (properties file): true
+[22:14:17]  - - - - - - - - - - - - - - - - - - - - 
+[22:14:17]              Creating GUI...             
+[22:14:17]  - - - - - - - - - - - - - - - - - - - - 
+[22:14:17] Creating new resource manager @ 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[22:14:17] Loading resources from 'G:\Java\Workbenches\University\AdvancedJava_Assessment1\Resources'.
+[22:14:17] [LOG] [22:14:17] Loading 'Charlie Andrews' [1/28]. = [22:14:17] Success. [charlie.jpg][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'Craig' [2/28]. = [22:14:17] Success. [harold.jpg][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'Daniel Andrews' [3/28]. = [22:14:17] Success. [dan.png][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'Donald Trump' [4/28]. = [22:14:17] Success. [donald.png][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'Jack McBride' [5/28]. = [22:14:17] Success. [jack.png][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'Joe Harrison' [6/28]. = [22:14:17] Success. [joe.png][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'Louis' [7/28]. = [22:14:17] Already loaded.[22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'Richard Jones' [7/28]. = [22:14:17] Already loaded.[22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'Rosie Andrews' [7/28]. = [22:14:17] Success. [rosie.png][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'Stephen Andrews' [8/28]. = [22:14:17] Success. [stephen.png][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'lab' [9/28]. = [22:14:17] Success. [lab.jpg][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'library' [10/28]. = [22:14:17] Success. [library.jpg][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'outside' [11/28]. = [22:14:17] Success. [outside.jpg][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'pub' [12/28]. = [22:14:17] Success. [bar.jpg][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'theatre' [13/28]. = [22:14:17] Success. [theatre.jpg][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'apple' [14/28]. = [22:14:17] Success. [apple.png][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'book' [15/28]. = [22:14:17] Success. [book.png][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'sword' [16/28]. = [22:14:17] Success. [sword.png][22:14:17] 
+[22:14:17] [LOG] [22:14:17] Loading 'grapes' [17/28]. = [22:14:18] Success. [grapes.png][22:14:18] 
+[22:14:18] [LOG] [22:14:18] Loading 'tomato' [18/28]. = [22:14:18] Success. [tomato.png][22:14:18] 
+[22:14:18] [LOG] [22:14:18] Loading 'TheGoldenPearOfDoom' [19/28]. = [22:14:18] Already loaded.[22:14:18] 
+[22:14:18] [LOG] [22:14:18] Loading 'TheGoldenPearOfDoom' [19/28]. = [22:14:18] Already loaded.[22:14:18] 
+[22:14:18] [LOG] [22:14:18] Loading 'apple' [19/28]. = [22:14:18] Already loaded.[22:14:18] 
+[22:14:18] [LOG] [22:14:18] Loading 'book' [19/28]. = [22:14:18] Already loaded.[22:14:18] 
+[22:14:18] [LOG] [22:14:18] Loading 'grapes' [19/28]. = [22:14:18] Already loaded.[22:14:18] 
+[22:14:18] [LOG] [22:14:18] Loading 'pear' [19/28]. = [22:14:18] Success. [pear.png][22:14:18] 
+[22:14:18] [LOG] [22:14:18] Loading 'sword' [20/28]. = [22:14:18] Already loaded.[22:14:18] 
+[22:14:18] [LOG] [22:14:18] Loading 'tomato' [20/28]. = [22:14:18] Already loaded.[22:14:18] 
+[22:14:18] Resources loaded = 19
+[22:14:18] 
+[22:14:18] 	Creating panels...
+[22:14:18] Characters -> CSS: sidepanel-inventory-node-root
+[22:14:18] Characters -> CSS: sidepanel-inventory-node-root
+[22:14:18] Characters -> CSS: sidepanel-inventory-node-root
+[22:14:18] Characters -> CSS: sidepanel-room-node-root
+[22:14:18] Characters -> CSS: sidepanel-room-node-root
+[22:14:18] Characters -> CSS: sidepanel-room-node-root
+[22:14:18] Updating...
+[22:14:18] Setting animation: Inventory
+[22:14:18] Setting animation: Characters
+[22:14:18] Setting animation: Exits
+[22:14:18] Setting animation: Room Information
+[22:14:18]  - - - - - - - - - - - - - - - - - - - - 
+[22:14:18]               Finished GUI.              
+[22:14:18]  BorderPane w: 1280.0, h: 720.0
+[22:14:18]  - - - - - - - - - - - - - - - - - - - - 
+[22:14:21] ACTION > [Inventory] >> 
+[22:14:21] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[22:14:21] Hiding: Characters -> javafx.scene.control.ScrollPane
+[22:14:21] Hiding: Exits -> javafx.scene.control.ScrollPane
+[22:14:21] Hiding: Room Information -> javafx.scene.layout.VBox
+[22:14:21] Showing: Inventory -> javafx.scene.control.ScrollPane
+[22:14:21] Shown: Inventory -> javafx.scene.control.ScrollPane
+[22:14:21] ACTION > [Drop] >> drop TheGoldenPearOfDoom
+[22:14:21] Characters -> CSS: sidepanel-inventory-node-root
+[22:14:21] Characters -> CSS: sidepanel-inventory-node-root
+[22:14:21] Characters -> CSS: sidepanel-room-node-root
+[22:14:21] Characters -> CSS: sidepanel-room-node-root
+[22:14:46] ACTION > [Inventory] >> 
+[22:14:46] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[22:14:46] Hidden: Inventory -> javafx.scene.control.ScrollPane
+[22:14:46] ACTION > [Look] >> 
+[22:14:46] Hiding: Inventory -> javafx.scene.control.ScrollPane
+[22:14:46] Hiding: Characters -> javafx.scene.control.ScrollPane
+[22:14:46] Hiding: Exits -> javafx.scene.control.ScrollPane
+[22:14:46] Hiding: Room Information -> javafx.scene.layout.VBox
+[22:14:46] Showing: Room Information -> javafx.scene.layout.VBox
+[22:14:47] Shown: Room Information -> javafx.scene.layout.VBox
+[22:14:48] ACTION > [Take] >> take TheGoldenPearOfDoom
+[22:14:48] Characters -> CSS: sidepanel-inventory-node-root
+[22:14:48] Characters -> CSS: sidepanel-inventory-node-root
+[22:14:48] Characters -> CSS: sidepanel-inventory-node-root
+[22:14:48] Characters -> CSS: sidepanel-room-node-root
+[22:14:48] Characters -> CSS: sidepanel-room-node-root
+[22:14:48] Charact

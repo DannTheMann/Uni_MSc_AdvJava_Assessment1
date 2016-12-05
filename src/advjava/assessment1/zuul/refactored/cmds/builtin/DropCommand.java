@@ -5,13 +5,14 @@ import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
+import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 
 /**
- * The Drop is designed to allow the player to drop items from their
- * inventory into the current room.
+ * The Drop is designed to allow the player to drop items from their inventory
+ * into the current room.
  * 
  * @author dja33
  *
@@ -24,6 +25,7 @@ public class DropCommand extends Command {
 
 	/**
 	 * Drop and item from the players inventory and add it to the current room.
+	 * 
 	 * @return true if command executed correctly
 	 */
 	@Override
@@ -44,9 +46,10 @@ public class DropCommand extends Command {
 				// update weight
 				player.setWeight(player.getWeight() - item.getWeight());
 				player.removeItem(item);
-				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("dropitem.success"), item));
-                                game.getInterface().update(true);
-                                
+				game.getInterface()
+						.println(String.format(InternationalisationManager.im.getMessage("dropitem.success"), item));
+				game.getInterface().update(true);
+
 				return true;
 
 			} else {
@@ -57,20 +60,20 @@ public class DropCommand extends Command {
 
 		} else {
 			// Not enough parameters
-                        if(game.getInterface() instanceof CommandLineInterface){
-                            game.getInterface().println(InternationalisationManager.im.getMessage("dropitem.noparam"));
-                        }else{
-                            game.getInterface().showInventory();
-                        }
-                        
+			if (game.getInterface() instanceof CommandLineInterface) {
+				game.getInterface().println(InternationalisationManager.im.getMessage("dropitem.noparam"));
+			} else {
+				game.getInterface().showInventory(false);
+			}
+
 		}
 
 		return false;
 	}
-        
-    @Override
-    public boolean interfaceAcceptable(UserInterface ui) {
-        return ui instanceof CommandLineInterface;
-    }
+
+	@Override
+	public boolean interfaceAcceptable(UserInterface ui) {
+		return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
+	}
 
 }

@@ -15,13 +15,11 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
@@ -105,7 +103,7 @@ public class SidePanel {
 
 		checkIfPanelIsEmpty();
 		sp.setContent(tileHolder);
-		//sp.setVisible(false);
+		sp.setVisible(false);
 		root = sp;
 
 	}
@@ -131,10 +129,11 @@ public class SidePanel {
 
 	private Node getDisplayItem(Resource resource) {
 
-		Out.out.logln("");
-
 		StackPane root = new StackPane();
 
+		if(title.equalsIgnoreCase("characters"))
+			Out.out.logln(title + " -> CSS: " + css + "-node-root");
+		
 		root.getChildren()
 				.add(GraphicsUtil.createNewRectangle(css + "-node-root", SIDEBAR_NODE_WIDTH, SIDEBAR_NODE_HEIGHT));
 
@@ -294,7 +293,7 @@ public class SidePanel {
 		showTransition.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				Out.out.logln("Shown: " + title + " -> " + getNode().getClass().getName());
+				//Out.out.logln("Shown: " + title + " -> " + getNode().getClass().getName());
 				showTransition.stop();
 			}
 		});
@@ -316,7 +315,7 @@ public class SidePanel {
 		hideTransition.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				Out.out.logln("Hidden: " + title + " -> " + getNode().getClass().getName());
+				//Out.out.logln("Hidden: " + title + " -> " + getNode().getClass().getName());
 				root.setVisible(false);
 				hideTransition.stop();
 			}
@@ -325,7 +324,7 @@ public class SidePanel {
 	}
 
 	public void hide() {
-		Out.out.logln("Hiding: " + title + " -> " + getNode().getClass().getName());
+		//Out.out.logln("Hiding: " + title + " -> " + getNode().getClass().getName());
 
 		if (isHidden())
 			return;
@@ -334,7 +333,7 @@ public class SidePanel {
 	}
 
 	public void show() {
-		Out.out.logln("Showing: " + title + " -> " + getNode().getClass().getName());
+		//Out.out.logln("Showing: " + title + " -> " + getNode().getClass().getName());
 		getNode().setVisible(true);
 		showTransition.play();
 	}

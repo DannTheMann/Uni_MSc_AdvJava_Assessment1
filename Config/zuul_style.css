@@ -16,11 +16,6 @@
     -fx-background-color: white;
 }
 
-.command-button {    
-    -fx-text-fill: white;
-    -fx-background-color: red;
-}
-
 .command-box {
     -fx-background-color: transparent;
 }
@@ -37,27 +32,28 @@
 }
 
 .sidepanel-inventory-node-root {
-    -fx-fill: rgba(255,255,255);
+    -fx-fill: rgba(142, 185, 255, 0.5);
 }
 
 .sidepanel-characters-node-root {
-    -fx-fill: rgba(255,255,255);
+    -fx-fill: rgba(142, 185, 255, 0.5);
 }
 
 .sidepanel-exits-node-root {
-    -fx-fill: rgba(255,255,255);
+    -fx-fill: rgba(142, 185, 255, 0.5);
 }
 
 .sidepanel-room-node-root {
-    -fx-fill: rgba(255,255,255);
+    -fx-fill: rgba(142, 185, 255, 0.5);
 }
 
 .player-information-root {
-    -fx-fill: rgba(104, 115, 132, 0.8);
+    -fx-fill: rgba(104, 115, 132, 0.5);
 }
 
 .player-information-detail-root {
-    -fx-fill: rgba(182, 195, 216);
+    -fx-fill: rgba(182, 195, 216, 0.8);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
 
 .player-information-image {
@@ -82,37 +78,66 @@
 }
 
 .player-information-weight-text {
-    -fx-font-size: 13pt;
-    -fx-font-family: "Marlett";
+    -fx-font-size: 14pt;
+    -fx-font-family: "Arial";
     -fx-text-fill: white;
     -fx-opacity: 0.6;
 }
 
 .scroll-pane {
-    -fx-background-color: rgba(59, 165, 100, 0.3); 
+    -fx-background-color: rgba(59, 165, 100, 0); 
     -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
 }
 
 .sidepanel-inventory{
-    -fx-background-color: rgba(59, 165, 100, 0.3); 
-    -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
+    -fx-background-color: rgba(59, 165, 255, 0.3); 
+    -fx-effect: dropshadow(gaussian, blue, 50, 0, 0, 0);
 }
 
 .sidepanel-characters{
     -fx-background-color: rgba(59, 165, 100, 0.3); 
-    -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, orange, 50, 0, 0, 0);
 }
 
 .sidepanel-exits{
-    -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, yellow, 50, 0, 0, 0);
 }
 
 .sidepanel-room{
     -fx-background-color: rgba(59, 165, 100, 0.3); 
-    -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, aqua, 50, 0, 0, 0);
     -fx-text-fill: black;
 }
 
 .scroll-pane > .viewport  {
-    -fx-background-color: rgba(59, 165, 100, 0.3); 
+    -fx-background-color: rgba(59, 165, 100, 0.0); 
+}
+
+.rectangle {
+     -fx-fill: rgba(255,255,255);   
+}
+
+.rectangle:hover{
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+.command-button{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.command-button:hover{
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
 }

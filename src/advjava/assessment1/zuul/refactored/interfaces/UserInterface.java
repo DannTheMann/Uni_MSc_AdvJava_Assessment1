@@ -27,10 +27,10 @@ public interface UserInterface {
     public boolean update(boolean actCharacters);
     public void play(Game zuulGame);
 
-    public void showInventory();
-    public void showCharacters();
-    public void showRoom();
-	void showExits();
+    public void showInventory(boolean override);
+    public void showCharacters(boolean override);
+    public void showRoom(boolean override);
+	void showExits(boolean override);
 
 	public String getHelpDescription();
      

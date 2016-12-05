@@ -60,6 +60,11 @@ public class Player extends Character {
 		super(name, description, startingRoom, new PrintableList<>(), DEFAULT_MAX_WEIGHT, null);
 	}
 
+
+	public Player(String name, Room startingRoom, int playerMaxWeight) {
+		super(name, null, startingRoom, new PrintableList<>(), playerMaxWeight, null);
+	}
+	
 	/**
 	 * Third Constructor for creating a player, assumes DEFAULT_MAX_WEIGHT an
 	 * empty inventory, and no description

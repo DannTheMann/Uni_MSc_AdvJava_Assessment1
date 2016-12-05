@@ -136,21 +136,21 @@ public class CommandLineInterface implements UserInterface {
     }
 
     @Override
-    public void showInventory() {
+    public void showInventory(boolean override) {
         println(game.getPlayer().getInventory());
     }
 
     @Override
-    public void showCharacters() {
+    public void showCharacters(boolean override) {
         println(game.getPlayer().getCurrentRoom().getCharacters());
     }
     
-    public void showRoom(){
+    public void showRoom(boolean override){
         println(game.getPlayer().getCurrentRoom());
     }
 
 	@Override
-	public void showExits() {
+	public void showExits(boolean override) {
 		println(game.getPlayer().getCurrentRoom().getExits());
 	}
 

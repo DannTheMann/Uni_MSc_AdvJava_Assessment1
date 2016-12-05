@@ -65,28 +65,32 @@ public abstract class Resource extends Descriptor{
 	}
 
 	public void loadImage(Image img) {
-		assert img != null : "Image cannot be null.";
+		if(img == null)
+			throw new NullPointerException("Image cannot be null.");
 		image = img;
 	}
 
-	public void update(String name, String description, String url) {
+	public boolean update(String name, String description, String url) {
 		super.update(name, description);
 		if (this.imageURL == null) {
 			this.imageURL = url;
-			setImage();
+			return setImage();
 		}
+		return false;
 	}
 
-	private void setImage() {
+	private boolean setImage() {
 		if (imageURL != null && image == null) {
 				imageURL = Main.RESOURCE_FILES + File.separator + imageURL;
 			if (Arrays.stream(IMAGE_FORMATS).anyMatch(i -> imageURL.endsWith("." + i))) {
 				resourceName = Paths.get(imageURL).getFileName().toString();
+				return true;
 			} else {
 				Out.out.logln("Invalid imageURL given, cannot load resource: '" + imageURL + "'.");
 				imageURL = null;
 			}
 		}
+		return false;
 	}
 
 	public String getImageFileURL() {

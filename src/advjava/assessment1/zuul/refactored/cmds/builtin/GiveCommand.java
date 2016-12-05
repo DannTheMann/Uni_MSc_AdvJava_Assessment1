@@ -61,6 +61,8 @@ public class GiveCommand extends Command {
 			if (item.getWeight() + character.getWeight() > character.getMaxWeight()) {
 				game.getInterface().displayLocale(
 						String.format(InternationalisationManager.im.getMessage("give.heavy"), character.getName()));
+				game.getInterface().showCharacters(true);
+				game.getInterface().showInventory(true);
 				return false;
 			}
 
@@ -73,7 +75,7 @@ public class GiveCommand extends Command {
 			game.getInterface().displayLocale(String.format(InternationalisationManager.im.getMessage("give.success"),
 					character.getName(), item.getName()));
 			
-			game.getInterface().showCharacters();
+			game.getInterface().showCharacters(true);
 			
 			game.getInterface().update(false);
 			return true;
@@ -82,7 +84,12 @@ public class GiveCommand extends Command {
 			
 			// GUI Alternative
 			if(game.getInterface() instanceof GraphicalInterface){
-				game.getInterface().showCharacters();				
+				
+				if(cmd.commandLength() > 1){
+					game.getInterface().showCharacters(false);				
+				}else{
+					game.getInterface().showInventory(false);				
+				}
 				return false;
 			}
 			
@@ -95,7 +102,7 @@ public class GiveCommand extends Command {
         
     @Override
     public boolean interfaceAcceptable(UserInterface ui) {
-        return ui instanceof CommandLineInterface;
+        return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
     }
 
 }

@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import advjava.assessment1.zuul.refactored.Main;
 import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingException;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
@@ -14,7 +13,6 @@ import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
 import advjava.assessment1.zuul.refactored.utils.Resource;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 
 /**
  * Represents a superclass for any Characters in the game NonPlayerCharacter and
@@ -246,11 +244,7 @@ public abstract class Character extends Resource {
 		if(css.equals("sidepanel-room"))
 			return;
 		
-		grid.setOnMouseClicked(GraphicalInterface.getCommandEvent(
-
-				" " + getRawName(),
-
-				Main.game.getCommandManager().getCommand("Give")));
+		grid.setOnMouseClicked(GraphicalInterface.getVariableCommandEvent(getRawName()));
 
 	}
 

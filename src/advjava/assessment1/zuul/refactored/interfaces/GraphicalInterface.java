@@ -22,16 +22,14 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -49,7 +47,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 	private static StackPane playerToolbar;
 	private static Text playerWeight;
 	private static SidePanel inventory;
-	private static SidePanel characters;
+	public static SidePanel characters;
 	private static SidePanel exits;
 	private static CentralPanel room;
 	private static String parameters = "hello darkness my old friend";
@@ -62,10 +60,10 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	/* Series of constants to define panel constraints */
 	private static final int PLAYER_INFO_MAX_WIDTH = 650;
-	private static final int ITEMS_MAX_IMAGE_SIZE = 50;
+	private static final int ITEMS_MAX_IMAGE_SIZE = 55;
 	private static final int CHARACTERS_MAX_IMAGE_SIZE = 70;
 	private static final int SIDE_PANEL_NODE_HEIGHT = 110;
-	private static final int SIDE_PANEL_NODE_WIDTH = 130;
+	private static final int SIDE_PANEL_NODE_WIDTH = 80;
 	private static final int CENTRAL_PANEL_NODE_HEIGHT = 130;
 	private static final int CENTRAL_PANEL_NODE_WIDTH = 90;
 
@@ -91,28 +89,29 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	@Override
 	public void print(Object obj) {
-		System.out.print(obj);
+		//System.out.print(obj);
 	}
 
 	@Override
 	public void println(Object obj) {
-		System.out.println(obj);
+		//System.out.println(obj);
 	}
 
 	@Override
 	public void println() {
-		System.out.println();
+		//System.out.println();
 	}
 
 	@Override
 	public void printErr(Object obj) {
-		System.err.print(obj);
-		GraphicsUtil.showAlert("Error", "An error occurred somewhere.", obj.toString(), AlertType.ERROR);
+		//System.err.print(obj);
+		if(stage != null)
+			GraphicsUtil.showAlert("Error", "An error occurred somewhere.", obj.toString(), AlertType.ERROR);
 	}
 
 	@Override
 	public void printlnErr(Object obj) {
-		System.err.println(obj);
+		//System.err.println(obj);
 		if(stage != null)
 			GraphicsUtil.showAlert("Error", "An error occurred somewhere.", obj.toString(), AlertType.ERROR);
 	}
@@ -209,7 +208,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 		characters = new SidePanel(SIDE_PANEL_CHARACTERS, NO_CHARACTERS_IN_ROOM,
 				game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(),
 				fontManager, game,
-				"sidepanel-characters",
+				"sidepanel-inventory",
 				CHARACTERS_MAX_IMAGE_SIZE, CHARACTERS_MAX_IMAGE_SIZE, 
 				CENTRAL_PANEL_NODE_WIDTH,CENTRAL_PANEL_NODE_HEIGHT);
 		
@@ -259,7 +258,6 @@ public class GraphicalInterface extends Application implements UserInterface {
 		root.setCenter(playerToolbar);
 		playerToolbar.toFront();
 		root.setTop(exits.getNode());
-		//root.setCenter(room.getNode());
 		root.setRight(characters.getNode());
 		root.setLeft(inventory.getNode());
 		
@@ -277,7 +275,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 	
 	private void updateAnimation(){
 		Out.out.logln("Updating...");
-		inventory.setSlideAnimation(root, SlideAnimation.LEFT, 300);
+		inventory.setSlideAnimation(root, SlideAnimation.LEFT, 200);
 		characters.setSlideAnimation(root, SlideAnimation.RIGHT, 500);
 		exits.setSlideAnimation(root, SlideAnimation.TOP, 500);
 		room.setSlideAnimation(room.getNode(), root, SlideAnimation.RIGHT, 500);
@@ -309,7 +307,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 				gp.setVgap(10);
 				gp.setPadding(new Insets(0, 5, 0, 5));
 
-				gp.setAlignment(Pos.BOTTOM_CENTER);
+				gp.setAlignment(Pos.CENTER);
 
 				{
 					StackPane sp = new StackPane();
@@ -337,8 +335,8 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 					weightPane.getChildren().add(playerWeight);
 					weightPane.setPadding(new Insets(5, 5, 5, 5));
-					weightPane.setAlignment(Pos.BOTTOM_CENTER);
-					innergp.setAlignment(Pos.BOTTOM_CENTER);
+					weightPane.setAlignment(Pos.CENTER);
+					innergp.setAlignment(Pos.CENTER);
 
 					innergp.add(weightPane, 1, 3);
 
@@ -377,7 +375,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 				continue;
 			}
 
-			buttonCurrent = newCommandButton("", command, "command-button");
+			buttonCurrent = newCommandButton(command.getRawName(), command, "command-button");
 			buttonCurrent.setPrefSize(100, 20);
 			Tooltip.install(buttonCurrent, GraphicsUtil.createNewToolTip(command.getDescription(), FontManager.getFontManager().getFont("DEFAULT_FONT"), 1000));
 			hbox.getChildren().add(buttonCurrent);
@@ -395,11 +393,39 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	public static EventHandler<Event> getCommandEvent(String params, Command command) {
 		return (Event e) -> {
+			
 			parameters += params;
 			if (executeCommand(command, e)) {
 				parameters = "";
 			}
 			// parameters = "";
+		};
+	}
+	
+
+	public static EventHandler<? super MouseEvent> getVariableCommandEvent(String params) {
+		
+		return (Event e) -> {
+			Command command = Main.game.getCommandManager().getCommand(parameters);			
+			
+			if(command == null){
+				if(parameters.split(" ").length > 0){
+					command = Main.game.getCommandManager().getCommand(parameters.split(" ")[0]);
+					if(command == null)
+						return;
+				}else{
+					return;
+				}
+			}
+			
+			Out.out.logln("CI: " + parameters + " | " + params);
+			
+			parameters += " " + params;		
+
+			if (executeCommand(command, e)) {
+				parameters = command.getName();
+			}
+
 		};
 	}
 
@@ -424,7 +450,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	}
 
-	private static boolean executeCommand(Command cmd, Event event) {
+	public static boolean executeCommand(Command cmd, Event event) {
 
 		Out.out.logln(event.getEventType().getName() + " > [" + cmd.getName() + "] >> " + parameters);
 
@@ -435,57 +461,32 @@ public class GraphicalInterface extends Application implements UserInterface {
 	}
 
 	@Override
-	public void showInventory() {
+	public void showInventory(boolean override) {
 
 		if(inventory.isHidden()){
 			hideOtherPanes();
 			inventory.show();
-		}else{
+		}else if(override){
 			inventory.hide();
 		}
-		
-//		if (root.getLeft() != null) {
-//			root.setLeft(null);
-//			return;
-//		}
-//
-//		disableOtherWindows();
-//
-//		root.setLeft(inventory.getNode());
-//		root.setBottom(playerToolbar);
-//		playerToolbar.toBack();
-//		// sliding transition... from left ...
 	}
 
 	@Override
-	public void showCharacters() {
+	public void showCharacters(boolean override) {
 
 		if(characters.isHidden()){
 			
 			root.setRight(characters.getNode());
 			
 			characters.show();
-		}else{
-			hideOtherPanes();
+		}else if(override){
+			//hideOtherPanes();
 			characters.hide();
 		}
-		
-		
-		//		if (root.getRight() != null) {
-//			root.setRight(null);
-//			return;
-//		}
-
-//		disableOtherWindows();
-//
-//		root.setRight(characters.getNode());
-//		root.setBottom(playerToolbar);
-//		playerToolbar.toBack();
-//		// sliding transition... from left ...
 	}
 
 	@Override
-	public void showRoom() {
+	public void showRoom(boolean override) {
 
 		if(room.isHidden()){
 			hideOtherPanes();
@@ -493,24 +494,14 @@ public class GraphicalInterface extends Application implements UserInterface {
 			root.setRight(room.getNode());
 			
 			room.show();
-		}else{
+		}else if(override){
 			room.hide();
 		}
-		
-//		if (root.getCenter() != null) {
-//			root.setCenter(null);
-//			return;
-//		}
-//
-//		disableOtherWindows();
-//
-//		root.setCenter(room.getNode());
-//		root.setBottom(playerToolbar);
 
 	}
 
 	@Override
-	public void showExits() {
+	public void showExits(boolean override) {
 
 		if(exits.isHidden()){
 			hideOtherPanes();
@@ -518,17 +509,6 @@ public class GraphicalInterface extends Application implements UserInterface {
 		}else{
 			exits.hide();
 		}
-		
-		
-		//		if (root.getTop() != null) {
-//			root.setTop(null);
-//			return;
-//		}
-//
-//		disableOtherWindows();
-//
-//		root.setBottom(playerToolbar);
-//		root.setTop(exits.getNode());
 	}
 
 	private void hideOtherPanes(){

@@ -10,7 +10,6 @@ import advjava.assessment1.zuul.refactored.character.Player;
 import advjava.assessment1.zuul.refactored.cmds.Command;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
-import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 
 /**
@@ -87,14 +86,14 @@ public class DebugCommand extends Command {
 						player.getWeight(), System.lineSeparator(), player.getMaxWeight(), System.lineSeparator(),
 						player.getInventory()));
 
-		game.getInterface().showCharacters();
+		game.getInterface().showCharacters(false);
 		return true;
 
 	}
 
 	@Override
 	public boolean interfaceAcceptable(UserInterface ui) {
-		return ui instanceof CommandLineInterface || ui instanceof GraphicalInterface;
+		return ui instanceof CommandLineInterface;
 	}
 
 }

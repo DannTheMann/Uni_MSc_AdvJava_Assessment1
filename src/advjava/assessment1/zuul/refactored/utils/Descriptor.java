@@ -31,13 +31,17 @@ public abstract class Descriptor {
 		return name + " -> " + description;
 	}
 
-	public void update(String name, String description){
+	public boolean update(String name, String description){
+		boolean flag = false;
 		if(this.name == null){
 			this.name = name;
+			flag = true;
 		}
 		if(this.description == null){
 			this.description = description;
+			flag = true;
 		}
+		return flag;
 	}
 
 	public String getRawDescription() {

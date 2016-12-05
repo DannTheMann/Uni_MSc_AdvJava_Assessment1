@@ -5,16 +5,11 @@
  */
 package advjava.assessment1.zuul.refactored.item;
 
-import advjava.assessment1.zuul.refactored.Main;
 import advjava.assessment1.zuul.refactored.character.Character;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Resource;
-import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 /**
  * 
@@ -25,7 +20,7 @@ import javafx.scene.text.Text;
  * 
  * @author dja33
  */
-public class Item extends Resource{
+public class Item extends Resource {
 
 	private final int weight;
 
@@ -44,6 +39,18 @@ public class Item extends Resource{
 	public Item(String name, String description, int weight, String url) {
 		super(name.replaceAll(" ", ""), description == null || description.equals("") ? null : description, url);
 		this.weight = weight;
+	}
+
+	/**
+	 * If the item doesn't have a description, alternatively use this
+	 * constructor
+	 * 
+	 * @param name
+	 * @param description
+	 * @param weight
+	 */
+	public Item(String name, String description, int weight) {
+		this(name, description, weight, null);
 	}
 
 	/**
@@ -78,15 +85,15 @@ public class Item extends Resource{
 	}
 
 	@Override
-	public String getDescription(){
+	public String getDescription() {
 		return "Weight: " + getWeight() + System.lineSeparator() + super.getDescription();
 	}
-	
+
 	@Override
-	public String getRawDescription(){
+	public String getRawDescription() {
 		return super.getDescription();
 	}
-	
+
 	/**
 	 * Override toString and provide a detailed explanation of the item in a
 	 * formatted string
@@ -104,25 +111,27 @@ public class Item extends Resource{
 	@Override
 	public void applyInformation(GridPane grid, String css) {
 		
-		if (css.equals("sidepanel-room")) {
-			
-			// Create take button
-			grid.add(new StackPane(GraphicalInterface.newCommandButton("take " + getName(),
-					Main.game.getCommandManager().getCommand("Take"), ".sidebar-button")), 0, 2);
+		grid.setOnMouseClicked(GraphicalInterface.getVariableCommandEvent(getRawName()));
 
-		} else {
-
-			// create drop and give button, wrap them in a VBox
-			VBox buttonHolder = new VBox();	
-			buttonHolder.getChildren().add(GraphicalInterface.newCommandButton("drop " + getName(),
-					Main.game.getCommandManager().getCommand("Drop"), ".sidebar-button"));
-			buttonHolder.getChildren().add(GraphicalInterface.newCommandButton("give " + getName(),
-					Main.game.getCommandManager().getCommand("Give"), ".sidebar-button"));			
-			buttonHolder.setSpacing(12);
-
-			grid.add(buttonHolder, 1, 1);
-
-		}
+//		if (css.equals("sidepanel-room")) {
+//
+//			// Create take button
+//			grid.add(new StackPane(GraphicalInterface.newCommandButton("take " + getName(),
+//					Main.game.getCommandManager().getCommand("Take"), ".sidebar-button")), 0, 2);
+//
+//		} else {
+//
+////			// create drop and give button, wrap them in a VBox
+////			VBox buttonHolder = new VBox();
+////			buttonHolder.getChildren().add(GraphicalInterface.newCommandButton("drop " + getName(),
+////					Main.game.getCommandManager().getCommand("Drop"), ".sidebar-button"));
+////			buttonHolder.getChildren().add(GraphicalInterface.newCommandButton("give " + getName(),
+////					Main.game.getCommandManager().getCommand("Give"), ".sidebar-button"));
+////			buttonHolder.setSpacing(12);
+////
+////			grid.add(buttonHolder, 1, 1);
+//
+//		}
 
 	}
 

@@ -82,7 +82,42 @@ public class NonPlayerCharacter extends Character {
 	 *             If the NPC's name is null or an empty String
 	 */
 	public NonPlayerCharacter(String name, String description, Room room, List<Item> items, int weight) throws InvalidCharacterNamingException {
+		this(name, description, room, items, DEFAULT_MAX_WEIGHT, null);
+	}
+	
+
+	/**
+	 * Fourth constructor, assumes no items are provided or a maximum weight is
+	 * provided and such provides an empty list as well as the
+	 * DEFAULT_MAX_WEIGHT.
+	 * 
+	 * @param name
+	 *            Name of NPC
+	 * @param description
+	 *            Description of NPC
+	 * @param room
+	 *            NPC room
+	 * @throws InvalidCharacterNamingException
+	 *             If the NPC's name is null or an empty String
+	 */
+	public NonPlayerCharacter(String name, String description, Room room) throws InvalidCharacterNamingException {
 		this(name, description, room, new PrintableList<>(), DEFAULT_MAX_WEIGHT, null);
+	}
+	
+	/**
+	 * Fifth constructor, assumes no items are provided or a maximum weight is
+	 * provided and such provides an empty list as well as the
+	 * DEFAULT_MAX_WEIGHT.
+	 * 
+	 * @param name
+	 *            Name of NPC
+	 * @param room
+	 *            NPC room
+	 * @throws InvalidCharacterNamingException
+	 *             If the NPC's name is null or an empty String
+	 */
+	public NonPlayerCharacter(String name, Room room) throws InvalidCharacterNamingException {
+		this(name, null, room, new PrintableList<>(), DEFAULT_MAX_WEIGHT, null);
 	}
 
 	/**
