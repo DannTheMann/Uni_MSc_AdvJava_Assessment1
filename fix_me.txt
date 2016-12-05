@@ -1,5 +1,7 @@
 To Fix
 
+Write report
+Update JavaDocs
 Test on different system (laptop?)
 ***Change CSS to fix style
 -- Kinda done?
