@@ -44,10 +44,21 @@ public class CentralPanel extends SidePanel{
 		root.setAlignment(Pos.CENTER);
 		//root.setMaxSize(GraphicalInterface.WINDOW_MAX_WIDTH, GraphicalInterface.WINDOW_MAX_HEIGHT);
 		root.setPadding(new Insets(0, NODE_RIGHT_OFFSET, 0, NODE_LEFT_OFFSET));
-		root.setSpacing(5);
+		root.setSpacing(20);
 
 	}
 
+	/**
+	 * Add a panel to the central panel
+	 * @param panelName The name of the panel
+	 * @param empty It's empty string to show if empty
+	 * @param stream The resources to add
+	 * @param imageWidth The height of the images
+	 * @param imageHeight The width of the images
+	 * @param nodeWidth The width of the nodes
+	 * @param nodeHeight The height of the nodes
+	 * @return boolean whether it was added or not
+	 */
 	public boolean addPanel(String panelName, String empty, Stream<Resource> stream, int imageWidth, int imageHeight, int nodeWidth, int nodeHeight) {
 
 		if(panels.containsKey(panelName)){
@@ -66,16 +77,27 @@ public class CentralPanel extends SidePanel{
 		return true;
 	}
 
-	
+	/**
+	 * Return this Panel as a VBox
+	 */
 	public VBox getNode() {
 		return root;
 	}
 	
+	/**
+	 * Set all children of the central panel to be visible or not
+	 * @param visible
+	 */
 	public void setVisible(boolean visible){
 		root.setVisible(visible);
 		root.getChildren().stream().forEach(n->n.setVisible(visible));
 	}
 
+	/**
+	 * Update all children of this panel
+	 * @param name The name of the SidePanel to update
+	 * @param newContents The newcontents of the panel
+	 */
 	public void update(String name, Collection<Resource> newContents){
 		
 		Optional<SidePanel> panel = panels.entrySet().stream()

@@ -10,7 +10,7 @@ import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 
 /**
  * The GiveCommand is designed to allow the player to give items from their
@@ -45,6 +45,7 @@ public class GiveCommand extends Command {
 
 			// If the item does NOT exist in the players inventory
 			if (item == null) {
+				game.getInterface().resetParameters();
 				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("give.notowned"), itemName));
 				return false;
 			}
@@ -54,6 +55,8 @@ public class GiveCommand extends Command {
 				
 				game.getInterface()
 						.println(String.format(InternationalisationManager.im.getMessage("give.noone"), characterName));
+				game.getInterface().resetParameters();
+				game.getInterface().showCharacters(true);
 				return false;
 			}
 
@@ -74,7 +77,7 @@ public class GiveCommand extends Command {
 
 			game.getInterface().displayLocale(String.format(InternationalisationManager.im.getMessage("give.success"),
 					character.getName(), item.getName()));
-			
+			game.getInterface().resetParameters();
 			game.getInterface().showCharacters(true);
 			
 			game.getInterface().update(false);
@@ -88,6 +91,7 @@ public class GiveCommand extends Command {
 				if(cmd.commandLength() > 1){
 					game.getInterface().showCharacters(false);				
 				}else{
+					//game.getInterface().showCharacters(false);		
 					game.getInterface().showInventory(false);				
 				}
 				return false;

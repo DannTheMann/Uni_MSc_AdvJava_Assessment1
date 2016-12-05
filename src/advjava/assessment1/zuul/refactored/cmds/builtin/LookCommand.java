@@ -12,7 +12,7 @@ import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
 import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 
 /**
  * The look command reprints the rooms current information, or if a parameter is

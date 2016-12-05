@@ -7,8 +7,8 @@ package advjava.assessment1.zuul.refactored.item;
 
 import advjava.assessment1.zuul.refactored.character.Character;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Resource;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 import javafx.scene.layout.GridPane;
 
 /**

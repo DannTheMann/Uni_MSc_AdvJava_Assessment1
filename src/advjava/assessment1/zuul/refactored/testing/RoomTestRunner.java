@@ -9,23 +9,25 @@ import java.util.Arrays;
 
 public class RoomTestRunner {
 
-	private static final String BORDER_TOP = "/--------------------------------------------------------------\\";
-	private static final String BORDER_MIDDLE = "|--------------------------------------------------------------|";
-	private static final String EMPTY_MIDDLE = "|                                                              |";
-	private static final String BORDER_BOTTOM = "\\--------------------------------------------------------------/";
+	private static final String BORDER_TOP = "/------------------------------------------------------------------------\\";
+	private static final String BORDER_MIDDLE = "|------------------------------------------------------------------------|";
+	private static final String EMPTY_MIDDLE = "|                                                                        |";
+	private static final String BORDER_BOTTOM = "\\------------------------------------------------------------------------/";
 	private static final int LENGTH = BORDER_TOP.length() - 2;
 	private static int errorCount = 1;
 
+	/**
+	 * Run the tests on Room, display in a pretty way.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		out.println(BORDER_TOP);
 		out.println(confineToSpace("                      Beginning Tests."));
 		out.println(BORDER_BOTTOM);
-		out.println();
 
 		Result result = JUnitCore.runClasses(RoomTestSuite.class);
 
-		out.println();
 		out.println(BORDER_TOP);
 		out.println(confineToSpace("                         Finished."));
 		out.println(BORDER_MIDDLE);
@@ -53,18 +55,31 @@ public class RoomTestRunner {
 
 	}
 
+	/**
+	 * Confine the message to a border
+	 * @param message The message to confine
+	 * @return The confined message
+	 */
 	private static String confineToSpace(String message) {
 
 		String msg = "| ";
 
-		if (message.length() + 2 <= LENGTH) {
+		if (message.length() + 2 <= LENGTH) 
 			msg += message.replaceAll("(\r\n)|\n|\r", "");
 			for (int i = msg.length(); i < LENGTH; i++)
 				msg += " ";
 			msg += " |";
-		}
+		
 		return msg;
 
+	}
+
+	/**
+	 * Print and in turn confine
+	 * @param message What to print
+	 */
+	public static void println(String message) {
+		out.println(confineToSpace(message.replaceAll("(.{" + (LENGTH - 5) + "})", "$1\n")));
 	}
 
 }

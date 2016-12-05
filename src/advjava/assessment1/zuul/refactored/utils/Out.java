@@ -15,12 +15,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
+ *	Logger class to output logs to a directory and log.txt
  * @author dja33
  */
 public final class Out {
 
-    private static final DateFormat logTimeFormat = new SimpleDateFormat("HH:mm:ss");
+    private static final DateFormat logTimeFormat = new SimpleDateFormat("HH:mm:ss.SSS");
     private boolean printDebugMessages = false; 
     private final String LOG_DIRECTORY;
     private final File log;
@@ -30,6 +30,8 @@ public final class Out {
 
     private Out(String logDir){ 
         
+    	logln("Creating logger...");
+    	
         File dir = new File(logDir);
         
         if(!dir.exists()){
@@ -47,6 +49,8 @@ public final class Out {
                 canLog = false;
                 return;
             }
+        }else{     
+        	logln("File exists: " + log.getAbsolutePath());
         }
             try {
                 writer = new BufferedWriter(new FileWriter(log, true));
@@ -75,11 +79,16 @@ public final class Out {
         }
     }
     
-    public static void close() throws IOException{
+    public static void close(){
         out.logln("Closing logger.");
         if(out != null && out.writer != null){
             out.logln("Closing writer for logger.");
-            out.writer.close();
+            try {
+				out.writer.close();
+			} catch (IOException e) {
+	            out.loglnErr("Failed to close logger!.");
+				e.printStackTrace();
+			}
         }
         if(out != null){
             out = null;
@@ -97,7 +106,7 @@ public final class Out {
                 System.out.println(PREFIX + obj);
             }
         }
-        recordToLog(obj + System.lineSeparator());
+        recordToLog(obj + System.lineSeparator(), true);
     }
 
     public void logln() {
@@ -108,51 +117,7 @@ public final class Out {
                 System.out.println();
             }
         }
-        recordToLog(System.lineSeparator());
-    }
-
-    public void recordToLog(String str) {
-        
-        if (canLog) {
-            
-            try{
-                writer.write(String.format("[%s] %s", logTimeFormat.format(new Date()), str)); 
-            }catch(IOException ioe){ 
-                canLog = false;
-                loglnErr("Logger could not write to file: "  + ioe.getMessage());
-            }
-            
-        }
-
-    }
-
-    public boolean isPrintingDebugMessages() {
-        return printDebugMessages;
-    }
-
-    public void setPrintingDebugMessages(boolean print) {
-        printDebugMessages = print;
-    }
-
-    private static final String ERROR_PREFIX = "[ERROR] ";
-    
-    public void loglnErr(Object obj) {
-        if (isPrintingDebugMessages()) {
-            if(Main.game != null){
-                Main.game.getInterface().printlnErr(obj);
-            }else{
-                System.out.println(ERROR_PREFIX + obj.toString());
-            }
-        }
-        recordToLog(ERROR_PREFIX + obj.toString());
-    }
-    
-    public String getDirectory(){
-       return log.getParent();
-    }
-
-    private String getAbsolutePath() {
-        return log.getAbsolutePath();
+        recordToLog(System.lineSeparator(), false);
     }
 
 	public void log(Object obj) {
@@ -163,8 +128,69 @@ public final class Out {
                 System.out.print(obj.toString());
             }
         }
-        recordToLog(obj.toString());
+        recordToLog(obj.toString(), false);
 		
 	}
+
+	public void logWithTime(Object obj) {
+        if (isPrintingDebugMessages()) {
+            if(Main.game != null){
+                Main.game.getInterface().print(obj);
+            }else{
+                System.out.print(obj.toString());
+            }
+        }
+        recordToLog(obj.toString(), true);
+		
+	}
+	
+    public void loglnErr(Object obj) {
+        if (isPrintingDebugMessages()) {
+            if(Main.game != null){
+                Main.game.getInterface().printlnErr(obj);
+            }else{
+                System.out.println(ERROR_PREFIX + obj.toString());
+            }
+        }
+        recordToLog(ERROR_PREFIX + obj.toString(), true);
+    }
+	
+    public boolean isPrintingDebugMessages() {
+        return printDebugMessages;
+    }
+
+    public void setPrintingDebugMessages(boolean print) {
+        printDebugMessages = print;
+    }
+
+    private static final String ERROR_PREFIX = "[ERROR] ";
+    
+
+    public void recordToLog(String str, boolean logTime) {
+        
+        if (canLog) {
+            
+            try{
+            	if(logTime){
+            		writer.write(String.format("[%s] %s", logTimeFormat.format(new Date()), str)); 
+            	}else{
+            		writer.write(String.format("%s", str)); 
+            	}
+            }catch(IOException ioe){ 
+                canLog = false;
+                loglnErr("Logger could not write to file: "  + ioe.getMessage());
+            }
+            
+        }
+
+    }
+    
+    public String getDirectory(){
+       return log.getParent();
+    }
+
+    private String getAbsolutePath() {
+        return log.getAbsolutePath();
+    }
 
 }

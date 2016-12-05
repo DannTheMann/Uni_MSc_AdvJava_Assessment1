@@ -1,6 +1,6 @@
 package advjava.assessment1.zuul.refactored.exception;
 
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 
 /**
  * Exception designed to handle any naming exceptions for

@@ -19,8 +19,21 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
+/**
+ * Utility class to handle one time functionality of 
+ * graphical interfaces
+ * @author DJA33
+ *
+ */
 public class GraphicsUtil {
 	
+	/**
+	 * Create a new ToolTip
+	 * @param message its message
+	 * @param font the font to use
+	 * @param delay delay before appearing
+	 * @return ToolTip
+	 */
 	public static Tooltip createNewToolTip(String message, Font font, double delay) {
 		Tooltip tp = new Tooltip(message);
 		tp.setContentDisplay(ContentDisplay.BOTTOM);
@@ -30,6 +43,11 @@ public class GraphicsUtil {
 		return tp;
 	}
 	
+	/**
+	 * Modify the delay of a tooltips appearance
+	 * @param tooltip The tooltip to modify
+	 * @param delay the delay to modify
+	 */
     public static void modifyTooltipTimer(Tooltip tooltip, double delay) {
         try {
             Field fieldBehavior = tooltip.getClass().getDeclaredField("BEHAVIOR");
@@ -49,6 +67,13 @@ public class GraphicsUtil {
         }
     }
     
+    /**
+     * Create a new rectangle
+     * @param css The css to apply
+     * @param width The width of the rectangle
+     * @param height The height of the rectangle
+     * @return The rectangle
+     */
     public static Rectangle createNewRectangle(String css, int width, int height){
     	Rectangle r = new Rectangle();
     	r.getStyleClass().add(css);
@@ -61,6 +86,13 @@ public class GraphicsUtil {
     	return r;
     }
     
+    /**
+     * Create an image icon
+     * @param image the image
+     * @param width Width of the image
+     * @param height Height of the image
+     * @return ImageView of the image
+     */
     public static ImageView createIconImage(Image image, int width, int height){
 		ImageView iv = new ImageView(image);
 		iv.setFitHeight(height);
@@ -69,6 +101,13 @@ public class GraphicsUtil {
 		return iv;
     }
     
+    /**
+     * Create a new Text object
+     * @param msg The message it contains
+     * @param font The font to use
+     * @param css The stylesheet to use
+     * @return Text
+     */
     public static Text createNewText(String msg, Font font, String css){
     	Text text = new Text(msg);
     	text.setFont(font);
@@ -77,13 +116,25 @@ public class GraphicsUtil {
     	return text;	
     }
     
+    /**
+     * Create new text object
+     * @param msg The message it contains
+     * @param font The stylesheet to use
+     * @return Text
+     */
     public static Text createNewText(String msg, String css){
     	Text text = new Text(msg);
     	text.getStyleClass().add(css);
     	return text;	
     }
     
-
+    /**
+     * Show an alert dialog
+     * @param title Title of the dialog
+     * @param mast The header of the dialog
+     * @param body The body message
+     * @param dialogType What type of dialog to show (Alert, warning etc)
+     */
 	public static void showAlert(String title, String mast, String body, AlertType dialogType) {
 		Alert alert = new Alert(dialogType, body, ButtonType.OK);
 		alert.setTitle(title);

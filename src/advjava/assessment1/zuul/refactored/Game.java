@@ -11,9 +11,9 @@ import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.item.ItemManager;
 import advjava.assessment1.zuul.refactored.room.RoomManager;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
-import advjava.assessment1.zuul.refactored.utils.XMLManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.XMLManager;
 
 public abstract class Game {
 	/*

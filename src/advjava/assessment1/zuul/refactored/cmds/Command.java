@@ -58,6 +58,11 @@ public abstract class Command extends Descriptor{
 	 */
 	public abstract boolean action(Game game, CommandExecution cmd);
         
+	/**
+	 * Whether or not this command is suitable for the interface
+	 * @param ui Interface
+	 * @return true if suitable
+	 */
     public abstract boolean interfaceAcceptable(UserInterface ui);
 
 }

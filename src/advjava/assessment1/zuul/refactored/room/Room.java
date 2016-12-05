@@ -13,9 +13,9 @@ import advjava.assessment1.zuul.refactored.character.Character;
 import advjava.assessment1.zuul.refactored.exception.InvalidRoomNamingException;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
 import advjava.assessment1.zuul.refactored.utils.Resource;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -33,6 +33,7 @@ public class Room extends Resource{
 	// Exits from the room
 	private final Map<String, Room> rooms;
 	private final List<Item> items;
+	private String theme;
 
 	// Characters in the room
 	private List<Character> characters;
@@ -56,6 +57,38 @@ public class Room extends Resource{
 		this.items = new PrintableList<>();
 		this.characters = new PrintableList<>();
 		this.rooms = new HashMap<>();
+		this.theme = null;
+	}
+	
+	/**
+	 * Create a room with a name and description, an example might be "Kitchen"
+	 * and "An old kitchen full of empty pans.".
+	 * 
+	 * The room's name cannot be null or an empty string, otherwise a
+	 * InvalidRoomNamingException is thrown.
+	 *
+	 * @param name
+	 *            The room's name.
+	 * @param description
+	 *            The room's description.
+	 * @throws InvalidRoomNamingException
+	 *             if name is null or empty
+	 */
+	public Room(String name, String description, String url, String theme) throws InvalidRoomNamingException {
+		super(name, description, url);
+		this.items = new PrintableList<>();
+		this.characters = new PrintableList<>();
+		this.rooms = new HashMap<>();
+		this.theme = theme;
+	}
+	
+	public boolean update(String name, String des, String url, String theme){
+		boolean flag = super.update(name, des, url);
+		if(this.theme == null){
+			this.theme = theme;
+			flag = true;
+		}
+		return flag;
 	}
 
 	/**
@@ -131,6 +164,21 @@ public class Room extends Resource{
 	@Override
 	public String toString() {
 
+		String cat = "";
+		for(String key : rooms.keySet()){
+			cat+= key.toUpperCase() + " -> ";
+			cat+= rooms.get(key).getName();
+			cat+= System.lineSeparator();
+		}
+		// remove empty space at end
+		cat = cat.substring(0, cat.length()-2); 
+		
+//		rooms.entrySet().stream()
+//        .map(e -> e.getKey().toUpperCase()
+//       + " -> " + e.getValue().getName()
+//       + System.lineSeparator())
+//        .collect(Collectors.joining("  ")))
+		
 		StringBuilder out = new StringBuilder();
 		
 		out.append(String.format(InternationalisationManager.im.getMessage("room.desc1"), getName(),
@@ -138,13 +186,23 @@ public class Room extends Resource{
 				(characters.isEmpty() ? InternationalisationManager.im.getMessage("room.desc2") : ""),
 				System.lineSeparator())).append(InternationalisationManager.im.getMessage("room.desc3"))
 		
-		.append(System.lineSeparator()).append("  ").append(rooms.entrySet().stream()
-                        .map(e -> e.getKey().toUpperCase() + " -> " + e.getValue().getName() + System.lineSeparator())
+		.append(System.lineSeparator()).append("  ").append(
+				
+						rooms.entrySet().stream()
+                        .map(e -> e.getKey().toUpperCase()
+                       + " -> " + e.getValue().getName()
+                       + System.lineSeparator())
                         .collect(Collectors.joining("  ")))
 		
 		.append((!items.isEmpty()
 				? InternationalisationManager.im.getMessage("room.desc4")
-						+ items.stream().map(Object::toString).collect(Collectors.joining(", "))
+						
+						+ 
+						
+						items.stream()
+						.map(Object::toString)
+						.collect(Collectors.joining(", "))
+						
 				: InternationalisationManager.im.getMessage("room.desc5")))
 		
 		.append(".");
@@ -270,7 +328,8 @@ public class Room extends Resource{
 	 *            characters to add
 	 */
 	public void addCharacter(Character... characters) {
-		Arrays.stream(characters).forEach(c->addCharacter(c));
+		Arrays.stream(characters)
+			.forEach(c->addCharacter(c));
 	}
 
 	/**
@@ -297,19 +356,20 @@ public class Room extends Resource{
 
 	public String getExitFromRoomName(String roomName) {
 		return rooms.entrySet().stream()
-									.filter(k->k.getValue().getRawName().equals(roomName))
-									.map(Entry::getKey)
-									.findFirst()
-									.orElse(null);
-									
-									
-		
+				.filter(k->k.getValue()
+			.getRawName().equals(roomName))
+				.map(Entry::getKey)
+				.findFirst()
+				.orElse(null);	
 	}
+	
+	
 
 	public Collection<Resource> getNonPlayerCharacters() {
 		return characters.stream()
 				.filter(c->!c.isPlayer())
-				.collect(Collectors.toCollection(PrintableList::new));
+				.collect(Collectors
+				.toCollection(PrintableList::new));
 	}
 
 	@Override
@@ -324,6 +384,10 @@ public class Room extends Resource{
 //		grid.add(new StackPane(GraphicalInterface.newCommandButton("go " + Main.game.getPlayer().getCurrentRoom().getExitFromRoomName(getName()),
 //				Main.game.getCommandManager().getCommand("Go"), ".sidebar-button")), 0, 2);
 		
+	}
+
+	public String getTheme() {
+		return theme;
 	}
 
 }

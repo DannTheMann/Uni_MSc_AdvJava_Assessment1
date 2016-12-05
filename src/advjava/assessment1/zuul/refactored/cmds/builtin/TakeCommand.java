@@ -9,7 +9,7 @@ import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 
 /**
  * 
@@ -57,6 +57,7 @@ public class TakeCommand extends Command {
 					game.getInterface().displayLocale(String.format(InternationalisationManager.im.getMessage("pickup.heavy"), item,
 							System.lineSeparator(), game.getPlayer().getWeight()));
 					game.getInterface().showRoom(false);
+					game.getInterface().resetParameters();
 					return false;
 				}
 				
@@ -68,7 +69,7 @@ public class TakeCommand extends Command {
 				
 				game.getInterface().println(String.format(InternationalisationManager.im.getMessage("pickup.success"), item));
 				game.getInterface().update(true);
-
+				game.getInterface().resetParameters();
 				return true;
 			} else {
 				

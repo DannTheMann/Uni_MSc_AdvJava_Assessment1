@@ -1,0 +1,148 @@
+
+.sidebar-text-node{
+     -fx-fill: rgba(255,255,255, 0.25);
+     -fx-stroke: green;
+}
+
+.sidebar-button {    
+    -fx-text-fill: black;
+    -fx-background-color: white;
+}
+
+.sidebar-title{
+    -fx-text-fill: white;    
+    -fx-font-smoothing-type: lcd;
+    -fx-underline: true;
+    -fx-background-color: white;
+}
+
+.command-box {
+    -fx-background-color: transparent;
+}
+
+.node-image {
+    -fx-fill: rgba(90, 115, 132);
+}
+
+.node-text {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Microsoft Sans Serif";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}
+
+.sidepanel-inventory-node-root {
+    -fx-fill: rgba(142, 185, 255, 0.5);
+}
+
+.sidepanel-characters-node-root {
+    -fx-fill: rgba(142, 185, 255, 0.5);
+}
+
+.sidepanel-exits-node-root {
+    -fx-fill: rgba(142, 185, 255, 0.5);
+}
+
+.sidepanel-room-node-root {
+    -fx-fill: rgba(255, 140, 140, 0.5);
+}
+
+.player-information-root {
+    -fx-fill: rgba(104, 115, 132, 0.5);
+}
+
+.player-information-detail-root {
+    -fx-fill: rgba(182, 195, 216, 0.8);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+
+.player-information-image {
+    -fx-fill: rgba(104, 115, 132);
+}
+
+.player-information-name {
+    -fx-font-size: 16pt;
+    -fx-text-fill: black;
+}
+
+.player-information-filler {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}
+
+.player-information-weight {
+    -fx-fill: rgba(59, 165, 100);
+    -fx-effect: dropshadow(gaussian, green, 5, 0, 0, 0);
+}
+
+.player-information-current-command {
+    -fx-fill: rgba(100, 165, 165);
+    -fx-effect: dropshadow(gaussian, green, 5, 0, 0, 0);
+}
+
+.player-information-weight-text {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Arial";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}
+
+.scroll-pane {
+    -fx-background-color: rgba(59, 165, 100, 0); 
+    -fx-effect: dropshadow(gaussian, green, 50, 0, 0, 0);
+}
+
+.sidepanel-inventory{
+    -fx-background-color: rgba(59, 165, 255, 0.3); 
+    -fx-effect: dropshadow(gaussian, blue, 50, 0, 0, 0);
+}
+
+.sidepanel-characters{
+    -fx-background-color: rgba(59, 165, 100, 0.3); 
+    -fx-effect: dropshadow(gaussian, orange, 50, 0, 0, 0);
+}
+
+.sidepanel-exits{
+    -fx-effect: dropshadow(gaussian, black, 50, 0, 0, 0);
+}
+
+.sidepanel-room{
+    -fx-background-color: rgba(59, 165, 100, 0.3); 
+    -fx-effect: dropshadow(gaussian, aqua, 50, 0, 0, 0);
+    -fx-text-fill: black;
+}
+
+.scroll-pane > .viewport  {
+    -fx-background-color: rgba(59, 165, 100, 0.0); 
+}
+
+.rectangle {
+     -fx-fill: rgba(255,255,255);   
+}
+
+.rectangle:hover{
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}
+
+.command-button{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.command-button:hover{
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-text-fill: -fx-text-base-color;
+    -fx-alignment: CENTER;
+    -fx-content-display: LEFT;
+}

@@ -8,7 +8,8 @@ import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.room.Room;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.AudioManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 
 /**
  * The Go Command is designed to move the player from the existing room to
@@ -53,6 +54,8 @@ public class GoCommand extends Command {
 			game.getInterface().println();
 			game.getInterface().println(nextRoom);
 			game.getInterface().update(true);
+			
+			AudioManager.am.playSong(nextRoom);
 
 			return true;
 

@@ -1,8 +1,6 @@
 package advjava.assessment1.zuul.refactored.interfaces;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.Stream;
 
 import advjava.assessment1.zuul.refactored.Game;
@@ -15,8 +13,11 @@ import advjava.assessment1.zuul.refactored.interfaces.graphical.SidePanel;
 import advjava.assessment1.zuul.refactored.interfaces.graphical.SlideAnimation;
 import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.Resource;
-import advjava.assessment1.zuul.refactored.utils.ResourceManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.AudioManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.ResourceManager;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -25,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Slider;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -37,20 +39,22 @@ import javafx.stage.Stage;
 
 public class GraphicalInterface extends Application implements UserInterface {
 
+	// Game reference to access logic in game
 	private static Game game;
 	private static FontManager fontManager;
 
-	private static Map<String, Button> commandButtons;
+	// All Pane and Node components for the GUI
 	private static Stage stage;
 	private static Scene scene;
 	private static BorderPane root;
 	private static StackPane playerToolbar;
 	private static Text playerWeight;
+	private static Text commandTranslation;
 	private static SidePanel inventory;
-	public static SidePanel characters;
+	private static SidePanel characters;
 	private static SidePanel exits;
 	private static CentralPanel room;
-	private static String parameters = "hello darkness my old friend";
+	private static String parameters = ""; // hello darkness my old friend
 
 	/* Constants for spacing offsets between nodes in gridpanes */
 	public static final int WINDOW_MAX_WIDTH = 1920;
@@ -82,6 +86,10 @@ public class GraphicalInterface extends Application implements UserInterface {
 	private static final String SIDE_PANEL_EXITS = "Exits";
 	private static final String CENTRAL_PANEL_TITLE = "Room Information";
 
+	/**
+	 * Get the external CSS to use
+	 * @return CSS file to load
+	 */
 	public static String getExternalCSS() {
 		return new File(Main.XML_CONFIGURATION_FILES + File.separator + Main.game.getProperty("css")).toURI()
 				.toString();
@@ -105,22 +113,27 @@ public class GraphicalInterface extends Application implements UserInterface {
 	@Override
 	public void printErr(Object obj) {
 		//System.err.print(obj);
-		if(stage != null)
+		if(stage != null) // If the stage is ready, show error
 			GraphicsUtil.showAlert("Error", "An error occurred somewhere.", obj.toString(), AlertType.ERROR);
 	}
 
 	@Override
 	public void printlnErr(Object obj) {
 		//System.err.println(obj);
-		if(stage != null)
+		if(stage != null) // If the stage is ready, show error
 			GraphicsUtil.showAlert("Error", "An error occurred somewhere.", obj.toString(), AlertType.ERROR);
 	}
 
+	// Close stage and logger
 	@Override
 	public void exit() {
 		stage.close();
+		Out.close();
 	}
 
+	/**
+	 * Display as a dialog some information
+	 */
 	@Override
 	public void displayLocale(Object obj) {
 		GraphicsUtil.showAlert("Zuul", null, obj.toString(), AlertType.INFORMATION);
@@ -128,9 +141,14 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	@Override
 	public void displaylnLocale(Object obj) {
-
+		//...
 	}
 
+	/**
+	 * Update the GUI, pass all current resources to
+	 * respective components and in turn call their
+	 * update methods.
+	 */
 	@Override
 	public boolean update(boolean act) {
 
@@ -146,22 +164,39 @@ public class GraphicalInterface extends Application implements UserInterface {
 		room.update(CENTRAL_PANEL_CHARACTERS, game.getPlayer().getCurrentRoom().getNonPlayerCharacters());
 		room.update(CENTRAL_PANEL_ITEMS, game.getPlayer().getCurrentRoom().getItems());
 
-		// Update background
+		// Update background, weight and current command details
 		setBackgroundImage(game.getPlayer().getCurrentRoom());
 		updateWeight();
-
+		updateCommandTranslation();
 		return true;
 	}
 
+	/**
+	 * Set the current command text box, if the length is greater than 15 slice of the end and add "..."
+	 */
+	private static void updateCommandTranslation() {
+		commandTranslation.setText(parameters.length() > 15 ? parameters.substring(0, 15-2) + "..." : parameters);
+	}
+
+	/**
+	 * Set the current weight for the player to their weight
+	 */
 	private void updateWeight() {
 		playerWeight.setText(getWeightTranslation());
 	}
 
+	/**
+	 * Launch the interface application
+	 */
 	@Override
 	public void play(Game zuulGame) {
 		launch();
 	}
 
+	/**
+	 * Create the stage and scene, including all respective components
+	 * of the scene.
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
@@ -183,6 +218,11 @@ public class GraphicalInterface extends Application implements UserInterface {
 		// Define the maximum resolution of the root container of the stage
 		stage.setMaxWidth(WINDOW_MAX_WIDTH);
 		stage.setMaxHeight(WINDOW_MAX_HEIGHT);
+		
+		// Save log file when abruptly closed
+		stage.setOnCloseRequest(e->{
+			Out.close();
+		});
 
 		// Create resource manager, needed to handle resources such as images
 		ResourceManager.newResourceManager();
@@ -195,6 +235,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 		Out.out.logln();
 		Out.out.logln("	Creating panels...");
 
+		// Current room items and current room npcs
 		Stream<Resource> centralResources = Stream.concat(game.getPlayer().getCurrentRoom().getItems().stream(),
 				game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream());
 
@@ -208,7 +249,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 		characters = new SidePanel(SIDE_PANEL_CHARACTERS, NO_CHARACTERS_IN_ROOM,
 				game.getPlayer().getCurrentRoom().getNonPlayerCharacters().stream(),
 				fontManager, game,
-				"sidepanel-inventory",
+				"sidepanel-characters",
 				CHARACTERS_MAX_IMAGE_SIZE, CHARACTERS_MAX_IMAGE_SIZE, 
 				CENTRAL_PANEL_NODE_WIDTH,CENTRAL_PANEL_NODE_HEIGHT);
 		
@@ -217,10 +258,9 @@ public class GraphicalInterface extends Application implements UserInterface {
 				game.getPlayer().getCurrentRoom().getExits().stream(),
 				fontManager, game, "sidepanel-exits", 
 				CHARACTERS_MAX_IMAGE_SIZE, CHARACTERS_MAX_IMAGE_SIZE,
-				SIDE_PANEL_NODE_WIDTH-35, SIDE_PANEL_NODE_HEIGHT+35, 500, 500);
+				SIDE_PANEL_NODE_WIDTH+35, SIDE_PANEL_NODE_HEIGHT+20, 500, 500);
 		
-		((ScrollPane) exits.getNode()).setFitToWidth(true);
-		
+		((ScrollPane) exits.getNode()).setFitToWidth(true);	
 
 		room = new CentralPanel(CENTRAL_PANEL_TITLE, centralResources, fontManager, game, "sidepanel-room");
 		
@@ -241,30 +281,29 @@ public class GraphicalInterface extends Application implements UserInterface {
 		// Setup styling
 		scene.getStylesheets().add(getExternalCSS());
 
+		// Set current room background
 		setBackgroundImage(game.getPlayer().getCurrentRoom());
 
 		stage.setScene(scene);
 
 		stage.show();
-
-		// WORKING CODE
-//		root.setBottom(playerToolbar);
-//		playerToolbar.toBack();
-//		root.setTop(exits.getNode());
-//		//root.setCenter(room.getNode());
-//		root.setRight(characters.getNode());
-//		root.setLeft(inventory.getNode());
 		
+		// Set all components to the root pane
 		root.setCenter(playerToolbar);
 		playerToolbar.toFront();
 		root.setTop(exits.getNode());
-		root.setRight(characters.getNode());
+		root.setRight(room.getNode());
 		root.setLeft(inventory.getNode());
 		
 		updateAnimation();
 		
+		// Add listeners to update the animation points based on
+		// current window size
 		scene.heightProperty().addListener(s->updateAnimation());
 		scene.widthProperty().addListener(s->updateAnimation());
+		
+		// Play default song
+		AudioManager.am.playSong("main.mp3");
 		
 		Out.out.logln(" - - - - - - - - - - - - - - - - - - - - ");
 		Out.out.logln("              Finished GUI.              ");
@@ -273,6 +312,9 @@ public class GraphicalInterface extends Application implements UserInterface {
 		
 	}
 	
+	/**
+	 * Update the animation positions for all panes
+	 */
 	private void updateAnimation(){
 		Out.out.logln("Updating...");
 		inventory.setSlideAnimation(root, SlideAnimation.LEFT, 200);
@@ -281,26 +323,36 @@ public class GraphicalInterface extends Application implements UserInterface {
 		room.setSlideAnimation(room.getNode(), root, SlideAnimation.RIGHT, 500);
 	}
 
+	/**
+	 * Create and return the Player Toolbar, this toolbar contains
+	 * the players weight, audio levels, description, name and commands
+	 * @return
+	 */
 	private StackPane getPlayerInformationNode() {
 
+		// Wrapper for entire toolbar
 		StackPane root = new StackPane();
 
+		// Add a blank rectangle to the backdrop
 		root.getChildren().add(GraphicsUtil.createNewRectangle("player-information-root", PLAYER_INFO_MAX_WIDTH, 150));
 		root.setAlignment(Pos.BOTTOM_CENTER);
 
 		{
 
+			// Vertical box to split commands and player information
 			VBox vbox = new VBox();
 
 			vbox.setMaxWidth(PLAYER_INFO_MAX_WIDTH);
 			vbox.setAlignment(Pos.BOTTOM_CENTER);
-
+			
+			// Backdrop for player information
 			StackPane stack = new StackPane();
 
 			stack.getChildren()
 					.add(GraphicsUtil.createNewRectangle("player-information-detail-root", PLAYER_INFO_MAX_WIDTH, 120));
 
 			{
+				// Gridpane for player information
 				GridPane gp = new GridPane();
 
 				gp.setHgap(10);
@@ -310,6 +362,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 				gp.setAlignment(Pos.CENTER);
 
 				{
+					// set the player image, overlay ontop of a rectangle
 					StackPane sp = new StackPane();
 					sp.getChildren().add(GraphicsUtil.createNewRectangle("player-information-image", 110, 110));
 					sp.getChildren().add(GraphicsUtil.createIconImage(game.getPlayer().getImage(), 100, 100));
@@ -317,6 +370,7 @@ public class GraphicalInterface extends Application implements UserInterface {
 					gp.add(sp, 0, 0);
 				}
 
+				// New gridpane to handle player name and information
 				GridPane innergp = new GridPane();
 
 				innergp.add(GraphicsUtil.createNewText(game.getPlayer().getName(), "player-information-name"), 1, 0);
@@ -327,23 +381,69 @@ public class GraphicalInterface extends Application implements UserInterface {
 				}
 
 				{
+					
+					// HBox to split current command, weight and audio levels
+					HBox hbox = new HBox();
+					
 					StackPane weightPane = new StackPane();
 
 					weightPane.getChildren().add(GraphicsUtil.createNewRectangle("player-information-weight", 200, 25));
 
 					playerWeight = GraphicsUtil.createNewText(getWeightTranslation(), "player-information-weight-text");
 
+					// add the player weight
 					weightPane.getChildren().add(playerWeight);
 					weightPane.setPadding(new Insets(5, 5, 5, 5));
 					weightPane.setAlignment(Pos.CENTER);
 					innergp.setAlignment(Pos.CENTER);
 
-					innergp.add(weightPane, 1, 3);
+					hbox.getChildren().add(weightPane);
+					
+					weightPane = new StackPane();
+
+					weightPane.getChildren().add(GraphicsUtil.createNewRectangle("player-information-current-command", 200, 25));
+
+					commandTranslation = GraphicsUtil.createNewText(parameters, "player-information-weight-text");
+
+					// add the command translation
+					weightPane.getChildren().add(commandTranslation);
+					weightPane.setPadding(new Insets(5, 5, 5, 5));
+					weightPane.setAlignment(Pos.CENTER);
+					
+					hbox.getChildren().add(weightPane);
+					
+					weightPane = new StackPane();
+					weightPane.setAlignment(Pos.CENTER);
+					
+					VBox sliderGP = new VBox();
+					
+					// create slider for audio levels
+					sliderGP.getChildren().add(GraphicsUtil.createNewText("Audio", "player-information-weight-text"));
+					sliderGP.setPadding(new Insets(5, 5, 5, 5));
+					sliderGP.setAlignment(Pos.CENTER);
+					
+					Slider slider = new Slider(0,0.5,0.3);
+			        slider.valueProperty().addListener(new ChangeListener<Number>() {
+			        	// onchange event for slider, update AudioManager
+			            public void changed(ObservableValue<? extends Number> ov,
+			                Number old_val, Number new_val) {
+			                    AudioManager.am.setVolume(new_val.doubleValue());
+			            }
+			        });
+			        
+			        /* Add everything to their respective wrappers*/
+			        sliderGP.getChildren().add(slider);
+			        
+			        weightPane.getChildren().add(sliderGP);
+					
+			        hbox.getChildren().add(weightPane);
+			        
+					innergp.add(hbox, 1, 3);
 
 					gp.add(innergp, 1, 0);
 
 				}
-
+		        /* Add everything to their respective wrappers*/
 				stack.getChildren().add(gp);
 
 				vbox.getChildren().add(stack);
@@ -358,14 +458,15 @@ public class GraphicalInterface extends Application implements UserInterface {
 		return root;
 	}
 
+	/**
+	 * Get the command box, splits all commands along a HBox
+	 * @return
+	 */
 	private HBox getCommandHBox() {
 		HBox hbox = new HBox();
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(5, 5, 7, 5));
 		hbox.setSpacing(10);
-		// hbox.setStyle("-fx-background-color: #336699;");
-
-		commandButtons = new HashMap<>();
 
 		Button buttonCurrent = null;
 
@@ -375,22 +476,33 @@ public class GraphicalInterface extends Application implements UserInterface {
 				continue;
 			}
 
+			// Create commands and set their events
 			buttonCurrent = newCommandButton(command.getRawName(), command, "command-button");
 			buttonCurrent.setPrefSize(100, 20);
+			// Add tooltip to help explain command
 			Tooltip.install(buttonCurrent, GraphicsUtil.createNewToolTip(command.getDescription(), FontManager.getFontManager().getFont("DEFAULT_FONT"), 1000));
 			hbox.getChildren().add(buttonCurrent);
-
-			commandButtons.put(command.getRawName(), buttonCurrent);
 
 		}
 
 		return hbox;
 	}
 
+	/**
+	 * Return the weight translation
+	 * @return weight translation
+	 */
 	private String getWeightTranslation() {
 		return "Weight > " + game.getPlayer().getWeight() + " / " + game.getPlayer().getMaxWeight();
 	}
 
+	/**
+	 * Create a command event, such as MouseClick, which when triggered
+	 * will execute the command.
+	 * @param params Parameters for this command
+	 * @param command Command to execute
+	 * @return The eventhandler
+	 */
 	public static EventHandler<Event> getCommandEvent(String params, Command command) {
 		return (Event e) -> {
 			
@@ -398,11 +510,15 @@ public class GraphicalInterface extends Application implements UserInterface {
 			if (executeCommand(command, e)) {
 				parameters = "";
 			}
-			// parameters = "";
+			updateCommandTranslation();
 		};
 	}
-	
 
+	/**
+	 * Specific MouseEvent handler for variable parameters of the current command
+	 * @param params The current command, and or more parameters
+	 * @return Eventhandler
+	 */
 	public static EventHandler<? super MouseEvent> getVariableCommandEvent(String params) {
 		
 		return (Event e) -> {
@@ -418,17 +534,25 @@ public class GraphicalInterface extends Application implements UserInterface {
 				}
 			}
 			
-			Out.out.logln("CI: " + parameters + " | " + params);
-			
 			parameters += " " + params;		
 
 			if (executeCommand(command, e)) {
 				parameters = command.getName();
 			}
+			
+			updateCommandTranslation();
 
 		};
 	}
 
+	/**
+	 * Create new command button, that will execute a command when pressed with
+	 * the given parameters and apply the css to it
+	 * @param params Params
+	 * @param command Command
+	 * @param css StyleSheet
+	 * @return CommandButton
+	 */
 	public static Button newCommandButton(String params, Command command, String css) {
 		Button button = new Button(command.getName());
 		button.getStyleClass().add(css); // node
@@ -443,6 +567,10 @@ public class GraphicalInterface extends Application implements UserInterface {
 		return button;
 	}
 
+	/**
+	 * Set the CSS background-image for the root pane based on the current room
+	 * @param image
+	 */
 	private void setBackgroundImage(Resource image) {
 
 		root.setStyle(
@@ -450,16 +578,28 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	}
 
+	/**
+	 * Execute a command, update command translation and return whether it was
+	 * successfull
+	 * @param cmd The command to execute
+	 * @param event The event that called this
+	 * @return true if successfull
+	 */
 	public static boolean executeCommand(Command cmd, Event event) {
 
 		Out.out.logln(event.getEventType().getName() + " > [" + cmd.getName() + "] >> " + parameters);
 
 		CommandExecution ce = new CommandExecution(parameters);
 
+		updateCommandTranslation();
+		
 		return cmd.action(game, ce);
 
 	}
 
+	/**
+	 * Show the players inventory
+	 */
 	@Override
 	public void showInventory(boolean override) {
 
@@ -467,16 +607,22 @@ public class GraphicalInterface extends Application implements UserInterface {
 			hideOtherPanes();
 			inventory.show();
 		}else if(override){
+			hideOtherPanes();
 			inventory.hide();
 		}
 	}
 
+	/**
+	 * Show the characters in the room
+	 */
 	@Override
 	public void showCharacters(boolean override) {
 
 		if(characters.isHidden()){
 			
 			root.setRight(characters.getNode());
+			
+			characters.update(game.getPlayer().getCurrentRoom().getNonPlayerCharacters());
 			
 			characters.show();
 		}else if(override){
@@ -485,6 +631,9 @@ public class GraphicalInterface extends Application implements UserInterface {
 		}
 	}
 
+	/**
+	 * Show the details of the room, such as characters or items
+	 */
 	@Override
 	public void showRoom(boolean override) {
 
@@ -500,6 +649,9 @@ public class GraphicalInterface extends Application implements UserInterface {
 
 	}
 
+	/**
+	 * Show the exits in the room
+	 */
 	@Override
 	public void showExits(boolean override) {
 
@@ -511,6 +663,9 @@ public class GraphicalInterface extends Application implements UserInterface {
 		}
 	}
 
+	/**
+	 * Hide all other visible panes
+	 */
 	private void hideOtherPanes(){
 		inventory.hide();
 		characters.hide();
@@ -519,11 +674,25 @@ public class GraphicalInterface extends Application implements UserInterface {
 		//
 	}
 
+	/**
+	 * Get the current parameters
+	 */
 	@Override
 	public String getCurrentParameters() {
 		return parameters;
 	}
+	
+	/**
+	 * Reset the parameters to either empty or the command
+	 * they are building off of
+	 */
+	public void resetParameters(){		
+		parameters = parameters.split(" ")[0];
+	}
 
+	/**
+	 * Get the help description
+	 */
 	@Override
 	public String getHelpDescription() {
 		return game.getProperty("guiHelpDescription");

@@ -8,7 +8,7 @@ import advjava.assessment1.zuul.refactored.interfaces.CommandLineInterface;
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.interfaces.UserInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 
 /**
  * The Drop is designed to allow the player to drop items from their inventory

@@ -1,7 +1,7 @@
 package advjava.assessment1.zuul.refactored.item;
 
-import advjava.assessment1.zuul.refactored.utils.CollectionManager;
-import advjava.assessment1.zuul.refactored.utils.ResourceManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.CollectionManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.ResourceManager;
 
 /**
  * 

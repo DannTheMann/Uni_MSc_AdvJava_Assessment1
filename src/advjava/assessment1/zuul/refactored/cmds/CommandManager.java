@@ -22,9 +22,9 @@ import advjava.assessment1.zuul.refactored.cmds.builtin.InventoryCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.LookCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.QuitCommand;
 import advjava.assessment1.zuul.refactored.cmds.builtin.TakeCommand;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 
 
 /**
@@ -180,6 +180,8 @@ public class CommandManager {
         /* GUI Commands */
         commands.put("Inventory",
                 new InventoryCommand("Inventory", "Display your inventory."));
+//        commands.put("Mute",
+//                new MuteCommand("Mute", "Mute the sound."));
         
         commands.put(InternationalisationManager.im.getMessage("loadQuit"),
                 new QuitCommand(InternationalisationManager.im.getMessage("loadQuit"),

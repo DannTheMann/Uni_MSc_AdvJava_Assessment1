@@ -21,6 +21,9 @@ public class FontManager {
 		fm = this;
 	}
 	
+	/**
+	 * Load all default fonts
+	 */
 	private void loadFonts() {
 		
 		Font.getFamilies().stream()

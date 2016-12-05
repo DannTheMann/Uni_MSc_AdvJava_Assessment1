@@ -1,6 +1,5 @@
 package advjava.assessment1.zuul.refactored;
 
-import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
@@ -49,11 +48,7 @@ public class ZuulGame extends Game{
         @Override
 	public void terminate() {
 		finished = true;
-		try {
-			Out.close();
-		} catch (IOException ioe) {
-			Out.out.loglnErr("Failed to close logger!");
-		}
+		Out.close();
 	}
 	
         @Override
@@ -61,6 +56,10 @@ public class ZuulGame extends Game{
 		return finished;
 	}
 
+        /**
+         * Load all resources in the game from all Managers.
+         * @return
+         */
 	public Collection<Resource> loadAllResources() {
 			
 			List<Resource> resources = new PrintableList<>();

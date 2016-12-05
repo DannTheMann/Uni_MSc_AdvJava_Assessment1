@@ -1,8 +1,8 @@
 package advjava.assessment1.zuul.refactored.interfaces.graphical;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Stream;
 
 import advjava.assessment1.zuul.refactored.Game;
@@ -49,12 +49,13 @@ public class SidePanel {
 	private final int SIDEBAR_IMAGE_HEIGHT;
 	private final int SIDEBAR_NODE_HEIGHT;
 	private final int SIDEBAR_NODE_WIDTH;
-	private static final int MAX_WIDTH_CHAR = 8;
+	public static final int MAX_WIDTH_CHAR = 8;
 
 	private final ScrollPane root;
 	private final TilePane tileHolder;
 	private final FontManager fm;
-	private final List<PanelNode> grids;
+	private final Text emptyText;
+	private final Map<Integer, PanelNode> grids;
 	private final String title;
 	private final String css;
 	private final String emptyMessage;
@@ -69,7 +70,7 @@ public class SidePanel {
 	public SidePanel(String title, String empty, Stream<Resource> stream, FontManager fm, Game game, String cssStyling,
 			int nodeImageWidth, int nodeImageHeight, int nodeWidth, int nodeHeight) {
 		this.title = title;
-		this.grids = new ArrayList<>();
+		this.grids = new TreeMap<>();
 		this.fm = fm;
 		this.css = cssStyling;
 		this.emptyMessage = empty;
@@ -79,6 +80,9 @@ public class SidePanel {
 		this.SIDEBAR_NODE_WIDTH = nodeWidth;
 		this.PANEL_WIDTH = 300;
 
+		this.emptyText = new Text(emptyMessage);
+		this.emptyText.setFont(fm.getFont("EMPTY_FONT"));
+		
 		ScrollPane sp = new ScrollPane();
 		sp.setHbarPolicy(ScrollBarPolicy.NEVER);
 		sp.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
@@ -99,7 +103,7 @@ public class SidePanel {
 		Text textTitle = new Text(title);
 		textTitle.setStyle("sidebar-title");
 
-		stream.forEach(i -> tileHolder.getChildren().add(getDisplayItem(i)));
+		stream.forEach(i -> tileHolder.getChildren().add(getDisplayItem(i).getNode()));
 
 		checkIfPanelIsEmpty();
 		sp.setContent(tileHolder);
@@ -109,11 +113,10 @@ public class SidePanel {
 	}
 
 	private void checkIfPanelIsEmpty() {
-		if (grids.isEmpty()) {
-			Text text = new Text(emptyMessage);
-			text.setFont(fm.getFont("EMPTY_FONT"));
-			grids.add(new PanelNode(text, null));
-			tileHolder.getChildren().add(text);
+		if(tileHolder.getChildren().size() == 0){
+			tileHolder.getChildren().add(emptyText);
+		}else if(tileHolder.getChildren().contains(emptyText)){
+			tileHolder.getChildren().remove(emptyText);
 		}
 	}
 
@@ -127,21 +130,21 @@ public class SidePanel {
 
 	}
 
-	private Node getDisplayItem(Resource resource) {
+	private PanelNode getDisplayItem(Resource resource) {
 
 		StackPane root = new StackPane();
-
-		if(title.equalsIgnoreCase("characters"))
-			Out.out.logln(title + " -> CSS: " + css + "-node-root");
+		GridPane grid = null;
+		Tooltip info = null;
 		
 		root.getChildren()
 				.add(GraphicsUtil.createNewRectangle(css + "-node-root", SIDEBAR_NODE_WIDTH, SIDEBAR_NODE_HEIGHT));
 
 		{
 
-			GridPane grid = createGridPane();
+			grid = createGridPane();
 
 			{
+				/* Create and display a visual representation of the resource */
 				StackPane cover = new StackPane();
 				cover.getChildren().add(GraphicsUtil.createNewRectangle("node-image", SIDEBAR_IMAGE_WIDTH + 15,
 						SIDEBAR_IMAGE_HEIGHT + 15));
@@ -165,20 +168,23 @@ public class SidePanel {
 
 			// Apply the description in this manner, makes much
 			// more neater and less in our face
-			Tooltip.install(grid,
-					GraphicsUtil.createNewToolTip(
-							(resource.getName().length() > MAX_WIDTH_CHAR ? resource.getName()+ System.lineSeparator() + System.lineSeparator() : "")
-								 + resource.getDescription(),
-							fm.getFont("Yu Gothic"), 25));
+			
+			info = GraphicsUtil.createNewToolTip(
+					(resource.getName().length() > MAX_WIDTH_CHAR ? resource.getName()+ System.lineSeparator() + System.lineSeparator() : "")
+						 + resource.getDescription(),
+					fm.getFont("Yu Gothic"), 25);
+			
+			Tooltip.install(grid, info);
 
 			root.getChildren().add(grid);
 
 		}
 
 		// Add to our knowledge of current grids loaded
-		grids.add(new PanelNode(root, resource));
+		PanelNode pn = new PanelNode(root, grid, resource, info);
+		grids.put(resource.hashCode() , pn);
 
-		return root;
+		return pn;
 	}
 
 	public Node getNode() {
@@ -186,46 +192,47 @@ public class SidePanel {
 	}
 
 	public void update(Collection<Resource> newContents) {
-
-		if (grids.size() > 0) {
-			grids.removeIf(node -> {
-				if (!node.isValid()) {
-					tileHolder.getChildren().remove(node.getNode());
-					return true;
-				} else {
-					return false;
-				}
-			});
-		}
-
-		grids.removeIf(oldPanelNode -> {
-			if (!newContents.stream().filter(newResource -> newResource.equals(oldPanelNode.getObjectReference()))
-					.findAny().isPresent()) {
-				tileHolder.getChildren().remove(oldPanelNode.getNode());
-				return true;
-			} else {
-				return false;
-			}
-		});
-
-		// Works fine?
+		
+		// For all new resources
 		newContents.stream()
-				// Filter resources by what's currently
-				// loaded in the GridPane
-				.filter(newResource ->
-				// if NOT the newResource is in the gridpane
-				!grids.stream()
-						// If the hashcodes of these two objects match
-						.filter(oldResource -> oldResource.getObjectReference() == newResource.hashCode()).findFirst()
-						.isPresent())
-				.forEach(newResource -> {
-					PanelNode newNode = new PanelNode(getDisplayItem(newResource), newResource);
-					grids.add(newNode);
-					tileHolder.getChildren().add(newNode.getNode());
-				});
-
+			// For all current resources
+		.filter(newResource->!grids.entrySet().stream()
+			// If new resource does not match old resource
+			.filter(oldResource->newResource.hashCode()
+				== oldResource.getKey())
+			.findAny()
+			.isPresent())
+		// For all resources filtered, add them
+		.forEach(newResource->{
+			PanelNode pn = getDisplayItem(newResource);
+			tileHolder.getChildren().add(pn.getNode());
+			}
+		);
+		
+		
+		// Update Node information
+		grids.values().stream()
+			.forEach(PanelNode::update);
+		
+		// Remove resources that are no longer present 
+		grids.entrySet().removeIf(oldResource->{
+			// For every new resource
+			if(!newContents.stream()
+					// Compare hashcode against current resource
+					.filter(newResource->newResource.hashCode()
+							== oldResource.getKey())
+					.findAny() 
+					.isPresent()){
+				// If not found, then remove old resource
+				tileHolder.getChildren()
+				.remove(oldResource.getValue().getNode());
+				return true;
+			}else{
+				return false;
+			}		
+		});
+		
 		checkIfPanelIsEmpty();
-
 	}
 
 	public String getCSS() {
@@ -238,6 +245,10 @@ public class SidePanel {
 	public void setSlideAnimation(BorderPane rootPane, SlideAnimation type, int delay) {
 		setSlideAnimation(root, rootPane, type, delay);
 	}
+	
+//	private boolean contains(Resource r){
+//		return grids.stream().filter(res->res.getObjectReference() == r.hashCode()).findFirst().isPresent();
+//	}
 
 	public void setSlideAnimation(Node root, Pane rootPane, SlideAnimation type, int delay) {
 
@@ -286,10 +297,7 @@ public class SidePanel {
 			path.getElements().add(new VLineTo(moveTo));
 		}
 
-		showTransition = new PathTransition();
-		showTransition.setDuration(Duration.millis(delay));
-		showTransition.setPath(path);
-		showTransition.setNode(root);
+		showTransition = createPathTransition(delay, path, root);
 		showTransition.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -308,10 +316,7 @@ public class SidePanel {
 			path.getElements().add(new MoveTo(startX, moveTo));
 			path.getElements().add(new VLineTo(startY));
 		}
-		hideTransition = new PathTransition();
-		hideTransition.setDuration(Duration.millis(delay));
-		hideTransition.setPath(path);
-		hideTransition.setNode(root);
+		hideTransition = createPathTransition(delay, path, root);
 		hideTransition.setOnFinished(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -321,6 +326,14 @@ public class SidePanel {
 			}
 		});
 
+	}
+	
+	private PathTransition createPathTransition(int delay, Path path, Node node){
+		PathTransition newTransition = new PathTransition();
+		newTransition.setDuration(Duration.millis(delay));
+		newTransition.setPath(path);
+		newTransition.setNode(root);
+		return newTransition;
 	}
 
 	public void hide() {

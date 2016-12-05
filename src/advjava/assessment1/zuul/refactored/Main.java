@@ -2,12 +2,14 @@ package advjava.assessment1.zuul.refactored;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.DownloadManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 
 /**
  * The starting point of the game, handles directory creation for the game and
@@ -21,11 +23,13 @@ import advjava.assessment1.zuul.refactored.utils.Out;
 public class Main {
 
 	// Constants for directories and files
-	public static final String PLUGIN_COMMANDS_FOLDER = System.getProperty("user.dir") + File.separator + "Plugins";
-	public static final String XML_CONFIGURATION_FILES = System.getProperty("user.dir") + File.separator + "Config";
-	public static final String LOG_FILES = System.getProperty("user.dir") + File.separator + "Config" + File.separator
-			+ "Logs";
-	public static final String RESOURCE_FILES = System.getProperty("user.dir") + File.separator + "Resources";
+	private static final String ROOT_DIRECTORY = System.getProperty("user.dir") + File.separator + "WorldOfZuul"
+			+ File.separator;
+	public static final String PLUGIN_COMMANDS_FOLDER = ROOT_DIRECTORY + "Plugins";
+	public static final String XML_CONFIGURATION_FILES = ROOT_DIRECTORY + "Config";
+	public static final String LOG_FILES = ROOT_DIRECTORY + "Config" + File.separator + "Logs";
+	public static final String RESOURCE_FILES = ROOT_DIRECTORY + "Resources";
+	public static final String RESOURCE_MUSIC = ROOT_DIRECTORY + "Resources" + File.separator + "music";
 	public static final String PROPERTIES_FILE = XML_CONFIGURATION_FILES + File.separator + "zuul.properties";
 
 	private static Properties properties = null;
@@ -46,6 +50,16 @@ public class Main {
 	public static void main(String[] args) {
 
 		try {
+
+			// If this fails then we cannot locate the resources
+			// to run the game
+			if (!verifyRootDirectory()) {
+				throw new FileNotFoundException(
+						"Cannot proceed with game, one or more directories does not exist! Could not create it either, permission denied?"
+								+ System.lineSeparator()
+								+ " Have you made sure that the files provided with the game are in their correct location? "
+								+ System.lineSeparator() + " @ " + ROOT_DIRECTORY);
+			}
 
 			Out.out.setPrintingDebugMessages(true);
 			Out.out.logln(InternationalisationManager.im.getMessage("main.start"));
@@ -76,12 +90,102 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 			Out.out.loglnErr("An error occurred somewhere, closing logger. " + e.getMessage());
-			try {
-				Out.close();
-			} catch (IOException ioe) {
-				Out.out.loglnErr("Failed to close logger, it can't get much worse than this. " + ioe.getMessage());
+			Out.close();
+		}
+
+	}
+
+	/**
+	 * Verify the root directory exists, if not
+	 * will attempt to create them - if this succeeds will
+	 * then attempt to download all core default files from
+	 * www.danielandrews.co.uk/zuul
+	 * Else if it fails, will terminate the application
+	 * @return Whether to terminate or not
+	 */
+	private static boolean verifyRootDirectory() {
+
+		// All static file directories
+		final String[] files = { ROOT_DIRECTORY, PLUGIN_COMMANDS_FOLDER, XML_CONFIGURATION_FILES, LOG_FILES, RESOURCE_FILES , RESOURCE_MUSIC};
+		boolean ready = true;
+		
+		// Iterate over every directory 
+		for (String dir : files) {
+			File f = new File(dir);
+			// If the directory does not exist
+			if (!f.exists()) {
+				System.err.println("Could not find directory @ " + dir);
+				f.mkdir(); // try to create it
+				if (!f.exists()) {
+					// if this fails, terminate later but try next directory
+					System.err.println("Failed to create this directory, most likely a permissions issue! Try running this program as Admin.");
+					ready = false;
+					continue;
+				}
+				
+				/* Download any files needed */
+				if (dir.equals(XML_CONFIGURATION_FILES)) {
+					DownloadManager.downloadFile("XML", "items.xml", XML_CONFIGURATION_FILES);
+					DownloadManager.downloadFile("XML", "characters.xml", XML_CONFIGURATION_FILES);
+					DownloadManager.downloadFile("XML", "rooms.xml", XML_CONFIGURATION_FILES);
+					DownloadManager.downloadFile("XML", "zuul_style.css", XML_CONFIGURATION_FILES);
+				} else if (dir.equals(PLUGIN_COMMANDS_FOLDER)) {
+					DownloadManager.downloadFile("Plugins", "ExamplePlugin_WorldOfZuul.jar", PLUGIN_COMMANDS_FOLDER);
+				} else if (dir.equals(RESOURCE_FILES)) {
+					DownloadManager.downloadFile("Resources", "error.png", RESOURCE_FILES);
+
+					String resDir = "Resources/characters";
+					String outputDir = RESOURCE_FILES + File.separator + "characters";
+
+					// More complex stuff
+					DownloadManager.downloadFile(resDir, "charlie.jpg", outputDir);
+					DownloadManager.downloadFile(resDir, "dan.png", outputDir);
+					DownloadManager.downloadFile(resDir, "donald.png", outputDir);
+					DownloadManager.downloadFile(resDir, "harold.jpg", outputDir);
+					DownloadManager.downloadFile(resDir, "jack.png", outputDir);
+					DownloadManager.downloadFile(resDir, "joe.png", outputDir);
+					DownloadManager.downloadFile(resDir, "rosie.png", outputDir);
+					DownloadManager.downloadFile(resDir, "stephen.png", outputDir);
+
+					resDir = "Resources/items";
+					outputDir = RESOURCE_FILES + File.separator + "items";
+
+					DownloadManager.downloadFile(resDir, "apple.png", outputDir);
+					DownloadManager.downloadFile(resDir, "book.png", outputDir);
+					DownloadManager.downloadFile(resDir, "glasses.png", outputDir);
+					DownloadManager.downloadFile(resDir, "grapes.png", outputDir);
+					DownloadManager.downloadFile(resDir, "pear.png", outputDir);
+					DownloadManager.downloadFile(resDir, "sword.png", outputDir);
+					DownloadManager.downloadFile(resDir, "tomato.png", outputDir);
+					
+					resDir = "Resources/rooms";
+					outputDir = RESOURCE_FILES + File.separator + "rooms";
+
+					DownloadManager.downloadFile(resDir, "parkwood.jpg", outputDir);
+					DownloadManager.downloadFile(resDir, "bar.jpg", outputDir);
+					DownloadManager.downloadFile(resDir, "lab.jpg", outputDir);
+					DownloadManager.downloadFile(resDir, "library.jpg", outputDir);
+					DownloadManager.downloadFile(resDir, "outside.jpg", outputDir);
+					DownloadManager.downloadFile(resDir, "theatre.jpg", outputDir);
+
+
+				}else if (dir.equals(RESOURCE_MUSIC)) {
+					
+					DownloadManager.downloadFile("Resources/music", "main.mp3", RESOURCE_MUSIC);
+
+					String resDir = "Resources/music";
+					String outputDir = RESOURCE_FILES + File.separator + "music";
+					
+					DownloadManager.downloadFile(resDir, "bar.mp3", outputDir);
+					DownloadManager.downloadFile(resDir, "soundofsilence.mp3", outputDir);
+					DownloadManager.downloadFile(resDir, "lab.mp3", outputDir);
+					DownloadManager.downloadFile(resDir, "library.mp3", outputDir);
+					DownloadManager.downloadFile(resDir, "theatre.mp3", outputDir);
+				}
 			}
 		}
+
+		return ready;
 
 	}
 
@@ -119,7 +223,7 @@ public class Main {
 				properties.setProperty("logEverything", "true");
 				properties.setProperty("title", "World of Zuul");
 				properties.setProperty("css", "zuul_style.css");
-				properties.setProperty("resourceDirectory", RESOURCE_FILES);
+				//properties.setProperty("resourceDirectory", RESOURCE_FILES);
 				properties.setProperty("noResourceFound", "error.png");
 				properties.setProperty("defaultFont", "Arial");
 				properties.setProperty("guiHelpDescription",
@@ -131,7 +235,14 @@ public class Main {
 								+ " in that window then you'll be able to use that command in relation to that"
 								+ " object. For example, clicking Give will present you with your inventory, clicking"
 								+ " the item wish to give will show you the characters in the room, clicking one will"
-								+ " give the item to that character.");
+								+ " give the item to that character."
+								+ System.lineSeparator()
+								+ System.lineSeparator()
+								+ "Credits: Made by Daniel Andrews"
+								+ System.lineSeparator()
+								+ "Music: HuniePop, Simon and Garfunkel, American Beauty"
+								+ System.lineSeparator()
+								+ "Images: Google respectively and myself.");
 
 				properties.store(fileOut, "Zuul Configuration");
 
@@ -151,7 +262,7 @@ public class Main {
 				checkProperty("logEverything", "true");
 				checkProperty("title", "World of Zuul");
 				checkProperty("css", "zuul_style.css");
-				checkProperty("resourceDirectory", RESOURCE_FILES);
+				//checkProperty("resourceDirectory", RESOURCE_FILES);
 				checkProperty("noResourceFound", "error.png");
 				checkProperty("defaultFont", "Arial");
 				checkProperty("guiHelpDescription",
@@ -163,7 +274,14 @@ public class Main {
 								+ " in that window then you'll be able to use that command in relation to that"
 								+ " object. For example, clicking Give will present you with your inventory, clicking"
 								+ " the item wish to give will show you the characters in the room, clicking one will"
-								+ " give the item to that character.");
+								+ " give the item to that character."
+								+ System.lineSeparator()
+								+ System.lineSeparator()
+								+ "Credits: Made by Daniel Andrews"
+								+ System.lineSeparator()
+								+ "Music: HuniePop, Simon and Garfunkel, American Beauty"
+								+ System.lineSeparator()
+								+ "Images: Google respectively and myself.");
 
 				// Save any changes made, if any properties were missing
 				fileOut = new FileOutputStream(propFile);

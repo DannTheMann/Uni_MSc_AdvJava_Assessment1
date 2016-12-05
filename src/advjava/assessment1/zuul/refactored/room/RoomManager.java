@@ -1,8 +1,8 @@
 package advjava.assessment1.zuul.refactored.room;
 
 import advjava.assessment1.zuul.refactored.exception.MalformedXMLException;
-import advjava.assessment1.zuul.refactored.utils.CollectionManager;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.CollectionManager;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 
 /**
  * 
@@ -39,11 +39,10 @@ public class RoomManager extends CollectionManager<Room>{
 	 */
 	public void checkIntegrity() throws MalformedXMLException {
 
-		for (Room room : values()){
-			if (!room.isComplete()){
-				throw new MalformedXMLException(String.format(InternationalisationManager.im.getMessage("rm.badXML"),
-						room.getRawName(), room.getExits().size(), System.lineSeparator()));
-			}
-		}
+		Room room = values().stream().filter(r->!r.isComplete()).findAny().orElse(null);
+			
+		if(room != null)
+			throw new MalformedXMLException(String.format(InternationalisationManager.im.getMessage("rm.badXML"),
+					room.getRawName(), room.getExits().size(), System.lineSeparator()));
 	}
 }

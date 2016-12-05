@@ -1,0 +1,50 @@
+<game-items>
+	<item>
+		<name>apple</name>
+		<weight>3</weight>
+		<url>items\apple.png</url>
+		<description>A juicy apple, looks good!</description>
+	</item>
+	<item>
+		<name>book</name>
+		<weight>7</weight>
+		<url>items\book.png</url>
+		<description>Objects first Java, an introductory text book. You consider reading it, but quickly remember that you cannot read.</description>
+	</item>
+	<item>
+		<name>sword</name>
+		<description>A sword, precisely what an adventurer needs to slay dragons! Except you're at University. Well done.</description>
+		<weight>4</weight>
+		<url>items\sword.png</url>
+	</item>
+	<item>
+		<name>tomato</name>
+		<description>A ripened tomato, shiny and large - just like this mountain of text. Maybe I'm purely testing the length I can get without it looking insane. Who knows? I sure want a tomato right now though...</description>
+		<weight>1</weight>
+		<url>items\tomato.png</url>
+	</item>
+	<item>
+		<name>pear</name>
+		<weight>20</weight>
+		<url>items\pear.png</url>
+		<description>It's a pear. Looks a bit moldy.</description>
+	</item>
+	<item>
+		<name>glasses</name>
+		<weight>20</weight>
+		<url>items\glasses.png</url>
+		<description>Now where'd I put those glasses?</description>
+	</item>
+	<item>
+		<name>grapes</name>
+		<description>A bunch of grapes. They're graptastic.</description>
+		<weight>12</weight>
+		<url>items\grapes.png</url>
+	</item>
+	<item>
+		<name>TheGoldenPearOfDoom</name>
+		<description>A bunch of grapes. They're graptastic. Also a long title.</description>
+		<weight>12</weight>
+		<url>items\grapes.png</url>
+	</item>
+</game-items>

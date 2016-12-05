@@ -7,8 +7,8 @@ package advjava.assessment1.zuul.refactored.interfaces;
 
 import advjava.assessment1.zuul.refactored.Game;
 import advjava.assessment1.zuul.refactored.cmds.CommandExecution;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.Out;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 
 import java.util.Scanner;
 
@@ -171,6 +171,11 @@ public class CommandLineInterface implements UserInterface {
 					c.getDescription(), System.lineSeparator())));
 		
 		return sb.toString();
+	}
+
+	@Override
+	public void resetParameters() {
+		// ...
 	}
 
 }

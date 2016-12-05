@@ -1,0 +1,103 @@
+<game-characters>
+	<character>
+		<name>Richard Jones</name>
+		<description>Java Guru and long time fan of Zuul.</description>
+		<room>outside</room>
+		<player>true</player>
+		<maxweight>50</maxweight>
+		<inventory>	
+			<item>sword</item>
+			<item>book</item>
+		</inventory>
+		<url>characters\harold.jpg</url>
+	</character>
+	<character>
+		<name>Rosie Andrews</name>
+		<description>One time equestrian olympic rider, solicitor in her working life.</description>
+		<room>outside</room>
+		<maxweight>30</maxweight>
+		<inventory>
+			<item>apple</item>
+			<item>sword</item>
+			<item>book</item>
+		</inventory>
+		<url>characters\rosie.png</url>
+	</character>
+	<character>
+		<name>Joe Harrison</name>
+		<description>Avid PhD student with a tinkering for concurrent langauges.</description>
+		<maxweight>100</maxweight>
+		<room>outside</room>
+		<inventory>
+			<item>apple</item>
+			<item>book</item>
+			<item>sword</item>
+			<item>grapes</item>
+			<item>tomato</item>
+			<item>TheGoldenPearOfDoom</item>
+			<item>apple</item>
+		</inventory>
+		<url>characters\joe.png</url>
+	</character>
+	<character>
+		<name>Stephen Andrews</name>
+		<description>Older gentlemen with a knack for electronics.</description>
+		<room>lab</room>
+		<url>characters\stephen.png</url>
+	</character>
+	<character>
+		<name>Daniel Andrews</name>
+		<description>A crazy looking scientist, should probably stay away from him.</description>
+		<room>lab</room>
+		<url>characters\dan.png</url>
+	</character>
+	<character>
+		<name>Jack McBride</name>
+		<description>A top tier computer scientist, maybe.</description>
+		<room>lab</room>
+		<url>characters\jack.png</url>
+	</character>
+	<character>
+		<name>Louis</name>
+		<description>The landlord of the local pub.</description>
+		<room>pub</room>
+		<inventory>
+			<item>apple</item>
+		</inventory>
+		<url>characters\harold.jpg</url>
+	</character>
+	<character>
+		<name>Craig</name>
+		<description>A drama student, equipped with a violin.</description>
+		<room>theatre</room>
+		<url>characters\harold.jpg</url>
+	</character>
+	<character>
+		<name>Donald Trump</name>
+		<description>A questionable gentlemen.</description>
+		<room>outside</room>
+		<maxweight>15</maxweight>
+		<inventory>
+			<item>apple</item>
+			<item>sword</item>
+			<item>book</item>
+		</inventory>
+		<url>characters\donald.png</url>
+	</character>
+	<character>
+		<name>Charlie Andrews</name>
+		<description>This is the player description, as you may have guessed. It's not very exciting. Also that's my brother!</description>
+		<room>outside</room>
+		<player>true</player>
+		<maxweight>40</maxweight>
+		<inventory>
+			<item>apple</item>
+			<item>book</item>
+			<item>sword</item>
+			<item>grapes</item>
+			<item>tomato</item>
+			<item>TheGoldenPearOfDoom</item>
+		</inventory>
+		<url>characters\charlie.jpg</url>
+	</character>
+</game-characters>

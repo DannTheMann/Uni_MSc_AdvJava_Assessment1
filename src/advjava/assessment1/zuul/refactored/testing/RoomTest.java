@@ -24,8 +24,6 @@ import static advjava.assessment1.zuul.refactored.testing.RoomTestSuite.pear;
 import static advjava.assessment1.zuul.refactored.testing.RoomTestSuite.player;
 import static advjava.assessment1.zuul.refactored.testing.RoomTestSuite.testRoom;
 
-import static java.lang.System.out;
-
 import java.nio.file.Paths;
 import java.util.Collection;
 
@@ -50,7 +48,7 @@ public class RoomTest {
 
 	@BeforeClass
 	public static void setUpObjects() {
-		out.println("Creating Test class, creating testRoom, testExit, testItems and testCharacters.");
+		RoomTestRunner.println("Creating Test class, creating testRoom, testExit, testItems and testCharacters.");
 		testRoom = new Room(ROOM_NAME, ROOM_DESCRIPTION, ROOM_URL);
 		exit = new Room(EXIT_NAME, null, null);
 
@@ -77,7 +75,7 @@ public class RoomTest {
 
 	@AfterClass
 	public static void tearDownObjects() {
-		out.println("Revoking all objects, invoking GC.");
+		RoomTestRunner.println("Revoking all objects, invoking GC.");
 		testRoom = null;
 		exit = null;
 		apple = null;
@@ -99,63 +97,72 @@ public class RoomTest {
 	 */
 
 	@Test
-	public void updateWhenAllValuesAreSet(){
-		out.println("Checking update (all values set), using null data.");
+	public void updateThemeWhenNull(){
+		RoomTestRunner.println("Checking update (theme), using null data.");
 		
-		Room dummy = new Room("new", "description", "url");
+		Room dummy = new Room("new",null,null,null);
+		boolean res = dummy.update("NEW", "NAME", "URL", "THEME");
+		Assert.assertTrue(res);
+	}
+	
+	@Test
+	public void updateWhenAllValuesAreSet(){
+		RoomTestRunner.println("Checking update (all values set), using null data.");
+		
+		Room dummy = new Room("new", "description", "url", "theme");
 		boolean res = dummy.update("NEW", "NAME");
 		Assert.assertFalse(res);
 	}
 
 	@Test
 	public void updateDescriptionWhenNull(){
-		out.println("Checking update (description), using null data.");
+		RoomTestRunner.println("Checking update (description), using null data.");
 		
-		Room dummy = new Room("new", null, null);
+		Room dummy = new Room("new", null, null, null);
 		dummy.update("NEW", "NAME");
 		Assert.assertEquals("NAME", dummy.getDescription());
 	}
 	
 	@Test(expected=NullPointerException.class)
 	public void updateNameWhenNull(){
-		out.println("Checking update (name), using null data.");
+		RoomTestRunner.println("Checking update (name), using null data.");
 		
-		Room dummy = new Room(null, "description", null);
+		Room dummy = new Room(null, "description", null, null);
 		dummy.update("NEW", "NAME");
 		Assert.assertEquals("NEW", dummy.getName());
 	}
 	
 	@Test
 	public void getRawDescription(){
-		out.println("Checking getRawName returns ROOM_NAME with '_'");
+		RoomTestRunner.println("Checking getRawName returns ROOM_NAME with '_'");
 		String rawDescription = testRoom.getRawDescription();
 		Assert.assertEquals(ROOM_DESCRIPTION, rawDescription);
 	}
 	
 	@Test
 	public void getRawName(){
-		out.println("Checking getRawName returns ROOM_NAME with '_'");
+		RoomTestRunner.println("Checking getRawName returns ROOM_NAME with '_'");
 		String rawName = testRoom.getRawName();
 		Assert.assertEquals(ROOM_NAME.replaceAll(" ", "_"), rawName);
 	}
 	
 	@Test
 	public void descriptorToString(){
-		out.println("Checking descriptor.classToString returns ROOM_NAME -> ROOM_DESCRIPTION");
+		RoomTestRunner.println("Checking descriptor.classToString returns ROOM_NAME -> ROOM_DESCRIPTION");
 		String dts = testRoom.getDescription();
 		Assert.assertEquals(ROOM_NAME + " -> " + ROOM_DESCRIPTION, dts);
 	}
 	
 	@Test
 	public void getDescription(){
-		out.println("Checking getDescription returns ROOM_DESCRIPTION");
+		RoomTestRunner.println("Checking getDescription returns ROOM_DESCRIPTION");
 		String des = testRoom.getDescription();
 		Assert.assertEquals(ROOM_DESCRIPTION, des);
 	}
 	
 	@Test
 	public void getName(){
-		out.println("Checking getName returns ROOM_NAME");
+		RoomTestRunner.println("Checking getName returns ROOM_NAME");
 		String name = testRoom.getName();
 		Assert.assertEquals(ROOM_NAME, name);
 	}
@@ -166,7 +173,7 @@ public class RoomTest {
 	
 	@Test
 	public void getRawURL(){
-		out.println("Checking update (url), using URL data.");
+		RoomTestRunner.println("Checking update (url), using URL data.");
 		
 		Room dummy = new Room("new", "des", "someRawURL");
 		Assert.assertEquals("someRawURL", dummy.getRawImageURL());
@@ -174,7 +181,7 @@ public class RoomTest {
 	
 	@Test
 	public void updateResourceURL(){
-		out.println("Checking update (url), using URL data.");
+		RoomTestRunner.println("Checking update (url), using URL data.");
 		
 		Room dummy = new Room("new", "des", null);
 		dummy.update("NEW", "NAME", "url");
@@ -183,7 +190,7 @@ public class RoomTest {
 	
 	@Test
 	public void updateResourceNullURL(){
-		out.println("Checking update NULL (url), using null data.");
+		RoomTestRunner.println("Checking update NULL (url), using null data.");
 		
 		Room dummy = new Room("new", "des", null);
 		dummy.update("NEW", "NAME", null);
@@ -192,7 +199,7 @@ public class RoomTest {
 
 	@Test
 	public void updateResourceURLWhenAlreadySet(){
-		out.println("Checking update (url), using URL data.");
+		RoomTestRunner.println("Checking update (url), using URL data.");
 		
 		Room dummy = new Room("new", "des", "url");
 		dummy.update("NEW", "NAME", "URL");
@@ -201,7 +208,7 @@ public class RoomTest {
 	
 	@Test(expected=NullPointerException.class)
 	public void updateURLWhenNull(){
-		out.println("Checking update (url), using null data.");
+		RoomTestRunner.println("Checking update (url), using null data.");
 		
 		Room dummy = new Room(null, null, "url");
 		dummy.update("NEW", "NAME", "URL");
@@ -211,7 +218,7 @@ public class RoomTest {
 	@Test
 	@Ignore
 	public void getResourceName() {
-		out.println("Checking getName returns ROOM_NAME");
+		RoomTestRunner.println("Checking getName returns ROOM_NAME");
 		String name = testRoom.getResourceName();
 		Assert.assertEquals(ROOM_NAME, name);
 	}
@@ -222,31 +229,60 @@ public class RoomTest {
 
 	@Test(expected = InvalidRoomNamingException.class)
 	public void nullParametersConstructor() {
-		out.println("Checking nullParametersConstructor: expecting InvalidRoomNamingException");
+		RoomTestRunner.println("Checking nullParametersConstructor: expecting InvalidRoomNamingException");
 		new Room(null, null, null);
 	}
 	
 	@Test
 	public void correctUsageConstructor() {
-		out.println("Creating Room with expected details...");
-		new Room(ROOM_NAME, ROOM_DESCRIPTION, ROOM_URL);
+		RoomTestRunner.println("Creating Room with expected details...");
+		Room room = new Room(ROOM_NAME, ROOM_DESCRIPTION, ROOM_URL);
+		Assert.assertNotNull(room);
+		Assert.assertEquals(ROOM_NAME, room.getName());
+		Assert.assertEquals(ROOM_DESCRIPTION, room.getDescription());
+		Assert.assertEquals(ROOM_URL, room.getRawImageURL());
+	}
+	
+	@Test
+	public void veryLongRoomName() {
+		RoomTestRunner.println("Creating Room with a very long name...");
+		Room room = new Room(ROOM_NAME+ROOM_NAME+ROOM_NAME+ROOM_NAME+ROOM_NAME, ROOM_DESCRIPTION, ROOM_URL);
+		Assert.assertNotNull(room);
+		Assert.assertEquals(ROOM_NAME+ROOM_NAME+ROOM_NAME+ROOM_NAME+ROOM_NAME, room.getName());
 	}
 
+	@Test(expected = InvalidRoomNamingException.class)
+	public void nullParametersSecondConstructor() {
+		RoomTestRunner.println("Checking nullParametersConstructor: expecting InvalidRoomNamingException");
+		new Room(null, null, null, null);
+	}
+	
+	@Test
+	public void correctUsageSecondConstructor() {
+		RoomTestRunner.println("Creating Room with expected details...");
+		Room room = new Room(ROOM_NAME, ROOM_DESCRIPTION, ROOM_URL, "THEME");
+		Assert.assertNotNull(room);
+		Assert.assertEquals(ROOM_NAME, room.getName());
+		Assert.assertEquals(ROOM_DESCRIPTION, room.getDescription());
+		Assert.assertEquals(ROOM_URL, room.getRawImageURL());
+		Assert.assertEquals("THEME", room.getTheme());
+	}
+	
 	@Test(expected = NullPointerException.class)
 	public void setExitWithNullDirection() {
-		out.println("Checking nullParametersConstructor: expecting NullPointerException");
+		RoomTestRunner.println("Checking nullParametersConstructor: expecting NullPointerException");
 		testRoom.setExit(exit, null, false);
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void setExitWithNullRoom() {
-		out.println("Setting exit with a null room: expecting NullPointerException");
+		RoomTestRunner.println("Setting exit with a null room: expecting NullPointerException");
 		testRoom.setExit(null, EXIT_DIRECTION, false);
 	}
 
 	@Test
 	public void setExit() {
-		out.println("Setting dummy exit 'a' and evaluating whether it was added.");
+		RoomTestRunner.println("Setting dummy exit 'a' and evaluating whether it was added.");
 		Room dummy = new Room("a", "b", "c");
 		boolean result = testRoom.setExit(dummy, "na", false);
 		Assert.assertTrue(result);
@@ -254,21 +290,21 @@ public class RoomTest {
 
 	@Test
 	public void overrideExitIfExists() {
-		out.println("Adding existing exit, testing whether we override the existing with the new.");
+		RoomTestRunner.println("Adding existing exit, testing whether we override the existing with the new.");
 		boolean result = testRoom.setExit(exit, EXIT_DIRECTION, true);
 		Assert.assertTrue(result);
 	}
 
 	@Test
 	public void doNotOverrideExitIfExists() {
-		out.println("Adding existing exit, testing whether we DON'T override the existing with the new.");
+		RoomTestRunner.println("Adding existing exit, testing whether we DON'T override the existing with the new.");
 		boolean result = testRoom.setExit(exit, EXIT_DIRECTION, false);
 		Assert.assertFalse(result);
 	}
 
 	@Test
 	public void removeExitByDirection() {
-		out.println("Adding a dummy exit, then removing it using by direction.");
+		RoomTestRunner.println("Adding a dummy exit, then removing it using by direction.");
 		createAndSetDummyRoom();
 		boolean result = testRoom.removeExitByDirection("direction");
 		Assert.assertTrue(result);
@@ -276,7 +312,7 @@ public class RoomTest {
 
 	@Test
 	public void removeExitByRoom() {
-		out.println("Adding a dummy exit, then removing it using by room reference.");
+		RoomTestRunner.println("Adding a dummy exit, then removing it using by room reference.");
 		Room dummy = createAndSetDummyRoom();
 		boolean result = testRoom.removeExitByRoom(dummy);
 		Assert.assertTrue(result);
@@ -284,7 +320,7 @@ public class RoomTest {
 
 	@Test
 	public void removeExitByRoomName() {
-		out.println("Adding a dummy exit, then removing it using by room name.");
+		RoomTestRunner.println("Adding a dummy exit, then removing it using by room name.");
 		Room dummy = createAndSetDummyRoom();
 		boolean result = testRoom.removeExitByRoomName(dummy.getName());
 		Assert.assertTrue(result);
@@ -296,52 +332,56 @@ public class RoomTest {
 		return dummy;
 	}
 
-//	@Test
-//	public void setExits() {
-//		Room dummy = new Room("room1", "b", "c");
-//		Room dummy2 = new Room("room1", "b", "c");
-//
-//	}
-
 	@Test
 	public void getExit() {
-		out.println("Getting an exit we added earlier, checking whether it's null.");
+		RoomTestRunner.println("Getting an exit we added earlier, checking whether it's null.");
 		Room room = testRoom.getExit(EXIT_DIRECTION);
 		Assert.assertNotNull(room);
 	}
 
 	@Test
 	public void getInvalidExit() {
-		out.println("Getting an invalidExit, checking whether it returns null.");
+		RoomTestRunner.println("Getting an invalidExit, checking whether it returns null.");
 		Room room = testRoom.getExit("invalidExit");
 		Assert.assertNull(room);
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void getNullInputExit() {
-		out.println("Getting an invalidExit, passing null: expecting NullPointerException");
+		RoomTestRunner.println("Getting an invalidExit, passing null: expecting NullPointerException");
 		testRoom.getExit(null);
 	}
 
 	@Test
 	public void stringRepresentation() {
-		out.println("Evaluating room to String, checking whether is null.");
+		RoomTestRunner.println("Evaluating room to String, checking whether is null.");
 		String toString = testRoom.toString();
 		Assert.assertNotNull(toString);
 	}
 
 	@Test
 	public void hasItem() {
-		out.println("Testing whether room has item 'apple', by name and reference.");
+		RoomTestRunner.println("Testing whether room has item 'apple', by name and reference.");
 		boolean result = testRoom.hasItem(apple);
 		Assert.assertTrue(result);
 		result = testRoom.hasItem(apple.getName());
 		Assert.assertTrue(result);
 	}
 
+	@SuppressWarnings("null")
+	@Test(expected=NullPointerException.class)
+	public void doesNotHaveNullItem() {
+		RoomTestRunner.println("Checking to see if hasItem returns false if the item specified is not in the room, by name and reference.");
+		Item dummy = null;
+		boolean result = testRoom.hasItem(dummy);
+		Assert.assertFalse(result);
+		result = testRoom.hasItem(dummy.getName());
+		Assert.assertTrue(result);
+	}
+	
 	@Test
 	public void doesNotHaveItem() {
-		out.println("Checking to see if hasItem returns false if the item specified is not in the room, by name and reference.");
+		RoomTestRunner.println("Checking to see if hasItem returns false if the item specified is not in the room, by name and reference.");
 		Item dummy = new Item("a", "b", 1);
 		boolean result = testRoom.hasItem(dummy);
 		Assert.assertFalse(result);
@@ -351,7 +391,7 @@ public class RoomTest {
 
 	@Test
 	public void addItem() {
-		out.println("Checking whether AddItem works, adding dummy item.");	
+		RoomTestRunner.println("Checking whether AddItem works, adding dummy item.");	
 		Item dummy = new Item("a", null, 1);
 		testRoom.addItem(dummy);
 		boolean result = testRoom.hasItem(dummy);
@@ -360,7 +400,7 @@ public class RoomTest {
 
 	@Test
 	public void addItems() {
-		out.println("Checking whether AddItems works, adding dummy items.");	
+		RoomTestRunner.println("Checking whether AddItems works, adding dummy items.");	
 		Item dummy = new Item("b", null, 1);
 		Item dummy2 = new Item("c", null, 1);
 		testRoom.addItems(dummy, dummy2);
@@ -369,8 +409,17 @@ public class RoomTest {
 	}
 
 	@Test
+	public void removeNullItem() {
+		RoomTestRunner.println("Checking whether remove item works, adding item, removing and using the hasItem method.");	
+		Item dummy = null;
+		testRoom.addItem(dummy);
+		boolean result = testRoom.hasItem(dummy);
+		Assert.assertFalse(result);
+	}
+	
+	@Test
 	public void removeItem() {
-		out.println("Checking whether remove item works, adding item, removing and using the hasItem method.");	
+		RoomTestRunner.println("Checking whether remove item works, adding item, removing and using the hasItem method.");	
 		Item dummy = new Item("d", null, 1);
 		testRoom.addItem(dummy);
 		boolean result = testRoom.hasItem(dummy);
@@ -379,10 +428,17 @@ public class RoomTest {
 		result = testRoom.hasItem(dummy);
 		Assert.assertFalse(result);
 	}
+	
+	@Test
+	public void getInvalidNullItem() {
+		RoomTestRunner.println("getItem, using invalidItemName.");	
+		Item item = testRoom.getItem(null);
+		Assert.assertNull(item);
+	}
 
 	@Test
 	public void getItem() {
-		out.println("Checking getItem, by name and reference.");	
+		RoomTestRunner.println("Checking getItem, by name and reference.");	
 		Item item = testRoom.getItem(apple.getName());
 		Assert.assertNotNull(item);
 		Assert.assertEquals(item, apple);
@@ -390,35 +446,35 @@ public class RoomTest {
 
 	@Test
 	public void getInvalidItem() {
-		out.println("getItem, using invalidItemName.");	
+		RoomTestRunner.println("getItem, using invalidItemName.");	
 		Item item = testRoom.getItem("invalidItem");
 		Assert.assertNull(item);
 	}
 
 	@Test
 	public void getItems() {
-		out.println("getItems, testing whether 'apple' is stored in results.");	
+		RoomTestRunner.println("getItems, testing whether 'apple' is stored in results.");	
 		Collection<Resource> items = testRoom.getItems();
 		testResourceCollection(items, apple);
 	}
 
 	@Test
 	public void getCharacters() {
-		out.println("getCharacters, testing whether 'npc' is stored in results.");	
+		RoomTestRunner.println("getCharacters, testing whether 'npc' is stored in results.");	
 		Collection<Resource> characters = testRoom.getCharacters();
 		testResourceCollection(characters, npc);
 	}
 
 	@Test
 	public void getNonPlayerCharacters() {
-		out.println("getNonPlayerCharacters, testing whether 'npc' is stored in results.");	
+		RoomTestRunner.println("getNonPlayerCharacters, testing whether 'npc' is stored in results.");	
 		Collection<Resource> npcs = testRoom.getNonPlayerCharacters();
 		testResourceCollection(npcs, npc);
 	}
 
 	@Test
 	public void getExits() {
-		out.println("getExits, testing whether 'exit' is stored in results.");	
+		RoomTestRunner.println("getExits, testing whether 'exit' is stored in results.");	
 		Collection<Resource> exits = testRoom.getExits();
 		testResourceCollection(exits, exit);
 	}
@@ -430,8 +486,18 @@ public class RoomTest {
 	}
 
 	@Test
+	public void addNullCharacter() {
+		RoomTestRunner.println("addCharacter, testing on dummy.");
+		int size = testRoom.getCharacters().size();
+		NonPlayerCharacter dummy = null;
+		testRoom.addCharacter(dummy);
+		int newSize = testRoom.getCharacters().size();
+		Assert.assertNotEquals(size, newSize);
+	}
+	
+	@Test
 	public void addCharacter() {
-		out.println("addCharacter, testing on dummy.");
+		RoomTestRunner.println("addCharacter, testing on dummy.");
 		NonPlayerCharacter dummy = new NonPlayerCharacter("a", testRoom);
 		testRoom.addCharacter(dummy);
 		Character result = testRoom.getCharacter(dummy.getName());
@@ -440,8 +506,14 @@ public class RoomTest {
 	}
 
 	@Test
+	public void removeNullCharacter() {
+		boolean result = testRoom.removeCharacter(null);
+		Assert.assertTrue(result);
+	}
+	
+	@Test
 	public void removeCharacter() {
-		out.println("removeCharacter, testing on dummy, adding them removing.");
+		RoomTestRunner.println("removeCharacter, testing on dummy, adding them removing.");
 		NonPlayerCharacter dummy = new NonPlayerCharacter("a", testRoom);
 		testRoom.addCharacter(dummy);
 		boolean result = testRoom.removeCharacter(dummy);
@@ -450,7 +522,7 @@ public class RoomTest {
 
 	@Test
 	public void getCharacter() {
-		out.println("getCharacter, testing on npc, using their name.");
+		RoomTestRunner.println("getCharacter, testing on npc, using their name.");
 		Character result = testRoom.getCharacter(npc.getName());
 		Assert.assertNotNull(result);
 		Assert.assertEquals(result, npc);
@@ -458,14 +530,29 @@ public class RoomTest {
 
 	@Test
 	public void getInvalidCharacter() {
-		out.println("getCharacter, using invalid data, expecting null.");
+		RoomTestRunner.println("getCharacter, using invalid data, expecting null.");
 		Character result = testRoom.getCharacter("invalidCharacter");
 		Assert.assertNull(result);
+	}
+	
+	@Test
+	public void getInvalidNullCharacter() {
+		RoomTestRunner.println("getCharacter, using null, expecting null.");
+		Character result = testRoom.getCharacter(null);
+		Assert.assertNull(result);
+	}
+	
+	@Test
+	public void getExitFromRoomNameByNullData() {
+		RoomTestRunner.println("getExitFromRoomName, using EXIT_DIRECTION from exit.");
+		String direction = testRoom.getExitFromRoomName(null);
+		Assert.assertNotNull(direction);
+		Assert.assertEquals(direction, EXIT_DIRECTION);
 	}
 
 	@Test
 	public void getExitFromRoomName() {
-		out.println("getExitFromRoomName, using EXIT_DIRECTION from exit.");
+		RoomTestRunner.println("getExitFromRoomName, using EXIT_DIRECTION from exit.");
 		String direction = testRoom.getExitFromRoomName(exit.getName());
 		Assert.assertNotNull(direction);
 		Assert.assertEquals(direction, EXIT_DIRECTION);
@@ -473,14 +560,14 @@ public class RoomTest {
 
 	@Test
 	public void getInvalidExitFromRoomName() {
-		out.println("getExitFromRoomName, using invalidExit for the exit.");
+		RoomTestRunner.println("getExitFromRoomName, using invalidExit for the exit.");
 		String direction = testRoom.getExitFromRoomName("invalidExit");
 		Assert.assertNull(direction);
 	}
 
 	@Test
 	public void isComplete() {
-		out.println("isComplete, testing whether there are more than exits, when no exits returns false.");
+		RoomTestRunner.println("isComplete, testing whether there are more than exits, when no exits returns false.");
 		Assert.assertTrue(testRoom.getExits().size() > 0);
 		Assert.assertTrue(testRoom.isComplete());
 		testRoom.getExits().clear();
@@ -490,13 +577,13 @@ public class RoomTest {
 
 	@Test(expected = NullPointerException.class)
 	public void applyInformationNullGridPane() {
-		out.println("applyInformation, using null GridPane expecting: NullPointerException.");
+		RoomTestRunner.println("applyInformation, using null GridPane expecting: NullPointerException.");
 		testRoom.applyInformation(null, "someCss");
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void applyInformationNullCSS() {
-		out.println("applyInformation, using null css expecting: NullPointerException.");
+		RoomTestRunner.println("applyInformation, using null css expecting: NullPointerException.");
 		testRoom.applyInformation(new GridPane(), null);
 	}
 

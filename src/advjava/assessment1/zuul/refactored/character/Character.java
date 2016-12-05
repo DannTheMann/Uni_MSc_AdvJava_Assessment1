@@ -9,9 +9,9 @@ import advjava.assessment1.zuul.refactored.exception.InvalidCharacterNamingExcep
 import advjava.assessment1.zuul.refactored.interfaces.GraphicalInterface;
 import advjava.assessment1.zuul.refactored.item.Item;
 import advjava.assessment1.zuul.refactored.room.Room;
-import advjava.assessment1.zuul.refactored.utils.InternationalisationManager;
 import advjava.assessment1.zuul.refactored.utils.PrintableList;
 import advjava.assessment1.zuul.refactored.utils.Resource;
+import advjava.assessment1.zuul.refactored.utils.resourcemanagers.InternationalisationManager;
 import javafx.scene.layout.GridPane;
 
 /**
